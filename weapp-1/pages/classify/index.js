@@ -4,7 +4,8 @@ Page({
         navLeftItems: [],
         navRightItems: [],
         curNav: 1,
-		curIndex: 0
+        curIndex: 0,
+        is_show:0,
     },
     onLoad: function() {
 
@@ -34,6 +35,11 @@ Page({
 			curNav: id,
 			curIndex: index
 		})
+    },
+    show(e){
+        var that = this;
+        var is_show = e.target.dataset.show * 1;
+        that.setData({ is_show})
     }
 
 })

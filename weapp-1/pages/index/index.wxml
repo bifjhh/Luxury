@@ -1,6 +1,12 @@
 <!--index.wxml-->
 <view class="container">
-    <view>
+    <view class="swp">
+        <view class="seek">
+            <input class="seek_l fl" type="text" placeholder="探索你的奢物"   />
+            <view class="seek_r fl">
+                <image src="../../images/home/kefu.png" />
+            </view>
+        </view>
         <swiper class="swiper_box" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
                 autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
             <block wx:for="{{5}}" wx:key="i">
@@ -118,7 +124,18 @@
 
     </view>
 
- 
+    <view class="banner">
+        <block  wx:for="{{4}}" wx:key="i" >
+        <view class="banner_info">
+            <view class="banner_img">
+                <image src="../../images/home/banner_1.png" />
+            </view>
+            <view class="banner_h1">
+                奢物上新，最具性价比的奢物
+            </view>
+        </view>
+        </block>
+    </view>
     
 
     <loading hidden="{{loadingHidden}}">

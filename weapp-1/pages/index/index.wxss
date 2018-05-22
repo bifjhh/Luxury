@@ -1,10 +1,46 @@
 .container {
     background-color: #F2f2f2;
 }
-image{
+
+.swp{
+    position: relative;
+}
+.seek{
+    position: absolute;
+    width: 100%;
+    height: 60rpx;
+    margin-top: 10rpx;
+    padding-left: 56rpx;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    display:flex;
+    align-items:center;
+
+}
+.seek_l{
+    width: 586rpx;
+    height: 100%;
+    border-radius: 30px;
+    background:rgba(238, 238, 238, 1);
+    opacity:0.2;
+    font-size:24rpx;
+    font-family:PingFang-SC-Regular;
+    color:#fff;
+    line-height:40rpx;
+    text-align: center;
+}
+.seek_r{
+    width: 40rpx;
+    height: 40rpx;
+    margin-left: 40rpx;
+}
+
+image {
     width: 100%;
     height: 100%;
 }
+
 .swiper_box {
     width: 100%;
     height: 482rpx;
@@ -15,43 +51,43 @@ swiper-item image {
     display: inline-block;
     overflow: hidden;
 }
-.xuanze{
+
+.xuanze {
     display: flex;
     width: 100%;
     height: 180rpx;
     background: #fff;
     margin-top: 20rpx;
-
 }
-.xuanze>view{
+
+.xuanze>view {
     text-align: center;
     flex: auto;
     display: flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
-.xuanze_img{
+
+.xuanze_img {
     width: 50rpx;
     height: 50rpx;
 }
-.xuanze_text{
-    
-    font-size:24rpx; 
-    font-family:PingFang-SC-Medium;
-    color:rgba(51,51,51,1);
-    line-height:40px;
+
+.xuanze_text {
+    font-size: 24rpx;
+    font-family: PingFang-SC-Medium;
+    color: rgba(51, 51, 51, 1);
+    line-height: 40px;
 }
 
-
-.fr{
+.fr {
     float: right;
 }
-.fl{
+
+.fl {
     float: left;
 }
-
-
 
 .venues_box {
     padding: 0 10rpx;
@@ -59,50 +95,74 @@ swiper-item image {
     background: #fff;
     margin-top: 20rpx;
 }
-.venues_box>view{
+
+.venues_box>view {
     box-sizing: border-box;
     flex: auto;
     width: 50%;
     padding-left: 40rpx;
 }
 
-
-.venues_content{
+.venues_content {
     width: 100%;
     height: 200rpx;
     display: flex;
-    align-items:center;
+    align-items: center;
 }
 
-.v_img{
+.v_img {
     width: 150rpx;
     height: 150rpx;
     /* background: #333; */
 }
 
-
-.v_info{
+.v_info {
     flex: 1;
 }
 
-.v_h1{
-    font-size:28rpx; 
-    font-family:PingFang-SC-Bold;
-    color:rgba(51,51,51,1);
-    line-height:40rpx;
-}
-.v_text{
-    font-size:22rpx; 
-    font-family:PingFang-SC-Medium;
-    color:rgba(153,153,153,1);
-    line-height:40rpx;
+.v_h1 {
+    font-size: 28rpx;
+    font-family: PingFang-SC-Bold;
+    color: rgba(51, 51, 51, 1);
+    line-height: 40rpx;
 }
 
-.venues_content_max{
+.v_text {
+    font-size: 22rpx;
+    font-family: PingFang-SC-Medium;
+    color: rgba(153, 153, 153, 1);
+    line-height: 40rpx;
+}
+
+.venues_content_max {
     width: 100%;
     padding-top: 43rpx;
 }
-.v_img_max{
+
+.v_img_max {
     margin-top: 50rpx;
     height: 212rpx;
+}
+
+
+.banner_info {
+    margin-top: 20rpx;
+    width: 100%;
+    height: 400rpx;
+    position: relative;
+}
+
+.banner_img {
+    width: 100%;
+    height: 100%;
+}
+
+.banner_h1 {
+    position: absolute;
+    font-size:36rpx;
+    font-family:PingFang-SC-Bold;
+    color:rgba(255, 255, 255, 1);
+    line-height:40rpx;
+    left: 42rpx;
+    bottom: 37rpx;
 }

@@ -1,12 +1,32 @@
-<view class="container">
+<view class="title">
+  <text class="title_info" style="text-align:right;margin-right:50rpx" data-show='0' bindtap="show">
+    品牌
+  </text>
+  <text class="title_info" style="margin-left:50rpx" data-show='1' bindtap="show">
+    款式
+  </text>
+</view>
+<view class="brand"  wx:if="{{is_show==0}}">
+    <block wx:for="{{20}}" wx:key="i">
+      <view class="brand_info">
+        <view class="brand_img">
+          <image src="../../images/fl/logo.png" />
+        </view>
+        <view class="brand_h1">
+          品牌名称
+        </view>
+      </view>
+    </block>
+</view>
+<view wx:if="{{is_show==1}}" class="container">
   <view class="nav_left">
     <block wx:for="{{navLeftItems}}">
       <view class="nav_left_items {{curNav == item.id ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.id}}">{{item.tree.desc}}</view>
     </block>
   </view>
   <view class="nav_right">
-    <view wx:if="{{navRightItems[curIndex].tree.nodes[1].tree.nodes}}">
-      <block wx:for="{{navRightItems[curIndex].tree.nodes[1].tree.nodes}}">
+    <view wx:if="{{navRightItems[curIndex].tree.nodes[0].tree.nodes}}">
+      <block wx:for="{{navRightItems[curIndex].tree.nodes[0].tree.nodes}}">
         <view class="nav_right_items">
           <navigator url="../list/index?brand={{item.tree.id}}&typeid={{navRightItems[curIndex].id}}">
             <view>
