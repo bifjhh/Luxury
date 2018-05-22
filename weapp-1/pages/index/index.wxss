@@ -1,9 +1,13 @@
 .container {
     background-color: #F2f2f2;
 }
-
+image{
+    width: 100%;
+    height: 100%;
+}
 .swiper_box {
     width: 100%;
+    height: 482rpx;
 }
 
 swiper-item image {
@@ -11,69 +15,94 @@ swiper-item image {
     display: inline-block;
     overflow: hidden;
 }
-
-view.text {
+.xuanze{
     display: flex;
-    align-items: center;
-    position: relative;
-    padding: 10px 10px 10px 12px;
-    font-size: 15px;
-    color: #656565;
+    width: 100%;
+    height: 180rpx;
+    background: #fff;
+    margin-top: 20rpx;
+
+}
+.xuanze>view{
+    text-align: center;
+    flex: auto;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+}
+.xuanze_img{
+    width: 50rpx;
+    height: 50rpx;
+}
+.xuanze_text{
+    
+    font-size:24rpx; 
+    font-family:PingFang-SC-Medium;
+    color:rgba(51,51,51,1);
+    line-height:40px;
 }
 
-view.text:before {
-    position: absolute;
-    display: block;
-    content: ' ';
-    left: -5px;
-    width: 2px;
-    height: 100%;
-    background-color: #09bb07;
+
+.fr{
+    float: right;
+}
+.fl{
+    float: left;
 }
 
-.line_flag {
-    width: 3px;
-    height: 100%;
-    height: 15px;
-    display: inline-block;
-    background-color: #f9f027;
-}
 
-view.text text {
-    margin-left: 10px;
-    line-height: 18px;
-    font-weight: bold;
-}
 
 .venues_box {
     padding: 0 10rpx;
+    display: flex;
+    background: #fff;
+    margin-top: 20rpx;
+}
+.venues_box>view{
+    box-sizing: border-box;
+    flex: auto;
+    width: 50%;
+    padding-left: 40rpx;
 }
 
-.venues_item {
-    display: inline-block;
-    width: 49%;
-    margin: 0 0.5%;
-}
 
-.venues_item image{
+.venues_content{
     width: 100%;
-    height: 90px;
+    height: 200rpx;
+    display: flex;
+    align-items:center;
 }
 
-.choice_box {
-    padding: 0 10rpx;
+.v_img{
+    width: 150rpx;
+    height: 150rpx;
+    /* background: #333; */
 }
-.choice_box .choice_list .choice_item{
-    margin-bottom: 15px;
+
+
+.v_info{
+    flex: 1;
 }
-.choice_box .choice_list image {
+
+.v_h1{
+    font-size:28rpx; 
+    font-family:PingFang-SC-Bold;
+    color:rgba(51,51,51,1);
+    line-height:40rpx;
+}
+.v_text{
+    font-size:22rpx; 
+    font-family:PingFang-SC-Medium;
+    color:rgba(153,153,153,1);
+    line-height:40rpx;
+}
+
+.venues_content_max{
     width: 100%;
-    height: 200px;
+    padding-top: 43rpx;
 }
-
-.choice_box .choice_list .title {
-    font-size: 12px;
-    font-weight: bold;
-    text-align: center;
-    color: #333;
+.v_img_max{
+    margin-top: 50rpx;
+    height: 212rpx;
 }

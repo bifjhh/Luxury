@@ -3,48 +3,123 @@
     <view>
         <swiper class="swiper_box" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
                 autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
-            <block wx:for="{{images}}">
+            <block wx:for="{{5}}" wx:key="i">
                 <swiper-item>
-                    <image src="{{item.picurl}}" class="slide-image"/>
+                    <image src="../../images/home/banner.png" class="slide-image"/>
                 </swiper-item>
             </block>
         </swiper>
     </view>
 
-    <view class="text">
-        <view class="line_flag"></view>
-        <text>主题馆</text>
+    <view class="xuanze">
+        <view>
+            <view class="xuanze_img">
+                <image src="../../images/home/jiand.png" />
+            </view>
+            <view class="xuanze_text">
+                寄卖回收
+            </view>
+        </view>
+        <view>
+            <view class="xuanze_img">
+                <image src="../../images/home/jiand.png" />
+            </view>
+            <view class="xuanze_text">
+                鉴定
+            </view>
+        </view>
+        <view>
+            <view class="xuanze_img">
+                <image src="../../images/home/jiand.png" />
+            </view>
+            <view class="xuanze_text">
+                上新
+            </view>
+        </view>
+        <view>
+            <view class="xuanze_img">
+                <image src="../../images/home/jiand.png" />
+            </view>
+            <view class="xuanze_text">
+                养护
+            </view>
+        </view>
+        <view>
+            <view class="xuanze_img">
+                <image src="../../images/home/jiand.png" />
+            </view>
+            <view class="xuanze_text">
+                分期
+            </view>
+        </view>
+        
     </view>
     
     <view class="venues_box">
-        <view class="venues_list">
-            <block wx:for="{{venuesItems}}">
-                <view class="venues_item">
-                    <navigator url="../brand/index?id={{item.id}}">
-                        <image src="{{item.smallpic}}"/>
-                    </navigator>
+        <view class="venues_l">
+           <view class='venues_content'>
+                <view class='v_img'>
+                    <image src="../../images/home/v_img.png" />
+                </view>
+                <view class='v_info'>
+                    <view class="v_h1">
+                        女士必备
+                    </view>
+                    <view class="v_text">
+                        行走于时尚之尖
+                    </view>
+                </view>
+           </view>
+           <view class='venues_content'>
+                <view class='v_img'>
+                    <image src="../../images/home/v_img.png" />
+                </view>
+                <view class='v_info'>
+                    <view class="v_h1">
+                        女士必备
+                    </view>
+                    <view class="v_text">
+                        行走于时尚之尖
+                    </view>
+                </view>
+           </view>
+           <view class='venues_content_max'>
+                <view class='v_info'>
+                    <view class="v_h1">
+                        女士必备
+                    </view>
+                    <view class="v_text">
+                        行走于时尚之尖
+                    </view>
+                </view>
+                <view class='v_img_max'>
+                    <image src="../../images/home/v_img_max.png" />
+                </view>
+           </view>
+        </view>
+        <view class="venues_r">
+            <block wx:for="{{4}}" wx:key="i">
+                <view class='venues_content'>
+                    <view class='v_img'>
+                        <image src="../../images/home/v_img.png" />
+                    </view>
+                    <view class='v_info'>
+                        <view class="v_h1">
+                            女士必备
+                        </view>
+                        <view class="v_text">
+                            行走于时尚之尖
+                        </view>
+                    </view>
                 </view>
             </block>
+           
         </view>
+
     </view>
 
-    <view class="text">
-        <view class="line_flag"></view>
-        <text>环球精选</text>
-    </view>
-
-    <view class="choice_box">
-        <view class="choice_list">
-            <block wx:for="{{choiceItems}}">
-                <navigator url="../details/index?id={{item.id}}">
-                    <view class="choice_item">
-                        <image src="{{item.goodspics}}"/>
-                        <view class="title">{{item.title}}</view>
-                    </view>
-                </navigator>
-            </block>
-        </view>
-    </view>
+ 
+    
 
     <loading hidden="{{loadingHidden}}">
         加载中...
