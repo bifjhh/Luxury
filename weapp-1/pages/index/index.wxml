@@ -8,7 +8,7 @@
             </view>
         </view>
         <swiper class="swiper_box" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
-                autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
+                autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" >
             <block wx:for="{{5}}" wx:key="i">
                 <swiper-item>
                     <image src="../../images/home/banner.png" class="slide-image"/>

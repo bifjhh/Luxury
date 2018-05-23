@@ -1,0 +1,20 @@
+<view class="btn_box flex_column">
+  <view class="title">
+    微信授权
+  </view>
+  <view class="logo">
+    logo
+  </view>
+  <view class="btn_txt">
+    奢物申请获得以下权限
+  </view>
+  <view class="btn_ts">
+     获得你的公开信息（昵称、头像等）
+  </view>
+  <view class="btn_btn">
+    <button>拒绝</button>
+    <button class="getUserInfo" open-type="getUserInfo">允许</button>
+  </view>
+  
+  
+</view>
