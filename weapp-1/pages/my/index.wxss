@@ -24,6 +24,7 @@
 }
 
 .userinfo-nickname {
+  margin-top: 28rpx;
   font-size: 28rpx;
   font-family: PingFangSC-Medium;
   color: rgba(238, 221, 189, 1);
