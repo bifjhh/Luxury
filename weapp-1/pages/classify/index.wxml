@@ -1,10 +1,10 @@
 <view class="title">
-  <text class="title_info" style="text-align:right;margin-right:50rpx" data-show='0' bindtap="show">
+  <view class="title_info {{is_show==0?'title_br':''}}" style="text-align:right;margin-right:50rpx" data-show='0' bindtap="show">
     品牌
-  </text>
-  <text class="title_info" style="margin-left:50rpx" data-show='1' bindtap="show">
+  </view>
+  <view class="title_info {{is_show==1?'title_br':''}}" style="margin-left:50rpx" data-show='1' bindtap="show">
     款式
-  </text>
+  </view>
 </view>
 <view class="brand"  wx:if="{{is_show==0}}">
     <block wx:for="{{20}}" wx:key="i">

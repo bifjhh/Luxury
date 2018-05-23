@@ -1,69 +1,95 @@
 /**index.wxss**/
+
 .container {
   background-color: #F2f2f2;
 }
+
 .userinfo {
   display: flex;
+  padding-top: 92rpx;
   flex-direction: column;
-  padding: 50rpx 0;
+  box-sizing: border-box;
   align-items: center;
-  background: #f9f027;
-}
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-.userinfo-nickname {
-  color: #333;
-}
-.weui_cell{
-    position: relative;
-    display: flex;
-    padding: 15px;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    border-bottom: 1px solid #dadada;
-}
-.weui_cell_hd{
-  display: inline-block;
-  width: 20px;
-  margin-right: 5px;
-}
-.weui_cell_hd image{
   width: 100%;
-  height: 20px;
-  vertical-align: -2px;
+  height: 411rpx;
+  position: relative;
+  background-image: url(https://s1.ax1x.com/2018/05/23/CROyUx.png);
+  background-size: cover;
 }
-.weui_cell_bd{
-  display: inline-block;
-}
-.weui_cell_bd_p{
-  font-size: 14px;
-  color: #939393;
-}
-.badge{
-  position: absolute;
-  top: 18px;
-  right: 40px;
-  width: 15px;
-  height: 15px;
-  line-height: 15px;
-  background: #ff0000;
-  color: #fff;
+
+.userinfo-avatar {
+  width: 88rpx;
+  height: 88rpx;
   border-radius: 50%;
-  text-align: center;
-  font-size: 8px;
 }
-.with_arrow{
-  position: absolute;
-  top: 18px;
-  right: 15px;
-  width: 15px;
-  height: 15px;
-  background-image: url(../../images/icon-arrowdown.png);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+
+.userinfo-nickname {
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium;
+  color: rgba(238, 221, 189, 1);
+  line-height: 40rpx; 
+}
+
+.purse{
+  margin-top: 56rpx;
+  width: 100%;
+  height: 75rpx;
+  display: flex;
+}
+.purse>view{
+  flex: auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size:32rpx;
+  font-family:PingFangSC-Semibold;
+  color:rgba(255,255,255,1);
+  line-height:40rpx;
+}
+.purse>view .text_b{
+  font-size: 26rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(238,221,189,1);
+}
+
+.apply{
+  display: flex;
+  width: 100%;
+  height: 170rpx;
+  background: #fff;
+  
+}
+
+.apply>view,.my_set>view{
+  flex: auto;
+}
+.apply_bac{
+  width: 40rpx;
+  height: 40rpx;
+  background-image: url(https://s1.ax1x.com/2018/05/23/CRj3t0.png);
+  background-size: cover;
+}
+.apply_box,.set_box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.apply_text,.set_text{
+  padding-top: 22rpx;
+}
+.my_set{
+  margin-top: 20rpx;
+  display: flex;
+  width: 100%;
+  height: 186rpx;
+  background: #fff;
+}
+.set_bac{
+  width: 45rpx;
+  height: 45rpx;
+  background-image: url(https://s1.ax1x.com/2018/05/23/CRj1kq.png);
+  background-size: cover;
 }

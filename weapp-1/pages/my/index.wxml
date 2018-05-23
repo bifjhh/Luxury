@@ -1,19 +1,108 @@
 <!--index.wxml-->
 <view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
+  <view bindtap="bindViewTap" class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <view class="purse">
+      <view class="purse_ye">
+        <view>0.00</view>
+        <view class="text_b">余额</view>
+      </view>
+      <view class="purse_yhq">
+        <view>5</view>
+        <view class="text_b">优惠券</view>
+      </view>
+      <view class="purse_hb">
+        <view>200</view>
+        <view class="text_b">红包</view>
+      </view>
+    </view>
   </view>
-  <view class="info_list">
-    <block wx:for="{{userListInfo}}">
-        <view class="weui_cell">
-            <view class="weui_cell_hd"><image src="{{item.icon}}"></image></view>
-            <view class="weui_cell_bd">
-                <view class="weui_cell_bd_p"> {{item.text}} </view>
-            </view>
-            <view wx:if="{{item.isunread}}" class="badge">{{item.unreadNum}}</view>
-            <view class="with_arrow"></view>
+ 
+
+    <view class="apply">
+      <view class="apply_box">
+        <view class="apply_bac">
+
         </view>
-    </block>
-  </view>
+        <view class="apply_text">
+          待付款
+        </view>
+      </view>
+      <view class="apply_box">
+        <view class="apply_bac">
+
+        </view>
+        <view class="apply_text">
+          待付款
+        </view>
+      </view>
+      <view class="apply_box">
+        <view class="apply_bac">
+
+        </view>
+        <view class="apply_text">
+          待付款
+        </view>
+      </view>
+      <view class="apply_box">
+        <view class="apply_bac">
+
+        </view>
+        <view class="apply_text">
+          待付款
+        </view>
+      </view>
+      <view class="apply_box">
+        <view class="apply_bac">
+
+        </view>
+        <view class="apply_text">
+          待付款
+        </view>
+      </view>
+    </view>
+
+     <view class="my_set">
+      <view class="set_box">
+        <view class="set_bac">
+
+        </view>
+        <view class="set_text">
+          我的地址
+        </view>
+      </view>
+      <view class="set_box">
+        <view class="set_bac">
+
+        </view>
+        <view class="set_text">
+          我的地址
+        </view>
+      </view>
+      <view class="set_box">
+        <view class="set_bac">
+
+        </view>
+        <view class="set_text">
+          我的地址
+        </view>
+      </view>
+      <view class="set_box">
+        <view class="set_bac">
+
+        </view>
+        <view class="set_text">
+          我的地址
+        </view>
+      </view>
+      <view class="set_box">
+        <view class="set_bac">
+
+        </view>
+        <view class="set_text">
+          我的地址
+        </view>
+      </view>
+    </view>
 </view>
