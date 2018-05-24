@@ -20,11 +20,13 @@ Page({
       }
     })
   },
-  getUserInfo() {
-    wx.getUserInfo({
-      success: function (res) {
-        console(res.userInfo)
-      }
+ 
+  /**
+   * 用户登录允许授权后执行的方法
+   */
+  logn(){
+    wx.reLaunch({
+      url: '/pages/index/index'
     })
   },
   /**
