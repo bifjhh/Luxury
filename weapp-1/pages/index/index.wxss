@@ -166,3 +166,43 @@ swiper-item image {
     left: 42rpx;
     bottom: 37rpx;
 }
+
+/* scroll 品牌选择 */
+.section_box{
+    height: 160rpx;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 20rpx;
+    background: #fff;
+    padding: 17rpx 24rpx 29rpx;
+}
+.scroll_view{
+    width: 100%;
+    height: 100%;
+}
+.section_content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.section_logo{
+    width: 25%;
+    /* flex: auto; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.section_logo .section_img{
+    width: 140rpx;
+    height: 77rpx;
+}
+.section_logo .section_h1{
+    font-size:24rpx;
+    font-family:PingFang-SC-Medium;
+    color:rgba(102,102,102,1);
+    line-height:40rpx;
+}
