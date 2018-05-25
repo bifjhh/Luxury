@@ -10,7 +10,7 @@
     <block wx:for="{{20}}" wx:key="i">
       <view class="brand_info">
         <view class="brand_img">
-          <image src="../../images/fl/logo.png" />
+          <image src="/images/fl/logo.png" />
         </view>
         <view class="brand_h1">
           品牌名称

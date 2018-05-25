@@ -1,0 +1,19 @@
+<!--pages/index/search/search.wxml-->
+
+<view class="title">
+  <view class="search_box">
+  <image class="search" style="width:18rpx;height:20rpx" src="/images/home/search2.png" />
+    <input type="text" placeholder="请输入商品名称" auto-focus />
+  </view>
+</view>
+
+<view class="history">
+  <view class="hsy_tit">
+    <view class="hsy_txt">
+      历史记录
+    </view>
+    <view class="hsy_img">
+      <image src="/images/home/jisumai_shanchuhei.png" />
+    </view>
+  </view>
+</view>
