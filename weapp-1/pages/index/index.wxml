@@ -139,7 +139,7 @@
     <!-- banner 广告 -->
     <view class="banner">
         <block  wx:for="{{4}}" wx:key="i" >
-        <view class="banner_info">
+        <view class="banner_info" bindtap="toDetails">
             <view class="banner_img">
                 <image src="/images/home/banner_1.png" />
             </view>

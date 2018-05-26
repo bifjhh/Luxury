@@ -44,11 +44,6 @@
     margin-left: 40rpx;
 }
 
-image {
-    width: 100%;
-    height: 100%;
-}
-
 .swiper_box {
     width: 100%;
     height: 482rpx;
