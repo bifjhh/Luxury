@@ -1,4 +1,5 @@
-<!--pages/index/result/result.wxml-->
+<import  src="/components/goodsList/list.wxml" />
+
 <view class="title">
   <view class="search_box">
     <view class="searchTab"></view>
@@ -22,22 +23,6 @@
       筛选
     </view>
   </view>
-  <view class="goods_box">
-    <view class="goods" wx:for="{{10}}" wx:key="i">
-      <view class="goods_img">
-
-      </view>
-      <view class="goods_h1">
-        <text class="money"><text>￥</text>9800</text>
-        <text class="zk">¥9900</text>
-        <text class="jj">降</text>
-        <text class="fq">分期</text>
-
-      </view>
-      <view class="goods_zk">
-        [
-        <text>95新</text>]名称asdfdsfsdfds商品名称商品名称称
-      </view>
-    </view>
-  </view>
+  <template is="goodsList"></template>
+    
 </view>
