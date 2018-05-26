@@ -1,4 +1,7 @@
 @import '/components/goodsList/list.wxss';
+page {
+  padding-bottom: 120rpx;
+}
 
 .swiper_box {
   width: 100%;
@@ -61,7 +64,6 @@ swiper-item image {
   font-family: PingFangSC-Semibold;
   color: rgba(51, 51, 51, 1);
   font-weight: 600;
-  
 }
 
 .money>text {
@@ -108,21 +110,22 @@ swiper-item image {
   padding: 0 22rpx;
   overflow: hidden;
   font-weight: 600;
-  font-size:34rpx;
-  font-family:PingFangSC-Semibold;
-  color:rgba(51, 51, 51, 1);
-  line-height:50rpx;
+  font-size: 34rpx;
+  font-family: PingFangSC-Semibold;
+  color: rgba(51, 51, 51, 1);
+  line-height: 50rpx;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
-.title_info>text{
+
+.title_info>text {
   font-weight: 600;
-  font-size:34rpx;
-  font-family:PingFangSC-Semibold;
-  color:rgba(153, 112, 72, 1);
-  line-height:50rpx;
+  font-size: 34rpx;
+  font-family: PingFangSC-Semibold;
+  color: rgba(153, 112, 72, 1);
+  line-height: 50rpx;
 }
 
 .set_page {
@@ -132,63 +135,68 @@ swiper-item image {
   flex-direction: column;
   /* justify-content: center; */
   background: #fff;
-
 }
-.page_h1{
+
+.page_h1 {
   text-align: center;
-  font-size:30rpx;
-  font-family:PingFang-SC-Bold;
-  color:#333;
-  line-height:88rpx;
+  font-size: 30rpx;
+  font-family: PingFang-SC-Bold;
+  color: #333;
+  line-height: 88rpx;
   font-weight: 600;
   background: #fff;
 }
-.page_info{
+
+.page_info {
   display: flex;
   padding-left: 31rpx;
   align-items: center;
   border-top: 1px solid #f2f2f2;
   line-height: 80rpx;
 }
-.info_name{
-  width: 194rpx;
-  font-size:28rpx;
-  font-family:PingFang-SC-Regular;
-  color:rgba(102, 102, 102, 1);
 
+.info_name {
+  width: 194rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(102, 102, 102, 1);
 }
+
 .info_v {
   flex: 1;
-  font-size:28rpx;
-  font-family:PingFang-SC-Medium;
-  color:rgba(51, 51, 51, 1);
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  color: rgba(51, 51, 51, 1);
 }
 
-.serve_box{
+.serve_box {
   margin-top: 20rpx;
   background: #fff;
   padding-bottom: 27rpx;
 }
-.serve_info{
+
+.serve_info {
   display: flex;
   justify-content: space-around;
-
 }
-.serve_cnt{
+
+.serve_cnt {
   flex: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.serve_img{
+
+.serve_img {
   width: 150rpx;
   height: 150rpx;
 }
-.serve_txt{
-  font-size:28rpx;
-  font-family:PingFang-SC-Medium;
-  color:rgba(51, 51, 51, 1);
-  line-height:50rpx;
+
+.serve_txt {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  color: rgba(51, 51, 51, 1);
+  line-height: 50rpx;
 }
 
 .rich_text {
@@ -207,10 +215,17 @@ swiper-item image {
 }
 
 .rich_info {
-  font-size: 36rpx;
+  font-size: 30rpx;
   color: rgba(51, 51, 51, 1);
   line-height: 44rpx;
   position: relative;
+  font-weight: 500;
+}
+
+.rich_br {
+  font-size: 30rpx;
+  font-family: PingFang-SC-Bold;
+  color: rgba(173, 155, 106, 1);
 }
 
 .rich_br::after {
@@ -224,23 +239,74 @@ swiper-item image {
   transform: translateX(-50%);
 }
 
-.rich_cnt{
+.rich_cnt {
   padding: 30rpx;
 }
-.rich_btn{
+
+.rich_btn {
   padding: 0 30rpx;
 }
+
 .r_btn {
   border: none;
-  background:rgba(244, 214, 154, 1);
-  border-radius:8px;
-  font-size:34rpx;
-  font-family:PingFang-SC-Bold;
-  color:rgba(255, 255, 255, 1);
+  background: rgba(244, 214, 154, 1);
+  border-radius: 8px;
+  font-size: 34rpx;
+  font-family: PingFang-SC-Bold;
+  color: rgba(255, 255, 255, 1);
   height: 80rpx;
   height: 80rpx;
 }
+
 .r_btn:hover {
+  color: rgba(255, 255, 255, 1);
+  background: rgba(244, 214, 154, 1);
+}
+
+.cart {
+  width: 100%;
+  height: 100rpx;
+  padding-right: 43rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  background: #fff;
+}
+
+.service,
+.car {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 43rpx;
+}
+
+.service_logo,
+.car_logo {
+  width: 40rpx;
+  height: 40rpx;
+  margin-bottom: 10rpx;
+}
+
+.affair{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 430rpx;
+  background:rgba(194, 179, 135, 1);
+  border-radius:35px;
+  line-height: 70rpx;
+  font-size:32rpx;
+  font-family:PingFang-SC-Bold;
   color:rgba(255, 255, 255, 1);
-  background:rgba(244, 214, 154, 1);
+  font-weight: 600;
+  line-height: 70rpx;
+}
+.jiange{
+  width: 2rpx;
+  height: 30rpx;
+  background: #fff;
 }
