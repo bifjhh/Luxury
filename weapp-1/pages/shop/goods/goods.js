@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    imgs:[1,2,3,4,5],
+    isImg:1,
+    is_show:0,
   },
 
   /**
@@ -15,6 +17,21 @@ Page({
   
   },
 
+  current(e) {
+    let that = this;
+    let isImg = e.detail.current+1;
+    console.log(e.detail.current)
+    that.setData({
+      isImg
+    })
+  },
+  show(e) {
+    var that = this;
+    var is_show = e.target.dataset.show * 1;
+    that.setData({
+      is_show
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

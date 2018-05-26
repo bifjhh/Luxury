@@ -1,0 +1,79 @@
+<import src="/components/goodsList/list.wxml" />
+
+<view class="swp">
+  <swiper class="swiper_box" duration="{{1000}}" bindchange="current">
+    <block wx:for="{{imgs}}" wx:key="i">
+      <swiper-item>
+        <image src="/images/goods.png" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="page">
+    {{isImg}}/{{imgs.length}}
+  </view>
+</view>
+
+<view class="title">
+  <view class="title_h1">
+    <text class="money"><text>￥</text>9800.00</text>
+    <text class="zk">¥9900.00</text>
+    <text class="jj">9成新</text>
+    <text class="fq">分期</text>
+
+  </view>
+  <view class="title_info">
+    [
+    <text>LONGINES/浪琴</text>]名匠自动机械男名匠自动机机名匠自动机械男名匠自动机机名匠
+  </view>
+</view>
+
+<view class="set_page">
+  <view class="page_h1">
+    — 商品参数 —
+  </view>
+  <view wx:for="{{5}}" wx:key="i" class="page_info">
+    <text class="info_name">名称</text>
+    <text class="info_v">内容内容内容内容内容内容内容内容</text>
+  </view>
+</view>
+
+<view class="serve_box">
+  <view class="serve page_h1">
+    — 服务保障 —
+  </view>
+  <view class="serve_info">
+    <view class="serve_cnt" wx:for="{{4}}" wx:key="i">
+      <view class="serve_img">
+        <image src="/images/server.png" />
+      </view>
+      <view class="serve_txt">
+        权威鉴定
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="rich_text">
+  <view class="rich_tit">
+    <view class="rich_info {{is_show==0?'rich_br':''}}" style="text-align:right;margin-right:50rpx" data-show='0' bindtap="show">
+      品牌
+    </view>
+    <view class="rich_info {{is_show==1?'rich_br':''}}" style="margin-left:50rpx" data-show='1' bindtap="show">
+      款式
+    </view>
+  </view>
+  <view wx:if="{{is_show==0}}" class="rich_cnt">
+    富文本编辑1
+  </view>
+  <view wx:if="{{is_show==1}}" class="rich_cnt">
+    富文本编辑2
+  </view>
+  <view class="rich_btn">
+    <button class="r_btn">去养护</button>
+  </view>
+</view>
+
+<view class="page_h1" style="margin-top:20rpx ">
+  — 猜你喜欢 —
+</view>
+<template is="goodsList" />

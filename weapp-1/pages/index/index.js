@@ -48,6 +48,11 @@ Page({
           })
     },
 
+    toDetails(){
+         wx.navigateTo({
+             url: "/pages/shop/goods/goods"
+         })
+    },
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
