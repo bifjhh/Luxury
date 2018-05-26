@@ -2,8 +2,9 @@
 
 <view class="title">
   <view class="search_box">
-  <image class="search" style="width:18rpx;height:20rpx" src="/images/home/search2.png" />
-    <input type="text" placeholder="请输入商品名称" auto-focus />
+  <view bindtap="toSearch" class="searchTab"></view>
+  <image bindtap="toSearch" class="search" style="width:18rpx;height:20rpx" src="/images/home/search2.png" />
+    <input type="text" style="height:100%;" placeholder="请输入商品名称" auto-focus />
   </view>
 </view>
 
@@ -15,5 +16,25 @@
     <view class="hsy_img">
       <image src="/images/home/jisumai_shanchuhei.png" />
     </view>
+  </view>
+  <view class="hsy_info wrap_box">
+    <view wx:for="{{7}}" wx:key="i" class="hsy_cent">
+      浪琴
+    </view>
+    
+  </view>
+</view>
+<view class="hot">
+  <view class="hot_tit">
+    <view class="hot_txt">
+      热门搜索
+    </view>
+    
+  </view>
+  <view class="hot_info wrap_box">
+    <view wx:for="{{7}}" wx:key="i" class="hot_cent">
+      浪琴
+    </view>
+    
   </view>
 </view>

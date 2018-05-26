@@ -1,4 +1,4 @@
-// pages/index/search/search.js
+// pages/shop/goods/goods.js
 Page({
 
   /**
@@ -13,11 +13,6 @@ Page({
    */
   onLoad: function (options) {
   
-  },
-  toSearch() {
-    wx.navigateTo({
-      url: '/pages/index/result/result'
-    })
   },
 
   /**

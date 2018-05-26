@@ -1,0 +1,39 @@
+<view class="banner">
+  <image src="/images/activity_banner.png" />
+</view>
+
+
+<view class="filtrate">
+  <view class="fil_title">
+    <view class="fil_info opt">
+      综合
+    </view>
+    <view class="fil_info">
+      价格
+    </view>
+    <view class="fil_info">
+      上新
+    </view>
+    <view class="fil_info">
+      筛选
+    </view>
+  </view>
+  <view class="goods_box">
+    <view class="goods" wx:for="{{10}}" wx:key="i">
+      <view class="goods_img">
+
+      </view>
+      <view class="goods_h1">
+        <text class="money"><text>￥</text>9800</text>
+        <text class="zk">¥9900</text>
+        <text class="jj">降</text>
+        <text class="fq">分期</text>
+
+      </view>
+      <view class="goods_zk">
+        [
+        <text>95新</text>]名称asdfdsfsdfds商品名称商品名称称
+      </view>
+    </view>
+  </view>
+</view>

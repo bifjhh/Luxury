@@ -18,35 +18,24 @@
       </view>
     </block>
 </view>
+
 <view wx:if="{{is_show==1}}" class="container">
   <view class="nav_left">
-    <block wx:for="{{navLeftItems}}" wx:key="i">
-      <view class="nav_left_items {{curNav == item.id ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.id}}">{{item.tree.desc}}</view>
+    <block wx:for="{{6}}" wx:key="i">
+      <!-- <view class="nav_left_items {{curNav == item.id ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.id}}">{{item.tree.desc}}</view> -->
+      <view class="nav_left_items {{curNav==item?'active':''}}" bindtap="switchRightTab" data-index="{{item}}" data-id="{{item}}">包包</view>
     </block>
   </view>
   <view class="nav_right">
-    <view wx:if="{{navRightItems[curIndex].tree.nodes[0].tree.nodes}}">
-      <block wx:for="{{navRightItems[curIndex].tree.nodes[0].tree.nodes}}" wx:key="i">
-        <view class="nav_right_items">
-          <navigator url="../list/index?brand={{item.tree.id}}&typeid={{navRightItems[curIndex].id}}">
-            <view>
-              <block wx:if="{{item.tree.logo}}">
-                <image src="{{item.tree.logo}}"></image>
-              </block>
-              <block wx:else>
-                <image src="http://temp.im/50x30"></image>
-              </block>
+      <block wx:for="{{6}}" wx:key="i">
+        <view class="nav_logo">
+            <view class="nav_img">
+                <image src="/images/classify_bb.png"></image>
             </view>
-            <view wx:if="{{item.tree.desc}}">
-              <text>{{item.tree.desc}}</text>
+            <view class="nav_txt">
+              <text>{{curNav}}双肩背包</text>
             </view>
-            <view wx:else>
-              <text>{{item.tree.desc2}}</text>
-            </view>
-          </navigator>
         </view>
       </block>
-    </view>
-    <view wx:else>暂无数据</view>
   </view>
 </view>

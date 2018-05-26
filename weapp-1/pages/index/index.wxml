@@ -4,18 +4,18 @@
     <view class="swp">
         <view class="seek">
             <view class="seek_l fl" bindtap="toSearch">
-            <image class="search" style="width:18rpx;height:20rpx" src="../../images/home/search.png" />
+            <image class="search" style="width:18rpx;height:20rpx" src="/images/home/search.png" />
                 探索你的奢物
             </view>
             <view class="seek_r fl">
-                <image src="../../images/home/kefu.png" />
+                <image src="/images/home/kefu.png" />
             </view>
         </view>
-        <swiper class="swiper_box" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
-                autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" >
+        <swiper class="swiper_box" indicator-dots="{{true}}" 
+                autoplay interval="{{2000}}" duration="{{1000}}" bindchange="current">
             <block wx:for="{{5}}" wx:key="i">
                 <swiper-item>
-                    <image src="../../images/home/banner.png" class="slide-image"/>
+                    <image src="/images/home/banner.png" class="slide-image"/>
                 </swiper-item>
             </block>
         </swiper>
@@ -24,7 +24,7 @@
     <view class="xuanze">
         <view>
             <view class="xuanze_img">
-                <image src="../../images/home/jiand.png" />
+                <image src="/images/home/jiand.png" />
             </view>
             <view class="xuanze_text">
                 寄卖回收
@@ -32,7 +32,7 @@
         </view>
         <view>
             <view class="xuanze_img">
-                <image src="../../images/home/jiand.png" />
+                <image src="/images/home/jiand.png" />
             </view>
             <view class="xuanze_text">
                 鉴定
@@ -40,7 +40,7 @@
         </view>
         <view>
             <view class="xuanze_img">
-                <image src="../../images/home/jiand.png" />
+                <image src="/images/home/jiand.png" />
             </view>
             <view class="xuanze_text">
                 上新
@@ -48,7 +48,7 @@
         </view>
         <view>
             <view class="xuanze_img">
-                <image src="../../images/home/jiand.png" />
+                <image src="/images/home/jiand.png" />
             </view>
             <view class="xuanze_text">
                 养护
@@ -56,7 +56,7 @@
         </view>
         <view>
             <view class="xuanze_img">
-                <image src="../../images/home/jiand.png" />
+                <image src="/images/home/jiand.png" />
             </view>
             <view class="xuanze_text">
                 分期
@@ -68,9 +68,10 @@
     <!-- 商品分类  -->
     <view class="venues_box">
         <view class="venues_l">
-           <view class='venues_content'>
+           <block wx:for="{{2}}" wx:key="i">
+           <view class='venues_content' bindtap="toActivity">
                 <view class='v_img'>
-                    <image src="../../images/home/v_img.png" />
+                    <image src="/images/home/v_img.png" />
                 </view>
                 <view class='v_info'>
                     <view class="v_h1">
@@ -81,20 +82,8 @@
                     </view>
                 </view>
            </view>
-           <view class='venues_content'>
-                <view class='v_img'>
-                    <image src="../../images/home/v_img.png" />
-                </view>
-                <view class='v_info'>
-                    <view class="v_h1">
-                        女士必备
-                    </view>
-                    <view class="v_text">
-                        行走于时尚之尖
-                    </view>
-                </view>
-           </view>
-           <view class='venues_content_max'>
+           </block>
+           <view class='venues_content_max' bindtap="toActivity">
                 <view class='v_info'>
                     <view class="v_h1">
                         女士必备
@@ -104,15 +93,15 @@
                     </view>
                 </view>
                 <view class='v_img_max'>
-                    <image src="../../images/home/v_img_max.png" />
+                    <image src="/images/home/v_img_max.png" />
                 </view>
            </view>
         </view>
         <view class="venues_r">
             <block wx:for="{{4}}" wx:key="i">
-                <view class='venues_content'>
+                <view class='venues_content' bindtap="toActivity">
                     <view class='v_img'>
-                        <image src="../../images/home/v_img.png" />
+                        <image src="/images/home/v_img.png" />
                     </view>
                     <view class='v_info'>
                         <view class="v_h1">
@@ -136,7 +125,7 @@
                 <block wx:for="{{7}}" wx:key="i">
                     <view  class="section_logo">
                         <view  class="section_img">
-                            <image src="../../images/home/section_logo.png" />
+                            <image src="/images/home/section_logo.png" />
                         </view>
                         <view  class="section_h1">
                             品牌名称
@@ -152,7 +141,7 @@
         <block  wx:for="{{4}}" wx:key="i" >
         <view class="banner_info">
             <view class="banner_img">
-                <image src="../../images/home/banner_1.png" />
+                <image src="/images/home/banner_1.png" />
             </view>
             <view class="banner_h1">
                 奢物上新，最具性价比的奢物

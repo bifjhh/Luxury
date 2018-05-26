@@ -1,4 +1,5 @@
 //获取应用实例
+let gdIndex=1;
 const app = getApp()
 Page({
 
@@ -6,11 +7,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        indicatorDots: true,
-        vertical: false,
-        autoplay: true,
-        interval: 3000,
-        duration: 1000,
+        
         loadingHidden: true, // loading
     },
 
@@ -29,6 +26,9 @@ Page({
     onReady: function () {
 
     },
+    current(e) {
+            console.log(e.detail.current)
+    },
 
     /**
      * 生命周期函数--监听页面显示
@@ -40,6 +40,11 @@ Page({
     toSearch(){
         wx.navigateTo({
             url: '/pages/index/search/search'
+          })
+    },
+    toActivity(e) {
+        wx.navigateTo({
+            url: '/pages/index/activity/activity'
           })
     },
 
