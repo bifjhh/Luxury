@@ -1,6 +1,6 @@
 /**app.wxss**/
 
-@import "./style/layout.wxss";
+/* @import "/style/layout.wxss"; */
 .container {
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     display: flex;
@@ -28,4 +28,8 @@ image {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+.t20{
+    margin-top: 20rpx;
+    background: #fff;
 }
