@@ -1,1 +1,62 @@
-/* pages/shop/pay/pay.wxss */
+page{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.pay_body{
+  flex: 1;
+}
+.pay_num{
+  height: 140rpx;
+  padding: 0 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+.pay_num text{
+  font-size:36rpx;
+  font-family:PingFang-SC-Medium;
+  color:rgba(102, 102, 102, 1);
+}
+.num{
+  font-size:48rpx;
+  font-family:PingFang-SC-Medium;
+  color:rgba(255, 114, 114, 1);
+}
+  
+.way_box {
+  padding: 0 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 122rpx;
+  border-bottom: 1px solid #f2f2f2; 
+}
+.fl{
+    display: flex;
+    align-items: center;
+}
+.way_logo{
+  width: 46rpx;
+  height: 46rpx;
+}
+.fl>text{
+  margin-left: 46rpx;
+}
+
+.now_pay{
+  padding: 0 30rpx;
+  padding-top: 70rpx;
+}
+.pay_btn{
+  height: 80rpx;
+  border-radius:40px;
+  font-size:34rpx;
+  font-family:PingFang-SC-Bold;
+  color:rgba(255, 255, 255, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

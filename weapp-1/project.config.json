@@ -70,7 +70,8 @@
 				{
 					"id": -1,
 					"name": "支付界面",
-					"pathName": "pages/shop/pay/pay"
+					"pathName": "pages/shop/pay/pay",
+					"query": ""
 				}
 			]
 		}

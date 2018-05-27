@@ -1,2 +1,38 @@
-<!--pages/shop/pay/pay.wxml-->
-<text>pages/shop/pay/pay.wxml</text>
+<view class="pay_num">
+  <text>待支付</text>
+  <text class="num">￥1299</text>
+</view>
+<view class="pay_body t20">
+  
+  <view class="pay_way ">
+    <view class="way_box" wx:for="{{4}}" wx:key="i">
+      <view class="fl">
+        <view class="way_logo">
+        <image src="/images/pay/pay{{item}}.png" />
+      </view>
+      <text>支付宝支付</text>
+      </view>
+      <view class="icon">
+        <icon wx:if="{{item==0}}" type="success" size="20" color="RGBA(194, 179, 135, 1)" />
+      </view>
+    </view>
+    <view class="way_box fq">
+      <view class="fl">
+        <view class="way_logo">
+        <image src="/images/pay/pay4.png" />
+      </view>
+      <text>分期付款</text>
+      </view>
+      <view class="icon">
+        <icon wx:if="{{0}}" type="success" size="20" color="RGBA(194, 179, 135, 1)" />
+      </view>
+    </view>
+    
+  </view>
+  <view class="now_pay">
+    <view class="pay_btn jinse">
+      立即支付
+    </view>
+  </view>
+
+</view>
