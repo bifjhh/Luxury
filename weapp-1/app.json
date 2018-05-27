@@ -5,6 +5,7 @@
     "pages/index/result/result",
     "pages/index/activity/activity",
     "pages/shop/goods/goods",
+    "pages/shop/order/order",
     "pages/classify/index",
     "pages/cart/index",
     "pages/my/index",
