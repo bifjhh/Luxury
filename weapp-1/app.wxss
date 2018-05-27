@@ -35,3 +35,6 @@ image {
     margin-top: 20rpx;
     background: #fff;
 }
+.jinse {
+   background: linear-gradient(to right, RGBA(227, 211, 175, 1), RGBA(194, 179, 135, 1));
+}
