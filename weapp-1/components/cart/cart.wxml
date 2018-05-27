@@ -1,0 +1,31 @@
+<template name="cart">
+  <view class="cart">
+  <view class="service">
+    <view class="service_logo">
+      <image src="/images/kefu.png" />
+    </view>
+    <view class="service_txt">
+      客服
+    </view>
+  </view>
+  <view class="car">
+    <view class="car_logo">
+      <image src="/images/gouwuche.png" />
+    </view>
+    <view class="car_txt">
+      购物车
+    </view>
+  </view>
+  <view class="affair">
+    <view class="add_cart">
+      加入购物车
+    </view>
+    <view class="jiange">
+
+    </view>
+    <view class="buy">
+      立即购买
+    </view>
+  </view>
+</view>
+</template>
