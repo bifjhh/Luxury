@@ -12,6 +12,7 @@
     "pages/my/index",
     "pages/my/info/info",
     "pages/my/wallet/wallet",
+    "pages/my/wallet/Recharge/Recharge",
     "pages/my/info/name/name",
     "pages/details/index",
     "pages/brand/index",

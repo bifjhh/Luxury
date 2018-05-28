@@ -6,7 +6,7 @@
       <view class="btn_l">
         提现
       </view>
-      <view class="btn_r">
+      <view class="btn_r" bindtap="toRecharge">
       充值
       </view>
     </view>

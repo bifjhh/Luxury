@@ -1,11 +1,11 @@
-// pages/my/wallet/wallet.js
+// pages/my/wallet/Recharge/Recharge.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    isTab:0,
+  
   },
 
   /**
@@ -14,15 +14,7 @@ Page({
   onLoad: function (options) {
   
   },
-  isShow(e){
-    this.setData({ isTab: e.target.dataset.istab * 1})
-  },
-  toRecharge() {
-    wx.navigateTo({
-      url: "/pages/my/wallet/Recharge/Recharge",
-      
-    })
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
