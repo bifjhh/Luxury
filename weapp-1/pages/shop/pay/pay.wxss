@@ -102,3 +102,50 @@ page{
   right: 30rpx;
   transform:translateY(-50%);
 }
+
+.show_modal{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+background:rgba(0,0,0,.4);
+}
+.modal{
+  width: 516rpx;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.modal_info{
+  height: 202rpx;
+  padding: 0 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-bottom: 1px solid #f2f2f2;
+  font-size:30rpx;
+  font-family:PingFang-SC-Medium;
+  color:rgba(51,51,51,1);
+  line-height:42rpx;
+}
+.modal_btn{
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+}
+.modal_btn>text{
+  width: 50%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size:30rpx;
+  font-family:PingFang-SC-Medium;
+  color:rgba(51,51,51,1);
+}
+.modal_btn>text:nth-of-type(1){
+  border-right: 1px solid #f2f2f2;
+  color:rgba(153,153,153,1);
+  
+}

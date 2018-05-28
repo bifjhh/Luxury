@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    fqShow:false
+    fqShow:false,
+    isPsw:false,
   },
 
   /**
@@ -16,7 +17,8 @@ Page({
   },
   isFq(){
     let that = this;
-    that.setData({fqShow:!that.data.fqShow})
+    that.setData({fqShow:!that.data.fqShow});
+   
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
