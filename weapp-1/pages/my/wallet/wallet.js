@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    isTab:0,
   },
 
   /**
@@ -13,6 +13,9 @@ Page({
    */
   onLoad: function (options) {
   
+  },
+  isShow(e){
+    this.setData({ isTab: e.target.dataset.istab * 1})
   },
 
   /**

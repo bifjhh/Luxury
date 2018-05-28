@@ -3,7 +3,45 @@
     <text>我的余额</text>
     <text>￥4600.00</text>
     <view class="card_btn">
-    
+      <view class="btn_l">
+        提现
+      </view>
+      <view class="btn_r">
+      充值
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="content bgc_f t20">
+  <view class="tab">
+    <view class="tab_l {{isTab==0?'action':''}}" data-istab='0' bindtap="isShow">
+      收入
+    </view>
+    <view class="tab_r {{isTab==1?'action':''}}" data-istab='1' bindtap="isShow">
+      支出
+    </view>
+  </view>
+  <view wx:if="{{isTab==0}}" class="tab_body">
+    <view class="body_info" wx:for="{{5}}" wx:key="i">
+     <view class="info_l">
+       <text>在线充值</text>
+       <text>2018.4.12 12:35</text>
+     </view>
+     <view class="info_r">
+       ￥9{{item}}.00
+     </view>
+    </view>
+  </view>
+  <view wx:if="{{isTab==1}}" class="tab_body">
+    <view class="body_info" wx:for="{{5}}" wx:key="i">
+     <view class="info_l">
+       <text>养护支出</text>
+       <text>2018.4.12 12:35</text>
+     </view>
+     <view class="info_r">
+       ￥9{{item}}.00
+     </view>
     </view>
   </view>
 </view>
