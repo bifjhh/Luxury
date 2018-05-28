@@ -10,6 +10,8 @@
     "pages/classify/index",
     "pages/cart/index",
     "pages/my/index",
+    "pages/my/info/info",
+    "pages/my/info/name/name",
     "pages/details/index",
     "pages/brand/index",
     "pages/list/index",

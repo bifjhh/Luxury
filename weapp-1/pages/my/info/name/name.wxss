@@ -1,0 +1,34 @@
+page {
+  background: #fff;
+  padding: 35rpx 30rpx 0 30rpx;
+  box-sizing: border-box;
+}
+
+.set_name {
+  height: 80rpx;
+  background: rgba(245, 245, 245, 1);
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding-left: 30rpx;
+}
+
+.set_name>input {
+  width: 100%;
+  height: 100%;
+  font-size: 30rpx;
+  font-family: PingFang-SC-Medium;
+  color: rgba(153, 153, 153, 1);
+  line-height: 80rpx;
+}
+.wanc{
+  margin-top: 48rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size:34rpx;
+  font-family:PingFang-SC-Bold;
+  color:rgba(255,255,255,1);
+  border-radius:40px;
+}

@@ -1,0 +1,53 @@
+<view class="head bgc_f">
+  <text>头像</text>
+  <view bindtap="setImg">
+    <view class="image ">
+      <image src="{{nameImg}}" />
+    </view>
+    <view class="jt">
+      <image src="/images/dingdan_jt.png" />
+    </view>
+  </view>
+</view>
+<view class="name bgc_f" bindtap="toName">
+  <text>昵称</text>
+  <view>
+    <text>{{name}}</text>
+    <view class="jt">
+      <image src="/images/dingdan_jt.png" />
+    </view>
+  </view>
+</view>
+
+<view class="gender bgc_f">
+  <text>性别</text>
+  <view>
+    <picker bindchange="ageChoice" value="{{index}}" range="{{age}}">
+      <view class="picker">
+        {{age[ageindex]}}
+      </view>
+    </picker>
+    <view class="jt">
+      <image src="/images/dingdan_jt.png" />
+    </view>
+  </view>
+</view>
+
+
+<view class="birthday bgc_f">
+  <text>生日</text>
+  <view>
+    <picker mode="date" value="{{date}}" start="1910-01-01"  bindchange="birthday">
+      <view class="picker">
+        {{time}}
+      </view>
+    </picker>
+    <view class="jt">
+      <image src="/images/dingdan_jt.png" />
+    </view>
+  </view>
+</view>
+
+<view class="login bgc_f">
+  <view>退出登录</view>
+</view>

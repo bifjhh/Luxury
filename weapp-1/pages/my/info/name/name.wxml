@@ -1,0 +1,6 @@
+<view class="set_name">
+  <input type="text" placeholder="请填写新昵称,12字内" auto-focus name='name' bindinput="getName"  />
+</view>
+<view class="wanc jinse" bindtap="submit">
+  完成
+</view>
