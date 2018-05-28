@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    fqShow:false
   },
 
   /**
@@ -14,7 +14,10 @@ Page({
   onLoad: function (options) {
   
   },
-
+  isFq(){
+    let that = this;
+    that.setData({fqShow:!that.data.fqShow})
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

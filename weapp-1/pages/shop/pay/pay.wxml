@@ -23,8 +23,17 @@
       </view>
       <text>分期付款</text>
       </view>
-      <view class="icon">
-        <icon wx:if="{{0}}" type="success" size="20" color="RGBA(194, 179, 135, 1)" />
+      <view class="jt" bindtap="isFq">
+        <image src="/images/dingdan_jt.png" />
+      </view>
+    </view>
+    <view class="fq_list" wx:if="{{fqShow}}">
+      <view class="fq_box" wx:for="{{4}}" wx:key="i">
+        <text>165589.25 x 3期</text>
+        <text>含服务费1533.00/期 费率0.5/月</text>
+        <view class="icon">
+        <icon wx:if="{{item==3}}" type="success" size="20" color="RGBA(194, 179, 135, 1)" />
+      </view>
       </view>
     </view>
     
