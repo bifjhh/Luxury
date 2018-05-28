@@ -1,0 +1,9 @@
+<view class="head">
+  <view class="card">
+    <text>我的余额</text>
+    <text>￥4600.00</text>
+    <view class="card_btn">
+    
+    </view>
+  </view>
+</view>

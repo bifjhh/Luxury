@@ -11,6 +11,7 @@
     "pages/cart/index",
     "pages/my/index",
     "pages/my/info/info",
+    "pages/my/wallet/wallet",
     "pages/my/info/name/name",
     "pages/details/index",
     "pages/brand/index",
