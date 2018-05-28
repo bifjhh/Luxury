@@ -1,2 +1,51 @@
-<!--pages/my/wallet/Recharge/Recharge.wxml-->
-<text>pages/my/wallet/Recharge/Recharge.wxml</text>
+<view class="sum_box bgc_f">
+  <view class="sum">
+  <text>￥10</text>
+  <view class="sum_r">
+    <text>充值即送￥5</text>
+    <icon wx:if="{{0}}" type="success_no_circle" size="20" color="#FFA70F" />
+  </view>
+  </view>
+  <view class="sum action">
+  <text>￥50</text>
+  <view class="sum_r">
+    <icon wx:if="{{1}}" type="success_no_circle" size="20" color="#FFA70F" />
+  </view>
+  </view>
+  <view class="sum">
+  <text>￥100</text>
+  <view class="sum_r">
+    <icon wx:if="{{0}}" type="success_no_circle" size="20" color="#FFA70F" />
+  </view>
+  </view>
+  <view class="sum">
+  <text>￥300</text>
+  <view class="sum_r">
+    <text>充值即送￥5</text>
+    <icon wx:if="{{0}}" type="success_no_circle" size="20" color="#FFA70F" />
+  </view>
+  </view>
+</view>
+  
+<view class="pay_body t20">
+  <view class="pay_way ">
+    <view class="way_box" wx:for="{{4}}" wx:key="i">
+      <view class="fl">
+        <view class="way_logo">
+        <image src="/images/pay/pay{{item}}.png" />
+      </view>
+      <text>支付宝支付</text>
+      </view>
+      <view class="icon">
+        <icon wx:if="{{item==0}}" type="success" size="20" color="RGBA(194, 179, 135, 1)" />
+      </view>
+    </view>
+   
+  </view>
+  <view class="now_pay">
+    <view class="pay_btn jinse">
+      立即支付
+    </view>
+  </view>
+
+</view>

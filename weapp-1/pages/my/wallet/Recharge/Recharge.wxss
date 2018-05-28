@@ -1,1 +1,114 @@
-/* pages/my/wallet/Recharge/Recharge.wxss */
+view{
+  box-sizing: border-box;
+}
+.sum_box{
+  
+}
+.sum{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 81rpx;
+  padding-right: 30rpx;
+  height: 100rpx;
+  border-bottom: 1px solid #f2f2f2;
+}
+.sum.action{
+  background: RGBA(255, 235, 200, 1);
+}
+.sum>text{
+  font-size:36rpx;
+  font-family:PingFang-SC-Medium;
+  color:rgba(102, 102, 102, 1);
+  line-height:40rpx;
+}
+.sum_r{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sum_r>text{
+  padding: 8rpx 17rpx;
+  font-size:24rpx;
+  font-family:PingFang-SC-Medium;
+  color:rgba(255, 255, 255, 1);
+  line-height:40rpx;
+  background:rgba(255, 88, 36, 1);
+  border-radius:5px;
+}
+.sum icon {
+  margin-left: 30rpx;
+}
+
+.pay_num {
+  height: 140rpx;
+  padding: 0 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+}
+
+.pay_num text:nth-of-type(1) {
+  font-size: 36rpx;
+  font-family: PingFang-SC-Medium;
+  color: rgba(102, 102, 102, 1);
+}
+
+.num {
+  font-size: 48rpx;
+  font-family: PingFang-SC-Medium;
+  color: rgba(255, 114, 114, 1);
+}
+
+.way_box {
+  padding: 0 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 122rpx;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.fl {
+  display: flex;
+  align-items: center;
+}
+
+.way_logo {
+  width: 46rpx;
+  height: 46rpx;
+}
+
+.fl>text {
+  margin-left: 46rpx;
+}
+
+.now_pay {
+  padding: 0 30rpx;
+  padding-top: 70rpx;
+}
+
+.pay_btn {
+  height: 80rpx;
+  border-radius: 40px;
+  font-size: 34rpx;
+  font-family: PingFang-SC-Bold;
+  color: rgba(255, 255, 255, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.jt {
+  position: absolute;
+  height: 26rpx;
+  width: 15rpx;
+  top: 50%;
+  right: 40rpx;
+  transform: translateY(-50%);
+  transform: rotate(90deg)
+}
+
