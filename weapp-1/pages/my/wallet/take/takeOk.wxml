@@ -1,0 +1,7 @@
+<view class="icon">
+  <icon type="success" size="50" />
+</view>
+
+<view class="jinse">
+  确定
+</view>

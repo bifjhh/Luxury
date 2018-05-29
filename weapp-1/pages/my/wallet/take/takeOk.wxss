@@ -1,0 +1,22 @@
+.icon {
+  border: none;
+  width: 100rpx;
+  height: 100rpx;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-top: 132rpx;
+}
+
+.jinse {
+  width: 690rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 40rpx;
+  margin-top: 172rpx;
+  font-size: 34rpx;
+  font-family: PingFang-SC-Bold;
+  color: rgba(255, 255, 255, 1);
+}

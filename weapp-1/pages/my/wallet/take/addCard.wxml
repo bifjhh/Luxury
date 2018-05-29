@@ -1,0 +1,25 @@
+<view class="yinhang">
+  <text>银行名称</text>
+  <view class="fr">
+    <picker bindchange="setbank" value="{{index}}" range="{{bankList}}">
+      <view class="picker">
+        {{bankList[bankIndex]}}
+      </view>
+    </picker>
+    <view class="jt">
+      <image src="/images/dingdan_jt.png" />
+    </view>
+  </view>
+</view>
+<view class="huming">
+  <text>开户名</text>
+  <input type="text" placeholder="填写开户名" />
+</view>
+<view class="kahao">
+  <text>银行卡号</text>
+  <input type="number" placeholder="填写银行卡号" />
+</view>
+
+<view class="jinse">
+  确定
+</view>

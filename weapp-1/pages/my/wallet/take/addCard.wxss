@@ -1,0 +1,62 @@
+page{
+  background-color: #fff;
+}
+page>view{
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  border-bottom: 1px solid #f2f2f2;
+  height: 102rpx;
+  display: flex;
+  align-items: center;
+}
+page>view>text{
+  font-size:30rpx;
+  font-family:PingFang-SC-Medium;
+  color:rgba(51,51,51,1);
+  line-height:40rpx;
+  width: 196rpx;
+}
+input{
+  flex: 1;
+  font-size:28rpx;
+  font-family:PingFang-SC-Medium;
+  line-height:40rpx;
+}
+
+.fr{
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+   font-size:28rpx;
+  font-family:PingFang-SC-Medium;
+  line-height:40rpx;
+  position: relative;
+}
+
+.picker{
+  line-height: 100rpx;
+}
+.jt{
+  width: 15rpx;
+  height: 26rpx;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.jinse{
+  padding: 0;
+  font-size:34rpx;
+  font-family:PingFang-SC-Bold;
+  color:rgba(255,255,255,1);
+  width: 690rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius:40rpx;
+  margin-top: 96rpx;
+}

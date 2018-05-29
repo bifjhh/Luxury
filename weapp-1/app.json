@@ -14,6 +14,8 @@
     "pages/my/wallet/wallet",
     "pages/my/wallet/Recharge/Recharge",
     "pages/my/wallet/take/take",
+    "pages/my/wallet/take/addCard",
+    "pages/my/wallet/take/takeOk",
     "pages/my/info/name/name",
     "pages/details/index",
     "pages/brand/index",

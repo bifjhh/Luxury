@@ -98,7 +98,7 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 11,
 					"name": "提现",
 					"pathName": "pages/my/wallet/take/take",
 					"query": ""

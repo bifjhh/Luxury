@@ -2,7 +2,12 @@
   <view class="add">+添加收款银行卡</view>
   <view class="number">
     <text>提现金额</text>
-    <input type="number" placeholder="¥  输入金额" auto-focus />
+    <view class="input">
+      <input type="number" placeholder="¥  输入金额" auto-focus />
+    </view>
+  </view>
+  <view class="keyong">
+    可提现金额999999
   </view>
   <view class="take_btn jinse">
     申请提现
