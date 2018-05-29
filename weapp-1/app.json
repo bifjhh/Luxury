@@ -17,6 +17,7 @@
     "pages/my/wallet/take/addCard",
     "pages/my/wallet/take/takeOk",
     "pages/my/info/name/name",
+    "pages/my/card/card",
     "pages/details/index",
     "pages/brand/index",
     "pages/list/index",

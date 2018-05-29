@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 11,
+			"current": 12,
 			"list": [
 				{
 					"id": -1,
@@ -101,6 +101,12 @@
 					"id": 11,
 					"name": "提现",
 					"pathName": "pages/my/wallet/take/take",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "卡券",
+					"pathName": "pages/my/card/card",
 					"query": ""
 				}
 			]

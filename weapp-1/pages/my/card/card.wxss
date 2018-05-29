@@ -1,0 +1,190 @@
+view {
+  box-sizing: border-box;
+}
+
+.title {
+  height: 140rpx;
+}
+
+.nav_tab {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  height: 80rpx;
+  background: #fff;
+}
+
+.nav_tab>view {
+  flex: auto;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  color: rgba(153, 153, 153, 1);
+}
+
+.nav_tab>view.action {
+  color: rgba(173, 155, 106, 1);
+}
+
+.card {
+  margin: 0 auto;
+  margin-top: 34rpx;
+  width: 690rpx;
+  height: 185rpx;
+  display: flex;
+  position: relative;
+}
+
+.card::before {
+  position: absolute;
+  content: '';
+  width: 40rpx;
+  height: 40rpx;
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  left: 0;
+  top: 50%;
+  transform: translate(-60%,-50%);
+}
+.card::after {
+  position: absolute;
+  content: '';
+  width: 40rpx;
+  height: 40rpx;
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  right: 0;
+  top: 50%;
+  transform: translate(40%,-50%);
+}
+
+.card_l {
+  width: 78rpx;
+  height: 100%;
+  background: rgba(218, 179, 95, 1);
+  font-size: 30rpx;
+  font-family: PingFang-SC-Medium;
+  color: rgba(255, 255, 255, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  border-radius: 10px;
+}
+
+.card_r {
+  background: #fff;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  position: relative;
+}
+
+.card_r>view {
+  display: flex;
+  align-items: initial;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.card_num {
+  margin-left: 30rpx;
+}
+
+.card_num>view:nth-of-type(1) {
+  font-size: 70rpx;
+  font-family: PingFangSC-Semibold;
+  color: rgba(218, 179, 95, 1);
+  /* line-height:121rpx; */
+}
+
+.card_num>view>text {
+  font-size: 36rpx;
+  font-family: PingFang-SC-Medium;
+  color: rgba(218, 179, 95, 1);
+}
+
+.card_num>view:nth-of-type(2) {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  color: rgba(232, 194, 112, 1);
+}
+
+.card_info {
+  margin-left: 67rpx;
+}
+
+.card_info>view:nth-of-type(1) {
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular;
+  color: rgba(102, 102, 102, 1);
+  line-height: 40rpx;
+}
+
+.card_info>view:nth-of-type(2) {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  color: rgba(153, 153, 153, 1);
+  line-height: 40rpx;
+}
+
+.card_btn {
+  margin-top: 20rpx;
+  width: 190rpx;
+  height: 50rpx;
+  background: rgba(218, 179, 95, 1);
+  border-radius: 25px;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  color: rgba(255, 255, 255, 1);
+  line-height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.yiyong .card_l,
+.guoqi .card_l
+{
+  background:rgba(205, 205, 205, 1);
+}
+
+.yiyong .card_num>view,
+.guoqi .card_num>view {
+  color:rgba(205, 205, 205, 1);
+}
+.yiyong .card_num>view>text,
+.guoqi .card_num>view>text {
+  color:rgba(205, 205, 205, 1);
+}
+
+.yiyong .card_btn,
+.guoqi .card_btn {
+  background:rgba(205, 205, 205, 1);
+}
+.yiyong .card_info>view,
+.guoqi .card_info >view{
+  color:rgba(205, 205, 205, 1);
+}
+.yiyong .card_info>.card_btn,
+.guoqi .card_info >.card_btn{
+  color:#fff;
+}
+
+.gq_logo{
+  width: 183rpx;
+  height: 146rpx;
+  position: absolute;
+  top: 22rpx;
+  right: 15rpx;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.guoqi .gq_logo{
+  opacity: 1;
+}
