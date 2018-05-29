@@ -1,0 +1,48 @@
+<view class="nav_tab">
+  <view class="{{showCard==0?'action':''}}" data-cardid="0" bindtap="iscard">
+  未使用
+</view>
+<view class="{{showCard==1?'action':''}}" data-cardid="1" bindtap="iscard">
+  已使用
+</view>
+<view class="{{showCard==2?'action':''}}" data-cardid="2" bindtap="iscard">
+  已过期
+</view>
+</view>
+
+<view class="card_box weiyong">
+  <view class="card {{showCard==1?'yiyong':''}} {{showCard==2?'guoqi':''}}" wx:for="{{5}}" wx:key="i">
+    <view class="card_l">
+      优惠券
+    </view>
+    <view class="card_r">
+      <view class="card_num">
+        <view><text>¥</text> 5{{showCard}}0</view>
+        <view>满8888可使用</view>
+      </view>
+      <view class="card_info">
+        <view>适用于浪琴-名匠手表</view>
+        <view>2018.05.12-2018.6.12</view>
+        <view wx:if="{{showCard==0}}" class="card_btn">
+          去使用
+        </view>
+        <view wx:if="{{showCard==1}}" class="card_btn">
+          已使用
+        </view>
+        <view wx:if="{{showCard==2}}" class="card_btn">
+          已过期
+        </view>
+      </view>
+      <view class="gq_logo">
+        <image src="/images/my/guoqi.png" />
+      </view>
+    </view>
+  </view>
+</view>
+<!-- <view class="card_box yiyong">
+
+</view>
+<view class="card_box guoqi">
+
+</view>
+-->
