@@ -94,7 +94,8 @@
 				{
 					"id": -1,
 					"name": "充值",
-					"pathName": "pages/my/wallet/Recharge/Recharge"
+					"pathName": "pages/my/wallet/Recharge/Recharge",
+					"query": ""
 				}
 			]
 		}

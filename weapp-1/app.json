@@ -13,11 +13,12 @@
     "pages/my/info/info",
     "pages/my/wallet/wallet",
     "pages/my/wallet/Recharge/Recharge",
+    "pages/my/wallet/take/take",
     "pages/my/info/name/name",
     "pages/details/index",
     "pages/brand/index",
     "pages/list/index",
-    "pages/user/index"
+    "pages/user/index"  
   ],
   "window":{
     "backgroundTextStyle":"white",
