@@ -1,2 +1,13 @@
-<!--pages/my/wallet/take/take.wxml-->
-<text>pages/my/wallet/take/take.wxml</text>
+<view class="body">
+  <view class="add">+添加收款银行卡</view>
+  <view class="number">
+    <text>提现金额</text>
+    <input type="number" placeholder="¥  输入金额" auto-focus />
+  </view>
+  <view class="take_btn jinse">
+    申请提现
+  </view>
+  <view class="ts">
+    10000元起提
+  </view>
+</view>

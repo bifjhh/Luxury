@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 11,
 			"list": [
 				{
 					"id": -1,
@@ -95,6 +95,12 @@
 					"id": -1,
 					"name": "充值",
 					"pathName": "pages/my/wallet/Recharge/Recharge",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "提现",
+					"pathName": "pages/my/wallet/take/take",
 					"query": ""
 				}
 			]
