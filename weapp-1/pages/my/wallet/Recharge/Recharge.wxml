@@ -3,33 +3,42 @@
   <text>￥10</text>
   <view class="sum_r">
     <text>充值即送￥5</text>
-    <icon wx:if="{{0}}" type="success_no_circle" size="20" color="#FFA70F" />
+    <view class="sum_icon">
+      <icon wx:if="{{0}}" type="success_no_circle" size="20" color="#FFA70F" />
+    </view>
   </view>
   </view>
   <view class="sum action">
   <text>￥50</text>
   <view class="sum_r">
-    <icon wx:if="{{1}}" type="success_no_circle" size="20" color="#FFA70F" />
+    <text>充值即送￥5</text>
+    <view class="sum_icon">
+      <icon wx:if="{{1}}" type="success_no_circle" size="20" color="#FFA70F" />
+    </view>
   </view>
   </view>
   <view class="sum">
   <text>￥100</text>
   <view class="sum_r">
-    <icon wx:if="{{0}}" type="success_no_circle" size="20" color="#FFA70F" />
+    <view class="sum_icon">
+      <icon wx:if="{{0}}" type="success_no_circle" size="20" color="#FFA70F" />
+    </view>
   </view>
   </view>
   <view class="sum">
   <text>￥300</text>
   <view class="sum_r">
     <text>充值即送￥5</text>
-    <icon wx:if="{{0}}" type="success_no_circle" size="20" color="#FFA70F" />
+    <view class="sum_icon">
+      <icon wx:if="{{0}}" type="success_no_circle" size="20" color="#FFA70F" />
+    </view>
   </view>
   </view>
 </view>
   
 <view class="pay_body t20">
   <view class="pay_way ">
-    <view class="way_box" wx:for="{{4}}" wx:key="i">
+    <view class="way_box" wx:for="{{3}}" wx:key="i">
       <view class="fl">
         <view class="way_logo">
         <image src="/images/pay/pay{{item}}.png" />

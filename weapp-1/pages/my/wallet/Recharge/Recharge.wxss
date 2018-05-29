@@ -36,8 +36,10 @@ view{
   background:rgba(255, 88, 36, 1);
   border-radius:5px;
 }
-.sum icon {
+.sum .sum_icon {
   margin-left: 30rpx;
+  width: 40rpx;
+  height: 40rpx;
 }
 
 .pay_num {
