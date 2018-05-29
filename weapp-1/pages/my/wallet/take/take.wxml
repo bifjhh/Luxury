@@ -1,5 +1,14 @@
 <view class="body">
-  <view class="add">+添加收款银行卡</view>
+  <view wx:if="{{0}}" class="add">+添加收款银行卡</view>
+  <view class="yhk">
+    <view class="logo_img">
+      <image style="width:67rpx;height:67rpx" src="/images/pay/jsyh.png" />
+    </view>
+    <view class="yhk_info">
+      <text>中国建设银行</text>
+      <text>尾号0998</text>
+    </view>
+  </view>
   <view class="number">
     <text>提现金额</text>
     <view class="input">
