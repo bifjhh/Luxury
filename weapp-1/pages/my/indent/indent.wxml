@@ -1,0 +1,64 @@
+<!--<view class="nav_tab">
+  <view class="{{showCard==0?'action':''}}" data-cardid="0" bindtap="iscard">
+  未使用
+</view>
+<view class="{{showCard==1?'action':''}}" data-cardid="1" bindtap="iscard">
+  已使用
+</view>
+<view class="{{showCard==2?'action':''}}" data-cardid="2" bindtap="iscard">
+  已过期
+</view>
+</view>-->
+
+<view class="nav_tab">
+  <scroll-view class="scroll" scroll-x>
+   <view class="tab_box"> 
+      <view class="{{showCard==0?'action':''}}" data-cardid="0" bindtap="iscard">
+      全部
+    </view>
+    <view class="{{showCard==1?'action':''}}" data-cardid="1" bindtap="iscard">
+      待付款
+    </view>
+    <view class="{{showCard==2?'action':''}}" data-cardid="2" bindtap="iscard">
+      待发货
+    </view>
+    <view class="{{showCard==3?'action':''}}" data-cardid="3" bindtap="iscard">
+      待收货
+    </view>
+    <view class="{{showCard==4?'action':''}}" data-cardid="4" bindtap="iscard">
+      待评价
+    </view>
+    <view class="{{showCard==5?'action':''}}" data-cardid="5" bindtap="iscard">
+      退款审核中
+    </view>
+   </view>
+  </scroll-view>
+</view>
+
+<view class="indent_box">
+  <view class="indent t20">
+    <view class="haoma">
+      <view>订单编号：55544466699877</view>
+      <view wx:if="{{showCard==1}}">待付款</view>
+    </view>
+    <view class="logo">
+      <view class="logo_img">
+        <image src="/images/goods_logo.png" />
+      </view>
+      <view class="logo_info">
+        PRADA 普拉达 男女中性黑色牛皮长款钱夹 1ML506 2E6V F0LN1PRADA 普拉达 男女中性黑色牛皮长款钱夹 1ML506 2E6V F0LN1PRADA 普拉达 男女中性黑色牛皮长款钱夹 1ML506 2E6V F0LN1
+      </view>
+    </view>
+    <view class="num">
+      <view class="num_l">
+        <text>合计:</text>
+        <text>￥3666.00</text>
+      </view>
+      <view class="num_r jinse" wx:if="{{showCard==1||showCard==3||showCard==4}}">
+        <text wx:if="{{showCard==1}}">立即支付</text>
+        <text wx:if="{{showCard==3}}">确认收货</text>
+        <text wx:if="{{showCard==4}}">立即评价</text>
+      </view>
+    </view>
+  </view>
+</view>
