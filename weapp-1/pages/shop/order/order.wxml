@@ -1,15 +1,7 @@
-<view class="address_box">
-  <view wx:if="{{0}}" class="xuanze">
-    <view class="add_dz">
-      <image src="/images/dingdan_add.png" />
-    </view>
-    <text class="add">添加收货地址</text>
-    <view class="add_jt">
-      <image src="/images/dingdan_jt.png" />
-    </view>
+  <view class="dizhi">
+    收货地址
   </view>
-
-  <view class="xuanze isadd"  wx:if="{{1}}">
+  <view class="isadd">
     <view class="name_tel">
       <text class="name">王山山</text>
       <text class="tel">15596963203</text>
@@ -18,13 +10,9 @@
       浙江省杭州市滨江区高新区软件园4号楼207
     </view>
   </view>
-  <view class="jt">
-      <image src="/images/dingdan_jt.png" />
-    </view>
-</view>
 
 <view class="goods_list t20">
-  <view class="goods" wx:for="{{2}}" wx:key="i">
+  <view class="goods" wx:for="{{1}}" wx:key="i">
     <view class="goods_logo">
       <image src="/images/goods_logo.png" />
     </view>
@@ -34,26 +22,6 @@
       <text class="curt">X{{1}}</text>
     </view>
   </view>
-</view>
-
-<view class="zheke t20">
-  <view class="yhq">
-    <text>优惠券</text>
-    <text class="zk_num" wx:if="{{1}}">1张可用</text>
-    <text class="zk_num" wx:else>暂无可用</text>
-    <view class="jt">
-      <image src="/images/dingdan_jt.png" />
-  </view>
-  </view>
-  <view class="hb">
-    <text>红包</text>
-    <text class="zk_num" wx:if="{{0}}">1张可用</text>
-    <text class="zk_num" wx:else>暂无可用</text>
-    <view class="jt">
-      <image src="/images/dingdan_jt.png" />
-  </view>
-  </view>
-  
 </view>
 
 <view class="money t20">
@@ -69,11 +37,21 @@
     <text>优惠券抵扣</text>
     <text class="mn_num" >-￥0.00</text>
   </view>
+  <view>
+    <text>应付</text>
+    <text class="mn_num" >￥1299.00</text>
+  </view>
+  <view class="lxkf">
+    <view class="kf_img">
+      
+    </view>
+    <text>联系客服</text>
+  </view>
 </view>
 
+
 <view class="submit">
-  <text>￥1299.00</text>
   <view class="submit_btn jinse">
-    提交订单
+    立即支付
   </view>
 </view>

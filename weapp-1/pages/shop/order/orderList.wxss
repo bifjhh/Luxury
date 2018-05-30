@@ -1,38 +1,37 @@
 page{
   padding-bottom: 120rpx;
 }
-view{
+.address_box {
+  width: 100%;
+  height: 160rpx;
   box-sizing: border-box;
+  padding: 0 30rpx;
+  position: relative;
+  background: #fff;
 }
-.dizhi{
-  height: 88rpx;
-  border-bottom: 1px solid #f2f2f2;
+
+.xuanze {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
-  background: #fff;
-  font-size:30rpx;
-  font-family:PingFang-SC-Medium;
-  color:rgba(51,51,51,1);
-  padding-left: 32rpx;
-  
 }
 
-
-.isadd {
-  height: 160rpx;
-  background: #fff;
-   padding: 0 30rpx;
-   display: flex;
+.xuanze.isadd {
   justify-content: center;
   flex-direction: column;
   align-items: inherit;
   font-size: 30rpx;
   font-family: PingFang-SC-Medium;
-  color: rgba(51, 51, 51, 1);
+  color: rgba(153, 153, 153, 1);
   line-height: 50rpx;
   padding-right: 50rpx;
+  box-sizing: border-box;
 }
 
+.xuanze>.add {
+  padding-left: 1em;
+}
 
 .add_dz {
   width: 40rpx;
@@ -63,6 +62,7 @@ view{
 }
 
 .goods_list {
+  box-sizing: border-box;
   padding: 0 44rpx 0 30rpx;
 }
 
@@ -71,6 +71,7 @@ view{
   height: 277rpx;
   display: flex;
   align-items: center;
+  box-sizing: border-box;
   padding: 39rpx 0;
   border-bottom: 1px solid #f2f2f2;
 }
@@ -119,7 +120,13 @@ view{
   color: rgba(51, 51, 51, 1);
 }
 
+.zheke {
+  font-size: 30rpx;
+  font-family: PingFang-SC-Medium;
+  color: rgba(51, 51, 51, 1);
+}
 
+.zheke>view,
 .money>view {
   position: relative;
   display: flex;
@@ -130,13 +137,17 @@ view{
   border-bottom: 1px solid #f2f2f2;
 }
 
+.zk_num,
 .mn_num {
   font-size: 28rpx;
   font-family: PingFang-SC-Medium;
   color: rgba(153, 153, 153, 1);
 }
 
-
+.zheke .jt{
+  width: 15rpx;
+  height: 26rpx;
+}
 .money>view {
     padding: 0 30rpx;
 }
@@ -149,6 +160,7 @@ view{
   bottom: 0;
   left: 0;
   width: 100%;
+  box-sizing: border-box;
   background: #fff;
   height: 100rpx;
   padding: 0 30rpx;
@@ -157,9 +169,13 @@ view{
   justify-content: space-between;
 
 }
-
+.submit>text{
+  font-size:48rpx;
+  font-family:PingFang-SC-Medium;
+  color:rgba(255, 114, 114, 1);
+}
 .submit_btn{
-  flex: 1;
+  width: 300rpx;
   height: 70rpx;
   border-radius:35px;
   display: flex;
@@ -168,15 +184,4 @@ view{
   font-size:32rpx;
   font-family:PingFang-SC-Bold;
   color:rgba(255, 255, 255, 1);
-}
-
-.lxkf{
-  margin-top: 44rpx;
-  width: 240rpx;
-  height: 60rpx;
-  border-radius:10px;
-  font-size:26rpx;
-  font-family:PingFang-SC-Medium;
-  color:rgba(102,102,102,1);
-  line-height:40px;
 }
