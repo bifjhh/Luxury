@@ -15,7 +15,7 @@
 </view>
 
 <view class="card_box weiyong">
-  <view class="card {{showCard==1?'yiyong':''}} {{showCard==2?'guoqi':''}}" wx:for="{{5}}" wx:key="i">
+  <view class="card {{showCard==1?'yiyong':''}} {{showCard==2?'guoqi':''}}" wx:for="{{1}}" wx:key="i">
     <view class="card_l">
       优惠券
     </view>
@@ -43,10 +43,23 @@
     </view>
   </view>
 </view>
-<!-- <view class="card_box yiyong">
 
-</view>
-<view class="card_box guoqi">
+<view class="get_card">
+  <view class="card {{showCard==1?'yiyong':''}} {{showCard==2?'guoqi':''}}" wx:for="{{1}}" wx:key="i">
 
+    <view class="card_r">
+      <view class="card_num">
+        <view><text>¥</text> 5{{showCard}}0</view>
+        <view>满8888可使用</view>
+      </view>
+      <view class="xian"></view>
+      <view class="card_info">
+        <view>适用于浪琴-名匠手表</view>
+        <view>2018.05.12-2018.6.12</view>
+      </view>
+    </view>
+     <view class="card_l">
+      立即领取
+    </view>
+  </view>
 </view>
--->
