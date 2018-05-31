@@ -27,6 +27,26 @@ Page({
       }
     })
   },
+  confirm() {
+    wx.showModal({
+      title: '  确定已经收到货了吗  ',
+      content: '请在收到货后，进行确认收货操作',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+
+  toExpress(){
+    wx.navigateTo({
+      url: '/pages/shop/order/express/express',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

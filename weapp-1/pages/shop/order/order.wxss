@@ -1,25 +1,24 @@
-view{
+view {
   box-sizing: border-box;
 }
-.dizhi{
+
+.dizhi {
   height: 88rpx;
   border-bottom: 1px solid #f2f2f2;
   display: flex;
   align-items: center;
   background: #fff;
-  font-size:30rpx;
-  font-family:PingFang-SC-Medium;
-  color:rgba(51,51,51,1);
+  font-size: 30rpx;
+  font-family: PingFang-SC-Medium;
+  color: rgba(51, 51, 51, 1);
   padding-left: 32rpx;
-  
 }
-
 
 .isadd {
   height: 160rpx;
   background: #fff;
-   padding: 0 30rpx;
-   display: flex;
+  padding: 0 30rpx;
+  display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: inherit;
@@ -29,7 +28,6 @@ view{
   line-height: 50rpx;
   padding-right: 50rpx;
 }
-
 
 .add_dz {
   width: 40rpx;
@@ -59,43 +57,47 @@ view{
   overflow: hidden;
 }
 
-.kd{
+.kd {
   background-color: #fff;
   padding: 0 30rpx;
   height: 227rpx;
   padding-top: 65rpx;
   display: flex;
-  
-
 }
-.kd_l{
+
+.kd_l {
   width: 67rpx;
   height: 53rpx;
   margin-top: 30rpx;
 }
-.kd_r{
+
+.kd_r {
   flex: 1;
   margin-left: 36rpx;
 }
-.kd_tel{
+
+.kd_tel {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
-}
-.kd_r view,.kd_r text{
-  font-size:30rpx;
-  font-family:PingFang-SC-Medium;
-  color:rgba(51,51,51,1);
-  line-height:40rpx;
 }
 
-.kd_tel>view:nth-of-type(2){
-  color:rgba(107,159,255,1);
+.kd_r view,
+.kd_r text {
+  font-size: 30rpx;
+  font-family: PingFang-SC-Medium;
+  color: rgba(51, 51, 51, 1);
+  line-height: 40rpx;
 }
-.kd_r>view:nth-of-type(2){
+
+.kd_tel>view:nth-of-type(2) {
+  color: rgba(107, 159, 255, 1);
+}
+
+.kd_r>view:nth-of-type(2) {
   margin-top: 27rpx;
 }
+
 .goods_list {
   padding: 0 44rpx 0 30rpx;
 }
@@ -153,7 +155,6 @@ view{
   color: rgba(51, 51, 51, 1);
 }
 
-
 .money>view {
   position: relative;
   display: flex;
@@ -170,74 +171,82 @@ view{
   color: rgba(153, 153, 153, 1);
 }
 
-
 .money>view {
-    padding: 0 30rpx;
+  padding: 0 30rpx;
 }
-.isnum{
-  color:rgba(133, 84, 36, 1);
+
+.isnum {
+  color: rgba(133, 84, 36, 1);
 }
-.money text{
+
+.money text {
   color: #333;
 }
 
-
-.order_info  .submit_btn{
+.order_info .submit_btn {
   margin-top: 44rpx;
   height: 70rpx;
-  border-radius:35px;
+  border-radius: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size:32rpx;
-  font-family:PingFang-SC-Bold;
-  color:rgba(255, 255, 255, 1);
 }
-.money .kefu_box{
+
+.submit_btn text {
+  font-size: 32rpx;
+  font-family: PingFang-SC-Bold;
+  color: rgba(255, 255, 255, 1);
+}
+
+.money .kefu_box {
   justify-content: center;
   padding-bottom: 50rpx;
   padding-top: 44rpx;
   height: auto;
 }
-.money .lxkf{
+
+.money .lxkf {
   width: 240rpx;
   height: 60rpx;
-  border-radius:10px;
-  border:1px solid #f2f2f2;
+  border-radius: 10px;
+  border: 1px solid #f2f2f2;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.money .lxkf .kf_img{
+
+.money .lxkf .kf_img {
   width: 26rpx;
   height: 25rpx;
 }
-.lxkf text{
+
+.lxkf text {
   margin-left: 10rpx;
-  font-size:26rpx;
-  font-family:PingFang-SC-Medium;
-  color:rgba(102,102,102,1);
-  line-height:40rpx;
+  font-size: 26rpx;
+  font-family: PingFang-SC-Medium;
+  color: rgba(102, 102, 102, 1);
+  line-height: 40rpx;
 }
 
-.order_info{
+.order_info {
   padding: 0 30rpx;
   height: 310rpx;
   background-color: #fff;
   display: flex;
-  align-content:center;
+  align-content: center;
   justify-content: center;
   flex-direction: column;
 }
-.order_info >view {
+
+.order_info>view {
   display: flex;
-  align-content:center;
+  align-content: center;
   justify-content: space-between;
   margin-top: 10rpx;
 }
 
-.copy{
+.copy {
   border: 1px solid #ccc;
-  border-radius:2px;
+  border-radius: 2px;
   padding: 5rpx 15rpx;
 }

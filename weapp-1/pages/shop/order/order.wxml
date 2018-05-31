@@ -21,7 +21,7 @@
   <view class="kd_r">
     <view class="kd_tel">
       <view>物流公司：<text>顺丰快递</text></view>
-      <view>查看物流 ></view>
+      <view bindtap="toExpress">查看物流 ></view>
     </view>
     <view>
       物流单号：<text>2555666334588</text>
@@ -78,11 +78,16 @@
   <view>下单时间：2017.08.09 12:09:03</view>
 </view>
 <view>
-  <view>订单状态：<text style="color:red">待付款</text> </view>
-  <view bindtap="qux">取消订单</view>
+  <view>
+  <text>订单状态：</text>
+  <text style="color:red"  wx:if="{{0}}">待付款</text> 
+  <text style="color:red">待收货</text> 
+  </view>
+  <view bindtap="qux" wx:if="{{0}}">取消订单</view>
 </view>
 <view class="submit_btn jinse">
-    立即支付
+    <text  wx:if="{{0}}">立即支付</text>
+    <text bindtap="confirm">确认收货</text>
   </view>
 </view>
 
