@@ -1,4 +1,5 @@
-  <view class="dizhi">
+<view wx:if="{{0}}">
+    <view class="dizhi">
     收货地址
   </view>
   <view class="isadd">
@@ -10,6 +11,23 @@
       浙江省杭州市滨江区高新区软件园4号楼207
     </view>
   </view>
+</view>
+
+
+<view class="kd">
+<view class="kd_l">
+  <image src="/images/kd_logo.png" />
+</view>
+  <view class="kd_r">
+    <view class="kd_tel">
+      <view>物流公司：<text>顺丰快递</text></view>
+      <view>查看物流 ></view>
+    </view>
+    <view>
+      物流单号：<text>2555666334588</text>
+    </view>
+  </view>
+</view>
 
 <view class="goods_list t20">
   <view class="goods" wx:for="{{1}}" wx:key="i">
@@ -61,7 +79,7 @@
 </view>
 <view>
   <view>订单状态：<text style="color:red">待付款</text> </view>
-  <view>取消订单</view>
+  <view bindtap="qux">取消订单</view>
 </view>
 <view class="submit_btn jinse">
     立即支付
