@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 16,
+			"current": 17,
 			"list": [
 				{
 					"id": -1,
@@ -130,7 +130,13 @@
 				{
 					"id": -1,
 					"name": "快递信息",
-					"pathName": "pages/shop/order/express/express"
+					"pathName": "pages/shop/order/express/express",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "退款",
+					"pathName": "pages/shop/order/refund"
 				}
 			]
 		}

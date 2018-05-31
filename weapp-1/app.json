@@ -7,6 +7,8 @@
     "pages/shop/goods/goods",
     "pages/shop/order/orderList",
     "pages/shop/order/order",
+    "pages/shop/order/discuss",
+    "pages/shop/order/refund",
     "pages/shop/order/express/express",
     "pages/shop/pay/pay",
     "pages/classify/index",

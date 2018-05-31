@@ -192,7 +192,7 @@ view {
   justify-content: center;
 }
 
-.submit_btn text {
+.submit_btn{
   font-size: 32rpx;
   font-family: PingFang-SC-Bold;
   color: rgba(255, 255, 255, 1);

@@ -1,0 +1,50 @@
+<view class="goods_list t20">
+  <view class="goods" wx:for="{{1}}" wx:key="i">
+    <view class="goods_logo">
+      <image src="/images/goods_logo.png" />
+    </view>
+    <view class="goods_info">
+      <text class="info_txt">澳洲Restoria discreet丽丝丽丝丽雅黑发还原乳250ml</text>
+    </view>
+    <text class="curt">X{{1}}</text>
+  </view>
+</view>
+
+<view class="tk_box t20">
+  <view class="cause">
+    <view class="">
+      退款原因
+    </view>
+    <view class="">
+      请选择
+    </view>
+  </view>
+  <view class="num">
+    <view class="">
+      退款金额：¥4100.00
+    </view>
+    <view class="">
+      商家有权根据货物使用情况，调整退款金额
+    </view>
+  </view>
+  <view class="info">
+    <view>
+      退款说明：
+    </view>
+    <input type="text" placeholder="选填" />
+  </view>
+  <view class="img">
+
+  </view>
+  <view class="kefu_box">
+    <view class="lxkf">
+      <view class="kf_img">
+        <image src="/images/kefu.png" />
+      </view>
+      <text>联系客服</text>
+    </view>
+    <view class="submit_btn jinse" wx:if="{{1}}" bindtap="discuss">
+      立即评价
+    </view>
+  </view>
+</view>
