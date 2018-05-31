@@ -1,0 +1,7 @@
+<view class="kd_list">
+  <view class="list {{item==0?'one':''}}" wx:for="{{5}}" wx:key="i">
+  <text class="info">离开北京石景山营业厅，派送中，快递员（温）电话：15559596868</text>
+  <text class="time">2018-5-31 22:12:05</text>
+</view>
+<view class="xian"></view>
+</view>
