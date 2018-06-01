@@ -1,0 +1,51 @@
+<view class="site_list">
+  <view class="site" wx:for="{{3}}" wx:key="i">
+    <view class="top">
+      <view class="title">
+        <view class="name">
+          王小明
+        </view>
+        <view class="phone">
+          1566698743
+        </view>
+      </view>
+      <view class="dizhi">
+        河北省保定市莲池区七一东路3027号12栋宿舍
+      </view>
+    </view>
+    <view class="set">
+      <view class="set_l">
+        <view class="icon">
+          <icon wx:if="{{item==0}}" type="success" size="20" color="RGBA(194, 179, 135, 1)" />
+        </view>
+        <view class="moren">
+          默认地址
+        </view>
+      </view>
+
+      <view class="set_r">
+        <view class="r_bj">
+          <view class="img">
+            <image src="" />
+          </view>
+          <view>
+            编辑
+          </view>
+        </view>
+        <view class="r_sc">
+          <view class="img">
+            <image src="" />
+          </view>
+          <view>
+            删除
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>
+
+<view class="jinse" bindtap="toAdd">
+  +新增加收货地址
+</view>

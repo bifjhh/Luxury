@@ -11,6 +11,8 @@
     "pages/shop/order/refund",
     "pages/shop/order/express/express",
     "pages/shop/pay/pay",
+    "pages/shop/site/site",
+    "pages/shop/site/add",
     "pages/classify/index",
     "pages/cart/index",
     "pages/my/index",

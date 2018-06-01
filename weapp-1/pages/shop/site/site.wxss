@@ -1,0 +1,96 @@
+view {
+  box-sizing: border-box;
+  color:rgba(51,51,51,1);
+}
+
+.site {
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+
+.site>view {
+  padding: 0 30rpx;
+}
+
+.top {
+  height: 136rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title>view {
+  font-size: 32rpx;
+  font-family: PingFang-SC-Medium;
+  color: rgba(51, 51, 51, 1);
+  line-height: 40rpx;
+}
+
+.dizhi {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  color: rgba(51, 51, 51, 1);
+  line-height: 40rpx;
+}
+
+.set {
+  height: 84rpx;
+  border-bottom: 1px solid #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.set_l {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.moren{
+  margin-left: 12rpx;
+}
+.set_r {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.set_r>view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.r_sc {
+  margin-left: 16rpx;
+}
+
+.img {
+  width: 30rpx;
+  height: 30rpx;
+  background-color: #0ff;
+  margin-right: 10rpx;
+}
+
+.jinse{
+  position: fixed;
+  bottom: 35rpx;
+  left: 30rpx;
+  width: 690rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius:40px;
+  box-shadow:11px 0px 10px rgba(77,77,77,0.1);
+  font-size:34rpx;
+  font-family:PingFang-SC-Bold;
+  color:rgba(255,255,255,1);
+  text-align: center;
+}
