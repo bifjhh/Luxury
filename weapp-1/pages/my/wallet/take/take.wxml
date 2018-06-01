@@ -1,10 +1,10 @@
 <view class="body">
-  <view wx:if="{{0}}" class="add">+添加收款银行卡</view>
-  <view class="yhk">
+  <view wx:if="{{isadd}}" class="add" bindtap="addcard">+添加收款银行卡</view>
+  <view class="yhk" wx:if="{{!isadd}}">
     <view class="logo_img">
       <image style="width:67rpx;height:67rpx" src="/images/pay/jsyh.png" />
     </view>
-    <view class="yhk_info">
+    <view class="yhk_info" >
       <text>中国建设银行</text>
       <text>尾号0998</text>
     </view>
@@ -18,7 +18,7 @@
   <view class="keyong">
     可提现金额999999
   </view>
-  <view class="take_btn jinse">
+  <view class="take_btn jinse" bindtap="took">
     申请提现
   </view>
   <view class="ts">

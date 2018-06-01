@@ -3,7 +3,7 @@
     <text>我的余额</text>
     <text>￥4600.00</text>
     <view class="card_btn">
-      <view class="btn_l">
+      <view class="btn_l" bindtap="toTx">
         提现
       </view>
       <view class="btn_r" bindtap="toRecharge">

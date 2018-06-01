@@ -17,13 +17,13 @@
     </view>
   </view>
   <view class="affair">
-    <view class="add_cart">
+    <view class="add_cart" bindtap="addGwc">
       加入购物车
     </view>
     <view class="jiange">
 
     </view>
-    <view class="buy">
+    <view class="buy" bindtap="ljgm">
       立即购买
     </view>
   </view>

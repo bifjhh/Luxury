@@ -19,6 +19,11 @@ Page({
     console.log(e.detail.value*1)
     this.setData({bankIndex:e.detail.value*1})
   },
+  toGo(){
+    wx.navigateBack({
+      delta: 1
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -27,7 +27,7 @@
     </block>
   </view>
   <view class="nav_right">
-      <block wx:for="{{6}}" wx:key="i">
+      <view bindtap="toDetail" wx:for="{{6}}" wx:key="i">
         <view class="nav_logo">
             <view class="nav_img">
                 <image src="/images/classify_bb.png"></image>
@@ -36,6 +36,6 @@
               <text>{{curNav}}双肩背包</text>
             </view>
         </view>
-      </block>
+      </view>
   </view>
 </view>

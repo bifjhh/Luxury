@@ -46,12 +46,12 @@
 
 </view>
 
-<view class="show_modal">
+<view class="show_modal" wx:if="{{setPsw}}"  bindtap="isPsq">
   <view class="modal">
     <view class="modal_info">
       暂未设置支付密码，请先设置支付密码
     </view>
-    <view class="modal_btn">
+    <view  class="modal_btn">
       <text>暂不设置</text>
       <text>立即设置</text>
     </view>
