@@ -29,6 +29,7 @@
     "pages/details/index",
     "pages/brand/index",
     "pages/list/index",
+    "pages/pinglun/pinglun",
     "pages/user/index"  
   ],
   "window":{

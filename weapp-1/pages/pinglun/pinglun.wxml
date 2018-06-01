@@ -1,0 +1,10 @@
+<form bindsubmit="submit" >
+  <view class="info_box">
+    <textarea name="info" placeholder="请输入内容" maxlength="200" show-confirm-bar="{{false}}" bindinput="setInput" />
+    <view class="num">
+      {{infoNum}}/200
+    </view>
+  </view>
+  <button class="jinse" form-type="submit" >{{'提交评价'}}</button>
+</form>
+  

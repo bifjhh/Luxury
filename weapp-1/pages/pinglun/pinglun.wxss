@@ -1,0 +1,40 @@
+page{
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+textarea,input{
+  box-sizing: border-box;
+  padding: 15rpx;
+  width: 100%;
+  border: 1px solid #f2f2f2;
+  height: 300rpx;
+  margin-top: 40rpx;
+  word-wrap:break-word;  
+  word-break:break-all;  
+  overflow: hidden;  
+  font-size:30rpx;
+  font-family:PingFang-SC-Regular;
+  color:#333;
+  line-height:49rpx;
+}
+.jinse{
+  margin-top: 65rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size:34rpx;
+  font-family:PingFang-SC-Bold;
+  color:rgba(255,255,255,1);
+  border-radius:40px;
+}
+.info_box{
+  position: relative;
+}
+.num{
+  position: absolute;
+  bottom: 15rpx;
+  right: 15rpx;
+  font-size:24rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(153,153,153,1);
+}

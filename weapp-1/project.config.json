@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 18,
+			"current": 20,
 			"list": [
 				{
 					"id": -1,
@@ -143,6 +143,18 @@
 					"id": -1,
 					"name": "地址",
 					"pathName": "pages/shop/site/site",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "编辑地址",
+					"pathName": "pages/shop/site/add",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "评论",
+					"pathName": "pages/pinglun/pinglun",
 					"query": ""
 				}
 			]
