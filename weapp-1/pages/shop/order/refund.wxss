@@ -94,26 +94,120 @@ view{
   font-size: 32rpx;
   font-family: PingFang-SC-Bold;
   color: rgba(255, 255, 255, 1);
+  border: none;
 }
+
+.submit_btn:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
 .tk_box>view{
   padding: 0 30rpx;
   border-bottom: 1px solid #f2f2f2;
 }
 
-.cause{
+.tk_box .cause{
   display: flex;
   height: 100rpx;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+}
+.cause>view{
+  flex: auto;
+}
+.cause>view:nth-of-type(2){
+  position: relative;
+  padding-right: 48rpx;
+}
+.jt{
+  width: 15rpx;
+  height: 26rpx;
+  position: absolute;
+  top: 50%;
+  right: 0rpx;
+  transform: translateY(-50%);
+}
+picker{
+  text-align: right;
+  line-height: 100rpx;
+  width: 100%;
 }
 .info {
   display: flex;
   height: 100rpx;
   align-items: center;
 }
+.info view{
+  font-size:30rpx;
+  font-family:PingFang-SC-Medium;
+  color:rgba(51,51,51,1);
+}
+.info input{
+  font-size:30rpx;
+  color: #333;  
+}
 .num{
   display: flex;
   height: 100rpx;
   justify-content: center;
   flex-direction: column;
+}
+.num>view:nth-of-type(1){
+  margin-top: 10rpx;
+  font-size:30rpx;
+  font-family:PingFang-SC-Medium;
+  color:rgba(51,51,51,1);
+  line-height:40rpx;
+}
+.num>view:nth-of-type(2){
+  font-size:20rpx;
+  font-family:PingFang-SC-Regular;
+  color:rgba(153,153,153,1);
+  line-height:40rpx;
+}
+.pz{
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size:30rpx;
+  font-family:PingFang-SC-Medium;
+  color:rgba(51,51,51,1);
+}
+
+.img{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 30rpx;
+}
+
+.is_img{
+  width: 130rpx;
+  height: 130rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.add_img{
+  width: 130rpx;
+  height: 130rpx;
+  background:rgba(213,213,213,1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.add_img>view:nth-of-type(1){
+  font-size:34rpx;
+  font-family:PingFang-SC-Medium;
+  color:rgba(255,255,255,1);
+  line-height:49rpx;
+}
+.add_img>view:nth-of-type(2){
+  font-size:20rpx;
+  font-family:PingFang-SC-Medium;
+  color:rgba(255,255,255,1);
+  line-height:49rpx;
 }

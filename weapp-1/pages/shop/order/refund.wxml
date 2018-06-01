@@ -9,14 +9,21 @@
     <text class="curt">X{{1}}</text>
   </view>
 </view>
-
+<form bindsubmit="submit">
 <view class="tk_box t20">
   <view class="cause">
     <view class="">
       退款原因
     </view>
     <view class="">
-      请选择
+      <picker name="yuanyin" bindchange="cause" value="{{index}}" range="{{causeList}}">
+        <view class="picker">
+          {{causeList[causeIndex]}}
+        </view>
+      </picker>
+      <view class="jt">
+        <image src="/images/dingdan_jt.png" />
+      </view>
     </view>
   </view>
   <view class="num">
@@ -31,10 +38,21 @@
     <view>
       退款说明：
     </view>
-    <input type="text" placeholder="选填" />
+    <input name="shuoming" type="text" placeholder="选填" />
   </view>
-  <view class="img">
-
+  <view class="img_list">
+    <view class="pz">
+      凭证
+    </view>
+    <view class="img">
+      <view class="is_img" wx:for="{{imgs}}" wx:key="i" catchtap="preview" data-src="{{item}}">
+        <image src="{{item}}" data-src="{{item}}" />
+      </view>
+      <view bindtap="upimg" wx:if="{{imgs.length<12}}" class="add_img">
+        <view>+</view>
+        <view>{{imgs.length}}/12</view>
+      </view>
+    </view>
   </view>
   <view class="kefu_box">
     <view class="lxkf">
@@ -43,8 +61,7 @@
       </view>
       <text>联系客服</text>
     </view>
-    <view class="submit_btn jinse" wx:if="{{1}}" bindtap="discuss">
-      立即评价
-    </view>
+    <button wx:if="{{1}}" class="submit_btn jinse" form-type="submit"  hover-class="defaultTap">提交</button>
   </view>
 </view>
+</form>
