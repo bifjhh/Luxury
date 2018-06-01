@@ -1,19 +1,44 @@
-<view class="no_goods">
-  <image src="/images/cart-null.png" class="cart-image"/>
+<view wx:if="{{0}}" class="no_goods">
+  <image src="/images/cart-null.png" class="cart-image" />
   <view>购物车空空如也</view>
 </view>
-<view class="goods_list t20">
-  <view class="goods" wx:for="{{1}}" wx:key="i">
-  <view class="icon">
-    <icon  type="success" size="20" color="RGBA(194, 179, 135, 1)" />
+<view class="body">
+  <view class="title">
+    编辑商品
   </view>
-    <view class="goods_logo">
-      <image src="/images/goods_logo.png" />
+  <view class="goods_list t20">
+    <view class="goods" wx:for="{{1}}" wx:key="i">
+      <view class="icon">
+        <icon type="success" size="20" color="RGBA(194, 179, 135, 1)" />
+      </view>
+      <view class="goods_logo">
+        <image src="/images/goods_logo.png" />
+      </view>
+      <view class="goods_info">
+        <text class="info_txt">澳洲Restoria discreet丽丝丽丝丽雅黑发还原乳250ml</text>
+        <text class="money">￥1288.00</text>
+        <text class="curt">X{{1}}</text>
+      </view>
     </view>
-    <view class="goods_info">
-      <text class="info_txt">澳洲Restoria discreet丽丝丽丝丽雅黑发还原乳250ml</text>
-      <text class="money">￥ 1288.00</text>
-      <text class="curt">X{{1}}</text>
+  </view>
+</view>
+
+<view class="btn">
+  <view class="btn_l">
+    <view class="icon">
+      <icon wx:if="{{0}}" type="success" size="20" color="RGBA(194, 179, 135, 1)" />
     </view>
+    <view>
+      全选
+    </view>
+    <view>
+      合计
+    </view>
+    <view>
+      ￥999999.00
+    </view>
+  </view>
+  <view class="jinse">
+    结算
   </view>
 </view>
