@@ -20,6 +20,11 @@ Page({
       showCard: e.target.dataset.cardid * 1
     })
   },
+  todd(){
+    wx.navigateTo({
+      url: '/pages/shop/order/order'
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

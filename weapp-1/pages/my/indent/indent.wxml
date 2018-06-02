@@ -36,7 +36,7 @@
 </view>
 
 <view class="indent_box">
-  <view class="indent t20">
+  <view class="indent t20" bindtap="todd">
     <view class="haoma">
       <view>订单编号：55544466699877</view>
       <view wx:if="{{showCard==1}}">待付款</view>

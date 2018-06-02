@@ -24,33 +24,12 @@ Page({
     });
   },
 
-  upimg() {
-    let that = this;
-    let imgs = that.data.imgs;
-    wx.pro.chooseImage({
-      count: 1, // 默认9
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-    }).then(res => {
-      console.log(res.tempFilePaths)
-      imgs.push(res.tempFilePaths[0])
-      that.setData({
-        imgs
-      })
-
-    })
-  },
-  preview(e) {
-    let that = this;
-    let src = e.target.dataset.src;
-    wx.previewImage({
-      current: src, // 当前显示图片的http链接
-      urls: that.data.imgs // 需要预览的图片http链接列表
-    })
-  },
   submit(e){
     console.log(e.detail.value)
     console.log(this.data.imgs)
+    wx.navigateTo({
+      url: '/pages/my/indent/indent'
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

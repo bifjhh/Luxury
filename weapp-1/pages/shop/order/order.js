@@ -59,7 +59,11 @@ Page({
       url: '/pages/shop/order/express/express',
     })
   },
-
+  tokefu(){
+    wx.navigateTo({
+      url: '/pages/my/lxkf/lxkf'
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

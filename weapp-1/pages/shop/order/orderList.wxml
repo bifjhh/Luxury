@@ -73,7 +73,7 @@
 
 <view class="submit">
   <text>￥1299.00</text>
-  <view class="submit_btn jinse">
+  <view class="submit_btn jinse" bindtap="submit">
     提交订单
   </view>
 </view>

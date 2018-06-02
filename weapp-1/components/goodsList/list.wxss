@@ -17,7 +17,7 @@
 }
 
 .goods:nth-child(2n) {
-  margin-left: 12rpx;
+  margin-left: 10rpx;
 }
 
 .goods_img {

@@ -78,7 +78,7 @@
     <text>应付</text>
     <text class="mn_num">￥1299.00</text>
   </view>
-  <view class="kefu_box">
+  <view class="kefu_box" bindtap="tokefu">
     <view class="lxkf">
       <view class="kf_img">
         <image src="/images/kefu.png" />
