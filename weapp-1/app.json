@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/index/search/search",
     "pages/index/result/result",
@@ -9,6 +9,7 @@
     "pages/shop/order/order",
     "pages/shop/order/discuss",
     "pages/shop/order/refund",
+    "pages/shop/order/info/info",
     "pages/shop/order/express/express",
     "pages/shop/pay/pay",
     "pages/shop/site/site",
@@ -16,6 +17,7 @@
     "pages/classify/index",
     "pages/cart/index",
     "pages/my/index",
+    "pages/my/lxkf/lxkf",
     "pages/my/info/info",
     "pages/my/wallet/wallet",
     "pages/my/wallet/Recharge/Recharge",
@@ -30,10 +32,10 @@
     "pages/brand/index",
     "pages/list/index",
     "pages/pinglun/pinglun",
-    "pages/user/index"  
+    "pages/user/index"
   ],
-  "window":{
-    "backgroundTextStyle":"white",
+  "window": {
+    "backgroundTextStyle": "white",
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "奢物",
     "navigationBarBackgroundColor": "#38373D",
@@ -45,27 +47,32 @@
     "selectedColor": "#AD9B6A",
     "borderStyle": "white",
     "backgroundColor": "#fff",
-    "list": [{
-      "pagePath": "pages/index/index",
-      "iconPath": "images/tab/home.png",
-      "selectedIconPath": "images/tab/home_active.png",
-      "text": "首页"
-    }, {
-      "pagePath": "pages/classify/index",
-      "iconPath": "images/tab/fenlei.png",
-      "selectedIconPath": "images/tab/fenlei_active.png",
-      "text": "分类"
-    }, {
-      "pagePath": "pages/cart/index",
-      "iconPath": "images/tab/gwc.png",
-      "selectedIconPath": "images/tab/gwc_active.png",
-      "text": "购物车"
-    }, {
-      "pagePath": "pages/my/index",
-      "iconPath": "images/tab/wode.png",
-      "selectedIconPath": "images/tab/wode_active.png",
-      "text": "我的"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/tab/home.png",
+        "selectedIconPath": "images/tab/home_active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/classify/index",
+        "iconPath": "images/tab/fenlei.png",
+        "selectedIconPath": "images/tab/fenlei_active.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/cart/index",
+        "iconPath": "images/tab/gwc.png",
+        "selectedIconPath": "images/tab/gwc_active.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "iconPath": "images/tab/wode.png",
+        "selectedIconPath": "images/tab/wode_active.png",
+        "text": "我的"
+      }
+    ]
   },
   "debug": true
 }

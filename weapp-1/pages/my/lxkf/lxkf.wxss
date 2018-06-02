@@ -1,0 +1,23 @@
+page{
+  box-sizing: border-box;
+  padding: 0 20rpx;
+}
+view{
+  box-sizing: border-box;
+}
+
+.rengong,.zaixian{
+  height: 200rpx;
+  background-image: url(https://s1.ax1x.com/2018/06/02/CousfA.png);
+  background-size: 100% 100%;
+  border-radius: 15rpx;
+  display: flex;
+  align-items: center;
+  padding-left: 262rpx;
+}
+view{
+  font-size:36rpx;
+  font-family:PingFang-SC-Bold;
+  color:rgba(51,51,51,1);
+  text-align: center;
+}

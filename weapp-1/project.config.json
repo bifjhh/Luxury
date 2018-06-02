@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 22,
 			"list": [
 				{
 					"id": -1,
@@ -156,6 +156,17 @@
 					"name": "评论",
 					"pathName": "pages/pinglun/pinglun",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "客服",
+					"pathName": "pages/my/lxkf/lxkf",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "退款详情",
+					"pathName": "pages/shop/order/info/info"
 				}
 			]
 		}

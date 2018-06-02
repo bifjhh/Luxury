@@ -1,0 +1,12 @@
+<view class="zaixian t20">
+  <view>
+    在线客服（8:00-18:00）
+  </view>
+</view>
+<view class="rengong t20">
+  <view>
+    人工客服（8:00-18:00）
+    \n
+    400-0000-888
+  </view>
+</view>
