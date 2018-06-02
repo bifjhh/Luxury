@@ -2,6 +2,6 @@
   <icon type="success" size="50" />
 </view>
 
-<view class="jinse">
+<view class="jinse" bindtap="toGo">
   确定
 </view>

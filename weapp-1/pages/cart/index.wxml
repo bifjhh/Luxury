@@ -1,10 +1,18 @@
-<view wx:if="{{0}}" class="no_goods">
-  <image src="/images/cart-null.png" class="cart-image" />
-  <view>购物车空空如也</view>
+<view wx:if="{{1}}" class="no_goods">
+  <view class="cart-image">
+    <image src="/images/gouwuche2.png"  />
+  </view>
+  <view>空空如也</view>
+  <view class="tiaoxuan">
+    挑奢物
+  </view>
 </view>
 <view class="body">
-  <view class="title">
+  <view class="title" bindtap="setGoods" wx:if="{{set==0}}" data-set="1">
     编辑商品
+  </view>
+  <view class="title" bindtap="setGoods" wx:if="{{set==1}}" data-set="0">
+    完成
   </view>
   <view class="goods_list t20">
     <view class="goods" wx:for="{{1}}" wx:key="i">
@@ -28,17 +36,20 @@
     <view class="icon">
       <icon wx:if="{{0}}" type="success" size="20" color="RGBA(194, 179, 135, 1)" />
     </view>
-    <view>
+    <view class="quanxuan">
       全选
     </view>
-    <view>
+    <view class="heji" wx:if="{{set==0}}">
       合计
     </view>
-    <view>
+    <view class="sum" wx:if="{{set==0}}">
       ￥999999.00
     </view>
   </view>
-  <view class="jinse">
+  <view class="jinse" wx:if="{{set==0}}">
     结算
+  </view>
+  <view class="jinse {{set==1?'hui':''}}" wx:if="{{set==1}}">
+    删除
   </view>
 </view>

@@ -4,15 +4,15 @@
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     <view class="purse">
-      <view class="purse_ye">
+      <view class="purse_ye" bindtap="toqianbao">
         <view>0.00</view>
         <view class="text_b">余额</view>
       </view>
-      <view class="purse_yhq">
+      <view class="purse_yhq" bindtap="toyhq">
         <view>5</view>
         <view class="text_b">优惠券</view>
       </view>
-      <view class="purse_hb">
+      <view class="purse_hb" bindtap="tohongb">
         <view>200</view>
         <view class="text_b">红包</view>
       </view>
@@ -20,7 +20,7 @@
   </view>
  
 
-    <view class="apply">
+    <view class="apply" bindtap="todind">
       <view class="apply_box">
         <view class="apply_bac">
 
@@ -34,7 +34,7 @@
 
         </view>
         <view class="apply_text">
-          待付款
+          待发货
         </view>
       </view>
       <view class="apply_box">
@@ -42,7 +42,7 @@
 
         </view>
         <view class="apply_text">
-          待付款
+          待收货
         </view>
       </view>
       <view class="apply_box">
@@ -50,7 +50,7 @@
 
         </view>
         <view class="apply_text">
-          待付款
+          退款/售后
         </view>
       </view>
       <view class="apply_box">
@@ -58,7 +58,7 @@
 
         </view>
         <view class="apply_text">
-          待付款
+          全部
         </view>
       </view>
     </view>
@@ -68,7 +68,7 @@
         <view class="set_bac">
 
         </view>
-        <view class="set_text">
+        <view class="set_text" bindtap="todizhi">
           我的地址
         </view>
       </view>
@@ -76,8 +76,8 @@
         <view class="set_bac">
 
         </view>
-        <view class="set_text">
-          我的地址
+        <view class="set_text" bindtap="toyijian">
+          意见反馈
         </view>
       </view>
       <view class="set_box">
@@ -85,23 +85,15 @@
 
         </view>
         <view class="set_text">
-          我的地址
+          邀请好友
         </view>
       </view>
       <view class="set_box">
         <view class="set_bac">
 
         </view>
-        <view class="set_text">
-          我的地址
-        </view>
-      </view>
-      <view class="set_box">
-        <view class="set_bac">
-
-        </view>
-        <view class="set_text">
-          我的地址
+        <view class="set_text" bindtap="toInfo">
+          设置
         </view>
       </view>
     </view>

@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    isadd:true,
   },
 
   /**
@@ -14,7 +14,17 @@ Page({
   onLoad: function (options) {
   
   },
-
+  addcard(){
+    this.setData({isadd:false})
+    wx.navigateTo({
+      url: '/pages/my/wallet/take/addCard'
+    })
+  }, 
+  took() {
+    wx.navigateTo({
+      url: '/pages/my/wallet/take/takeOk'
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -7,6 +7,7 @@ Page({
   data: {
     fqShow:false,
     isPsw:false,
+    setPsw:true,
   },
 
   /**
@@ -19,6 +20,9 @@ Page({
     let that = this;
     that.setData({fqShow:!that.data.fqShow});
    
+  },
+  isPsq(){
+    this.setData({setPsw:false})
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

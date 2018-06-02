@@ -32,6 +32,16 @@ Page({
       is_show
     })
   },
+  addGwc() {
+    wx.switchTab({
+      url: '/pages/cart/index'
+    })
+  },
+  ljgm(){
+    wx.navigateTo({
+      url: '/pages/shop/pay/pay'
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

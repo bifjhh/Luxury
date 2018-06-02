@@ -12,6 +12,11 @@ Page({
         
         
     },
+    toDetail(){
+        wx.navigateTo({
+            url: '/pages/shop/goods/goods',
+        })
+    },
 
     //事件处理函数
     switchRightTab: function(e) {

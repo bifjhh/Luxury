@@ -20,6 +20,6 @@
   <input type="number" placeholder="填写银行卡号" />
 </view>
 
-<view class="jinse">
+<view class="jinse" bindtap="toGo">
   确定
 </view>

@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    bindPhone:false,
   },
 
   /**
@@ -25,10 +25,15 @@ Page({
    * 用户登录允许授权后执行的方法
    */
   logn(){
+    let that = this;
+    that.setData({bindPhone:true})
+  },
+  submit(){
     wx.reLaunch({
       url: '/pages/index/index'
     })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
