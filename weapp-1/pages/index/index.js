@@ -53,6 +53,11 @@ Page({
              url: "/pages/shop/goods/goods"
          })
     },
+    tollkf(){
+        wx.navigateTo({
+            url: '/pages/my/lxkf/lxkf'
+        })
+    },
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */

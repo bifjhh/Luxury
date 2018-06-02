@@ -7,7 +7,7 @@
             <image class="search" style="width:18rpx;height:20rpx" src="/images/home/search.png" />
                 探索你的奢物
             </view>
-            <view class="seek_r fl">
+            <view class="seek_r fl" bindtap="tollkf">
                 <image src="/images/home/kefu.png" />
             </view>
         </view>
