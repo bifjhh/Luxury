@@ -26,3 +26,23 @@
   <template is="goodsList"></template>
     
 </view>
+
+<view class="filtrate_list">
+  <view class="options">
+    <view class="opt_info">
+      品牌
+    </view>
+    <view class="opt_info">
+      品类
+    </view>
+    <view class="opt_info">
+      价格
+    </view>
+    <view class="opt_info">
+      品类
+    </view>
+    <view class="opt_info">
+      降价/分期
+    </view>
+  </view>
+</view>
