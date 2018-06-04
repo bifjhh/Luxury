@@ -215,3 +215,21 @@ swiper-item image {
     color:rgba(102,102,102,1);
     line-height:40rpx;
 }
+.guide{
+    position: absolute;
+    right: 40rpx;
+    bottom: 25rpx;
+    display: flex;
+    justify-content: center;
+}
+.guide>view{
+    width: 14rpx;
+    height: 10rpx;
+    border-radius: 5rpx;
+    background-color: #fff;
+    transition: all .5s ease;
+    margin-left: 8rpx;
+}
+.guide>view.action{
+   width: 30rpx;
+}

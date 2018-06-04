@@ -9,6 +9,7 @@ Page({
     data: {
         
         loadingHidden: true, // loading
+        swpPage:0,
     },
 
     /**
@@ -27,7 +28,7 @@ Page({
 
     },
     current(e) {
-            console.log(e.detail.current)
+        this.setData({swpPage:e.detail.current})
     },
 
     /**

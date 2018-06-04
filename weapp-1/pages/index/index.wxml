@@ -11,14 +11,18 @@
                 <image src="/images/home/kefu.png" />
             </view>
         </view>
-        <swiper class="swiper_box" indicator-dots="{{true}}" 
-                autoplay interval="{{2000}}" duration="{{1000}}" bindchange="current">
+        <swiper class="swiper_box" autoplay interval="{{2000}}" duration="{{1000}}" bindchange="current">
             <block wx:for="{{5}}" wx:key="i">
                 <swiper-item>
                     <image src="/images/home/banner.png" class="slide-image"/>
                 </swiper-item>
             </block>
         </swiper>
+        <view class="guide">
+            <view class="{{item==swpPage?'action':''}}" wx:for="{{5}}" wx:key="i">
+                
+            </view>
+        </view>
     </view>
     <!-- 功能选择  -->
     <view class="xuanze">
