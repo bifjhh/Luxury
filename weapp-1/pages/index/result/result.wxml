@@ -30,19 +30,29 @@
 <view class="filtrate_list">
   <view class="options">
     <view class="opt_info">
-      品牌
+      <view class="h1">
+        品牌
+      </view>
     </view>
     <view class="opt_info">
-      品类
+      <view class="h1">
+        品类
+      </view>
     </view>
     <view class="opt_info">
-      价格
+      <view class="h1">
+        价格
+      </view>
     </view>
     <view class="opt_info">
-      品类
+      <view class="h1">
+        品类
+      </view>
     </view>
     <view class="opt_info">
-      降价/分期
+      <view class="h1">
+        降价/分期
+      </view>
     </view>
   </view>
 </view>
