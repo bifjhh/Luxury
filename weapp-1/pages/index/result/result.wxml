@@ -84,5 +84,13 @@
         </view>
       </view>
     </view>
+    <view class="btn">
+      <view class="btn_l">
+        重置
+      </view>
+      <view class="btn_r">
+        确定
+      </view>
+    </view>
   </view>
 </view>
