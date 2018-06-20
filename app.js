@@ -55,7 +55,11 @@ App({
        })
      }
    },
+   getHttp(){
+     
+   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    uri: 'http://116.62.142.20:86/api/'
   }
 })
