@@ -28,12 +28,12 @@
     为了您的账户安全，请绑定您的手机号
   </view>
   <view class="set_phone">
-    <input name="mobile	" type="number" placeholder="请输入11位手机号码" maxlength="11" value="{{phone}}" bindinput="input" />
+    <input name="mobile" type="number" placeholder="请输入11位手机号码" maxlength="11" value="{{phone}}" bindinput="input" />
     <view class="code jinse" bindtap="getCode">
       获取验证码
     </view>
   </view>
-  <input class="yanzheng" name="captcha" type="text" placeholder="请输入验证码"/>    
+  <input class="yanzheng" name="captcha" type="text" placeholder="请输入验证码" value="1234"/>    
   <button form-type="submit" class="jinse btn">安全绑定</button>
 </view>
 </form>

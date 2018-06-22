@@ -172,7 +172,8 @@
 				{
 					"id": -1,
 					"name": "登录",
-					"pathName": "pages/user/index"
+					"pathName": "pages/user/index",
+					"query": ""
 				}
 			]
 		}

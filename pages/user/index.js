@@ -1,5 +1,6 @@
 const app = getApp()
 const uri = app.globalData.uri;
+const openId = app.globalData.openId;
 
 Page({
 
@@ -8,7 +9,7 @@ Page({
    */
   data: {
     bindPhone: false,
-    phone: ''
+    phone: '13111111111'
   },
 
   /**
@@ -28,27 +29,52 @@ Page({
    */
   logn() {
     let that = this;
+    let data = {
+      openid: openId,
+      platform: 'wx'
+    }
+    wx.pro.request({
+      url: uri + 'User/thirdlogin',
+      data: data,
+      method: "POST",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      }
+    }).then(res => {
+      if (res.data.code == 1) {
+        wx.setStorage({
+          key: "token",
+          data: res.data.data.userinfo.token
+        })
+      }
+    })
     that.setData({
       bindPhone: true
     })
+
   },
   submit(e) {
+    let that = this;
     let data = e.detail.value;
-    data.platform='wx';
-    console.log(data)
-    return;
+    data.platform = 'wx';
+    data.openid = openId;
     wx.pro.request({
       url: uri + 'User/bindmobile',
-      data: {
-        mobile: that.data.phone
-      },
+      data: data,
+      method: "POST",
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/x-www-form-urlencoded'
+      }
+    }).then(res => {
+      if (res.data.code == 1) {
+        console.log(res)
+        that.logn()
+        wx.reLaunch({
+          url: '/pages/index/index'
+        })
       }
     })
-    wx.reLaunch({
-      url: '/pages/index/index'
-    })
+
   },
   input(e) {
     this.setData({
@@ -73,22 +99,22 @@ Page({
         mobile: that.data.phone
       },
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/x-www-form-urlencoded'
       }
     }).then(res => {
       console.log()
-      if (res.data.code){
-         wx.showToast({
-           title: res.data.msg,
-           icon: 'none',
-           duration: 1500
-         })
-      }else{
-         wx.showToast({
-           title: res.data.msg,
-           icon: 'none',
-           duration: 1500
-         })
+      if (res.data.code) {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: 1500
+        })
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: 1500
+        })
       }
     })
   },
