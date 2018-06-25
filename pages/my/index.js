@@ -1,7 +1,8 @@
 var app = getApp()
+const uri = app.globalData.uri;
 Page({
   data: {
-
+    userInfo: {},
   },
 
   onLoad: function () {
@@ -11,15 +12,31 @@ Page({
       key: 'token',
       success: function (res) {
         console.log(res.data)
-        that.setData({token:res.data})
+        that.setData({
+          token: res.data
+        })
+        wx.pro.request({
+          url: uri + 'User/getUserinfo',
+          data: {
+            token: that.data.token
+          },
+          method: "POST",
+          header: {
+            'content-type': 'application/x-www-form-urlencoded'
+          }
+        }).then(res => {
+          that.setData({
+            userInfo: res.data.data.userinfo
+          })
+        })
       }
     })
-    app.getUserInfo(function (userInfo) {
-      //更新数据
-      that.setData({
-        userInfo: userInfo
-      })
-    })
+    // app.getUserInfo(function (userInfo) {
+    //   //更新数据
+    //   that.setData({
+    //     userInfo: userInfo
+    //   })
+    // })
   },
   todind() {
     wx.navigateTo({

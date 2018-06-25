@@ -2,7 +2,7 @@
   <text>头像</text>
   <view bindtap="setImg">
     <view class="image ">
-      <image src="{{nameImg}}" />
+      <image src="{{userInfo.avatar}}" />
     </view>
     <view class="jt">
       <image src="/images/dingdan_jt.png" />
@@ -24,7 +24,7 @@
   <view>
     <picker bindchange="ageChoice" value="{{index}}" range="{{age}}">
       <view class="picker">
-        {{age[ageindex]}}
+        {{age[userInfo.gender]}}
       </view>
     </picker>
     <view class="jt">
@@ -37,9 +37,9 @@
 <view class="birthday bgc_f">
   <text>生日</text>
   <view>
-    <picker mode="date" value="{{date}}" start="1910-01-01"  bindchange="birthday">
+    <picker mode="date" value="{{date}}" start="1910-01-01" bindchange="birthday">
       <view class="picker">
-        {{time}}
+        {{userInfo.birthday?userInfo.birthday:'请选择日期'}}
       </view>
     </picker>
     <view class="jt">

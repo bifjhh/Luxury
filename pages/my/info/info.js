@@ -1,26 +1,47 @@
-// pages/my/info/info.js
+// pages/my/info/info.
+const app = getApp()
+const uri = app.globalData.uri;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    age: ['男', '女'],
+    age: ['女', '男'],
     ageindex: 0,
     time: '请选择日期',
     name: '请输入你的昵称',
-    nameImg:"/images/my/gerenxinxi_touxiang.png",
+    nameImg: "/images/my/gerenxinxi_touxiang.png",
+    token: null,
+    userInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this;
+    wx.getStorage({
+      key: 'token',
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          token: res.data
+        })
+        that.getUserInfo(that, {});
+      }
+    })
+
 
   },
   ageChoice(e) {
+    let that = this;
+    console.log(that.data)
     console.log(e.detail.value * 1)
-    this.setData({
+    that.setUserInfo(that,{
+      gender: e.detail.value * 1
+    })
+    that.setData({
       ageindex: e.detail.value * 1
     })
   },
@@ -35,16 +56,48 @@ Page({
       url: '/pages/my/info/name/name'
     })
   },
-
+  getUserInfo(that, data) {
+    data.token = that.data.token
+    wx.pro.request({
+      url: uri + 'User/getUserinfo',
+      data: data,
+      method: "POST",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      }
+    }).then(res => {
+      that.setData({
+        userInfo: res.data.data.userinfo
+      })
+    })
+  },
+  setUserInfo(that, data) {
+    data.token=that.data.token
+    wx.pro.request({
+      url: uri + 'User/profile',
+      data: data,
+      method: "POST",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      }
+    }).then(res => {
+      that.getUserInfo(that, {
+        token: that.data.token
+      })
+    })
+  },
   setImg() {
     let that = this;
     wx.pro.chooseImage({
       count: 1, // 默认9
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-    }).then(res=>{
+    }).then(res => {
       console.log(res.tempFilePaths)
-      that.setData({nameImg:res.tempFilePaths})
+      that.setUserInfo(that, {
+        avatar: res.tempFilePaths[0]
+      })
+
     })
   },
   /**

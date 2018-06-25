@@ -1,8 +1,8 @@
 <!--index.wxml-->
 <view class="container">
   <view bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <image class="userinfo-avatar" src="{{userInfo.avatar}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickname}}</text>
     <view class="purse">
       <view class="purse_ye" bindtap="toqianbao">
         <view>0.00</view>
@@ -18,83 +18,83 @@
       </view>
     </view>
   </view>
- 
 
-    <view class="apply" bindtap="todind">
-      <view class="apply_box">
-        <view class="apply_bac">
 
-        </view>
-        <view class="apply_text">
-          待付款
-        </view>
+  <view class="apply" bindtap="todind">
+    <view class="apply_box">
+      <view class="apply_bac">
+
       </view>
-      <view class="apply_box">
-        <view class="apply_bac">
-
-        </view>
-        <view class="apply_text">
-          待发货
-        </view>
-      </view>
-      <view class="apply_box">
-        <view class="apply_bac">
-
-        </view>
-        <view class="apply_text">
-          待收货
-        </view>
-      </view>
-      <view class="apply_box">
-        <view class="apply_bac">
-
-        </view>
-        <view class="apply_text">
-          退款/售后
-        </view>
-      </view>
-      <view class="apply_box">
-        <view class="apply_bac">
-
-        </view>
-        <view class="apply_text">
-          全部
-        </view>
+      <view class="apply_text">
+        待付款
       </view>
     </view>
+    <view class="apply_box">
+      <view class="apply_bac">
 
-     <view class="my_set">
-      <view class="set_box">
-        <view class="set_bac">
-
-        </view>
-        <view class="set_text" bindtap="todizhi">
-          我的地址
-        </view>
       </view>
-      <view class="set_box">
-        <view class="set_bac">
-
-        </view>
-        <view class="set_text" bindtap="toyijian">
-          意见反馈
-        </view>
-      </view>
-      <view class="set_box">
-        <view class="set_bac">
-
-        </view>
-        <view class="set_text">
-          邀请好友
-        </view>
-      </view>
-      <view class="set_box">
-        <view class="set_bac">
-
-        </view>
-        <view class="set_text" bindtap="toInfo">
-          设置
-        </view>
+      <view class="apply_text">
+        待发货
       </view>
     </view>
+    <view class="apply_box">
+      <view class="apply_bac">
+
+      </view>
+      <view class="apply_text">
+        待收货
+      </view>
+    </view>
+    <view class="apply_box">
+      <view class="apply_bac">
+
+      </view>
+      <view class="apply_text">
+        退款/售后
+      </view>
+    </view>
+    <view class="apply_box">
+      <view class="apply_bac">
+
+      </view>
+      <view class="apply_text">
+        全部
+      </view>
+    </view>
+  </view>
+
+  <view class="my_set">
+    <view class="set_box">
+      <view class="set_bac">
+
+      </view>
+      <view class="set_text" bindtap="todizhi">
+        我的地址
+      </view>
+    </view>
+    <view class="set_box">
+      <view class="set_bac">
+
+      </view>
+      <view class="set_text" bindtap="toyijian">
+        意见反馈
+      </view>
+    </view>
+    <view class="set_box">
+      <view class="set_bac">
+
+      </view>
+      <view class="set_text">
+        邀请好友
+      </view>
+    </view>
+    <view class="set_box" bindtap="toInfo">
+      <view class="set_bac">
+
+      </view>
+      <view class="set_text">
+        设置
+      </view>
+    </view>
+  </view>
 </view>
