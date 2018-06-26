@@ -38,7 +38,7 @@ Page({
     let that = this;
     console.log(that.data)
     console.log(e.detail.value * 1)
-    that.setUserInfo(that,{
+    that.setUserInfo(that, {
       gender: e.detail.value * 1
     })
     that.setData({
@@ -46,10 +46,13 @@ Page({
     })
   },
   birthday(e) {
-    console.log(e.detail.value)
-    this.setData({
-      time: e.detail.value
+    let that = this;
+
+    that.setUserInfo(that,{
+      birthday: e.detail.value
     })
+    console.log(e.detail.value)
+    
   },
   toName() {
     wx.navigateTo({
@@ -72,7 +75,7 @@ Page({
     })
   },
   setUserInfo(that, data) {
-    data.token=that.data.token
+    data.token = that.data.token
     wx.pro.request({
       url: uri + 'User/profile',
       data: data,

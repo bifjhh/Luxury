@@ -12,7 +12,7 @@
 <view class="name bgc_f" bindtap="toName">
   <text>昵称</text>
   <view>
-    <text>{{name}}</text>
+    <text>{{userInfo.nickname?userInfo.nickname:'请设置昵称'}}</text>
     <view class="jt">
       <image src="/images/dingdan_jt.png" />
     </view>
