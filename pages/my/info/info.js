@@ -48,11 +48,11 @@ Page({
   birthday(e) {
     let that = this;
 
-    that.setUserInfo(that,{
+    that.setUserInfo(that, {
       birthday: e.detail.value
     })
     console.log(e.detail.value)
-    
+
   },
   toName() {
     wx.navigateTo({
@@ -84,9 +84,7 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       }
     }).then(res => {
-      that.getUserInfo(that, {
-        token: that.data.token
-      })
+      that.getUserInfo(that, {})
     })
   },
   setImg() {
@@ -96,10 +94,22 @@ Page({
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
     }).then(res => {
-      console.log(res.tempFilePaths)
-      that.setUserInfo(that, {
-        avatar: res.tempFilePaths[0]
+      console.log(res.tempFilePaths[0])
+      wx.uploadFile({
+        url: uri + "Common/upload", //仅为示例，非真实的接口地址
+        filePath: res.tempFilePaths[0],
+        name: 'file',
+        formData: {},
+        success: function (res) {
+          console.log()
+          var data = res.data
+          let img = JSON.parse(res.data).data.url;
+          that.setUserInfo(that, {
+            avatar: img
+          })
+        }
       })
+
 
     })
   },
