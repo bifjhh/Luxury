@@ -96,17 +96,16 @@ Page({
     }).then(res => {
       console.log(res.tempFilePaths[0])
       wx.uploadFile({
-        url: uri + "Common/upload", //仅为示例，非真实的接口地址
+        url: uri + "User/uploadAvatar", //仅为示例，非真实的接口地址
         filePath: res.tempFilePaths[0],
         name: 'file',
-        formData: {},
+        formData: {
+          'token': that.data.token
+        },
         success: function (res) {
-          console.log()
-          var data = res.data
           let img = JSON.parse(res.data).data.url;
-          that.setUserInfo(that, {
-            avatar: img
-          })
+          console.log(img)
+          that.getUserInfo(that, {})
         }
       })
 

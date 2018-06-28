@@ -5,8 +5,8 @@ Page({
     userInfo: {},
   },
 
-  onLoad: function () {
-    var that = this
+  onLoad() {
+    let that = this
     //调用应用实例的方法获取全局数据
     wx.getStorage({
       key: 'token',
@@ -15,28 +15,29 @@ Page({
         that.setData({
           token: res.data
         })
-        wx.pro.request({
-          url: uri + 'User/getUserinfo',
-          data: {
-            token: that.data.token
-          },
-          method: "POST",
-          header: {
-            'content-type': 'application/x-www-form-urlencoded'
-          }
-        }).then(res => {
-          that.setData({
-            userInfo: res.data.data.userinfo
-          })
-        })
+        that.getUserInfo(that, {});
       }
     })
-    // app.getUserInfo(function (userInfo) {
-    //   //更新数据
-    //   that.setData({
-    //     userInfo: userInfo
-    //   })
-    // })
+  },
+  onShow() {
+    let that = this;
+    that.getUserInfo(that, {});
+  },
+  getUserInfo(that, data) {
+    console.log(that.data.token)
+    data.token = that.data.token
+    wx.pro.request({
+      url: uri + 'User/getUserinfo',
+      data: data,
+      method: "POST",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      }
+    }).then(res => {
+      that.setData({
+        userInfo: res.data.data.userinfo
+      })
+    })
   },
   todind() {
     wx.navigateTo({
