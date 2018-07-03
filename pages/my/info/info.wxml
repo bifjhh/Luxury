@@ -47,7 +47,3 @@
     </view>
   </view>
 </view>
-
-<view class="login bgc_f">
-  <view>退出登录</view>
-</view>

@@ -69,8 +69,6 @@
 .apply_bac{
   width: 40rpx;
   height: 40rpx;
-  background-image: url(https://s1.ax1x.com/2018/05/23/CRj3t0.png);
-  background-size: cover;
 }
 .apply_box,.set_box{
   width: 25%;
@@ -94,6 +92,4 @@
 .set_bac{
   width: 45rpx;
   height: 45rpx;
-  background-image: url(https://s1.ax1x.com/2018/05/23/CRj1kq.png);
-  background-size: cover;
 }
