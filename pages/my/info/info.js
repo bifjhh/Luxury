@@ -36,8 +36,6 @@ Page({
   },
   ageChoice(e) {
     let that = this;
-    console.log(that.data)
-    console.log(e.detail.value * 1)
     that.setUserInfo(that, {
       gender: e.detail.value * 1
     })
@@ -51,7 +49,6 @@ Page({
     that.setUserInfo(that, {
       birthday: e.detail.value
     })
-    console.log(e.detail.value)
 
   },
   toName() {
@@ -94,7 +91,6 @@ Page({
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
     }).then(res => {
-      console.log(res.tempFilePaths[0])
       wx.uploadFile({
         url: uri + "User/uploadAvatar", //仅为示例，非真实的接口地址
         filePath: res.tempFilePaths[0],
@@ -104,7 +100,6 @@ Page({
         },
         success: function (res) {
           let img = JSON.parse(res.data).data.url;
-          console.log(img)
           that.getUserInfo(that, {})
         }
       })
@@ -123,7 +118,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let that = this;
+    that.getUserInfo(that,{})
   },
 
   /**
