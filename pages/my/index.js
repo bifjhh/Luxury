@@ -25,7 +25,7 @@ Page({
   },
   getUserInfo(that, data) {
     console.log(that.data.token)
-    if(that.data.token==undefined) return;
+    if (that.data.token == undefined) return;
     data.token = that.data.token
     wx.pro.request({
       url: uri + 'User/getUserinfo',
@@ -35,7 +35,7 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       }
     }).then(res => {
-      if(res.data.code!=1)return;
+      if (res.data.code != 1) return;
       that.setData({
         userInfo: res.data.data.userinfo
       })
