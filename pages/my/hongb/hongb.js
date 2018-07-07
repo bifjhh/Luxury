@@ -6,8 +6,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showCard: 0,
-
+    page: 0,
+    status: 0,
+    list: [{
+        "user_redpack_id": 5,
+        "par_value": 100,
+        "status": 0,
+        "usetime": 0,
+        "createtime": "2018-06-22",
+        "expirytime": "2018-08-22",
+        "redpack_name": "奢物消费红包",
+        "resources": "签到活动"
+      },
+      {
+        "user_redpack_id": 8,
+        "par_value": 100,
+        "status": 0,
+        "usetime": 0,
+        "createtime": "2018-06-22",
+        "expirytime": "2018-08-22",
+        "redpack_name": "奢物消费红包",
+        "resources": "签到活动"
+      }
+    ]
   },
 
   /**
@@ -23,13 +44,25 @@ Page({
         that.setData({
           token: res.data
         })
-        that.getUserInfo(that, {});
+        that.getList(that)
       }
     })
     if (that.data.token == undefined) return;
+
+  },
+  iscard(e) {
+    console.log(e.target.dataset.cardid)
+    this.setData({
+      status: e.target.dataset.cardid * 1,
+      page:0
+    })
+  },
+  getList(that) {
+
     let data = {
       token: that.data.token,
-      p: 1,
+      p: that.data.page,
+      status: that.data.status
     }
     wx.pro.request({
       url: uri + 'User/getRedpackList',
@@ -39,16 +72,11 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       }
     }).then(res => {
-      if (res.data.code != 1) return;
+      if (res.data.code != 1 || res.data) return;
       that.setData({
-        userInfo: res.data.data.userinfo
+        list:res.data
       })
-    })
-  },
-  iscard(e) {
-    console.log(e.target.dataset.cardid)
-    this.setData({
-      showCard: e.target.dataset.cardid * 1
+      console.log(res.data)
     })
   },
   /**

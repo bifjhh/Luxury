@@ -1,33 +1,33 @@
 <view class="nav_tab">
-  <view class="{{showCard==0?'action':''}}" data-cardid="0" bindtap="iscard">
+  <view class="{{status==0?'action':''}}" data-cardid="0" bindtap="iscard">
   未使用
 </view>
-<view class="{{showCard==1?'action':''}}" data-cardid="1" bindtap="iscard">
+<view class="{{status==1?'action':''}}" data-cardid="1" bindtap="iscard">
   已使用
 </view>
-<view class="{{showCard==2?'action':''}}" data-cardid="2" bindtap="iscard">
+<view class="{{status==10?'action':''}}" data-cardid="10" bindtap="iscard">
   已过期
 </view>
 </view>
 
 <view class="card_box weiyong">
-  <view class="card {{showCard==1?'yiyong':''}} {{showCard==2?'guoqi':''}}" wx:for="{{3}}" wx:key="i">
+  <view class="card {{status==1?'yiyong':''}} {{status==10?'guoqi':''}}" wx:for="{{list}}" wx:key="index">
     <view class="card_l">
-      <image wx:if="{{showCard==0}}" src="/images/my/hb_wsy.png" />
+      <image wx:if="{{status==0}}" src="/images/my/hb_wsy.png" />
       <image wx:else src="/images/my/hb_ysy.png" />
     </view>
     <view class="card_r">
       <view class="card_info">
-        <view>奢物消费红包</view>
-        <view>获取方式：签到活动</view>
-        <view>过期时间：2018-08-08</view>
+        <view>{{item.redpack_name}}</view>
+        <view>获取方式：{{item.resources}}</view>
+        <view>过期时间：{{item.expirytime}}</view>
       </view>
       <view class="card_num">
-        2{{showCard}}元
+        {{item.par_value}}元
       </view>
       <view class="logo">
-        <image wx:if="{{showCard==1}}" src="/images/my/hb_ysy_logo.png" />
-        <image wx:if="{{showCard==2}}" src="/images/my/hb_ygq_logo.png" />
+        <image wx:if="{{status==1}}" src="/images/my/hb_ysy_logo.png" />
+        <image wx:if="{{status==10}}" src="/images/my/hb_ygq_logo.png" />
       </view>
     </view>
   </view>
