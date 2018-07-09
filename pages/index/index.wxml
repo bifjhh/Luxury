@@ -11,15 +11,14 @@
             </view>
         </view>
         <swiper class="swiper_box" autoplay interval="{{2000}}" duration="{{1000}}" bindchange="current">
-            <block wx:for="{{5}}" wx:key="i">
+            <block wx:for="{{homeInfo.banner}}" wx:key="item.ad_id">
                 <swiper-item>
-                    <image src="/images/home/banner.png" class="slide-image" />
+                    <image src="{{item.ad_img}}" class="slide-image" />
                 </swiper-item>
             </block>
         </swiper>
         <view class="guide">
-            <view class="{{item==swpPage?'action':''}}" wx:for="{{5}}" wx:key="i">
-
+            <view class="{{item==swpPage?'action':''}}" wx:for="{{homeInfo.banner}}" wx:key="item.ad_id">
             </view>
         </view>
     </view>
@@ -70,68 +69,79 @@
 
     <!-- 商品分类  -->
     <view class="venues_box">
-        <view class="venues_l">
-            <block wx:for="{{2}}" wx:key="i">
-                <view class='venues_content' bindtap="toActivity">
+        <block wx:for="{{homeInfo.palace}}">
+            <view class="venues_4" wx:if="{{item.palace_id==1&&item.palace_name=='四宫格'}}">
+                <view  wx:for="{{item.item}}" wx:key="itemOne.palace_item_id" wx:for-item="itemOne" class='venues_content' bindtap="toActivity">
                     <view class='v_img'>
-                        <image src="/images/home/v_img.png" />
+                        <image src="{{itemOne.item_img}}" />
                     </view>
                     <view class='v_info'>
                         <view class="v_h1">
-                            女士必备
+                            {{itemOne.title}}
                         </view>
                         <view class="v_text">
-                            行走于时尚之尖
+                            {{itemOne.subtitle}}
                         </view>
                     </view>
-                </view>
-            </block>
-            <view class='venues_content_max' bindtap="toActivity">
-                <view class='v_info'>
-                    <view class="v_h1">
-                        女士必备
-                    </view>
-                    <view class="v_text">
-                        行走于时尚之尖
-                    </view>
-                </view>
-                <view class='v_img_max'>
-                    <image src="/images/home/v_img_max.png" />
                 </view>
             </view>
-        </view>
-        <view class="venues_r">
-            <block wx:for="{{4}}" wx:key="i">
-                <view class='venues_content' bindtap="toActivity">
-                    <view class='v_img'>
-                        <image src="/images/home/v_img.png" />
-                    </view>
+            <view wx:else class="venues_3">
+                <view class='venues_content_max' bindtap="toActivity">
                     <view class='v_info'>
                         <view class="v_h1">
-                            女士必备
+                            {{item.item[0].title}}
                         </view>
                         <view class="v_text">
-                            行走于时尚之尖
+                             {{item.item[0].subtitle}}
+                        </view>
+                    </view>
+                    <view class='v_img_max'>
+                        <image src="{{item.item[0].item_img}}" />
+                    </view>
+                </view>
+                <view class="max_r">
+                    <view class='venues_content' bindtap="toActivity">
+                        <view class='v_img'>
+                            <image src="{{item.item[1].item_img}}" />
+                        </view>
+                        <view class='v_info'>
+                            <view class="v_h1">
+                                 {{item.item[1].title}}
+                            </view>
+                            <view class="v_text">
+                                 {{item.item[1].subtitle}}
+                            </view>
+                        </view>
+                    </view>
+                    <view class='venues_content' bindtap="toActivity">
+                        <view class='v_img'>
+                            <image src="{{item.item[2].item_img}}" />
+                        </view>
+                        <view class='v_info'>
+                            <view class="v_h1">
+                                 {{item.item[2].title}}
+                            </view>
+                            <view class="v_text">
+                                 {{item.item[2].subtitle}}
+                            </view>
                         </view>
                     </view>
                 </view>
-            </block>
-
-        </view>
-
+            </view>
+        </block>
     </view>
 
     <!-- 品牌选择 scroll-x 广告 -->
     <view class="section_box">
         <scroll-view class="scroll_view" scroll-x style="width: 100%">
             <view class="section_content">
-                <block wx:for="{{7}}" wx:key="i">
+                <block wx:for="{{homeInfo.brand}}" wx:key="item.brand_id">
                     <view class="section_logo">
                         <view class="section_img">
-                            <image src="/images/home/section_logo.png" />
+                            <image src="{{item.brand_img}}" />
                         </view>
                         <view class="section_h1">
-                            品牌名称
+                           {{item.brand_name}}
                         </view>
                     </view>
                 </block>
@@ -141,21 +151,21 @@
 
     <!-- banner 广告 -->
     <view class="banner">
-        <block wx:for="{{4}}" wx:key="i">
+        <block wx:for="{{homeInfo.activity}}" wx:key="item.activity_id">
             <view class="banner_info" bindtap="toDetails">
                 <view class="banner_img">
-                    <image src="/images/home/banner_1.png" />
+                    <image src="{{item.activity_img}}" />
                 </view>
                 <view class="banner_h1">
-                    奢物上新，最具性价比的奢物
+                    {{item.activity_name}}
                 </view>
             </view>
         </block>
     </view>
 
-
+<!--
     <loading hidden="{{loadingHidden}}">
         加载中...
     </loading>
-
+-->
 </view>
