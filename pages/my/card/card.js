@@ -8,27 +8,29 @@ Page({
   data: {
     status: 0,
     page: 0,
-    list: [{
-      "user_coupon_id": 1,
-      "coupon_name": "神券",
-      "par_value": 200,
-      "use_condition": 1,
-      "goods_ids": "全场通用",
-      "status": 0,
-      "usetime": 0,
-      "createtime": "2018-06-22 21:42:00",
-      "expirytime": "2018-08-22 21:42:00"
-    }, {
-      "user_coupon_id": 2,
-      "coupon_name": "神券",
-      "par_value": 100,
-      "use_condition": 1,
-      "goods_ids": "全场通用",
-      "status": 0,
-      "usetime": 0,
-      "createtime": "2018-06-22 21:42:00",
-      "expirytime": "2018-08-22 21:42:00"
-    }]
+    list: [
+      /* {
+            "user_coupon_id": 1,
+            "coupon_name": "神券",
+            "par_value": 200,
+            "use_condition": 1,
+            "goods_ids": "全场通用",
+            "status": 0,
+            "usetime": 0,
+            "createtime": "2018-06-22 21:42:00",
+            "expirytime": "2018-08-22 21:42:00"
+          }, {
+            "user_coupon_id": 2,
+            "coupon_name": "神券",
+            "par_value": 100,
+            "use_condition": 1,
+            "goods_ids": "全场通用",
+            "status": 0,
+            "usetime": 0,
+            "createtime": "2018-06-22 21:42:00",
+            "expirytime": "2018-08-22 21:42:00"
+          } */
+    ]
   },
 
   /**
@@ -70,11 +72,18 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       }
     }).then(res => {
-      if (res.data.code != 1 || res.data) return;
+      if (res.data.code != 1) return;
       that.setData({
-        list: res.data
+        list: res.data.data
       })
-      console.log(res.data)
+      if (res.data.data.length == 0) {
+        wx.showToast({
+          title: '你还没有优惠券',
+          icon: 'none',
+          duration: 2000
+        })
+      };
+      console.log(res.data.data)
     })
   },
   /**

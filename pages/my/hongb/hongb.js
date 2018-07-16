@@ -8,26 +8,27 @@ Page({
   data: {
     page: 0,
     status: 0,
-    list: [{
-        "user_redpack_id": 5,
-        "par_value": 100,
-        "status": 0,
-        "usetime": 0,
-        "createtime": "2018-06-22",
-        "expirytime": "2018-08-22",
-        "redpack_name": "奢物消费红包",
-        "resources": "签到活动"
-      },
-      {
-        "user_redpack_id": 8,
-        "par_value": 100,
-        "status": 0,
-        "usetime": 0,
-        "createtime": "2018-06-22",
-        "expirytime": "2018-08-22",
-        "redpack_name": "奢物消费红包",
-        "resources": "签到活动"
-      }
+    list: [
+      /* {
+              "user_redpack_id": 5,
+              "par_value": 100,
+              "status": 0,
+              "usetime": 0,
+              "createtime": "2018-06-22",
+              "expirytime": "2018-08-22",
+              "redpack_name": "奢物消费红包",
+              "resources": "签到活动"
+            },
+            {
+              "user_redpack_id": 8,
+              "par_value": 100,
+              "status": 0,
+              "usetime": 0,
+              "createtime": "2018-06-22",
+              "expirytime": "2018-08-22",
+              "redpack_name": "奢物消费红包",
+              "resources": "签到活动"
+            } */
     ]
   },
 
@@ -54,7 +55,7 @@ Page({
     console.log(e.target.dataset.cardid)
     this.setData({
       status: e.target.dataset.cardid * 1,
-      page:0
+      page: 0
     })
   },
   getList(that) {
@@ -72,11 +73,18 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       }
     }).then(res => {
-      if (res.data.code != 1 || res.data) return;
+      if (res.data.code != 1) return;
       that.setData({
-        list:res.data
+        list: res.data.data
       })
-      console.log(res.data)
+      if (res.data.data.length == 0) {
+        wx.showToast({
+          title: '你还没有红包',
+          icon: 'none',
+          duration: 2000
+        })
+      };
+      console.log(res.data.data)
     })
   },
   /**

@@ -69,7 +69,7 @@
 
     <!-- 商品分类  -->
     <view class="venues_box">
-        <block wx:for="{{homeInfo.palace}}">
+        <block wx:for="{{homeInfo.palace}}" wx:key="{{index}}">
             <view class="venues_4" wx:if="{{item.palace_id==1&&item.palace_name=='四宫格'}}">
                 <view  wx:for="{{item.item}}" wx:key="itemOne.palace_item_id" wx:for-item="itemOne" class='venues_content' bindtap="toActivity">
                     <view class='v_img'>
