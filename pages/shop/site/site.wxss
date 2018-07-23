@@ -94,3 +94,9 @@ view {
   color:rgba(255,255,255,1);
   text-align: center;
 }
+.null{
+  color: #999;
+  font-size: 30rpx;
+  margin-top: 200rpx;
+  text-align: center;
+}

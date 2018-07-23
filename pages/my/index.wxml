@@ -23,7 +23,7 @@
   <view class="apply" bindtap="todind">
     <view class="apply_box">
       <view class="apply_bac">
-       <image src="/images/my/geren_daifukuan@3x.png" />
+        <image src="/images/my/geren_daifukuan@3x.png" />
       </view>
       <view class="apply_text">
         待付款
@@ -31,7 +31,7 @@
     </view>
     <view class="apply_box">
       <view class="apply_bac">
-<image src="/images/my/geren_daifahuo@3x.png" />
+        <image src="/images/my/geren_daifahuo@3x.png" />
       </view>
       <view class="apply_text">
         待发货
@@ -39,7 +39,7 @@
     </view>
     <view class="apply_box">
       <view class="apply_bac">
-<image src="/images/my/geren_daishouhuo@3x.png" />
+        <image src="/images/my/geren_daishouhuo@3x.png" />
       </view>
       <view class="apply_text">
         待收货
@@ -47,7 +47,7 @@
     </view>
     <view class="apply_box">
       <view class="apply_bac">
-<image src="/images/my/geren_tuikuan@3x.png" />
+        <image src="/images/my/geren_tuikuan@3x.png" />
       </view>
       <view class="apply_text">
         退款/售后
@@ -55,7 +55,7 @@
     </view>
     <view class="apply_box">
       <view class="apply_bac">
-<image src="/images/my/geren_quanbu@3x.png" />
+        <image src="/images/my/geren_quanbu@3x.png" />
       </view>
       <view class="apply_text">
         全部
@@ -64,9 +64,9 @@
   </view>
 
   <view class="my_set">
-    <view class="set_box">
+    <view class="set_box" bindtap="todizhi">
       <view class="set_bac">
-<image src="/images/my/geren_dizhi@3x.png" />
+        <image src="/images/my/geren_dizhi@3x.png" />
       </view>
       <view class="set_text" bindtap="todizhi">
         我的地址
@@ -74,7 +74,7 @@
     </view>
     <view class="set_box">
       <view class="set_bac">
-<image src="/images/my/geren_yijian@3x.png" />
+        <image src="/images/my/geren_yijian@3x.png" />
 
       </view>
       <view class="set_text" bindtap="toyijian">
@@ -83,7 +83,7 @@
     </view>
     <view class="set_box">
       <view class="set_bac">
-<image src="/images/my/geren_yaoqing@3x.png" />
+        <image src="/images/my/geren_yaoqing@3x.png" />
       </view>
       <view class="set_text">
         邀请好友
@@ -91,7 +91,7 @@
     </view>
     <view class="set_box" bindtap="toInfo">
       <view class="set_bac">
-<image src="/images/my/geren_shezhi@3x.png" />
+        <image src="/images/my/geren_shezhi@3x.png" />
       </view>
       <view class="set_text">
         设置

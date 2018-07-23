@@ -2,19 +2,19 @@
   <view class="box">
     <view>
       <view>收货人</view>
-      <input name="name" type="text" placeholder="姓名"  />
+      <input name="consignee" type="text" placeholder="姓名"  />
     </view>
     <view>
       <view>手机号</view>
-      <input name="number" type="text" placeholder="手机号"  />
+      <input name="phone" type="text" placeholder="手机号"  />
     </view>
     <view>
       <view>地址</view>
-      <input name="site" type="text" placeholder="请输入收货地址"  />
+      <input name="location" type="text" placeholder="请输入收货地址"  />
     </view>
     <view>
       <view>门牌号</view>
-      <input name="xiang" type="text" placeholder="例：5号楼203室"  />
+      <input name="detail_address" type="text" placeholder="例：5号楼203室"  />
     </view>
   </view>
   <button form-type="submit" class="jinse">保存</button>

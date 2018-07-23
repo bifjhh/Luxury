@@ -1,5 +1,5 @@
 <view class="site_list">
-  <view class="site" wx:for="{{3}}" wx:key="i">
+  <view  class="site" wx:for="{{addList}}" wx:key="index">
     <view class="top">
       <view class="title">
         <view class="name">
@@ -44,8 +44,11 @@
 
     </view>
   </view>
+  
 </view>
-
+<view class="null" wx:if="{{addList.length==0}}">
+    暂无数据
+  </view>
 <view class="jinse" bindtap="toAdd">
   +新增加收货地址
 </view>

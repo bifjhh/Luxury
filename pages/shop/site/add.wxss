@@ -32,4 +32,5 @@ input{
   font-family:PingFang-SC-Bold;
   color:rgba(255,255,255,1);
   line-height:80rpx;
+  margin-top: 88rpx;
 }
