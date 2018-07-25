@@ -7,13 +7,13 @@
   </view>
 </view>
 <view class="brand"  wx:if="{{is_show==0}}">
-    <block wx:for="{{20}}" wx:key="i">
+    <block wx:for="{{brandList}}" wx:key="item.brand_id">
       <view class="brand_info">
         <view class="brand_img">
-          <image src="/images/fl/logo.png" />
+          <image src="{{item.brand_img}}" />
         </view>
         <view class="brand_h1">
-          品牌名称
+          {{item.brand_name}}
         </view>
       </view>
     </block>
@@ -21,21 +21,23 @@
 
 <view wx:if="{{is_show==1}}" class="container">
   <view class="nav_left">
-    <block wx:for="{{6}}" wx:key="i">
-      <!-- <view class="nav_left_items {{curNav == item.id ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.id}}">{{item.tree.desc}}</view> -->
-      <view class="nav_left_items {{curNav==item?'active':''}}" bindtap="switchRightTab" data-index="{{item}}" data-id="{{item}}">包包</view>
+    <block wx:for="{{nav}}" wx:key="index">
+      <view class="nav_left_items {{curNav==item.cate_id?'active':''}}" bindtap="switchRightTab"  data-id="{{item.cate_id}}">{{item.cate_name}}</view>
     </block>
   </view>
   <view class="nav_right">
-      <view bindtap="toDetail" wx:for="{{6}}" wx:key="i">
-        <view class="nav_logo">
-            <view class="nav_img">
-                <image src="/images/classify_bb.png"></image>
-            </view>
-            <view class="nav_txt">
-              <text>{{curNav}}双肩背包</text>
-            </view>
-        </view>
+    <block wx:if="{{goodsList.length>0}}">
+      <view class="nav_logo" bindtap="toDetail" wx:for="{{goodsList}}" wx:key="index" data-id="{{item.cate_id}}">
+          <view class="nav_img">
+              <image src="{{item.cate_img}}"></image>
+          </view>
+          <view class="nav_txt">
+            <text>{{item.cate_name}}</text>
+          </view>
       </view>
+    </block>  
+    <block wx:else>
+      <view>暂无数据</view>
+    </block>
   </view>
 </view>
