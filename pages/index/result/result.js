@@ -8,81 +8,9 @@ Page({
   data: {
     text: "Page animation",
     animation: '',
-    pinpai: [{
-        name: '香奈儿',
-        is: false
-      },
-      {
-        name: '路易斯威登',
-        is: false
-      },
-      {
-        name: '爱马仕',
-        is: false
-      },
-      {
-        name: '普拉多',
-        is: false
-      },
-      {
-        name: '古奇',
-        is: false
-      },
-      {
-        name: '赛琳',
-        is: false
-      },
-      {
-        name: '巴黎世家',
-        is: false
-      },
-      {
-        name: '蔻依',
-        is: false
-      },
-    ],
-    pinlei: [{
-        name: '单肩包',
-        is: false
-      },
-      {
-        name: '手提包',
-        is: false
-      },
-      {
-        name: '双肩包',
-        is: false
-      },
-      {
-        name: '斜挎包',
-        is: false
-      },
-      {
-        name: '钱包',
-        is: false
-      },
-      {
-        name: '手包',
-        is: false
-      },
-    ],
-    xinjiu: [{
-        name: '全新',
-        is: false
-      },
-      {
-        name: '99成新',
-        is: false
-      },
-      {
-        name: '95成新',
-        is: false
-      },
-      {
-        name: '9成新',
-        is: false
-      },
-    ],
+    pinpaiOff: -1,
+    pinleiOff: -1,
+    qualityOff: -1,
     isfq: [{
         name: '有降价',
         is: false
@@ -100,6 +28,7 @@ Page({
       // zdj: '',
       // zgj: '',
     },
+    seekObj: {},
     sortId: 0
   },
 
@@ -112,6 +41,20 @@ Page({
       options
     })
     that.getObjs(that, options.brand_id, 0)
+
+    wx.pro.request({
+      url: app.globalData.uri + 'Index/searchInfo',
+      data: {},
+      method: "POST",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      }
+    }).then(res => {
+      that.setData({
+        seekObj: res.data.data
+      })
+      console.log(res.data.data)
+    })
   },
   bindinput(e) {
     console.log(e.detail.value)
@@ -255,19 +198,49 @@ Page({
    * @param {name} 传入需要筛选的种类
    */
   ispl(e) {
+    let that = this;
     let id = e.currentTarget.dataset.id; //获取id
     let cls = e.currentTarget.dataset.cls; //获取哪一个种类
-    let leixing = this.data[cls]; //获取种类内容
-    let form_obj = this.data.form_obj;
-    leixing.forEach(e => {
-      e.is = false /* 排他 */
-    });
-    form_obj[cls] = leixing[id].name;
-    leixing[id].is = true; //改变状态
-    this.setData({
-      [cls]: leixing,
-      form_obj
-    })
+
+    let leixing = that.data.seekObj; //获取种类内容
+    // let leixing = that.data.seekObj[cls]; //获取种类内容
+    let form_obj = that.data.form_obj;
+    // leixing.forEach(e => {
+    //   e.is = false /* 排他 */
+    // });
+    if (cls == "hot_keywords") {
+      form_obj[cls] = leixing[cls][id].keywords;
+      that.setData({
+        pinpaiOff: id,
+        form_obj,
+        seekObj: leixing
+      })
+    } else if (cls == "cate_list") {
+      form_obj[cls] = leixing[cls][id].cate_name;
+      that.setData({
+        pinleiOff: id,
+        form_obj,
+        seekObj: leixing
+      })
+    } else if (cls == "quality_list") {
+      form_obj[cls] = leixing[cls][id].quality_name;
+      that.setData({
+        qualityOff: id,
+        form_obj,
+        seekObj: leixing
+      })
+    } else {
+      let isfq = that.data.isfq;
+      form_obj[cls] = isfq[id].name;
+      isfq.forEach(e => {
+        e.is = false /* 排他 */
+      });
+      isfq[id].is = true; //改变状态
+      that.setData({
+        [cls]: isfq,
+        form_obj
+      })
+    }
   },
 
   /**

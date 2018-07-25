@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 25,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -44,10 +44,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 2,
 					"name": "搜索页",
 					"pathName": "pages/index/result/result",
-					"query": ""
+					"query": "brand_id=1"
 				},
 				{
 					"id": -1,
@@ -180,12 +180,6 @@
 					"name": "領取",
 					"pathName": "pages/my/getcard/getcard",
 					"query": ""
-				},
-				{
-					"id": 25,
-					"name": "商品列表页",
-					"pathName": "pages/index/result/result",
-					"query": "brand_id=1"
 				}
 			]
 		}

@@ -99,6 +99,7 @@
 .opt_goods {
   width: 145rpx;
   height: 56rpx;
+  padding: 0 5rpx;
   background: rgba(238, 238, 238, 1);
   border-radius: 6px;
   font-size: 24rpx;
@@ -107,6 +108,10 @@
   text-align: center;
   margin-right: 17rpx;
   margin-bottom: 20rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }
 
 .opt_goods.active {
