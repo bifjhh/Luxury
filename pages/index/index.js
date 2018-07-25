@@ -56,6 +56,7 @@ Page({
 
   },
   current(e) {
+    console.log(e.detail.current)
     this.setData({
       swpPage: e.detail.current
     })
@@ -96,6 +97,13 @@ Page({
   tollkf() {
     wx.navigateTo({
       url: '/pages/my/lxkf/lxkf'
+    })
+  },
+  toSearch(e) {
+    let brandId = e.currentTarget.dataset.id;
+    console.log('toSearch')
+    wx.navigateTo({
+      url: '/pages/index/result/result?brand_id='+brandId
     })
   },
   /**

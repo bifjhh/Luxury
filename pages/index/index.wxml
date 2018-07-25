@@ -136,8 +136,8 @@
     <view class="section_box">
         <scroll-view class="scroll_view" scroll-x style="width: 100%">
             <view class="section_content">
-                <block wx:for="{{homeInfo.brand}}" wx:key="item.brand_id">
-                    <view class="section_logo">
+                <block wx:for="{{homeInfo.brand}}" wx:key="item.brand_id" >
+                    <view class="section_logo" bindtap="toSearch" data-id="{{item.brand_id}}">
                         <view class="section_img">
                             <image src="{{item.brand_img}}" />
                         </view>
@@ -153,7 +153,7 @@
     <!-- banner 广告 -->
     <view class="banner">
         <block wx:for="{{homeInfo.activity}}" wx:key="item.activity_id">
-            <view class="banner_info" bindtap="toDetails">
+            <view class="banner_info" bindtap="toActivity" data-jid="1" data-tid="{{item.activity_id}}">
                 <view class="banner_img">
                     <image src="{{item.activity_img}}" />
                 </view>
