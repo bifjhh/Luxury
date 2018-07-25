@@ -71,7 +71,8 @@
     <view class="venues_box">
         <block wx:for="{{homeInfo.palace}}" wx:key="{{index}}">
             <view class="venues_4" wx:if="{{item.palace_id==1&&item.palace_name=='四宫格'}}">
-                <view  wx:for="{{item.item}}" wx:key="itemOne.palace_item_id" wx:for-item="itemOne" class='venues_content' bindtap="toActivity">
+                <view  wx:for="{{item.item}}" wx:key="itemOne.palace_item_id" wx:for-item="itemOne" class='venues_content' bindtap="toActivity" data-jid="{{itemOne.jump_type}}"
+                data-tid="{{itemOne.to_id}}">
                     <view class='v_img'>
                         <image src="{{itemOne.item_img}}" />
                     </view>
@@ -86,7 +87,7 @@
                 </view>
             </view>
             <view wx:else class="venues_3">
-                <view class='venues_content_max' bindtap="toActivity">
+                <view class='venues_content_max' bindtap="toActivity" data-tid="{{item.item[0].to_id}}" data-jid="{{item.item[0].jump_type}}">
                     <view class='v_info'>
                         <view class="v_h1">
                             {{item.item[0].title}}
@@ -100,7 +101,7 @@
                     </view>
                 </view>
                 <view class="max_r">
-                    <view class='venues_content' bindtap="toActivity">
+                    <view class='venues_content' bindtap="toActivity" data-tid="{{item.item[0].to_id}}" data-jid="{{item.item[0].jump_type}}">
                         <view class='v_img'>
                             <image src="{{item.item[1].item_img}}" />
                         </view>
@@ -113,7 +114,7 @@
                             </view>
                         </view>
                     </view>
-                    <view class='venues_content' bindtap="toActivity">
+                    <view class='venues_content' bindtap="toActivity" data-tid="{{item.item[0].to_id}}" data-jid="{{item.item[0].jump_type}}">
                         <view class='v_img'>
                             <image src="{{item.item[2].item_img}}" />
                         </view>

@@ -1,19 +1,18 @@
 <template name="goodsList">
   <view class="goods_box">
-    <view class="goods" wx:for="{{10}}" wx:key="i">
+    <view class="goods" wx:for="{{goods_list}}" wx:key="index">
       <view class="goods_img">
-
+        <image src="{{item.goods_img}}" />
       </view>
       <view class="goods_h1">
-        <text class="money"><text>￥</text>9800</text>
-        <text class="zk">¥9900</text>
-        <text class="jj">降</text>
-        <text class="fq">分期</text>
+        <text class="money"><text>￥</text>{{item.price}}</text>
+        <text class="zk">¥{{item.original_cost}}</text>
+        <text class="jj" wx:if="{{item.is_sales}}">降</text>
+        <text class="fq" wx:if="{{item.is_credit==1}}">分期</text>
 
       </view>
       <view class="goods_zk">
-        [
-        <text>95新</text>]名称asdfdsfsdfds商品名称商品名称称
+        [{{item.quality_name}}]{{item.goods_title}}
       </view>
     </view>
   </view>

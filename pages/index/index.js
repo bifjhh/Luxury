@@ -45,76 +45,6 @@ Page({
         homeInfo: res.data.data
       })
     })
-    let palace = [
-      {
-          "palace_id": 1,
-          "palace_name": "四宫格",
-          "palace_type": 1,
-          "item": [{
-              "palace_item_id": 1,
-              "item_img": "http://test.sh.com/uploads/20180626/e6d3f0364b83624d6d9876e52c38d987.jpg",
-              "title": "测试四宫格1",
-              "subtitle": "测试四宫格1",
-              "jump_type": 1,
-              "to_id": "1"
-            },
-            {
-              "palace_item_id": 2,
-              "item_img": "http://test.sh.com/uploads/20180626/e6d3f0364b83624d6d9876e52c38d987.jpg",
-              "title": "测试四宫格2",
-              "subtitle": "测试四宫格2",
-              "jump_type": 1,
-              "to_id": "1"
-            },
-            {
-              "palace_item_id": 3,
-              "item_img": "http://test.sh.com/uploads/20180626/e6d3f0364b83624d6d9876e52c38d987.jpg",
-              "title": "测试四宫格3",
-              "subtitle": "测试四宫格3",
-              "jump_type": 1,
-              "to_id": "1"
-            },
-            {
-              "palace_item_id": 4,
-              "item_img": "http://test.sh.com/uploads/20180626/e6d3f0364b83624d6d9876e52c38d987.jpg",
-              "title": "测试四宫格4",
-              "subtitle": "测试四宫格4",
-              "jump_type": 1,
-              "to_id": "1"
-            }
-          ]
-        },
-        {
-          "palace_id": 2,
-          "palace_name": "三宫格",
-          "palace_type": 0,
-          "item": [{
-              "palace_item_id": 5,
-              "item_img": "http://test.sh.com/uploads/20180626/e6d3f0364b83624d6d9876e52c38d987.jpg",
-              "title": "测试三宫格1",
-              "subtitle": "测试三宫格1",
-              "jump_type": 1,
-              "to_id": "1"
-            },
-            {
-              "palace_item_id": 6,
-              "item_img": "http://test.sh.com/uploads/20180626/e6d3f0364b83624d6d9876e52c38d987.jpg",
-              "title": "测试三宫格2",
-              "subtitle": "测试三宫格2",
-              "jump_type": 1,
-              "to_id": "1"
-            },
-            {
-              "palace_item_id": 7,
-              "item_img": "http://test.sh.com/uploads/20180626/e6d3f0364b83624d6d9876e52c38d987.jpg",
-              "title": "测试三宫格3",
-              "subtitle": "测试三宫格3",
-              "jump_type": 1,
-              "to_id": "1"
-            }
-          ]
-        }
-      ]
   },
   swiperchange(e) {
     console.log(e)
@@ -144,9 +74,18 @@ Page({
     })
   },
   toActivity(e) {
-    wx.navigateTo({
-      url: '/pages/index/activity/activity'
-    })
+    let jump_type = e.currentTarget.dataset.jid;
+    let tid = e.currentTarget.dataset.tid;
+    console.log(tid);
+    if (jump_type == 1) {
+      wx.navigateTo({
+        url: '/pages/index/activity/activity?tid='+tid
+      })
+    } else if (jump_type == 0) {
+      wx.navigateTo({
+        url: '/pages/shop/goods/goods'
+      })
+    }
   },
 
   toDetails() {
