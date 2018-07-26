@@ -1,6 +1,6 @@
 <template name="goodsList">
   <view class="goods_box">
-    <view class="goods" wx:for="{{goods_list}}" wx:key="index">
+    <view class="goods" wx:for="{{goods_list}}" wx:key="index" data-id="{{item.goods_id}}" bindtap="toGoods">
       <view class="goods_img">
         <image src="{{item.goods_img}}" />
       </view>

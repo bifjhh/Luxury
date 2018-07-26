@@ -191,7 +191,13 @@ Page({
       form_obj
     })
   },
-
+  toGoods(e) {
+    console.log(e.currentTarget.dataset.id)
+    let id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/shop/goods/goods?id='+id
+    })
+  },
   /**
    *选择品类封装函数
    *

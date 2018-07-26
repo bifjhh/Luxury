@@ -29,7 +29,9 @@
 .affair {
   display: flex;
   justify-content: space-around;
+  padding: 0 48rpx;
   align-items: center;
+  box-sizing: border-box;
   width: 430rpx;
   background: rgba(194, 179, 135, 1);
   border-radius: 35px;

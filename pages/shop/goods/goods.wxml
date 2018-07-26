@@ -2,28 +2,27 @@
 <import src="/components/cart/cart.wxml" />
 <view class="swp">
   <swiper class="swiper_box" duration="{{1000}}" bindchange="current">
-    <block wx:for="{{imgs}}" wx:key="i">
+    <block wx:for="{{objs.list_img}}" wx:key="i">
       <swiper-item>
-        <image src="/images/goods.png" class="slide-image" />
+        <image src="{{item}}" class="slide-image" />
       </swiper-item>
     </block>
   </swiper>
   <view class="page">
-    {{isImg}}/{{imgs.length}}
+    {{isImg}}/{{objs.list_img.length}}
   </view>
 </view>
 
 <view class="title">
   <view class="title_h1">
-    <text class="money"><text>￥</text>9800.00</text>
-    <text class="zk">¥9900.00</text>
-    <text class="jj">9成新</text>
-    <text class="fq">分期</text>
+    <text class="money"><text>￥</text>{{objs.price}}.00</text>
+    <text class="zk">¥{{objs.original_cost}}.00</text>
+    <text class="jj">{{objs.quality_name}}</text>
+    <text class="fq" wx:if="{{objs.is_credit==1}}">分期</text>
 
   </view>
   <view class="title_info">
-    [
-    <text>LONGINES/浪琴</text>]名匠自动机械男名匠自动机机名匠自动机械男名匠自动机机名匠
+   {{objs.goods_title}}
   </view>
 </view>
 
@@ -31,9 +30,9 @@
   <view class="page_h1">
     — 商品参数 —
   </view>
-  <view wx:for="{{5}}" wx:key="i" class="page_info">
-    <text class="info_name">名称</text>
-    <text class="info_v">内容内容内容内容内容内容内容内容</text>
+  <view wx:for="{{objs.goods_config}}" wx:key="index" class="page_info">
+    <text class="info_name">{{index}}</text>
+    <text class="info_v">{{item}}</text>
   </view>
 </view>
 
@@ -63,13 +62,13 @@
     </view>
   </view>
   <view wx:if="{{is_show==0}}" class="rich_cnt">
-    富文本编辑1
+    {{objs.goods_desc}}
   </view>
   <view wx:if="{{is_show==1}}" class="rich_cnt">
     富文本编辑2
   </view>
   <view class="rich_btn">
-    <button class="r_btn">去养护</button>
+    <button class="r_btn jinse">去养护</button>
   </view>
 </view>
 
