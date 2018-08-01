@@ -24,14 +24,14 @@
 </view>
 
 <view class="goods_list t20">
-  <view class="goods" wx:for="{{2}}" wx:key="i">
+  <view class="goods" wx:for="{{list}}" wx:key="index">
     <view class="goods_logo">
-      <image src="/images/goods_logo.png" />
+      <image src="{{item.goods_img}}" />
     </view>
     <view class="goods_info">
-      <text class="info_txt">澳洲Restoria discreet丽丝丽丝丽雅黑发还原乳250ml</text>
-      <text class="money">￥ 1288.00</text>
-      <text class="curt">X{{1}}</text>
+      <text class="info_txt">{{item.goods_title}}</text>
+      <text class="money">￥ {{item.price}}</text>
+      <text class="curt">X{{item.buy_num}}</text>
     </view>
   </view>
 </view>
@@ -59,7 +59,7 @@
 <view class="money t20">
   <view>
     <text>商品金额</text>
-    <text class="mn_num isnum" >￥1299.00</text>
+    <text class="mn_num isnum" >￥{{sum}}</text>
   </view>
   <view>
     <text>红包抵扣</text>
@@ -72,7 +72,7 @@
 </view>
 
 <view class="submit">
-  <text>￥1299.00</text>
+  <text>￥{{sum}}</text>
   <view class="submit_btn jinse" bindtap="submit">
     提交订单
   </view>

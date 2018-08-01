@@ -37,14 +37,6 @@ App({
         }
       }
     })
-    wx.getStorage({
-      key: 'token',
-      success: function (res) {
-        console.log(res.data)
-        that.globalData.token = res.data
-        console.log(that.globalData)
-      }
-    })
   },
   getUserInfo: function (cb) {
     var that = this
@@ -64,6 +56,6 @@ App({
     userInfo: null,
     uri: 'http://api.shewuwang.com/api/',
     openId: 'wx942a74c19e682464',
-    token: '',
+    token: '0ccdcd90-72db-4bde-b1c2-5a1f17e44522',
   }
 })

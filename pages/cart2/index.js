@@ -6,13 +6,17 @@ Page({
    */
   data: {
     set: 0,
+    list: [],
+    sum: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     wx.pro.request({
+    console.log(app.globalData.token)
+    let that = this;
+    wx.pro.request({
       url: app.globalData.uri + '/Cart/getList',
       data: {
         token: app.globalData.token,
@@ -21,12 +25,49 @@ Page({
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       }
+    }).then(res => {
+      that.setData({
+        list: res.data.data
+      })
     })
   },
-  setGoods(e){
+  setGoods(e) {
     console.log()
     this.setData({
       set: parseInt(e.target.dataset.set)
+    })
+  },
+
+  count(e) {
+    // console.log(e.currentTarget.dataset.index)
+    let that = this;
+    let list = that.data.list;
+    let index = e.currentTarget.dataset.index;
+    list[index].status = !list[index].status;
+    that.setData({
+      list
+    })
+    if (list[index].status) {
+      let sum = that.data.sum;
+      sum += list[index].price*list[index].buy_num;
+      that.setData({
+        sum
+      })
+    }
+  },
+  setgoods(e) {
+    // console.log(e.currentTarget.dataset.index)
+    let that = this;
+    let list = that.data.list;
+    let index = e.currentTarget.dataset.index;
+    list[index].set = !list[index].set;
+    that.setData({
+      list
+    })
+  },
+  end(){
+    wx.navigateTo({
+      url:'/pages/shop/order/orderList'
     })
   },
   /**
