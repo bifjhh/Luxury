@@ -52,15 +52,43 @@ Page({
       is_show
     })
   },
-  addGwc() {
+  addGwc(e) {
+    console.log(e.currentTarget.dataset.goodsid)
+    let goods_id = e.currentTarget.dataset.goodsid;
+    wx.pro.request({
+      url: app.globalData.uri + 'Cart/add',
+      data: {
+        goods_id: goods_id,
+        token: app.globalData.token
+      },
+      method: "POST",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      }
+    }).then(res => {
+      console.log(res)
+      wx.showToast({
+        title: res.data.msg,
+        icon: 'success',
+        duration: 1500
+      })
+    })
+    return;
+
     wx.switchTab({
       url: '/pages/cart/index'
     })
   },
   ljgm() {
+    console.log(e.currentTarget.dataset.goodsId)
+    return;
     wx.navigateTo({
       url: '/pages/shop/pay/pay'
     })
+  },
+  toPage(e){
+    let url = e.currentTarget.dataset.url;
+    wx.navigateTo({url:url})
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

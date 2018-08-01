@@ -76,5 +76,5 @@
   — 猜你喜欢 —
 </view>
 <template is="goodsList" />
-<template is="cart" />
+<template is="cart" data="{{...objs}}"></template>
 

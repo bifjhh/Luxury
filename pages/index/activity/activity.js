@@ -83,6 +83,13 @@ Page({
       default:
     }
   },
+  toGoods(e) {
+    console.log(e.currentTarget.dataset.id)
+    let id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/shop/goods/goods?id=' + id
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
