@@ -52,6 +52,13 @@ App({
           'content-type': 'application/x-www-form-urlencoded'
         },
         success: function (res) {
+          if (res.data.code != 1) {
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none',
+              duration: 1000
+            })
+          }
           resolve(res);
         },
         fail: function (error) {
