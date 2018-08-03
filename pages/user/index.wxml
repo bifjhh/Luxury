@@ -1,39 +1,28 @@
 <view class="get_user" wx:if="{{!bindPhone}}">
-  <view class="btn_box flex_column" >
-  <view class="title">
-    微信授权
+  <view class="banner">
+    <image src="/images/shewu_bg@3x.png" />
   </view>
   <view class="logo">
-    logo
+    <image src="/images/default_logo@3x.png" />
   </view>
-  <view class="btn_txt">
-    奢物申请获得以下权限
-  </view>
-  <view class="btn_ts">
-     获得你的公开信息（昵称、头像等）
-  </view>
-  <view class="btn_btn">
-    <button bindtap="logn">拒绝</button>
-    <button class="getUserInfo" open-type="getUserInfo" bindgetuserinfo="logn">允许</button>
-  </view>
-</view>
+    <button class="getUserInfo" open-type="getUserInfo" bindgetuserinfo="logn">立即体验</button>
 </view>
 
 <form wx:else bindsubmit="submit" >
-<view class="bind_phone">
-  <view class="img">
-    <image src="/images/dunp.png" />
-  </view>
-  <view>
-    为了您的账户安全，请绑定您的手机号
-  </view>
-  <view class="set_phone">
-    <input name="mobile" type="number" placeholder="请输入11位手机号码" maxlength="11" value="{{phone}}" bindinput="input" />
-    <view class="code jinse" bindtap="getCode">
-      获取验证码
+  <view class="bind_phone">
+    <view class="img">
+      <image src="/images/dunp.png" />
     </view>
+    <view>
+      为了您的账户安全，请绑定您的手机号
+    </view>
+    <view class="set_phone">
+      <input name="mobile" type="number" placeholder="请输入11位手机号码" maxlength="11" value="{{phone}}" bindinput="input" />
+      <view class="code jinse" bindtap="getCode">
+        获取验证码
+      </view>
+    </view>
+    <input class="yanzheng" name="captcha" type="text" placeholder="请输入验证码" value="1234"/>    
+    <button form-type="submit" class="jinse btn">安全绑定</button>
   </view>
-  <input class="yanzheng" name="captcha" type="text" placeholder="请输入验证码" value="1234"/>    
-  <button form-type="submit" class="jinse btn">安全绑定</button>
-</view>
 </form>

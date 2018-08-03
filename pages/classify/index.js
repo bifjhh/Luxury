@@ -34,6 +34,17 @@ Page({
 			is_show
 		})
 	},
+	toPage(e) {
+		let that = this;
+		let url = e.currentTarget.dataset.url
+		let id = e.currentTarget.dataset.id;
+		if (url == "/pages/index/result/result") {
+			url += ('?brand_id=' + id);
+			wx.navigateTo({
+				url: url
+			})
+		}
+	},
 	onLoad: function (options) {
 		let that = this
 		wx.$http('Index/brandList').then(res => {
@@ -61,9 +72,10 @@ Page({
 			})
 		})
 	},
-	toDetail() {
+	toDetail(e) {
+		let id =e.currentTarget.dataset.id;
 		wx.navigateTo({
-			url: '/pages/shop/goods/goods',
+			url: '/pages/shop/goods/goods?id='+id,
 		})
 	},
 })

@@ -8,7 +8,7 @@
 </view>
 <view class="brand"  wx:if="{{is_show==0}}">
     <block wx:for="{{brandList}}" wx:key="item.brand_id">
-      <view class="brand_info">
+      <view class="brand_info" bindtap="toPage" data-url="/pages/index/result/result" data-id="{{item.brand_id}}">
         <view class="brand_img">
           <image src="{{item.brand_img}}" />
         </view>

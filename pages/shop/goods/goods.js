@@ -20,7 +20,7 @@ Page({
     that.getObjs(that, options.id)
   },
   getObjs(that, id) {
-    wx.$http('/Goods/detail', {
+    wx.$http('Goods/detail', {
       id: id,
     }).then(res => {
       that.setData({

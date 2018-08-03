@@ -5,12 +5,11 @@ let token;
 App({
   onLaunch: function () {
     let that = this;
-    // 展示本地存储能力
-    token = wx.getStorageSync('token')
     // 获取用户信息
     wx.getSetting({
       success: res => {
         if (!res.authSetting['scope.userInfo']) {
+          console.log('没有授权授权')
           wx.reLaunch({
             url: '/pages/user/index'
           })
@@ -37,6 +36,7 @@ App({
     })
   },
   http(url, data) {
+    let token = wx.getStorageSync('token')
     url = uri + url;
     if (!data) {
       data = {}
@@ -72,6 +72,5 @@ App({
     userInfo: null,
     uri: 'http://api.shewuwang.com/api/',
     openId: 'wx942a74c19e682464',
-    token: '0ccdcd90-72db-4bde-b1c2-5a1f17e44522',
   }
 })

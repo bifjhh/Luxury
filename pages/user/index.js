@@ -1,5 +1,4 @@
 const app = getApp()
-const uri = app.globalData.uri;
 const openId = app.globalData.openId;
 
 Page({
@@ -59,7 +58,7 @@ Page({
     wx.$http('User/bindmobile', data).then(res => {
       if (res.data.code == 1) {
         console.log(res)
-        that.logn()
+        // that.logn()
         wx.reLaunch({
           url: '/pages/index/index'
         })

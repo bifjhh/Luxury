@@ -22,7 +22,7 @@ Page({
     that.getList(that)
   },
   getList(that) {
-    wx.$http('/Cart/getList').then(res => {
+    wx.$http('Cart/getList').then(res => {
       if (res.data.code != 1) return;
       that.setData({
         list: res.data.data
