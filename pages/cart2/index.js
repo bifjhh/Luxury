@@ -38,12 +38,23 @@ Page({
     that.setData({
       list
     })
+    let sum = that.data.sum;
     if (list[index].status) {
-      let sum = that.data.sum;
-      sum += list[index].price*list[index].buy_num;
+      sum += list[index].price * list[index].buy_num;
       that.setData({
         sum
       })
+    } else {
+      sum -= list[index].price * list[index].buy_num;
+      if (sum >= 0) {
+        that.setData({
+          sum
+        })
+      } else {
+        that.setData({
+          sum: 0
+        })
+      }
     }
   },
   setgoods(e) {
@@ -56,9 +67,27 @@ Page({
       list
     })
   },
-  end(){
+  end() {
+    //status
+    let that = this;
+    let list = that.data.list;
+    let status = 0;
+    list.forEach(e => {
+      if (e.status) {
+        status += 1;
+      }
+    });
+    console.log(status)
+    if (status == 0) {
+      wx.showToast({
+        title: '请选择至少一个商品',
+        icon: 'none',
+        duration: 1000
+      })
+      return false;
+    }
     wx.navigateTo({
-      url:'/pages/shop/order/orderList'
+      url: '/pages/shop/order/orderList'
     })
   },
   /**

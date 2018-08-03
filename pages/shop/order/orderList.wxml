@@ -1,5 +1,14 @@
 <view class="address_box">
-  <view wx:if="{{0}}" class="xuanze">
+  <view class="xuanze isadd"  wx:if="{{address}}">
+    <view class="name_tel">
+      <text class="name">{{address.consignee}}</text>
+      <text class="tel">{{address.phone}}</text>
+    </view>
+    <view class="addres">
+      {{address.location}}{{address.detail_address}}
+    </view>
+  </view>
+   <view wx:else class="xuanze" bindtap="toPage" data-url="/pages/shop/site/add">
     <view class="add_dz">
       <image src="/images/dingdan_add.png" />
     </view>
@@ -8,19 +17,9 @@
       <image src="/images/dingdan_jt.png" />
     </view>
   </view>
-
-  <view class="xuanze isadd"  wx:if="{{1}}">
-    <view class="name_tel">
-      <text class="name">王山山</text>
-      <text class="tel">15596963203</text>
-    </view>
-    <view class="addres">
-      浙江省杭州市滨江区高新区软件园4号楼207
-    </view>
-  </view>
   <view class="jt">
       <image src="/images/dingdan_jt.png" />
-    </view>
+  </view>
 </view>
 
 <view class="goods_list t20">
@@ -37,7 +36,7 @@
 </view>
 
 <view class="zheke t20">
-  <view class="yhq">
+  <view class="yhq"  bindtap="toPage" data-url="/pages/my/card/card">
     <text>优惠券</text>
     <text class="zk_num" wx:if="{{1}}">1张可用</text>
     <text class="zk_num" wx:else>暂无可用</text>
@@ -45,7 +44,7 @@
       <image src="/images/dingdan_jt.png" />
   </view>
   </view>
-  <view class="hb">
+  <view class="hb" bindtap="toPage" data-url="/pages/my/hongb/hongb">
     <text>红包</text>
     <text class="zk_num" wx:if="{{0}}">1张可用</text>
     <text class="zk_num" wx:else>暂无可用</text>

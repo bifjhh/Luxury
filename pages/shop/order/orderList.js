@@ -6,7 +6,8 @@ Page({
    */
   data: {
     list: [],
-    sum: 0
+    sum: 0,
+    address: {}
   },
 
   /**
@@ -17,11 +18,33 @@ Page({
     let datas = getCurrentPages();
     let list = [];
     let sum = 0;
+    let address = {};
+    wx.$http('User/getAddressList').then(res => {
+      console.log(res.data.data)
+      let list = res.data.data;
+      let i = null;
+      list.forEach((e, i) => {
+        console.log(e, i)
+        if (list[i].is_default == 1) {
+          address = list[i]
+        }
+      });
+      if (address.is_default) {
+        that.setData({
+          address
+        })
+      } else {
+        that.setData({
+          address: list[0]
+        })
+      }
+    })
+
     if (datas.length < 1) return;
     datas[datas.length - 2].data.list.map(e => {
       if (e.status) {
         list.push(e);
-        sum += e.price*e.buy_num;
+        sum += e.price * e.buy_num;
       };
     })
     that.setData({
@@ -31,6 +54,7 @@ Page({
 
   },
   submit() {
+    return;
     wx.navigateTo({
       url: '/pages/shop/order/order'
     })
@@ -51,6 +75,12 @@ Page({
         sum
       })
     }
+  },
+  toPage(e) {
+    let url = e.currentTarget.dataset.url;
+    wx.navigateTo({
+      url: url
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
