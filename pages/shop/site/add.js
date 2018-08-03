@@ -20,20 +20,20 @@ Page({
     let that = this;
     console.log(e.detail.value)
     let data = e.detail.value;
-    data.token = app.globalData.token;
-    wx.pro.request({
-      url: app.globalData.uri + 'User/getAddressList',
-      data: data,
-      method: "POST",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      }
-    }).then(res => {
+    wx.$http('User/addOrEditAddress', data).then(res => {
       console.log(res)
       // return;
-      wx.navigateBack({
-        delta: 1
+      if (res.data.code != 1) return;
+      wx.showToast({
+        title: '成功',
+        icon: 'success',
+        duration: 1000
       })
+      setTimeout(() => {
+        wx.navigateBack({
+          delta: 1
+        })
+      }, 1000);
     })
   },
 

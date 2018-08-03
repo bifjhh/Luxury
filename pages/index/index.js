@@ -22,23 +22,8 @@ Page({
   onLoad: function (options) {
     // Index/index
     let that = this;
-    wx.getStorage({
-      key: 'token',
-      success: function (res) {
-        console.log(res.data)
-        that.setData({
-          token: res.data
-        })
-      }
-    })
-    wx.pro.request({
-      url: uri + 'Index/index',
-      data: {},
-      method: "POST",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      }
-    }).then(res => {
+
+    wx.$http('Index/index').then(res => {
       if (res.data.code != 1) return;
       console.log(res.data)
       that.setData({
@@ -80,7 +65,7 @@ Page({
     console.log(tid);
     if (jump_type == 1) {
       wx.navigateTo({
-        url: '/pages/index/activity/activity?tid='+tid
+        url: '/pages/index/activity/activity?tid=' + tid
       })
     } else if (jump_type == 0) {
       wx.navigateTo({
@@ -103,7 +88,7 @@ Page({
     let brandId = e.currentTarget.dataset.id;
     console.log('toSearch')
     wx.navigateTo({
-      url: '/pages/index/result/result?brand_id='+brandId
+      url: '/pages/index/result/result?brand_id=' + brandId
     })
   },
   /**

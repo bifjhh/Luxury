@@ -38,17 +38,6 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
-
-    wx.getStorage({
-      key: 'token',
-      success: function (res) {
-        console.log(res.data)
-        that.setData({
-          token: res.data
-        })
-        that.getList(that)
-      }
-    })
   },
   iscard(e) {
     console.log(e.target.dataset.cardid)
@@ -60,18 +49,10 @@ Page({
   },
   getList(that) {
     let data = {
-      token: that.data.token,
       p: that.data.page,
       status: that.data.status
     }
-    wx.pro.request({
-      url: uri + 'User/getCouponList',
-      data: data,
-      method: "POST",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      }
-    }).then(res => {
+    wx.$http('User/getCouponList', data).then(res => {
       if (res.data.code != 1) return;
       that.setData({
         list: res.data.data

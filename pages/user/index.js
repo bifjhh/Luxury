@@ -41,19 +41,9 @@ Page({
       openid: openId,
       platform: 'wx'
     }
-    wx.pro.request({
-      url: uri + 'User/thirdlogin',
-      data: data,
-      method: "POST",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      }
-    }).then(res => {
+    wx.$http('User/thirdlogin', data).then(res => {
       if (res.data.code == 1) {
-        wx.setStorage({
-          key: "token",
-          data: res.data.data.userinfo.token
-        })
+        wx.setStorageSync('token', res.data.data.userinfo.token)
       }
     })
     that.setData({
@@ -66,14 +56,7 @@ Page({
     let data = e.detail.value;
     data.platform = 'wx';
     data.openid = openId;
-    wx.pro.request({
-      url: uri + 'User/bindmobile',
-      data: data,
-      method: "POST",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      }
-    }).then(res => {
+    wx.$http('User/bindmobile', data).then(res => {
       if (res.data.code == 1) {
         console.log(res)
         that.logn()
@@ -101,14 +84,8 @@ Page({
       return false;
     }
     console.log(uri)
-    wx.pro.request({
-      url: uri + 'Sms/send',
-      data: {
-        mobile: that.data.phone
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      }
+    wx.$http('Sms/send', {
+      mobile: that.data.phone
     }).then(res => {
       console.log()
       if (res.data.code) {

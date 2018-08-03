@@ -23,16 +23,9 @@ Page({
     that.getObjs(that, options.tid, 0)
   },
   getObjs(that, activity_id, sort) {
-    wx.pro.request({
-      url: app.globalData.uri + 'Goods/getList',
-      data: {
-        activity_id: activity_id,
-        sort: sort
-      },
-      method: "POST",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      }
+    wx.$http('Goods/getList', {
+      activity_id: activity_id,
+      sort: sort
     }).then(res => {
       that.setData({
         objs: res.data.data

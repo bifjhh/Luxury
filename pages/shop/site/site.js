@@ -20,6 +20,15 @@ Page({
       url: "/pages/shop/site/add"
     })
   },
+  delAddress(e) {
+    let that = this;
+    // console.log(e.currentTarget.dataset.id)
+    let id = e.currentTarget.dataset.id;
+    return;
+    wx.$http('User/addOrEditAddress', {
+      address_id: id
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -32,16 +41,7 @@ Page({
    */
   onShow() {
     let that = this;
-    wx.pro.request({
-      url: app.globalData.uri + 'User/getAddressList',
-      data: {
-        token: app.globalData.token
-      },
-      method: "POST",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      }
-    }).then(res => {
+    wx.$http('User/getAddressList').then(res => {
       console.log(res.data.data)
       that.setData({
         addList: res.data.data

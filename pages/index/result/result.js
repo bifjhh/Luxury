@@ -41,15 +41,7 @@ Page({
       options
     })
     that.getObjs(that, options.brand_id, 0)
-
-    wx.pro.request({
-      url: app.globalData.uri + 'Index/searchInfo',
-      data: {},
-      method: "POST",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      }
-    }).then(res => {
+    wx.$http('Index/searchInfo').then(res => {
       that.setData({
         seekObj: res.data.data
       })
@@ -60,16 +52,9 @@ Page({
     console.log(e.detail.value)
   },
   getObjs(that, brand_id, sort) {
-    wx.pro.request({
-      url: app.globalData.uri + 'Goods/getList',
-      data: {
-        brand_id: brand_id,
-        sort: sort
-      },
-      method: "POST",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      }
+    wx.$http('Goods/getList', {
+      brand_id: brand_id,
+      sort: sort
     }).then(res => {
       that.setData({
         objs: res.data.data
@@ -195,7 +180,7 @@ Page({
     console.log(e.currentTarget.dataset.id)
     let id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/pages/shop/goods/goods?id='+id
+      url: '/pages/shop/goods/goods?id=' + id
     })
   },
   /**

@@ -1,4 +1,4 @@
-<form bindsubmit="addSite">
+<form bindsubmit="addSite" >
   <view class="box">
     <view>
       <view>收货人</view>
@@ -16,6 +16,6 @@
       <view>门牌号</view>
       <input name="detail_address" type="text" placeholder="例：5号楼203室"  />
     </view>
+    <button form-type="submit" class="jinse">保存</button>
   </view>
-  <button form-type="submit" class="jinse">保存</button>
 </form>

@@ -5,7 +5,7 @@ Page({
 		nav: [],
 		goodsList: [],
 		is_show: 1,
-		curNav:'',
+		curNav: '',
 	},
 	onLoad: function () {
 		var that = this
@@ -21,7 +21,9 @@ Page({
 	switchRightTab: function (e) {
 		let that = this;
 		let id = e.target.dataset.id;
-		that.setData({curNav:id})
+		that.setData({
+			curNav: id
+		})
 
 		that.getGoods(that, id)
 	},
@@ -34,30 +36,13 @@ Page({
 	},
 	onLoad: function (options) {
 		let that = this
-		wx.pro.request({
-			url: app.globalData.uri + 'Index/brandList',
-			data: {},
-			method: "POST",
-			header: {
-				'content-type': 'application/x-www-form-urlencoded'
-			}
-		}).then(res => {
+		wx.$http('Index/brandList').then(res => {
 			that.setData({
 				brandList: res.data.data
 			})
 			console.log(res.data.data)
 		})
-
-		wx.pro.request({
-			url: app.globalData.uri + 'Index/cateList',
-			data: {
-				pid: 0
-			},
-			method: "POST",
-			header: {
-				'content-type': 'application/x-www-form-urlencoded'
-			}
-		}).then(res => {
+		wx.$http('Index/cateList').then(res => {
 			that.setData({
 				nav: res.data.data
 			})
@@ -68,15 +53,8 @@ Page({
 	},
 
 	getGoods(that, id) {
-		wx.pro.request({
-			url: app.globalData.uri + 'Index/cateList',
-			data: {
-				pid: id
-			},
-			method: "POST",
-			header: {
-				'content-type': 'application/x-www-form-urlencoded'
-			}
+		wx.$http('Index/cateList', {
+			pid: id
 		}).then(res => {
 			that.setData({
 				goodsList: res.data.data

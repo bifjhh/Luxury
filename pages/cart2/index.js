@@ -16,16 +16,7 @@ Page({
   onLoad: function (options) {
     console.log(app.globalData.token)
     let that = this;
-    wx.pro.request({
-      url: app.globalData.uri + '/Cart/getList',
-      data: {
-        token: app.globalData.token,
-      },
-      method: "POST",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      }
-    }).then(res => {
+    wx.$http('/Cart/getList').then(res => {
       that.setData({
         list: res.data.data
       })

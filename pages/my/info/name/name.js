@@ -15,16 +15,6 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
-    wx.getStorage({
-      key: 'token',
-      success: function (res) {
-        console.log(res.data)
-        that.setData({
-          token: res.data
-        })
-        that.getUserInfo(that, {});
-      }
-    })
   },
 
   /**
@@ -58,33 +48,15 @@ Page({
     }, 200)
   },
   getUserInfo(that, data) {
-    data.token = that.data.token
-    wx.pro.request({
-      url: uri + 'User/getUserinfo',
-      data: data,
-      method: "POST",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      }
-    }).then(res => {
+    wx.$http('User/getUserinfo').then(res => {
       that.setData({
         userInfo: res.data.data.userinfo
       })
     })
   },
   setUserInfo(that, data) {
-    data.token = that.data.token
-    wx.pro.request({
-      url: uri + 'User/profile',
-      data: data,
-      method: "POST",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      }
-    }).then(res => {
-      that.getUserInfo(that, {
-        token: that.data.token
-      })
+    wx.$http('User/profile', data).then(res => {
+      that.getUserInfo(that)
     })
   },
 

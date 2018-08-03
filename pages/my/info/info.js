@@ -21,17 +21,6 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
-    wx.getStorage({
-      key: 'token',
-      success: function (res) {
-        console.log(res.data)
-        that.setData({
-          token: res.data
-        })
-        that.getUserInfo(that, {});
-      }
-    })
-
 
   },
   ageChoice(e) {
@@ -56,32 +45,16 @@ Page({
       url: '/pages/my/info/name/name'
     })
   },
-  getUserInfo(that, data) {
-    data.token = that.data.token
-    wx.pro.request({
-      url: uri + 'User/getUserinfo',
-      data: data,
-      method: "POST",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      }
-    }).then(res => {
+  getUserInfo(that) {
+    wx.$http('User/getUserinfo').then(res => {
       that.setData({
         userInfo: res.data.data.userinfo
       })
     })
   },
   setUserInfo(that, data) {
-    data.token = that.data.token
-    wx.pro.request({
-      url: uri + 'User/profile',
-      data: data,
-      method: "POST",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      }
-    }).then(res => {
-      that.getUserInfo(that, {})
+    wx.$http('User/profile', data).then(res => {
+      that.getUserInfo(that)
     })
   },
   setImg() {
@@ -119,7 +92,7 @@ Page({
    */
   onShow: function () {
     let that = this;
-    that.getUserInfo(that,{})
+    that.getUserInfo(that, {})
   },
 
   /**

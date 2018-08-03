@@ -20,15 +20,8 @@ Page({
     that.getObjs(that, options.id)
   },
   getObjs(that, id) {
-    wx.pro.request({
-      url: app.globalData.uri + '/Goods/detail',
-      data: {
-        id: id,
-      },
-      method: "POST",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      }
+    wx.$http('/Goods/detail', {
+      id: id,
     }).then(res => {
       that.setData({
         objs: res.data.data
@@ -55,16 +48,8 @@ Page({
   addGwc(e) {
     console.log(e.currentTarget.dataset.goodsid)
     let goods_id = e.currentTarget.dataset.goodsid;
-    wx.pro.request({
-      url: app.globalData.uri + 'Cart/add',
-      data: {
-        goods_id: goods_id,
-        token: app.globalData.token
-      },
-      method: "POST",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      }
+    wx.$http('Cart/add', {
+      goods_id: goods_id,
     }).then(res => {
       console.log(res)
       wx.showToast({
@@ -86,9 +71,11 @@ Page({
       url: '/pages/shop/pay/pay'
     })
   },
-  toPage(e){
+  toPage(e) {
     let url = e.currentTarget.dataset.url;
-    wx.navigateTo({url:url})
+    wx.navigateTo({
+      url: url
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

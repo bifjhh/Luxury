@@ -74,10 +74,9 @@ view {
 }
 
 .img {
-  width: 30rpx;
-  height: 30rpx;
-  background-color: #0ff;
   margin-right: 10rpx;
+  font-size: 30rpx;
+  color: #333;
 }
 
 .jinse{

@@ -1,41 +1,39 @@
 <view class="site_list">
-  <view  class="site" wx:for="{{addList}}" wx:key="index">
+  <view class="site" wx:for="{{addList}}" wx:key="index">
     <view class="top">
       <view class="title">
         <view class="name">
-          王小明
+          {{item.consignee}}
         </view>
         <view class="phone">
-          1566698743
+          {{item.phone}}
         </view>
       </view>
       <view class="dizhi">
-        河北省保定市莲池区七一东路3027号12栋宿舍
+        {{item.location}} {{item.detail_address}}
       </view>
     </view>
     <view class="set">
       <view class="set_l">
-        <view class="icon">
-          <icon wx:if="{{item==0}}" type="success" size="20" color="RGBA(194, 179, 135, 1)" />
+        <view class="icon" data-id="{{item.address_id}}">
+          <icon wx:if="{{item.is_default==1}}" type="success" size="20" color="RGBA(194, 179, 135, 1)" />
         </view>
         <view class="moren">
           默认地址
         </view>
       </view>
-
       <view class="set_r">
-        <view class="r_bj">
-          <view class="img">
-            <image src="" />
-          </view>
+        <view class="r_bj" data-id="{{item.address_id}}">
+          <text class="img iconfont icon-bianji">
+           
+          </text>
           <view>
             编辑
           </view>
         </view>
-        <view class="r_sc">
-          <view class="img">
-            <image src="" />
-          </view>
+        <view class="r_sc" data-id="{{item.address_id}}" bindtap="delAddress">
+          <text class="img iconfont icon-shanchu">
+          </text>
           <view>
             删除
           </view>
@@ -44,11 +42,11 @@
 
     </view>
   </view>
-  
+
 </view>
 <view class="null" wx:if="{{addList.length==0}}">
-    暂无数据
-  </view>
+  暂无数据
+</view>
 <view class="jinse" bindtap="toAdd">
   +新增加收货地址
 </view>

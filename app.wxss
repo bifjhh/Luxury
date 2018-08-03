@@ -48,3 +48,25 @@ image {
     border-radius: 50%;
     box-sizing: border-box;
 }
+
+/* 字体图标 */
+@font-face {
+  font-family: 'iconfont';  /* project id 775625 */
+  src: url('//at.alicdn.com/t/font_775625_xlzerhdmds.eot');
+  src: url('//at.alicdn.com/t/font_775625_xlzerhdmds.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_775625_xlzerhdmds.woff') format('woff'),
+  url('//at.alicdn.com/t/font_775625_xlzerhdmds.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_775625_xlzerhdmds.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-bianji:before { content: "\e640"; }
+
+.icon-shanchu:before { content: "\e62a"; }
