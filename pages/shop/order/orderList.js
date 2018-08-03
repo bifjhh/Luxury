@@ -7,7 +7,10 @@ Page({
   data: {
     list: [],
     sum: 0,
-    address: {}
+    address: {},
+    cart_id: '',
+    cardNum: 0,
+    hbNum: 0,
   },
 
   /**
@@ -19,6 +22,7 @@ Page({
     let list = [];
     let sum = 0;
     let address = {};
+    let cart_id = []
     wx.$http('User/getAddressList').then(res => {
       console.log(res.data.data)
       let list = res.data.data;
@@ -45,8 +49,10 @@ Page({
       if (e.status) {
         list.push(e);
         sum += e.price * e.buy_num;
+        cart_id.push(e.cart_id)
       };
     })
+    wx.$http()
     that.setData({
       list,
       sum
