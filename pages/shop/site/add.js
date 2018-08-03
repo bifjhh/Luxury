@@ -6,20 +6,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    info: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let that = this;
+    let id = options.id;
+    if (!id) return;
+    wx.$http('User/getAddressInfo', {
+      address_id: id
+    }).then(res => {
+      console.log(res.data)
+      if (res.data.code != 1) return;
+      that.setData({
+        info: res.data.data
+      })
+    })
   },
 
   addSite(e) {
     let that = this;
-    console.log(e.detail.value)
     let data = e.detail.value;
+    console.log(data)
     wx.$http('User/addOrEditAddress', data).then(res => {
       console.log(res)
       // return;

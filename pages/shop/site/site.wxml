@@ -23,7 +23,7 @@
         </view>
       </view>
       <view class="set_r">
-        <view class="r_bj" data-id="{{item.address_id}}">
+        <view class="r_bj" data-id="{{item.address_id}}" bindtap="toAdd">
           <text class="img iconfont icon-bianji">
            
           </text>

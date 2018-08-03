@@ -15,18 +15,26 @@ Page({
 
 
   },
-  toAdd() {
+  toAdd(e) {
+    let id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: "/pages/shop/site/add"
+      url: "/pages/shop/site/add?id="+id
     })
   },
   delAddress(e) {
     let that = this;
     // console.log(e.currentTarget.dataset.id)
     let id = e.currentTarget.dataset.id;
-    return;
-    wx.$http('User/addOrEditAddress', {
+    wx.$http('User/delAddress', {
       address_id: id
+    }).then(res => {
+      if (res.data.code != 1) return;
+      wx.showToast({
+        title: '成功',
+        icon: 'success',
+        duration: 1000
+      })
+      that.getList(that)
     })
   },
   /**
@@ -41,6 +49,9 @@ Page({
    */
   onShow() {
     let that = this;
+    that.getList(that)
+  },
+  getList(that) {
     wx.$http('User/getAddressList').then(res => {
       console.log(res.data.data)
       that.setData({
@@ -48,7 +59,6 @@ Page({
       })
     })
   },
-
   /**
    * 生命周期函数--监听页面隐藏
    */
