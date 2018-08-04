@@ -29,9 +29,8 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
-			"list": [
-				{
+			"current": 2,
+			"list": [{
 					"id": -1,
 					"name": "分类",
 					"pathName": "pages/classify/index",
@@ -47,7 +46,7 @@
 					"id": 2,
 					"name": "搜索页",
 					"pathName": "pages/index/result/result",
-					"query": "brand_id=1"
+					"query": ""
 				},
 				{
 					"id": -1,
