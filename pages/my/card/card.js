@@ -38,6 +38,14 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
+    let pages = getCurrentPages();
+    let prevPage = pages[pages.length - 2];
+    let path = prevPage.route;
+    if (path == 'pages/shop/order/orderList') {
+      console.log('待确认订单')
+    } else {
+      that.getList(that)
+    }
   },
   iscard(e) {
     console.log(e.target.dataset.cardid)

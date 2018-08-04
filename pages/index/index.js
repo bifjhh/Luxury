@@ -13,7 +13,8 @@ Page({
     loadingHidden: true, // loading
     swpPage: 0,
     token: '',
-    homeInfo: {}
+    homeInfo: {},
+    shade: false,
   },
 
   /**
@@ -31,8 +32,21 @@ Page({
       })
     })
   },
+  isShade(e) {
+    let that = this;
+    let is = e.currentTarget.dataset.is;
+    if (is == 0) {
+      that.setData({
+        shade: false
+      })
+    } else {
+      that.setData({
+        shade: true
+      })
+    }
+  },
   swiperchange(e) {
-    console.log(e)
+    // console.log(e)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

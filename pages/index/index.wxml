@@ -23,7 +23,7 @@
         </view>
     </view>
     <!-- 功能选择  -->
-    <view class="xuanze">
+    <view class="xuanze" bindtap="isShade" data-is='1'>
         <view>
             <view class="xuanze_img">
                 <image src="/images/home/shouye_hongbao@3x.png" />
@@ -163,10 +163,11 @@
             </view>
         </block>
     </view>
+    <view class="shade" wx:if="{{shade}}">
+        <view class="sbox">
+            <view class="sinfo">领红包,鉴定/养护,寄售/回收,分期等功能,小程序暂不支持,请下载奢物App使用.</view>
+            <view class="sbtn" bindtap="isShade" data-is='0'>我知道了</view>
+        </view>
+    </view>
 
-<!--
-    <loading hidden="{{loadingHidden}}">
-        加载中...
-    </loading>
--->
 </view>

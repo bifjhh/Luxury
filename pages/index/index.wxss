@@ -264,3 +264,45 @@ swiper-item image {
 .guide>view.action {
     width: 30rpx;
 }
+
+.shade {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+}
+
+.sbox {
+    width: 516rpx;
+    height: 282rpx;
+    background-color: #fff;
+    border-radius: 10rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sinfo {
+    padding: 0 40rpx;
+    height: 202rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30rpx;
+    color: rgba(51, 51, 51, 1);
+}
+
+.sbtn {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(51, 51, 51, 1);
+    border-top: 1px solid #eee;
+}

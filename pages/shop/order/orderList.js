@@ -52,10 +52,28 @@ Page({
         cart_id.push(e.cart_id)
       };
     })
-    wx.$http()
     that.setData({
       list,
-      sum
+      sum,
+      cart_id: cart_id.toString
+    })
+    wx.$http('User/getRedpackList', {
+      goods_ids: cart_id.toString()
+    }).then(res => {
+      if (res.data.code != 1) return;
+      that.setData({
+        hbNum: res.data.data.length
+      })
+      console.log(res.data)
+    })
+    wx.$http('User/getCouponList', {
+      goods_ids: cart_id.toString()
+    }).then(res => {
+      if (res.data.code != 1) return;
+      that.setData({
+        cardNum: res.data.data.length
+      })
+      console.log(res.data)
     })
 
   },
