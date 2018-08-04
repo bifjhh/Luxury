@@ -91,6 +91,7 @@ view {
   font-size: 24rpx;
   font-family: PingFangSC-Regular;
   color: rgba(232, 194, 112, 1);
+  text-align: center;
 }
 
 .card_info {

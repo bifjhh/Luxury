@@ -49,7 +49,16 @@ Page({
     })
   },
   bindinput(e) {
+    let that = this;
     console.log(e.detail.value)
+    wx.$http('Goods/getList', {
+      keywords: e.detail.value,
+    }).then(res => {
+      that.setData({
+        objs: res.data.data
+      })
+      console.log(res.data.data)
+    })
   },
   getObjs(that, brand_id, sort) {
     wx.$http('Goods/getList', {

@@ -1,16 +1,15 @@
 
 <view class="get_card">
-  <view class="card {{status==1?'yiyong':''}} {{status==10?'guoqi':''}}" wx:for="{{5}}" wx:key="i">
-
+  <view class="card" wx:for="{{list}}" wx:key="index">
     <view class="card_r">
       <view class="card_num">
-        <view><text>¥</text> 5{{status}}0</view>
-        <view>满8888可使用</view>
+        <view><text>¥</text>{{item.par_value}}</view>
+        <view>{{item.goods_ids}}</view>
       </view>
       <view class="xian"></view>
       <view class="card_info">
-        <view>适用于浪琴-名匠手表</view>
-        <view>2018.05.12-2018.6.12</view>
+        <view>{{item.coupon_name}}</view>
+        <view>有效期:{{item.expiry}}</view>
       </view>
     </view>
      <view class="card_l">
