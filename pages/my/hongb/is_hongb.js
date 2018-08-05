@@ -8,7 +8,9 @@ Page({
   data: {
     page: 0,
     status: 0,
-    list: []
+    list: [],
+    coupon_id: [],
+    hbSum: 0
   },
 
   /**
@@ -16,20 +18,51 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
-    that.getList(that, that.data.status)
+    that.getList(that, options.id);
   },
-  iscard(e) {
+  count(e) {
     let that = this;
-    let id = e.currentTarget.dataset.cardid;
-    this.setData({
-      status: id,
-      page: 0
+    let index = e.currentTarget.dataset.index;
+    let list = that.data.list;
+    let hbSum = that.data.hbSum;
+    let coupon_id = that.data.coupon_id;
+    list[index].count = !list[index].count;
+    if (list[index].count) {
+      coupon_id.push(list[index].user_redpack_id);
+      hbSum += list[index].par_value;
+    } else {
+      hbSum -= list[index].par_value;
+      let is = coupon_id.indexOf(list[index].user_redpack_id);
+      coupon_id.splice(is, 1);
+    }
+    that.setData({
+      list,
+      coupon_id,
+      hbSum: hbSum || 0
     })
   },
-  getList(that, status) {
+  submit() {
+    let that = this;
+    let pages = getCurrentPages();
+    if (pages.length < 3) return;
+    let prevPage = pages[pages.length - 2];
+    let coupon_id = that.data.coupon_id.toString();
+    let hbSum = that.data.hbSum;
+    prevPage.setData({
+      hbId: coupon_id,
+      hbSum
+    })
+    setTimeout(() => {
+      wx.navigateBack({
+        delta: 1
+      })
+    }, 100);
+  },
+  getList(that, goods_ids) {
     let data = {
       p: that.data.page,
-      status: status
+      status: 0,
+      goods_ids: goods_ids
     }
     wx.$http('User/getRedpackList', data).then(res => {
       if (res.data.code != 1) return;

@@ -15,7 +15,7 @@
     </view>
     <view class="set">
       <view class="set_l">
-        <view class="icon" data-id="{{item.address_id}}">
+        <view class="icon" data-id="{{item.address_id}}"  data-index="{{index}}" bindtap="setAddress">
           <icon wx:if="{{item.is_default==1}}" type="success" size="20" color="RGBA(194, 179, 135, 1)" />
         </view>
         <view class="moren">

@@ -1,0 +1,23 @@
+<view class="card_box weiyong">
+  <view class="card" wx:for="{{list}}" wx:key="index">
+    <view class="icon" bindtap="count" data-index="{{index}}">
+      <icon wx:if="{{item.count}}" type="success" size="20" color="RGBA(194, 179, 135, 1)" />
+    </view>
+    <view class="card_l">
+      <image src="/images/my/hb_wsy.png" />
+    </view>
+    <view class="card_r">
+      <view class="card_info">
+        <view>{{item.redpack_name}}</view>
+        <view>获取方式：{{item.resources}}</view>
+        <view>过期时间：{{item.expirytime}}</view>
+      </view>
+      <view class="card_num">
+        {{item.par_value}}元
+      </view>
+    </view>
+  </view>
+</view>
+<view class="btn jinse" bindtap="submit">
+  确认使用
+</view>

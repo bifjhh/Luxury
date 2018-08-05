@@ -6,9 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    page: 0,
     status: 0,
-    list: []
+    page: 0,
+    list: [],
+    coupon_id: [],
+    cardSum: 0
   },
 
   /**
@@ -16,29 +18,64 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
-    that.getList(that, that.data.status)
+    that.getList(that, options.id)
   },
-  iscard(e) {
+  count(e) {
     let that = this;
-    let id = e.currentTarget.dataset.cardid;
-    this.setData({
-      status: id,
-      page: 0
+    let index = e.currentTarget.dataset.index;
+    let list = that.data.list;
+    let cardSum = that.data.cardSum;
+    let coupon_id = that.data.coupon_id;
+    list.forEach((e, i) => {
+      if (index == i) {
+        list[index].count = !list[index].count;
+      } else {
+        e.count = false;
+      }
+    });
+    if (list[index].count) {
+      coupon_id.push(list[index].user_coupon_id);
+      cardSum = list[index].par_value;
+    } else {
+      cardSum -= list[index].par_value;
+    }
+    that.setData({
+      list,
+      coupon_id,
+      cardSum: cardSum || 0
     })
   },
-  getList(that, status) {
+  submit() {
+    let that = this;
+    let pages = getCurrentPages();
+    if (pages.length < 3) return;
+    let prevPage = pages[pages.length - 2];
+    let coupon_id = that.data.coupon_id.toString();
+    let cardSum = that.data.cardSum;
+    prevPage.setData({
+      yhqId: coupon_id,
+      cardSum
+    })
+    setTimeout(() => {
+      wx.navigateBack({
+        delta: 1
+      })
+    }, 100);
+  },
+  getList(that, goods_ids) {
     let data = {
       p: that.data.page,
-      status: status
+      status: 0,
+      goods_ids: goods_ids
     }
-    wx.$http('User/getRedpackList', data).then(res => {
+    wx.$http('User/getCouponList', data).then(res => {
       if (res.data.code != 1) return;
       that.setData({
         list: res.data.data
       })
       if (res.data.data.length == 0) {
         wx.showToast({
-          title: '你还没有红包',
+          title: '你还没有可用优惠券',
           icon: 'none',
           duration: 2000
         })

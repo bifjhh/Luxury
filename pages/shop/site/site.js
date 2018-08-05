@@ -18,7 +18,7 @@ Page({
   toAdd(e) {
     let id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: "/pages/shop/site/add?id="+id
+      url: "/pages/shop/site/add?id=" + id
     })
   },
   delAddress(e) {
@@ -35,6 +35,30 @@ Page({
         duration: 1000
       })
       that.getList(that)
+    })
+  },
+  setAddress(e) {
+    let that = this;
+    let addList = that.data.addList;
+    let id = e.currentTarget.dataset.id;
+    let index = e.currentTarget.dataset.index;
+    addList.forEach((e, i) => {
+      if (index == i) {
+        let is = addList[index].is_default == 0 ? 1 : 0;
+        addList[index].is_default = is;
+      } else {
+        e.is_default = 0;
+      }
+    });
+    wx.$http('User/addOrEditAddress', {
+      address_id: id,
+      is_default: addList[index].is_default
+    }).then(res => {
+      if (res.data.code != 1) return;
+      console.log('设置成功')
+      that.setData({
+        addList
+      })
     })
   },
   /**

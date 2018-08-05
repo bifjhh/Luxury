@@ -9,7 +9,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.91",
-	"appid": "wx942a74c19e682464",
+	"appid": "wx832f9f90b3ebb40d",
 	"projectname": "%E5%A5%A2%E7%89%A9%E5%B0%8F%E7%A8%8B%E5%BA%8F",
 	"condition": {
 		"search": {
@@ -29,8 +29,9 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
-			"list": [{
+			"current": 26,
+			"list": [
+				{
 					"id": -1,
 					"name": "分类",
 					"pathName": "pages/classify/index",
@@ -178,6 +179,18 @@
 					"id": -1,
 					"name": "領取",
 					"pathName": "pages/my/getcard/getcard",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "选择优惠券",
+					"pathName": "pages/my/card/is_card",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "选择红包",
+					"pathName": "pages/my/hongb/is_hongb",
 					"query": ""
 				}
 			]

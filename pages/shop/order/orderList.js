@@ -7,10 +7,15 @@ Page({
   data: {
     list: [],
     sum: 0,
+    endSum: 0,
     address: {},
     cart_id: '',
+    yhqId: '',
+    hbId: '',
     cardNum: 0,
+    cardSum: 0,
     hbNum: 0,
+    hbSum: 0,
   },
 
   /**
@@ -21,8 +26,46 @@ Page({
     let datas = getCurrentPages();
     let list = [];
     let sum = 0;
-    let address = {};
     let cart_id = []
+    if (datas.length < 1) return;
+    datas[datas.length - 2].data.list.map(e => {
+      if (e.status) {
+        list.push(e);
+        sum += e.price * e.buy_num;
+        cart_id.push(e.cart_id)
+      };
+    })
+    that.setData({
+      list,
+      sum,
+      cart_id: cart_id.toString()
+    })
+    wx.$http('User/getRedpackList', {
+      goods_ids: cart_id.toString()
+    }).then(res => {
+      if (res.data.code != 1) return;
+      that.setData({
+        hbNum: res.data.data.length
+      })
+      console.log(res.data)
+    })
+    wx.$http('User/getCouponList', {
+      goods_ids: cart_id.toString()
+    }).then(res => {
+      if (res.data.code != 1) return;
+      that.setData({
+        cardNum: res.data.data.length
+      })
+      console.log(res.data)
+    })
+
+  },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    let that = this;
+    let address = {};
     wx.$http('User/getAddressList').then(res => {
       console.log(res.data.data)
       let list = res.data.data;
@@ -44,20 +87,13 @@ Page({
       }
     })
 
-    if (datas.length < 1) return;
-    datas[datas.length - 2].data.list.map(e => {
-      if (e.status) {
-        list.push(e);
-        sum += e.price * e.buy_num;
-        cart_id.push(e.cart_id)
-      };
-    })
-    wx.$http()
+    let endSum = that.data.sum - that.data.hbSum - that.data.cardSum;
+    if (endSum <= 0) {
+      endSum = 0
+    }
     that.setData({
-      list,
-      sum
+      endSum
     })
-
   },
   submit() {
     return;
@@ -84,8 +120,9 @@ Page({
   },
   toPage(e) {
     let url = e.currentTarget.dataset.url;
+    let cart_id = this.data.cart_id;
     wx.navigateTo({
-      url: url
+      url: url + '?id=' + cart_id
     })
   },
   /**
@@ -95,12 +132,6 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
 
   /**
    * 生命周期函数--监听页面隐藏

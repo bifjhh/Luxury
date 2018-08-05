@@ -1,0 +1,158 @@
+page,
+view {
+  box-sizing: border-box;
+}
+
+page {
+  padding: 0 28rpx;
+  padding-top: 18rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  flex: 1;
+  height: 185rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20rpx;
+}
+
+.card::after {
+  position: absolute;
+  content: '';
+  width: 40rpx;
+  height: 40rpx;
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  right: 0;
+  top: 50%;
+  transform: translate(50%, -50%);
+  z-index: 9;
+}
+
+.card_l {
+  width: 78rpx;
+  height: 100%;
+  margin-left: 28rpx;
+  background: rgba(218, 179, 95, 1);
+  font-size: 30rpx;
+  font-family: PingFang-SC-Medium;
+  color: rgba(255, 255, 255, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  border-radius: 10px;
+  position: relative;
+}
+
+.card_l::before {
+  position: absolute;
+  content: '';
+  width: 40rpx;
+  height: 40rpx;
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  left: 0;
+  top: 50%;
+  transform: translate(-60%, -50%);
+  z-index: 9;
+}
+
+.card_r {
+  background: #fff;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  position: relative;
+}
+
+.card_r>view {
+  display: flex;
+  align-items: initial;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.card_num {
+  width: 155rpx;
+  text-align: center;
+  /* align-items: center; */
+}
+
+.card_num>view:nth-of-type(1) {
+  font-size: 70rpx;
+  font-family: PingFangSC-Semibold;
+  color: rgba(218, 179, 95, 1);
+  /* line-height:121rpx; */
+}
+
+.card_num>view>text {
+  font-size: 36rpx;
+  font-family: PingFang-SC-Medium;
+  color: rgba(218, 179, 95, 1);
+}
+
+.card_num>view:nth-of-type(2) {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  color: rgba(232, 194, 112, 1);
+}
+
+.card_info {
+  /* margin-left: 67rpx; */
+}
+
+.card_info>view:nth-of-type(1) {
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular;
+  color: rgba(102, 102, 102, 1);
+  line-height: 40rpx;
+}
+
+.card_info>view:nth-of-type(2) {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  color: rgba(153, 153, 153, 1);
+  line-height: 40rpx;
+}
+
+.card_btn {
+  margin-top: 20rpx;
+  width: 190rpx;
+  height: 50rpx;
+  background: rgba(218, 179, 95, 1);
+  border-radius: 25px;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  color: rgba(255, 255, 255, 1);
+  line-height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 38rpx;
+  height: 38rpx;
+}
+
+.btn {
+  position: fixed;
+  bottom: 20rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 690rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  font-size: 34rpx;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

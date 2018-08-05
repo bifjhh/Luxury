@@ -1,13 +1,13 @@
 <view class="nav_tab">
   <view class="{{status==0?'action':''}}" data-cardid="0" bindtap="iscard">
-  未使用
-</view>
-<view class="{{status==1?'action':''}}" data-cardid="1" bindtap="iscard">
-  已使用
-</view>
-<view class="{{status==10?'action':''}}" data-cardid="10" bindtap="iscard">
-  已过期
-</view>
+    未使用
+  </view>
+  <view class="{{status==1?'action':''}}" data-cardid="1" bindtap="iscard">
+    已使用
+  </view>
+  <view class="{{status==10?'action':''}}" data-cardid="10" bindtap="iscard">
+    已过期
+  </view>
 </view>
 
 <view class="card_box weiyong">

@@ -15,7 +15,7 @@ Page({
   onLoad: function (options) {
     let that = this;
     let id = options.id;
-    if (!id) return;
+    if (id == 'undefined') return;
     wx.$http('User/getAddressInfo', {
       address_id: id
     }).then(res => {

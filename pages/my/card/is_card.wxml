@@ -1,0 +1,27 @@
+<view class="card" wx:for="{{list}}" wx:key="index">
+  <view class="icon" bindtap="count" data-index="{{index}}">
+    <icon wx:if="{{item.count}}" type="success" size="20" color="RGBA(194, 179, 135, 1)" />
+  </view>
+  <view class="card_l">
+    {{item.coupon_name}}
+  </view>
+  <view class="card_r">
+    <view class="card_num">
+      <view>
+        <text>¥</text>
+        <text>{{item.par_value}}</text>
+      </view>
+      <view>满{{item.use_condition?item.use_condition:0}}可使用</view>
+    </view>
+    <view class="card_info">
+      <view>{{item.goods_ids}}</view>
+      <view class="gqtime">{{item.createtime}}-{{item.expirytime}}</view>
+      <view class="card_btn">
+        使用
+      </view>
+    </view>
+  </view>
+</view>
+<view class="btn jinse" bindtap="submit">
+  确认使用
+</view>
