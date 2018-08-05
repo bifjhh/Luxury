@@ -8,27 +8,7 @@ Page({
   data: {
     status: 0,
     page: 0,
-    list: [{
-      "user_coupon_id": 1,
-      "coupon_name": "神券",
-      "par_value": 200,
-      "use_condition": 1,
-      "goods_ids": "全场通用",
-      "status": 0,
-      "usetime": 0,
-      "createtime": "2018-06-22 21:42:00",
-      "expirytime": "2018-08-22 21:42:00"
-    }, {
-      "user_coupon_id": 2,
-      "coupon_name": "神券",
-      "par_value": 100,
-      "use_condition": 1,
-      "goods_ids": "全场通用",
-      "status": 0,
-      "usetime": 0,
-      "createtime": "2018-06-22 21:42:00",
-      "expirytime": "2018-08-22 21:42:00"
-    }]
+    list: []
   },
 
   /**
@@ -36,6 +16,7 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
+    that.getList(that)
   },
   iscard(e) {
     console.log(e.target.dataset.cardid)
@@ -48,14 +29,26 @@ Page({
   getList(that) {
     let data = {
       p: that.data.page,
-      status: that.data.status
     }
-    wx.$http('User/getCouponList', data).then(res => {
-      if (res.data.code != 1 || res.data) return;
+    wx.$http('Coupon/getList', data).then(res => {
+      if (res.data.code != 1) return;
       that.setData({
-        list: res.data
+        list: res.data.data
       })
       console.log(res.data)
+    })
+  },
+  getCard(e) {
+    let id = e.currentTarget.dataset.id;
+    wx.$http('Coupon/receive', {
+      coupon_id: id
+    }).then(res => {
+      if (res.data.code != 1) return;
+      wx.showToast({
+        title: '领取成功',
+        icon: 'success',
+        duration: 1000
+      })
     })
   },
   /**

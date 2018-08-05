@@ -9,7 +9,7 @@
 <view class="{{status==1?'action':''}}" data-cardid="1" bindtap="iscard">
   已使用
 </view>
-<view class="{{status==10?'action':''}}" data-cardid="2" bindtap="iscard">
+<view class="{{status==10?'action':''}}" data-cardid="10" bindtap="iscard">
   已过期
 </view>
 </view>

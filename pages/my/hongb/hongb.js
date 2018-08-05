@@ -37,6 +37,16 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
+    let pages = getCurrentPages();
+    if (pages.length < 3) {
+      that.getList(that)
+      return false;
+    }
+    let prevPage = pages[pages.length - 2];
+    let path = prevPage.route;
+    if (path == 'pages/shop/order/orderList') {
+      console.log('待确认订单')
+    }
 
   },
   iscard(e) {
@@ -47,7 +57,6 @@ Page({
     })
   },
   getList(that) {
-
     let data = {
       p: that.data.page,
       status: that.data.status

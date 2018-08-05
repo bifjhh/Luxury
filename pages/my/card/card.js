@@ -8,29 +8,7 @@ Page({
   data: {
     status: 0,
     page: 0,
-    list: [
-      /* {
-            "user_coupon_id": 1,
-            "coupon_name": "神券",
-            "par_value": 200,
-            "use_condition": 1,
-            "goods_ids": "全场通用",
-            "status": 0,
-            "usetime": 0,
-            "createtime": "2018-06-22 21:42:00",
-            "expirytime": "2018-08-22 21:42:00"
-          }, {
-            "user_coupon_id": 2,
-            "coupon_name": "神券",
-            "par_value": 100,
-            "use_condition": 1,
-            "goods_ids": "全场通用",
-            "status": 0,
-            "usetime": 0,
-            "createtime": "2018-06-22 21:42:00",
-            "expirytime": "2018-08-22 21:42:00"
-          } */
-    ]
+    list: []
   },
 
   /**
@@ -38,19 +16,30 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
+    let pages = getCurrentPages();
+    if (pages.length < 3) {
+      that.getList(that, that.data.status)
+      return false;
+    }
+    let prevPage = pages[pages.length - 2];
+    let path = prevPage.route;
+    if (path == 'pages/shop/order/orderList') {
+      console.log('待确认订单')
+    }
   },
   iscard(e) {
-    console.log(e.target.dataset.cardid)
+    let that = this;
+    let id = e.currentTarget.dataset.cardid;
     this.setData({
-      status: e.target.dataset.cardid * 1,
+      status: id,
       page: 0,
-
     })
+    that.getList(that, id)
   },
-  getList(that) {
+  getList(that, status) {
     let data = {
       p: that.data.page,
-      status: that.data.status
+      status: status
     }
     wx.$http('User/getCouponList', data).then(res => {
       if (res.data.code != 1) return;
