@@ -5,7 +5,7 @@
   <view class="search_box">
     <view class="searchTab"></view>
     <image class="search" style="width:18rpx;height:20rpx" src="/images/home/search2.png" />
-    <input type="text" style="height:100%;" confirm-type="search" placeholder="请输入商品名称" bindinput="bindinput" />
+    <input type="text" style="height:100%;" confirm-type="search" placeholder="请输入商品名称" value="{{options.keywords}}" bindinput="bindinput" />
   </view>
 </view>
 
@@ -41,7 +41,7 @@
         品牌
       </view>
       <view class="opt_list">
-        <view  wx:for="{{seekObj.hot_keywords}}" wx:key="index" class="opt_goods {{pinpaiOff==index?'active':''}}" data-cls="hot_keywords"  data-id="{{index}}" bindtap="ispl">
+        <view  wx:for="{{seekObj.hot_keywords}}" wx:if="{{item.keywords!=' '}}" wx:key="index" class="opt_goods {{pinpaiOff==index?'active':''}}" data-cls="hot_keywords"  data-id="{{index}}" bindtap="ispl">
           {{item.keywords}}
         </view>
       </view>
@@ -51,7 +51,7 @@
         品类
       </view>
        <view class="opt_list">
-        <view  wx:for="{{seekObj.cate_list}}" wx:key="index" class="opt_goods {{pinleiOff==index?'active':''}}" data-cls="cate_list"  data-id="{{index}}" bindtap="ispl">
+        <view  wx:for="{{seekObj.cate_list}}" wx:key="index" class="opt_goods {{pinleiOff==index?'active':''}}" data-cls="cate_list"  data-id="{{index}}" data-cateid="{{item.cate_id}}" bindtap="ispl">
           {{item.cate_name}}
         </view>
       </view>
@@ -62,11 +62,11 @@
       </view>
       <view class="jg_box">
         <view class='zdj'>
-          <input type="number" bindinput="zdj" placeholder="最低价"  />
+          <input type="number" bindinput="zdj" value="{{zdj}}" placeholder="最低价"  />
         </view>
         <view class='xian'></view>
         <view class='zgj'>
-          <input type="number" bindinput="zgj" placeholder="最高价"  />
+          <input type="number" bindinput="zgj" value="{{zgj}}" placeholder="最高价"  />
         </view>
       </view>
     </view>
@@ -91,7 +91,7 @@
       </view>
     </view>
     <view class="btn">
-      <view class="btn_l">
+      <view class="btn_l" bindtap="reset">
         重置
       </view>
       <view class="btn_r" bindtap="filtrateEnd">

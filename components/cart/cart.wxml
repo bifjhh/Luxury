@@ -23,7 +23,7 @@
     <view class="jiange">
 
     </view>
-    <view class="buy" bindtap="ljgm" data-goodsid="{{goods_id}}">
+    <view class="buy" bindtap="pay" data-url="/pages/shop/order/orderList?id={{goods_id}}">
       立即购买
     </view>
   </view>

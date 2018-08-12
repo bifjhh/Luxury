@@ -1,6 +1,6 @@
 //app.js
 import './utils/WxPromise'
-const uri = 'http://api.shewuwang.com/api/';
+const uri = 'https://api.shewuwang.com/api/';
 let token;
 App({
   onLaunch: function () {
@@ -41,7 +41,6 @@ App({
     if (!data) {
       data = {}
     }
-    console.log(token)
     data.token = token;
     let promise = new Promise(function (resolve, reject) {
       wx.request({
@@ -52,16 +51,23 @@ App({
           'content-type': 'application/x-www-form-urlencoded'
         },
         success: function (res) {
-          if (res.data.code != 1) {
+          if (res.data.code == 500 || res.data.code == 0) {
             wx.showToast({
               title: res.data.msg,
               icon: 'none',
               duration: 1000
             })
+          } else {
+            resolve(res);
           }
-          resolve(res);
         },
         fail: function (error) {
+          console.log('error', error)
+          // wx.showToast({
+          //   title: res.data.msg,
+          //   icon: 'none',
+          //   duration: 1000
+          // })
           reject(error);
         },
       })
@@ -71,6 +77,5 @@ App({
   globalData: {
     userInfo: null,
     uri: 'http://api.shewuwang.com/api/',
-    openId: 'wx942a74c19e682464',
   }
 })

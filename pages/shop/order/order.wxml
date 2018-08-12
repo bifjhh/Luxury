@@ -1,38 +1,38 @@
-<view wx:if="{{0}}">
+<view wx:if="{{info.status==0||info.status==10}}">
   <view class="dizhi">
     收货地址
   </view>
   <view class="isadd">
     <view class="name_tel">
-      <text class="name">王山山</text>
-      <text class="tel">15596963203</text>
+      <text class="name">{{info.address_user}}</text>
+      <text class="tel">{{info.address_tel}}</text>
     </view>
     <view class="addres">
-      浙江省杭州市滨江区高新区软件园4号楼207
+      {{info.address}}
     </view>
   </view>
 </view>
 
 
-<view class="kd" wx:if="{{0}}">
+<view class="kd" wx:if="{{info.status==20}}">
   <view class="kd_l">
     <image src="/images/kd_logo.png" />
   </view>
   <view class="kd_r">
     <view class="kd_tel">
       <view>物流公司：
-        <text>顺丰快递</text>
+        <text>{{info.express_name}}</text>
       </view>
       <view bindtap="toExpress">查看物流 ></view>
     </view>
     <view>
       物流单号：
-      <text>2555666334588</text>
+      <text>{{info.express_no}}</text>
     </view>
   </view>
 </view>
 
-<view class="kd tk" wx:if="{{1}}">
+<view class="kd tk" wx:if="{{info.status==50}}">
   <view class="kd_l">
     <image src="/images/tk_logo.png" />
   </view>
@@ -51,12 +51,12 @@
 <view class="goods_list t20">
   <view class="goods" wx:for="{{1}}" wx:key="i">
     <view class="goods_logo">
-      <image src="/images/goods_logo.png" />
+      <image src="{{info.goods_item[0].goods_img}}" />
     </view>
     <view class="goods_info">
-      <text class="info_txt">澳洲Restoria discreet丽丝丽丝丽雅黑发还原乳250ml</text>
-      <text class="money">￥ 1288.00</text>
-      <text class="curt">X{{1}}</text>
+      <text class="info_txt">{{info.goods_item[0].goods_title}}</text>
+      <text class="money">￥ {{info.goods_item[0].unit_price}}</text>
+      <text class="curt">X{{info.goods_item[0].buy_num}}</text>
     </view>
   </view>
 </view>
@@ -64,19 +64,19 @@
 <view class="money t20">
   <view>
     <text>商品金额</text>
-    <text class="mn_num isnum">￥1299.00</text>
+    <text class="mn_num isnum">￥{{info.all_total_price}}</text>
   </view>
   <view>
     <text>红包抵扣</text>
-    <text class="mn_num">-￥0.00</text>
+    <text class="mn_num">-￥{{info.redpack_discount}}</text>
   </view>
   <view>
     <text>优惠券抵扣</text>
-    <text class="mn_num">-￥0.00</text>
+    <text class="mn_num">-￥{{info.coupon_discount}}</text>
   </view>
   <view>
     <text>应付</text>
-    <text class="mn_num">￥1299.00</text>
+    <text class="mn_num">￥{{info.pay_price}}</text>
   </view>
   <view class="kefu_box" bindtap="tokefu">
     <view class="lxkf">
@@ -90,31 +90,31 @@
 
 <view class="order_info">
   <view>
-    <view>订单编号：2017880029001</view>
+    <view>订单编号：{{info.order_no}}</view>
     <view class="copy">复制</view>
   </view>
   <view>
-    <view>下单时间：2017.08.09 12:09:03</view>
+    <view>下单时间：{{info.createtime}}</view>
   </view>
   <view>
     <view>
       <text>订单状态：</text>
-      <text style="color:red" wx:if="{{0}}">待付款</text>
-      <text style="color:red" wx:if="{{0}}">待收货</text>
-      <text style="color:red" wx:if="{{0}}">待评价</text>
-      <text style="color:red" wx:if="{{0}}">已完成</text>
-      <text style="color:red" wx:if="{{1}}">退款审核中</text>
+      <text style="color:red" wx:if="{{info.status==0}}">待付款</text>
+      <text style="color:red" wx:if="{{info.status==20}}">待收货</text>
+      <text style="color:red" wx:if="{{info.status==30}}">待评价</text>
+      <text style="color:red" wx:if="{{info.status==40}}">已完成</text>
+      <text style="color:red" wx:if="{{info.status==50}}">退款审核中</text>
     </view>
-    <view bindtap="qux" wx:if="{{0}}">取消订单</view>
-    <view bindtap="qux" wx:if="{{1}}">取消退款</view>
+    <view bindtap="qux" wx:if="{{info.status==0}}" data-id="{{info.order_id}}}">取消订单</view>
+    <view bindtap="qux" wx:if="{{info.status==50}}">取消退款</view>
   </view>
-  <view class="submit_btn jinse" wx:if="{{0}}">
+  <view class="submit_btn jinse" wx:if="{{info.status==0}}" bindtap="pay" data-id="{{info.order_id}}">
     立即支付
   </view>
-  <view class="submit_btn jinse" wx:if="{{0}}" bindtap="confirm">
+  <view class="submit_btn jinse" wx:if="{{info.status==20}}" bindtap="confirm">
     确认收货
   </view>
-  <view class="submit_btn jinse" wx:if="{{0}}" bindtap="discuss">
+  <view class="submit_btn jinse" wx:if="{{info.status==30}}" bindtap="discuss">
     立即评价
   </view>
 </view>

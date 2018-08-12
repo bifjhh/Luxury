@@ -45,6 +45,45 @@ Page({
       is_show
     })
   },
+  pay(e) {
+    let url = e.currentTarget.dataset.url;
+    console.log(url)
+    wx.navigateTo({
+      url:url
+    })
+    return ;
+    wx.$http('Order/add', {
+      goods_id: id,
+      pay_type: 2,
+      buy_num:1,
+      platform: 1
+    }).then(res => {
+      console.log(res)
+      if (!res.data.data.wx_pay_info) return;
+      let wx_pay_info = res.data.data.wx_pay_info;
+      wx.requestPayment({
+        'timeStamp': wx_pay_info.timestamp,
+        'nonceStr': wx_pay_info.nonce_str,
+        'package': 'prepay_id=' + wx_pay_info.prepay_id,
+        'signType': 'MD5',
+        'paySign': wx_pay_info.sign,
+        success: function (data) {
+          console.log('successdata', data)
+          wx.showToast({
+            title: '支付成功',
+            icon: 'success',
+            duration: 600
+          })
+          wx.navigateTo({
+            url: '/pages/my/indent/indent?status=10'
+          })
+        },
+        fail: function (error) {
+          console.log('error', error)
+        }
+      })
+    })
+  },
   addGwc(e) {
     console.log(e.currentTarget.dataset.goodsid)
     let goods_id = e.currentTarget.dataset.goodsid;

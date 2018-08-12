@@ -5,22 +5,75 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    info: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let that = this;
+    let id = options.id;
+    wx.$http('Order/detail', {
+      order_id: id
+    }).then(res => {
+      if (res.data.code != 1) return;
+      that.setData({
+        info: res.data.data
+      })
+    })
   },
-  qux() {
+ pay(e) {
+    let id = e.currentTarget.dataset.id;
+    wx.$http('Order/pay', {
+      order_id: id,
+      pay_type: 2,
+      platform: 1
+    }).then(res => {
+      console.log(res)
+      if (!res.data.data.wx_pay_info) return;
+      let wx_pay_info = res.data.data.wx_pay_info;
+      wx.requestPayment({
+        'timeStamp': wx_pay_info.timestamp,
+        'nonceStr': wx_pay_info.nonce_str,
+        'package': 'prepay_id=' + wx_pay_info.prepay_id,
+        'signType': 'MD5',
+        'paySign': wx_pay_info.sign,
+        success: function (data) {
+          console.log('successdata', data)
+          wx.showToast({
+            title: '支付成功',
+            icon: 'success',
+            duration: 600
+          })
+          wx.navigateTo({
+            url: '/pages/my/indent/indent?status=10'
+          })
+        },
+        fail: function (error) {
+          console.log('error', error)
+        }
+      })
+    })
+  },
+  qux(e) {
+    let id = e.currentTarget.dataset.id;
     wx.showModal({
       title: '  提示   ',
       content: '确定取消该订单吗？',
       success: function (res) {
         if (res.confirm) {
-          console.log('用户点击确定')
+          wx.$http('Order/confirmOrCancel', {
+            order_id: id,
+            status: 90
+          }).then(data => {
+            if (data.data.code != 1) return;
+            wx.showToast({
+              title: '取消成功',
+              icon: 'success',
+              duration: 1000
+            })
+          })
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
@@ -54,12 +107,12 @@ Page({
     })
   },
 
-  toExpress(){
+  toExpress() {
     wx.navigateTo({
       url: '/pages/shop/order/express/express',
     })
   },
-  tokefu(){
+  tokefu() {
     wx.navigateTo({
       url: '/pages/my/lxkf/lxkf'
     })

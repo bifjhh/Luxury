@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index/nav",
     "pages/index/index",
     "pages/index/search/search",
     "pages/index/result/result",

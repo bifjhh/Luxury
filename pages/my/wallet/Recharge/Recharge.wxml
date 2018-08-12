@@ -1,58 +1,32 @@
 <view class="sum_box bgc_f">
-  <view class="sum">
-  <text>￥10</text>
-  <view class="sum_r">
-    <text>充值即送￥5</text>
-    <view class="sum_icon">
-      <icon wx:if="{{0}}" type="success_no_circle" size="20" color="#FFA70F" />
+  <view class="sum" wx:for="{{list}}" wx:key="{{index}}" data-index="{{index}}" bindtap="opt">
+    <text>￥{{item.price}}</text>
+    <view class="sum_r">
+      <text>充值即送 ￥ {{item.give}}</text>
+      <view class="sum_icon">
+        <icon wx:if="{{item.status}}" type="success_no_circle" size="20" color="#FFA70F" />
+      </view>
     </view>
-  </view>
-  </view>
-  <view class="sum action">
-  <text>￥50</text>
-  <view class="sum_r">
-    <text>充值即送￥5</text>
-    <view class="sum_icon">
-      <icon wx:if="{{1}}" type="success_no_circle" size="20" color="#FFA70F" />
-    </view>
-  </view>
-  </view>
-  <view class="sum">
-  <text>￥100</text>
-  <view class="sum_r">
-    <view class="sum_icon">
-      <icon wx:if="{{0}}" type="success_no_circle" size="20" color="#FFA70F" />
-    </view>
-  </view>
-  </view>
-  <view class="sum">
-  <text>￥300</text>
-  <view class="sum_r">
-    <text>充值即送￥5</text>
-    <view class="sum_icon">
-      <icon wx:if="{{0}}" type="success_no_circle" size="20" color="#FFA70F" />
-    </view>
-  </view>
   </view>
 </view>
-  
+
 <view class="pay_body t20">
   <view class="pay_way ">
-    <view class="way_box" wx:for="{{3}}" wx:key="i">
+    <view class="way_box">
       <view class="fl">
         <view class="way_logo">
-        <image src="/images/pay/pay{{item}}.png" />
-      </view>
-      <text>支付宝支付</text>
+          <image src="/images/pay/pay1.png" />
+        </view>
+        <text>微信支付</text>
       </view>
       <view class="icon">
-        <icon wx:if="{{item==0}}" type="success" size="20" color="RGBA(194, 179, 135, 1)" />
+        <icon type="success" size="20" color="RGBA(194, 179, 135, 1)" />
       </view>
     </view>
-   
+
   </view>
   <view class="now_pay">
-    <view class="pay_btn jinse">
+    <view class="pay_btn jinse" bindtap="pay">
       立即支付
     </view>
   </view>

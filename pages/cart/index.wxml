@@ -1,4 +1,31 @@
-<view wx:if="{{1}}" class="no_goods">
+
+<view class="body" wx:if="{{list.length>0}}">
+  <view class="title" bindtap="setStatus" wx:if="{{status==0}}" data-status="1">
+    编辑商品
+  </view>
+  <view class="title" bindtap="setStatus" wx:else data-status="0">
+    完成
+  </view>
+  <view class="goods_list t20">
+    <view class="goods" wx:for="{{list}}" wx:key="index">
+      <view wx:if="{{status==0}}" class="icon" bindtap="count" data-index="{{index}}">
+        <icon wx:if="{{item.status}}" type="success" size="20" color="RGBA(194, 179, 135, 1)" />
+      </view>
+      <view wx:if="{{status==1}}" class="icon" bindtap="setgoods" data-index="{{index}}">
+        <icon wx:if="{{item.set}}" type="success" size="20" color="RGBA(194, 179, 135, 1)" />
+      </view>
+      <view class="goods_logo">
+        <image src="{{item.goods_img}}" />
+      </view>
+      <view class="goods_info">
+        <text class="info_txt">{{item.goods_title}}</text>
+        <text class="money">￥{{item.price}}</text>
+        <text class="curt">X{{item.buy_num}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:else class="no_goods">
   <view class="cart-image">
     <image src="/images/gouwuche2.png"  />
   </view>
@@ -7,49 +34,26 @@
     挑奢物
   </view>
 </view>
-<view class="body">
-  <view class="title" bindtap="setGoods" wx:if="{{set==0}}" data-set="1">
-    编辑商品
-  </view>
-  <view class="title" bindtap="setGoods" wx:if="{{set==1}}" data-set="0">
-    完成
-  </view>
-  <view class="goods_list t20">
-    <view class="goods" wx:for="{{1}}" wx:key="i">
-      <view class="icon">
-        <icon type="success" size="20" color="RGBA(194, 179, 135, 1)" />
-      </view>
-      <view class="goods_logo">
-        <image src="/images/goods_logo.png" />
-      </view>
-      <view class="goods_info">
-        <text class="info_txt">澳洲Restoria discreet丽丝丽丝丽雅黑发还原乳250ml</text>
-        <text class="money">￥1288.00</text>
-        <text class="curt">X{{1}}</text>
-      </view>
-    </view>
-  </view>
-</view>
-
 <view class="btn">
   <view class="btn_l">
-    <view class="icon">
-      <icon wx:if="{{0}}" type="success" size="20" color="RGBA(194, 179, 135, 1)" />
+    <view class="icon" bindtap="all">
+      <icon wx:if="{{statuAll}}" type="success" size="20" color="RGBA(194, 179, 135, 1)" />
+      <icon wx:if="{{delAll}}" type="success" size="20" color="RGBA(194, 179, 135, 1)" />
     </view>
     <view class="quanxuan">
       全选
     </view>
-    <view class="heji" wx:if="{{set==0}}">
+    <view class="heji" wx:if="{{status==0}}">
       合计
     </view>
-    <view class="sum" wx:if="{{set==0}}">
-      ￥999999.00
+    <view class="sum" wx:if="{{status==0}}">
+      ￥{{sum||0}}
     </view>
   </view>
-  <view class="jinse" wx:if="{{set==0}}">
+  <view class="jinse" wx:if="{{status==0}}" bindtap="end">
     结算
   </view>
-  <view class="jinse {{set==1?'hui':''}}" wx:if="{{set==1}}">
+  <view class="jinse {{status==1?'hui':''}}" wx:if="{{status==1}}" bindtap="delGoods">
     删除
   </view>
 </view>

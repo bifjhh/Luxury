@@ -29,7 +29,9 @@ Page({
       // zgj: '',
     },
     seekObj: {},
-    sortId: 0
+    sortId: 0,
+    zdj:'',
+    zgj:''
   },
 
   /**
@@ -40,7 +42,17 @@ Page({
     that.setData({
       options
     })
-    that.getObjs(that, options.brand_id, 0)
+    if (options.keywords) {
+      that.getObjs(that, {
+        keywords: options.keywords,
+        sort: 0
+      })
+    } else if (options.brand_id) {
+      that.getObjs(that, {
+        brand_id: options.brand_id,
+        sort: 0
+      })
+    }
     wx.$http('Index/searchInfo').then(res => {
       that.setData({
         seekObj: res.data.data
@@ -60,11 +72,8 @@ Page({
       console.log(res.data.data)
     })
   },
-  getObjs(that, brand_id, sort) {
-    wx.$http('Goods/getList', {
-      brand_id: brand_id,
-      sort: sort
-    }).then(res => {
+  getObjs(that, data) {
+    wx.$http('Goods/getList', data).then(res => {
       that.setData({
         objs: res.data.data
       })
@@ -78,35 +87,50 @@ Page({
     switch (sortId * 1) {
       case 0:
         console.log(sortId)
-        that.getObjs(that, that.data.options.brand_id, sortId)
+        that.getObjs(that, {
+          brand_id: that.data.options.brand_id,
+          sort: sortId
+        })
         that.setData({
           sortId: 0
         })
         break;
       case 1:
         console.log(sortId)
-        that.getObjs(that, that.data.options.brand_id, sortId)
+        that.getObjs(that, {
+          brand_id: that.data.options.brand_id,
+          sort: sortId
+        })
         that.setData({
           sortId: 2
         })
         break;
       case 2:
         console.log(sortId)
-        that.getObjs(that, that.data.options.brand_id, sortId)
+        that.getObjs(that, {
+          brand_id: that.data.options.brand_id,
+          sort: sortId
+        })
         that.setData({
           sortId: 1
         })
         break;
       case 10:
         console.log(sortId)
-        that.getObjs(that, that.data.options.brand_id, sortId)
+        that.getObjs(that, {
+          brand_id: that.data.options.brand_id,
+          sort: sortId
+        })
         that.setData({
           sortId: 11
         })
         break;
       case 11:
         console.log(sortId)
-        that.getObjs(that, that.data.options.brand_id, sortId)
+        that.getObjs(that, {
+          brand_id: that.data.options.brand_id,
+          sort: sortId
+        })
         that.setData({
           sortId: 10
         })
@@ -163,7 +187,9 @@ Page({
     })
   },
   filtrateEnd() {
+    let that = this;
 
+    that.getObjs(that, that.data.form_obj)
     this.animation.translateX(0).step()
     // this.animation.rotate(150).step()
     this.setData({
@@ -173,16 +199,20 @@ Page({
   },
   zdj(e) {
     let form_obj = this.data.form_obj;
-    form_obj.zdj = e.detail.value;
+    // form_obj.zdj = e.detail.value;
+    form_obj.min_price = e.detail.value;
     this.setData({
-      form_obj
+      form_obj,
+      zdj: e.detail.value
     })
   },
   zgj(e) {
     let form_obj = this.data.form_obj;
-    form_obj.zgj = e.detail.value;
+    // form_obj.zgj = e.detail.value;
+    form_obj.max_price = e.detail.value;
     this.setData({
-      form_obj
+      form_obj,
+      zgj: e.detail.value
     })
   },
   toGoods(e) {
@@ -209,21 +239,41 @@ Page({
     //   e.is = false /* 排他 */
     // });
     if (cls == "hot_keywords") {
-      form_obj[cls] = leixing[cls][id].keywords;
+      // form_obj[cls] = leixing[cls][id].keywords;
+      // form_obj.keywords = leixing[cls][id].keywords;
+      if (form_obj.keywords == leixing[cls][id].keywords) {
+        form_obj.keywords = '';
+        id = '-1';
+      } else {
+        form_obj.keywords = leixing[cls][id].keywords;
+      }
       that.setData({
         pinpaiOff: id,
         form_obj,
         seekObj: leixing
       })
     } else if (cls == "cate_list") {
-      form_obj[cls] = leixing[cls][id].cate_name;
+      // form_obj[cls] = leixing[cls][id].cate_name;
+      // form_obj.cate_id = leixing[cls][id].cate_id;
+      if (form_obj.cate_id == leixing[cls][id].cate_id) {
+        form_obj.cate_id = '';
+        id = '-1';
+      } else {
+        form_obj.cate_id = leixing[cls][id].cate_id;
+      }
       that.setData({
         pinleiOff: id,
         form_obj,
         seekObj: leixing
       })
     } else if (cls == "quality_list") {
-      form_obj[cls] = leixing[cls][id].quality_name;
+      // form_obj[cls] = leixing[cls][id].quality_name;
+      if (form_obj.quality_id == leixing[cls][id].quality_id) {
+        form_obj.quality_id = '';
+        id = '-1';
+      } else {
+        form_obj.quality_id = leixing[cls][id].quality_id;
+      }
       that.setData({
         qualityOff: id,
         form_obj,
@@ -231,18 +281,47 @@ Page({
       })
     } else {
       let isfq = that.data.isfq;
-      form_obj[cls] = isfq[id].name;
-      isfq.forEach(e => {
+      // form_obj[cls] = isfq[id].name;
+      isfq.forEach((e, i) => {
+        if (id == i) return;
         e.is = false /* 排他 */
       });
-      isfq[id].is = true; //改变状态
+      isfq[id].is = !isfq[id].is; //改变状态
+      if (id == 0) {
+        console.log(id)
+        form_obj.is_sales = isfq[id].is ? 1 : 0;
+        form_obj.is_credit = 0;
+      } else {
+        form_obj.is_sales = 0;
+        form_obj.is_credit = isfq[id].is ? 1 : 0;
+      }
       that.setData({
         [cls]: isfq,
         form_obj
       })
     }
   },
-
+  reset() {
+    let that = this;
+    let isfq = [{
+        name: '有降价',
+        is: false
+      },
+      {
+        name: '支持分期',
+        is: false
+      },
+    ];
+    that.setData({
+      form_obj: {},
+      pinpaiOff: '-1',
+      pinleiOff: '-1',
+      qualityOff: '-1',
+      zdj:'',
+      zgj:'',
+      isfq,
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

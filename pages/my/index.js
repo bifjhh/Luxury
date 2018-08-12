@@ -21,9 +21,10 @@ Page({
       })
     })
   },
-  todind() {
+  toPage(e) {
+    let url = e.currentTarget.dataset.url
     wx.navigateTo({
-      url: '/pages/my/indent/indent'
+      url: url
     })
   },
   todizhi() {
@@ -33,7 +34,7 @@ Page({
   },
   toyijian() {
     wx.navigateTo({
-      url: '/pages/pinglun/pinglun'
+      url: '/pages/pinglun/pinglun?type=0'
     })
   },
   toInfo() {

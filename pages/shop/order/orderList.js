@@ -16,6 +16,7 @@ Page({
     cardSum: 0,
     hbNum: 0,
     hbSum: 0,
+    isCart: true,
   },
 
   /**
@@ -26,8 +27,24 @@ Page({
     let datas = getCurrentPages();
     let list = [];
     let sum = 0;
-    let cart_id = []
+    let cart_id = [];
     if (datas.length < 1) return;
+    if (options.id) {
+      console.log('不是购物车');
+      let sum = datas[datas.length - 2].data.objs.price;
+      list = [datas[datas.length - 2].data.objs];
+      that.setData({
+        isCart: false,
+        list,
+        sum,
+        cart_id: options.id
+      })
+      that.getHb(that);
+      that.getCart(that);
+      return false;
+    }
+    console.log('购物车')
+
     datas[datas.length - 2].data.list.map(e => {
       if (e.status) {
         list.push(e);
@@ -40,8 +57,14 @@ Page({
       sum,
       cart_id: cart_id.toString()
     })
+    that.getHb(that);
+    that.getCart(that);
+
+
+  },
+  getHb(that) {
     wx.$http('User/getRedpackList', {
-      goods_ids: cart_id.toString()
+      goods_ids: that.cart_id
     }).then(res => {
       if (res.data.code != 1) return;
       that.setData({
@@ -49,8 +72,10 @@ Page({
       })
       console.log(res.data)
     })
+  },
+  getCart(that) {
     wx.$http('User/getCouponList', {
-      goods_ids: cart_id.toString()
+      goods_ids: that.cart_id
     }).then(res => {
       if (res.data.code != 1) return;
       that.setData({
@@ -58,7 +83,6 @@ Page({
       })
       console.log(res.data)
     })
-
   },
   /**
    * 生命周期函数--监听页面显示
@@ -96,10 +120,59 @@ Page({
     })
   },
   submit() {
-    return;
-    wx.navigateTo({
-      url: '/pages/shop/order/order'
+    let that = this;
+    let data;
+    if (that.isCart) {
+      data = {
+        address_id: that.data.address.address_id,
+        is_cart: 1,
+        cart_ids: that.data.cart_id,
+        pay_type: 2,
+        user_coupon_id: that.data.yhqId,
+        user_redpack_id: that.data.hbId,
+        platform: 1
+      }
+    } else {
+      data = {
+        address_id: that.data.address.address_id,
+        goods_id: that.data.cart_id,
+        pay_type: 2,
+        buy_num: 1,
+        user_coupon_id: that.data.yhqId,
+        user_redpack_id: that.data.hbId,
+        platform: 1
+      }
+    }
+    wx.$http('Order/add', data).then(res => {
+      console.log(res)
+      if (!res.data.data.wx_pay_info) return;
+      let wx_pay_info = res.data.data.wx_pay_info;
+
+      wx.requestPayment({
+        'timeStamp': wx_pay_info.timestamp,
+        'nonceStr': wx_pay_info.nonce_str,
+        'package': 'prepay_id=' + wx_pay_info.prepay_id,
+        'signType': 'MD5',
+        'paySign': wx_pay_info.sign,
+        success: function (data) {
+          console.log('data', data)
+          wx.showToast({
+            title: '支付成功',
+            icon: 'success',
+            duration: 600
+          })
+          setTimeout(() => {
+            wx.navigateTo({
+              url: '/pages/shop/order/order?id=' + res.data.data.order_id
+            })
+          }, 500);
+        },
+        fail: function (error) {
+          console.log('error', error)
+        }
+      })
     })
+
   },
   count(e) {
     // console.log(e.currentTarget.dataset.index)

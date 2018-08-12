@@ -7,8 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bindPhone: false,
-    phone: '13111111111'
+    mobile: false,
+    phone: '13111111111',
+    openid: ''
   },
 
   /**
@@ -22,13 +23,6 @@ Page({
         console.log(res.userInfo)
       }
     })
-    wx.getSetting({
-      success: res => {
-        that.setData({
-          bindPhone: res.authSetting['scope.userInfo']
-        })
-      }
-    })
   },
 
   /**
@@ -36,25 +30,55 @@ Page({
    */
   logn() {
     let that = this;
-    let data = {
-      openid: openId,
-      platform: 'wx'
-    }
-    wx.$http('User/thirdlogin', data).then(res => {
-      if (res.data.code == 1) {
-        wx.setStorageSync('token', res.data.data.userinfo.token)
+    wx.login({
+      success: function (res) {
+        if (!res.code) return;
+        //发起网络请求
+        wx.$http('Index/getOpenId', {
+          code: res.code
+        }).then(res => {
+          if (!res.data.data.openid) {
+            wx.showToast({
+              title: '登录失败',
+              icon: 'none',
+              duration: 1500
+            })
+            return false
+          }
+          let openId = res.data.data.openid
+          that.setData({
+            openid: openId
+          })
+          wx.$http('User/thirdlogin', {
+            platform: 'wx',
+            openid: openId
+          }).then(res => {
+            if (res.data.code == 0) return;
+            if (res.data.code == 100) {
+              that.setData({
+                mobile: true
+              })
+              return false;
+            };
+            wx.setStorageSync('token', res.data.data.userinfo.token)
+            that.setData({
+              mobile: !res.data.data.userinfo.mobile
+            })
+            if (res.data.data.userinfo.mobile) {
+              wx.reLaunch({
+                url: '/pages/index/index'
+              })
+            }
+          })
+        })
       }
-    })
-    that.setData({
-      bindPhone: true
-    })
-
+    });
   },
   submit(e) {
     let that = this;
     let data = e.detail.value;
     data.platform = 'wx';
-    data.openid = openId;
+    data.openid = that.data.openid;
     wx.$http('User/bindmobile', data).then(res => {
       if (res.data.code == 1) {
         console.log(res)

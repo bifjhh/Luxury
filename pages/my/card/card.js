@@ -56,6 +56,18 @@ Page({
       console.log(res.data.data)
     })
   },
+  toPage(e) {
+    let url = e.currentTarget.dataset.url;
+    wx.navigateTo({
+      url: url
+    })
+  },
+  usage(e) {
+    let id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/index/result/result?brand_id=' + id
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

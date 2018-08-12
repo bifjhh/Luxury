@@ -16,34 +16,27 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
-    that.getList(that, that.data.status)
+    that.getList(that)
   },
   iscard(e) {
     let that = this;
     let id = e.currentTarget.dataset.cardid;
-    this.setData({
+    that.setData({
       status: id,
       page: 0
     })
+    that.getList(that)
   },
-  getList(that, status) {
+  getList(that) {
     let data = {
       p: that.data.page,
-      status: status
+      status: that.data.status
     }
     wx.$http('User/getRedpackList', data).then(res => {
       if (res.data.code != 1) return;
       that.setData({
         list: res.data.data
       })
-      if (res.data.data.length == 0) {
-        wx.showToast({
-          title: '你还没有红包',
-          icon: 'none',
-          duration: 2000
-        })
-      };
-      console.log(res.data.data)
     })
   },
   /**

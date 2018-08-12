@@ -25,12 +25,12 @@
 <view class="goods_list t20">
   <view class="goods" wx:for="{{list}}" wx:key="index">
     <view class="goods_logo">
-      <image src="{{item.goods_img}}" />
+      <image src="{{item.goods_img||item.list_img[0]}}" />
     </view>
     <view class="goods_info">
       <text class="info_txt">{{item.goods_title}}</text>
       <text class="money">￥ {{item.price}}</text>
-      <text class="curt">X{{item.buy_num}}</text>
+      <text class="curt">X{{item.buy_num||1}}</text>
     </view>
   </view>
 </view>

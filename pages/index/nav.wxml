@@ -1,0 +1,2 @@
+<!--pages/index/nav.wxml-->
+<button wx:for="{{list}}" wx:key="{{index}}" data-url="{{item.url}}" bindtap="toPage">{{item.name}}</button>

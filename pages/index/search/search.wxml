@@ -2,9 +2,8 @@
 
 <view class="title">
   <view class="search_box">
-  <view bindtap="toSearch" class="searchTab"></view>
-  <image bindtap="toSearch" class="search" style="width:18rpx;height:20rpx" src="/images/home/search2.png" />
-    <input type="text" style="height:100%;" placeholder="请输入商品名称" auto-focus />
+  <image class="search" style="width:18rpx;height:20rpx" src="/images/home/search2.png" />
+    <input type="text" style="height:100%;"confirm-type="search" placeholder="请输入商品名称" auto-focus bindconfirm="change"/>
   </view>
 </view>
 
@@ -18,8 +17,8 @@
     </view>
   </view>
   <view class="hsy_info wrap_box">
-    <view wx:for="{{7}}" wx:key="i" class="hsy_cent">
-      浪琴
+    <view wx:for="{{history}}" wx:if="{{item}}" wx:key="{{index}}" class="hsy_cent" bindtap="seacrh" data-val="{{item}}">
+      {{item}}
     </view>
     
   </view>
@@ -32,8 +31,8 @@
     
   </view>
   <view class="hot_info wrap_box">
-    <view wx:for="{{7}}" wx:key="i" class="hot_cent">
-      浪琴
+    <view wx:for="{{objs.hot_keywords}}" wx:key="{{index}}" wx:if="{{item.keywords!=' '}}" class="hot_cent" bindtap="seacrh" data-val="{{item.keywords}}">
+      {{item.keywords}}
     </view>
     
   </view>

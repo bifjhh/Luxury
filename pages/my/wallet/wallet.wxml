@@ -1,7 +1,7 @@
 <view class="head">
   <view class="card">
     <text>我的余额</text>
-    <text>￥4600.00</text>
+    <text>￥{{wallet_balance}}</text>
     <view class="card_btn">
       <view class="btn_l" bindtap="toTx">
         提现
@@ -22,25 +22,14 @@
       支出
     </view>
   </view>
-  <view wx:if="{{isTab==0}}" class="tab_body">
-    <view class="body_info" wx:for="{{5}}" wx:key="i">
+  <view class="tab_body">
+    <view class="body_info" wx:for="{{list}}" wx:key="index">
      <view class="info_l">
-       <text>在线充值</text>
-       <text>2018.4.12 12:35</text>
+       <view>{{item.item.name}}<text wx:if="{{item.order_no}}">(订单号：{{item.order_no}})</text></view>
+       <text>{{item.createtime}}</text>
      </view>
      <view class="info_r">
-       ￥9{{item}}.00
-     </view>
-    </view>
-  </view>
-  <view wx:if="{{isTab==1}}" class="tab_body">
-    <view class="body_info" wx:for="{{5}}" wx:key="i">
-     <view class="info_l">
-       <text>养护支出</text>
-       <text>2018.4.12 12:35</text>
-     </view>
-     <view class="info_r">
-       ￥9{{item}}.00
+       ￥{{item.type==1?'-':''}}{{item.price}}
      </view>
     </view>
   </view>
