@@ -5,6 +5,8 @@ let token;
 App({
   onLaunch: function () {
     let that = this;
+    wx.$http = that.http;
+
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -15,10 +17,15 @@ App({
           })
         } else {
           console.log('已经授权')
+          if (!wx.getStorageSync('token')) {
+            console.log('但是没有token')
+            wx.reLaunch({
+              url: '/pages/user/index'
+            })
+          }
         }
       }
     })
-    wx.$http = that.http;
 
   },
   getUserInfo: function (cb) {
@@ -63,11 +70,11 @@ App({
         },
         fail: function (error) {
           console.log('error', error)
-          // wx.showToast({
-          //   title: res.data.msg,
-          //   icon: 'none',
-          //   duration: 1000
-          // })
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 1000
+          })
           reject(error);
         },
       })

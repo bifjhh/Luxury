@@ -11,10 +11,15 @@
     </view>
     <view>
       <view>地址</view>
-      <input name="location" type="text" placeholder="请输入收货地址" value="{{info.location}}"  />
+     <input name="location" style="display:none" type="text" placeholder="请输入收货地址" value="{{address||info.location}}"  /> 
+      <picker mode="region" bindchange="bindRegionChange" custom-item="请选择">
+        <view class="picker">
+         {{address||info.location||'请选择地址'}}
+        </view>
+      </picker>
     </view>
     <view>
-      <view>门牌号</view>
+      <view>详细地址</view>
       <input name="detail_address" type="text" placeholder="例：5号楼203室" value="{{info.detail_address}}"  />
     </view>
     <button form-type="submit" class="jinse">保存</button>

@@ -11,11 +11,6 @@ Page({
 		var that = this
 
 	},
-	toDetail() {
-		wx.navigateTo({
-			url: '/pages/shop/goods/goods',
-		})
-	},
 
 	//事件处理函数
 	switchRightTab: function (e) {
@@ -37,13 +32,9 @@ Page({
 	toPage(e) {
 		let that = this;
 		let url = e.currentTarget.dataset.url
-		let id = e.currentTarget.dataset.id;
-		if (url == "/pages/index/result/result") {
-			url += ('?brand_id=' + id);
-			wx.navigateTo({
-				url: url
-			})
-		}
+		wx.navigateTo({
+			url: url
+		})
 	},
 	onLoad: function (options) {
 		let that = this
@@ -55,7 +46,8 @@ Page({
 		})
 		wx.$http('Index/cateList').then(res => {
 			that.setData({
-				nav: res.data.data
+				nav: res.data.data,
+				curNav:res.data.data[0].cate_id
 			})
 			that.getGoods(that, res.data.data[0].cate_id)
 		})
@@ -71,11 +63,5 @@ Page({
 				goodsList: res.data.data
 			})
 		})
-	},
-	toDetail(e) {
-		let id =e.currentTarget.dataset.id;
-		wx.navigateTo({
-			url: '/pages/shop/goods/goods?id='+id,
-		})
-	},
+	}
 })

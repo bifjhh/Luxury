@@ -21,6 +21,12 @@ Page({
     let that = this;
     that.getList(that)
   },
+  toPage(e) {
+    let url = e.currentTarget.dataset.url
+    wx.reLaunch({
+      url: url
+    })
+  },
   getList(that) {
     wx.$http('Cart/getList').then(res => {
       if (res.data.code != 1) return;

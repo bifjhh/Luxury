@@ -3,16 +3,17 @@
     <!-- 顶部轮播图 -->
     <view class="swp">
         <view class="seek">
-            <view class="seek_l fl" bindtap="toSearch">
+            <view class="seek_l fl" bindtap="toPage" data-url="/pages/index/search/search">
                 <image class="search" style="width:18rpx;height:20rpx" src="/images/home/search.png" /> 探索你的奢物
             </view>
-            <view class="seek_r fl" bindtap="tollkf">
+            <view class="seek_r fl" data-url="/pages/my/lxkf/lxkf">
+            <button open-type="contact" />
                 <image src="/images/home/kefu.png" />
             </view>
         </view>
         <swiper class="swiper_box" autoplay interval="{{2000}}" duration="{{1000}}" bindchange="current">
             <block wx:for="{{homeInfo.banner}}" wx:key="item.ad_id">
-                <swiper-item>
+                <swiper-item bindtap="toActivity1" data-jid="{{item.jump_type}}" data-tid="{{item.to_id}}">
                     <image src="{{item.ad_img}}" class="slide-image" />
                 </swiper-item>
             </block>
@@ -23,7 +24,8 @@
         </view>
     </view>
     <!-- 功能选择  -->
-    <view class="xuanze" bindtap="isShade" data-is='1'>
+    <!-- <view class="xuanze" bindtap="isShade" data-is='1'> -->
+    <view class="xuanze">
         <view>
             <view class="xuanze_img">
                 <image src="/images/home/shouye_hongbao@3x.png" />
@@ -40,7 +42,7 @@
                 鉴定
             </view>
         </view>
-        <view>
+        <view bindtap="toPage" data-url="/pages/index/result/result?sort=10">
             <view class="xuanze_img">
                 <image src="/images/home/shouye_shangxin@3x.png" />
             </view>
@@ -70,7 +72,7 @@
     <!-- 商品分类  -->
     <view class="venues_box">
         <block wx:for="{{homeInfo.palace}}" wx:key="{{index}}">
-            <view class="venues_4" wx:if="{{item.palace_id==1&&item.palace_name=='四宫格'}}">
+            <view class="venues_4" wx:if="{{item.palace_type=='1'}}">
                 <view  wx:for="{{item.item}}" wx:key="itemOne.palace_item_id" wx:for-item="itemOne" class='venues_content' bindtap="toActivity" data-jid="{{itemOne.jump_type}}"
                 data-tid="{{itemOne.to_id}}">
                     <view class='v_img'>
@@ -86,7 +88,7 @@
                     </view>
                 </view>
             </view>
-            <view wx:else class="venues_3">
+            <view  wx:if="{{item.palace_type=='0'}}" class="venues_3">
                 <view class='venues_content_max' bindtap="toActivity" data-tid="{{item.item[0].to_id}}" data-jid="{{item.item[0].jump_type}}">
                     <view class='v_info'>
                         <view class="v_h1">
@@ -137,7 +139,7 @@
         <scroll-view class="scroll_view" scroll-x style="width: 100%">
             <view class="section_content">
                 <block wx:for="{{homeInfo.brand}}" wx:key="item.brand_id" >
-                    <view class="section_logo" bindtap="toResult" data-id="{{item.brand_id}}">
+                    <view class="section_logo" bindtap="toPage"  data-url="{{'/pages/index/result/result?brand_id='+item.brand_id}}">
                         <view class="section_img">
                             <image src="{{item.brand_img}}" />
                         </view>
@@ -150,10 +152,10 @@
         </scroll-view>
     </view>
 
-    <!-- banner 广告 -->
+    <!-- 活动 广告 -->
     <view class="banner">
         <block wx:for="{{homeInfo.activity}}" wx:key="item.activity_id">
-            <view class="banner_info" bindtap="toActivity" data-jid="1" data-tid="{{item.activity_id}}">
+            <view class="banner_info" bindtap="toActivity"  data-tid="{{item.activity_id}}">
                 <view class="banner_img">
                     <image src="{{item.activity_img}}" />
                 </view>

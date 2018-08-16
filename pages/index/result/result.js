@@ -7,6 +7,7 @@ Page({
    */
   data: {
     text: "Page animation",
+    objs: {},
     animation: '',
     pinpaiOff: -1,
     pinleiOff: -1,
@@ -30,8 +31,8 @@ Page({
     },
     seekObj: {},
     sortId: 0,
-    zdj:'',
-    zgj:''
+    zdj: '',
+    zgj: ''
   },
 
   /**
@@ -42,17 +43,23 @@ Page({
     that.setData({
       options
     })
+    let form_obj = that.data.form_obj;
+    form_obj.sort = 0;
     if (options.keywords) {
-      that.getObjs(that, {
-        keywords: options.keywords,
-        sort: 0
-      })
+      form_obj.keywords = options.keywords;
     } else if (options.brand_id) {
-      that.getObjs(that, {
-        brand_id: options.brand_id,
-        sort: 0
-      })
+      form_obj.brand_id = options.brand_id;
+    } else if (options.cate_id) {
+      form_obj.cate_id = options.cate_id;
+    } else if (options.activity_id) {
+      form_obj.activity_id = options.activity_id;
+    } else if (options.sort) {
+      form_obj.sort = options.sort;
     }
+    that.getObjs(that, form_obj)
+    that.setData({
+      form_obj
+    })
     wx.$http('Index/searchInfo').then(res => {
       that.setData({
         seekObj: res.data.data
@@ -62,7 +69,12 @@ Page({
   },
   bindinput(e) {
     let that = this;
-    console.log(e.detail.value)
+    // console.log(e.detail.value)
+    let form_obj = that.data.form_obj;
+    form_obj.keywords = e.dataset.value;
+    that.setData({
+      form_obj
+    })
     wx.$http('Goods/getList', {
       keywords: e.detail.value,
     }).then(res => {
@@ -72,8 +84,8 @@ Page({
       console.log(res.data.data)
     })
   },
-  getObjs(that, data) {
-    wx.$http('Goods/getList', data).then(res => {
+  getObjs(that) {
+    wx.$http('Goods/getList', that.data.form_obj).then(res => {
       that.setData({
         objs: res.data.data
       })
@@ -83,60 +95,14 @@ Page({
   sort(e) {
     let that = this;
     console.log(e.currentTarget.dataset.sort);
-    let sortId = e.currentTarget.dataset.sort;
-    switch (sortId * 1) {
-      case 0:
-        console.log(sortId)
-        that.getObjs(that, {
-          brand_id: that.data.options.brand_id,
-          sort: sortId
-        })
-        that.setData({
-          sortId: 0
-        })
-        break;
-      case 1:
-        console.log(sortId)
-        that.getObjs(that, {
-          brand_id: that.data.options.brand_id,
-          sort: sortId
-        })
-        that.setData({
-          sortId: 2
-        })
-        break;
-      case 2:
-        console.log(sortId)
-        that.getObjs(that, {
-          brand_id: that.data.options.brand_id,
-          sort: sortId
-        })
-        that.setData({
-          sortId: 1
-        })
-        break;
-      case 10:
-        console.log(sortId)
-        that.getObjs(that, {
-          brand_id: that.data.options.brand_id,
-          sort: sortId
-        })
-        that.setData({
-          sortId: 11
-        })
-        break;
-      case 11:
-        console.log(sortId)
-        that.getObjs(that, {
-          brand_id: that.data.options.brand_id,
-          sort: sortId
-        })
-        that.setData({
-          sortId: 10
-        })
-        break;
-      default:
-    }
+    // let sortId = e.currentTarget.dataset.sort;
+    let form_obj = that.data.form_obj;
+    form_obj.sort = e.currentTarget.dataset.sort;
+    that.setData({
+      form_obj
+    })
+    that.getObjs(that)
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -317,8 +283,8 @@ Page({
       pinpaiOff: '-1',
       pinleiOff: '-1',
       qualityOff: '-1',
-      zdj:'',
-      zgj:'',
+      zdj: '',
+      zgj: '',
       isfq,
     })
   },

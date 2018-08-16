@@ -1,4 +1,4 @@
-<view class="get_user">
+<view class="get_user" wx:if="{{!mobile}}">
   <view class="banner">
     <image src="/images/shewu_bg@3x.png" />
   </view>
@@ -8,7 +8,7 @@
   <button class="getUserInfo" open-type="getUserInfo" bindgetuserinfo="logn">立即体验</button>
 </view>
 
-<form wx:if="{{mobile}}" bindsubmit="submit">
+<form wx:else bindsubmit="submit">
   <view class="bind_phone">
     <view class="img">
       <image src="/images/dunp.png" />
@@ -17,12 +17,12 @@
       为了您的账户安全，请绑定您的手机号
     </view>
     <view class="set_phone">
-      <input name="mobile" type="number" placeholder="请输入11位手机号码" maxlength="11" value="{{phone}}" bindinput="input" />
+      <input name="mobile" type="number" placeholder="请输入11位手机号码" maxlength="11" bindinput="input" />
       <view class="code jinse" bindtap="getCode">
         获取验证码
       </view>
     </view>
-    <input class="yanzheng" name="captcha" type="text" placeholder="请输入验证码" value="1234" />
+    <input class="yanzheng" name="captcha" type="text" placeholder="请输入验证码"/>
     <button form-type="submit" class="jinse btn">安全绑定</button>
   </view>
 </form>

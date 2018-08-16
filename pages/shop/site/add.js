@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    info: {}
+    info: {},
+    address:''
   },
 
   /**
@@ -26,7 +27,10 @@ Page({
       })
     })
   },
-
+  bindRegionChange(e) {
+    let address=e.detail.value.join('-');
+    this.setData({address})
+  },
   addSite(e) {
     let that = this;
     let data = e.detail.value;
