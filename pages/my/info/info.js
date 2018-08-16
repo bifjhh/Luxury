@@ -65,7 +65,7 @@ Page({
     }).then(res => {
       console.log(token, res)
       wx.uploadFile({
-        url: "http://api.shewuwang.com/api/User/uploadAvatar",
+        url: "https://api.shewuwang.com/api/User/uploadAvatar",
         filePath: res.tempFilePaths[0],
         name: 'file',
         formData: {

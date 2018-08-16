@@ -83,6 +83,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    uri: 'http://api.shewuwang.com/api/',
+    uri: 'https://api.shewuwang.com/api/',
   }
 })
