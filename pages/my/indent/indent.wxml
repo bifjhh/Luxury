@@ -1,23 +1,23 @@
 
 <view class="nav_tab">
-  <scroll-view class="scroll" scroll-x>
+  <scroll-view class="scroll" scroll-into-view="{{'s'+status}}" scroll-x>
    <view class="tab_box"> 
-      <view class="{{status==-1?'action':''}}" data-status="-1" bindtap="iscard">
+      <view class="{{status==-1?'action':''}}" id="s-1" data-status="-1" bindtap="iscard">
       全部
     </view>
-    <view class="{{status==0?'action':''}}" data-status="0" bindtap="iscard">
+    <view class="{{status==0?'action':''}}" id="s0" data-status="0" bindtap="iscard">
       待付款
     </view>
-    <view class="{{status==10?'action':''}}" data-status="10" bindtap="iscard">
+    <view class="{{status==10?'action':''}}" id="s10" data-status="10" bindtap="iscard">
       待发货
     </view>
-    <view class="{{status==20?'action':''}}" data-status="20" bindtap="iscard">
+    <view class="{{status==20?'action':''}}" id="s20" data-status="20" bindtap="iscard">
       待收货
     </view>
-    <view class="{{status==30?'action':''}}" data-status="30" bindtap="iscard">
+    <view class="{{status==30?'action':''}}" id="s30" data-status="30" bindtap="iscard">
       待评价
     </view>
-    <view class="{{status==50?'action':''}}" data-status="50" bindtap="iscard">
+    <view class="{{status==50?'action':''}}" id="s50" data-status="50" bindtap="iscard">
       退款审核中
     </view>
    </view>

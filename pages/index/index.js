@@ -67,23 +67,43 @@ Page({
   onShow: function () {
 
   },
-
-  toSearch() {
+  toPage(e) {
+    let url = e.currentTarget.dataset.url
     wx.navigateTo({
-      url: '/pages/index/search/search'
+      url: url
     })
   },
   toActivity(e) {
     let jump_type = e.currentTarget.dataset.jid;
     let tid = e.currentTarget.dataset.tid;
-    console.log(tid);
-    if (jump_type == 1) {
+    console.log(jump_type);
+
+    if (!jump_type && jump_type != 0) {
       wx.navigateTo({
-        url: '/pages/index/activity/activity?tid=' + tid
+        url: '/pages/index/result/result?activity_id=' + tid
       })
     } else if (jump_type == 0) {
       wx.navigateTo({
-        url: '/pages/shop/goods/goods'
+        url: '/pages/shop/goods/goods?id=' + tid
+      })
+    } else if (jump_type == 1) {
+      wx.navigateTo({
+        url: '/pages/index/activity/activity?tid=' + tid
+      })
+    }
+  },
+  toActivity1(e) {
+    let jump_type = e.currentTarget.dataset.jid;
+    let tid = e.currentTarget.dataset.tid;
+    console.log(jump_type);
+
+    if (jump_type == 1) {
+      wx.navigateTo({
+        url: '/pages/shop/goods/goods?id=' + tid
+      })
+    } else if (jump_type == 2) {
+      wx.navigateTo({
+        url: '/pages/index/activity/activity?tid=' + tid
       })
     }
   },
@@ -91,18 +111,6 @@ Page({
   toDetails() {
     wx.navigateTo({
       url: "/pages/shop/goods/goods"
-    })
-  },
-  tollkf() {
-    wx.navigateTo({
-      url: '/pages/my/lxkf/lxkf'
-    })
-  },
-  toResult(e) {
-    let brandId = e.currentTarget.dataset.id;
-    console.log('toSearch')
-    wx.navigateTo({
-      url: '/pages/index/result/result?brand_id=' + brandId
     })
   },
   /**

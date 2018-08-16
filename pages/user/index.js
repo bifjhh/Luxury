@@ -8,7 +8,7 @@ Page({
    */
   data: {
     mobile: false,
-    phone: '13111111111',
+    phone: '',
     openid: ''
   },
 
@@ -17,62 +17,73 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
-    console.log(app.globalData.userInfo)
-    wx.getUserInfo({
-      success: function (res) {
-        console.log(res.userInfo)
+    // console.log(app.globalData.userInfo)
+    that.getOpenid().then(res => {
+      that.setData({
+        openid: res
+      })
+    })
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          console.log('授权');
+          that.setData({
+            mobile: true
+          })
+        }
       }
     })
+    // wx.getUserInfo({
+    //   success: function (res) {
+    //     console.log(res.userInfo)
+    //   }
+    // })
   },
-
+  getOpenid() {
+    let promise = new Promise(function (resolve, reject) {
+      wx.login({
+        success: function (res) {
+          if (!res.code) return;
+          wx.$http('Index/getOpenId', {
+            code: res.code
+          }).then(resopens => {
+            if (!resopens.data.data.openid) {
+              reject(resopens);
+              return false;
+            };
+            resolve(resopens.data.data.openid);
+          })
+        }
+      });
+    })
+    return promise;
+  },
   /**
    * 用户登录允许授权后执行的方法
    */
   logn() {
     let that = this;
-    wx.login({
-      success: function (res) {
-        if (!res.code) return;
-        //发起网络请求
-        wx.$http('Index/getOpenId', {
-          code: res.code
-        }).then(res => {
-          if (!res.data.data.openid) {
-            wx.showToast({
-              title: '登录失败',
-              icon: 'none',
-              duration: 1500
-            })
-            return false
-          }
-          let openId = res.data.data.openid
-          that.setData({
-            openid: openId
-          })
-          wx.$http('User/thirdlogin', {
-            platform: 'wx',
-            openid: openId
-          }).then(res => {
-            if (res.data.code == 0) return;
-            if (res.data.code == 100) {
-              that.setData({
-                mobile: true
-              })
-              return false;
-            };
-            wx.setStorageSync('token', res.data.data.userinfo.token)
-            that.setData({
-              mobile: !res.data.data.userinfo.mobile
-            })
-            if (res.data.data.userinfo.mobile) {
-              wx.reLaunch({
-                url: '/pages/index/index'
-              })
-            }
-          })
+    wx.$http('User/thirdlogin', {
+      platform: 'wx',
+      openid: that.data.openid
+    }).then(res => {
+      if (res.data.code == 0) return;
+      if (res.data.code == 100) {
+        that.setData({
+          mobile: true
+        })
+        return false;
+      };
+      wx.setStorageSync('token', res.data.data.userinfo.token)
+      that.setData({
+        mobile: !res.data.data.userinfo.mobile
+      })
+      if (res.data.data.userinfo.mobile) {
+        wx.reLaunch({
+          url: '/pages/index/index'
         })
       }
-    });
+    })
   },
   submit(e) {
     let that = this;
@@ -80,13 +91,18 @@ Page({
     data.platform = 'wx';
     data.openid = that.data.openid;
     wx.$http('User/bindmobile', data).then(res => {
-      if (res.data.code == 1) {
-        console.log(res)
-        // that.logn()
+      if (res.data.code == 0) return;
+      wx.setStorageSync('token', res.data.data.userinfo.token)
+      wx.showToast({
+        title: '绑定成功',
+        icon: 'success',
+        duration: 1000
+      })
+      setTimeout(() => {
         wx.reLaunch({
           url: '/pages/index/index'
         })
-      }
+      }, 1000);
     })
 
   },
@@ -106,24 +122,15 @@ Page({
       })
       return false;
     }
-    console.log(uri)
     wx.$http('Sms/send', {
       mobile: that.data.phone
     }).then(res => {
-      console.log()
-      if (res.data.code) {
-        wx.showToast({
-          title: res.data.msg,
-          icon: 'none',
-          duration: 1500
-        })
-      } else {
-        wx.showToast({
-          title: res.data.msg,
-          icon: 'none',
-          duration: 1500
-        })
-      }
+      if (res.data.code == 0) return;
+      wx.showToast({
+        title: '发送成功',
+        icon: 'success',
+        duration: 1500
+      })
     })
   },
 

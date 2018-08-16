@@ -15,8 +15,8 @@
 
 <view class="title">
   <view class="title_h1">
-    <text class="money"><text>￥</text>{{objs.price}}.00</text>
-    <text class="zk">¥{{objs.original_cost}}.00</text>
+    <text class="money"><text>￥</text>{{objs.price}}</text>
+    <text class="zk">¥{{objs.original_cost}}</text>
     <text class="jj">{{objs.quality_name}}</text>
     <text class="fq" wx:if="{{objs.is_credit==1}}">分期</text>
 
@@ -75,6 +75,6 @@
 <view class="page_h1" style="margin-top:20rpx ">
   — 猜你喜欢 —
 </view>
-<template is="goodsList" />
+<template is="goodsList" data="{{...list}}" />
 <template is="cart" data="{{...objs}}"></template>
 

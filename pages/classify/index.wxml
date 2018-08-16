@@ -8,7 +8,7 @@
 </view>
 <view class="brand"  wx:if="{{is_show==0}}">
     <block wx:for="{{brandList}}" wx:key="item.brand_id">
-      <view class="brand_info" bindtap="toPage" data-url="/pages/index/result/result" data-id="{{item.brand_id}}">
+      <view class="brand_info" bindtap="toPage" data-url="{{'/pages/index/result/result?brand_id='+item.brand_id}}">
         <view class="brand_img">
           <image src="{{item.brand_img}}" />
         </view>
@@ -27,7 +27,7 @@
   </view>
   <view class="nav_right">
     <block wx:if="{{goodsList.length>0}}">
-      <view class="nav_logo" bindtap="toDetail" wx:for="{{goodsList}}" wx:key="index" data-id="{{item.cate_id}}">
+      <view class="nav_logo" bindtap="toPage" data-url="{{'/pages/index/result/result?cate_id='+item.cate_id}}" wx:for="{{goodsList}}" wx:key="index">
           <view class="nav_img">
               <image src="{{item.cate_img}}"></image>
           </view>

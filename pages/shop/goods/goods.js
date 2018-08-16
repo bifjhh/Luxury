@@ -8,6 +8,7 @@ Page({
     imgs: [1, 2, 3, 4, 5],
     isImg: 1,
     is_show: 0,
+    list:[],
     objs: {}
   },
 
@@ -18,6 +19,17 @@ Page({
     let that = this;
     console.log(options)
     that.getObjs(that, options.id)
+    that.getList(that, options.id)
+  },
+  getList(that,id) {
+    wx.$http('Goods/getList', {
+      is_recom: 'n-'+id,
+    }).then(res => {
+      that.setData({
+        list: res.data.data
+      })
+      // console.log(res.data.data)
+    })
   },
   getObjs(that, id) {
     wx.$http('Goods/detail', {
@@ -26,7 +38,14 @@ Page({
       that.setData({
         objs: res.data.data
       })
-      console.log(res.data.data)
+      // console.log(res.data.data)
+    })
+  },
+  toGoods(e) {
+    console.log(e.currentTarget.dataset.id)
+    let id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/shop/goods/goods?id=' + id
     })
   },
   /* 计算轮播图事件 */
@@ -47,67 +66,21 @@ Page({
   },
   pay(e) {
     let url = e.currentTarget.dataset.url;
-    console.log(url)
     wx.navigateTo({
-      url:url
-    })
-    return ;
-    wx.$http('Order/add', {
-      goods_id: id,
-      pay_type: 2,
-      buy_num:1,
-      platform: 1
-    }).then(res => {
-      console.log(res)
-      if (!res.data.data.wx_pay_info) return;
-      let wx_pay_info = res.data.data.wx_pay_info;
-      wx.requestPayment({
-        'timeStamp': wx_pay_info.timestamp,
-        'nonceStr': wx_pay_info.nonce_str,
-        'package': 'prepay_id=' + wx_pay_info.prepay_id,
-        'signType': 'MD5',
-        'paySign': wx_pay_info.sign,
-        success: function (data) {
-          console.log('successdata', data)
-          wx.showToast({
-            title: '支付成功',
-            icon: 'success',
-            duration: 600
-          })
-          wx.navigateTo({
-            url: '/pages/my/indent/indent?status=10'
-          })
-        },
-        fail: function (error) {
-          console.log('error', error)
-        }
-      })
+      url: url
     })
   },
   addGwc(e) {
-    console.log(e.currentTarget.dataset.goodsid)
+    // console.log(e.currentTarget.dataset.goodsid)
     let goods_id = e.currentTarget.dataset.goodsid;
     wx.$http('Cart/add', {
       goods_id: goods_id,
     }).then(res => {
-      console.log(res)
       wx.showToast({
         title: res.data.msg,
         icon: 'success',
         duration: 1500
       })
-    })
-    return;
-
-    wx.switchTab({
-      url: '/pages/cart/index'
-    })
-  },
-  ljgm() {
-    console.log(e.currentTarget.dataset.goodsId)
-    return;
-    wx.navigateTo({
-      url: '/pages/shop/pay/pay'
     })
   },
   toPage(e) {

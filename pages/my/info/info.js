@@ -26,15 +26,14 @@ Page({
   ageChoice(e) {
     let that = this;
     that.setUserInfo(that, {
-      gender: e.detail.value * 1
+      gender: e.detail.value
     })
     that.setData({
-      ageindex: e.detail.value * 1
+      ageindex: e.detail.value
     })
   },
   birthday(e) {
     let that = this;
-
     that.setUserInfo(that, {
       birthday: e.detail.value
     })
@@ -59,17 +58,18 @@ Page({
   },
   setImg() {
     let that = this;
+    let token = wx.getStorageSync('token');
     wx.pro.chooseImage({
-      count: 1, // 默认9
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      count: 1,
+      sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
     }).then(res => {
+      console.log(token, res)
       wx.uploadFile({
-        url: uri + "User/uploadAvatar", //仅为示例，非真实的接口地址
+        url: "http://api.shewuwang.com/api/User/uploadAvatar",
         filePath: res.tempFilePaths[0],
         name: 'file',
         formData: {
-          'token': that.data.token
+          'token': token
         },
         success: function (res) {
           let img = JSON.parse(res.data).data.url;

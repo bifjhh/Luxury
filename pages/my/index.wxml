@@ -1,18 +1,18 @@
 <!--index.wxml-->
 <view class="container">
   <view bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatar}}" background-size="cover"></image>
+    <image class="userinfo-avatar" src="{{userInfo.avatar}}" background-size="cover" bindtap="toPage" data-url="/pages/my/info/info" ></image>
     <text class="userinfo-nickname">{{userInfo.nickname}}</text>
     <view class="purse">
-      <view class="purse_ye" bindtap="toqianbao">
+      <view class="purse_ye" bindtap="toPage" data-url="/pages/my/wallet/wallet">
         <view>{{userInfo.wallet_balance}}</view>
         <view class="text_b">余额</view>
       </view>
-      <view class="purse_yhq" bindtap="toyhq">
+      <view class="purse_yhq" bindtap="toPage" data-url="/pages/my/card/card">
         <view>{{userInfo.coupon_num}}</view>
         <view class="text_b">优惠券</view>
       </view>
-      <view class="purse_hb" bindtap="tohongb">
+      <view class="purse_hb" bindtap="toPage" data-url="/pages/my/hongb/hongb">
         <view>{{userInfo.redpack_num}}</view>
         <view class="text_b">红包</view>
       </view>
@@ -64,24 +64,23 @@
   </view>
 
   <view class="my_set">
-    <view class="set_box" bindtap="todizhi">
-      <view class="set_bac">
+    <view class="set_box" bindtap="toPage" data-url="/pages/shop/site/site">
+      <view class="set_bac" style="width:40rpx;height:52rpx">
         <image src="/images/my/geren_dizhi@3x.png" />
       </view>
-      <view class="set_text" bindtap="todizhi">
+      <view class="set_text">
         我的地址
       </view>
     </view>
-    <view class="set_box">
+    <view class="set_box" bindtap="toPage" data-url="/pages/pinglun/pinglun?type=0">
       <view class="set_bac">
         <image src="/images/my/geren_yijian@3x.png" />
-
       </view>
-      <view class="set_text" bindtap="toyijian">
+      <view class="set_text" >
         意见反馈
       </view>
     </view>
-    <view class="set_box">
+    <view class="set_box" style="display:none">
       <view class="set_bac">
         <image src="/images/my/geren_yaoqing@3x.png" />
       </view>
@@ -89,7 +88,7 @@
         邀请好友
       </view>
     </view>
-    <view class="set_box" bindtap="toInfo">
+    <view class="set_box" bindtap="toPage" data-url="/pages/my/info/info">
       <view class="set_bac">
         <image src="/images/my/geren_shezhi@3x.png" />
       </view>

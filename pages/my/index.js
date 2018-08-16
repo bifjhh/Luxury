@@ -27,35 +27,5 @@ Page({
       url: url
     })
   },
-  todizhi() {
-    wx.navigateTo({
-      url: '/pages/shop/site/site'
-    })
-  },
-  toyijian() {
-    wx.navigateTo({
-      url: '/pages/pinglun/pinglun?type=0'
-    })
-  },
-  toInfo() {
-    wx.navigateTo({
-      url: '/pages/my/info/info'
-    })
-  },
-  toqianbao() {
-    wx.navigateTo({
-      url: '/pages/my/wallet/wallet'
-    })
-  },
-  toyhq() {
-    wx.navigateTo({
-      url: '/pages/my/card/card'
-    })
-  },
-  tohongb() {
-    wx.navigateTo({
-      url: '/pages/my/hongb/hongb'
-    })
-  },
 
 })

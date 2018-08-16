@@ -51,11 +51,26 @@
 
 .fil_info {
   flex: auto;
+  height: 100%;
   font-size: 28rpx;
   font-family: PingFang-SC-Medium;
   color: rgba(153, 153, 153, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
+.fil_info view{
+  margin-left: 10rpx;
+  width: 14rpx;
+  height: 22rpx;
+  position: relative;
+  /* overflow: hidden; */
+}
+.fil_info view image{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 .opt {
   color: rgba(173, 155, 106, 1);
 }
@@ -68,16 +83,20 @@
   top: 0;
   left: 100%;
   background-color: rgba(0, 0, 0, .7);
-  padding-left: 80rpx;
   z-index: 9;
+  display: flex;
 }
 
 .filtrate_list view {
   box-sizing: border-box;
 }
-
+.filtrateEnd{
+  width: 80rpx;
+  height: 100%;
+}
 .options {
-  width: 100%;
+  flex: 1;
+  /* margin-left: 80rpx; */
   height: 100%;
   background-color: #fff;
   padding-left: 20rpx;

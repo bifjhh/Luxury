@@ -6,24 +6,99 @@
 
 <view class="filtrate">
   <view class="fil_title">
-    <view class="fil_info {{sortId==0?'opt':''}}" data-sort="0" bindtap="sort">
+    <view class="fil_info {{form_obj.sort==0?'opt':''}}" data-sort="0" bindtap="sort">
       综合
     </view>
-    <view class="fil_info {{sortId==1?'opt':''}}" wx:if="{{sortId!=2}}" data-sort="1" bindtap="sort">
+    <view class="fil_info {{form_obj.sort==1?'opt':''}}" wx:if="{{form_obj.sort==2}}" data-sort="1" bindtap="sort">
       价格
+      <view>
+        <image src="/images/btn_huaxuanxian@2x.png" />
+      </view>
     </view>
-    <view class="fil_info {{sortId==2?'opt':''}}" wx:else data-sort="2" bindtap="sort">
+    <view class="fil_info {{form_obj.sort==2?'opt':''}}" wx:if="{{form_obj.sort==1||form_obj.sort!=2}}" data-sort="2" bindtap="sort">
       价格
+      <view>
+        <image src="/images/btn_huaxuanshang@2x.png" />
+      </view>
     </view>
-    <view class="fil_info {{sortId==10?'opt':''}}" wx:if="{{sortId!=11}}" data-sort="10" bindtap="sort">
+    <view class="fil_info {{form_obj.sort==10?'opt':''}}" wx:if="{{form_obj.sort!=11}}" data-sort="10" bindtap="sort">
       上新
     </view>
-    <view class="fil_info {{sortId==11?'opt':''}}" wx:else data-sort="11" bindtap="sort">
+    <view class="fil_info {{form_obj.sort==11?'opt':''}}" wx:else data-sort="11" bindtap="sort">
       上新
     </view>
-    <view class="fil_info">
+    <view class="fil_info" bindtap="filtrate">
       筛选
     </view>
   </view>
   <template is="goodsList" data="{{...objs}}"></template>
+</view>
+
+
+<view class="filtrate_list" animation="{{animation}}">
+  <view class="filtrateEnd" catchtouchstart="filtrateEnd"></view>
+  <view class="options">
+    <view class="opt_info">
+      <view class="h1">
+        品牌
+      </view>
+      <view class="opt_list">
+        <view  wx:for="{{seekObj.hot_keywords}}" wx:if="{{item.keywords!=' '}}" wx:key="index" class="opt_goods {{pinpaiOff==index?'active':''}}" data-cls="hot_keywords"  data-id="{{index}}" bindtap="ispl">
+          {{item.keywords}}
+        </view>
+      </view>
+    </view>
+    <view class="opt_info">
+      <view class="h1">
+        品类
+      </view>
+       <view class="opt_list">
+        <view  wx:for="{{seekObj.cate_list}}" wx:key="index" class="opt_goods {{pinleiOff==index?'active':''}}" data-cls="cate_list"  data-id="{{index}}" data-cateid="{{item.cate_id}}" bindtap="ispl">
+          {{item.cate_name}}
+        </view>
+      </view>
+    </view>
+    <view class="opt_info">
+      <view class="h1">
+        价格
+      </view>
+      <view class="jg_box">
+        <view class='zdj'>
+          <input type="number" bindinput="zdj" value="{{zdj}}" placeholder="最低价"  />
+        </view>
+        <view class='xian'></view>
+        <view class='zgj'>
+          <input type="number" bindinput="zgj" value="{{zgj}}" placeholder="最高价"  />
+        </view>
+      </view>
+    </view>
+    <view class="opt_info">
+      <view class="h1">
+        新旧
+      </view>
+       <view class="opt_list">
+        <view  wx:for="{{seekObj.quality_list}}" wx:key="index" class="opt_goods {{qualityOff==index?'active':''}}" data-cls="quality_list"  data-id="{{index}}" bindtap="ispl">
+          {{item.quality_name}}
+        </view>
+      </view>
+    </view>
+    <view class="opt_info">
+      <view class="h1">
+        降价/分期
+      </view>
+      <view class="opt_list">
+        <view  wx:for="{{isfq}}" wx:key="index" class="opt_goods {{item.is?'active':''}}" data-cls="isfq"  data-id="{{index}}" bindtap="ispl">
+          {{item.name}}
+        </view>
+      </view>
+    </view>
+    <view class="btn">
+      <view class="btn_l" bindtap="reset">
+        重置
+      </view>
+      <view class="btn_r" bindtap="filtrateEnd">
+        确定
+      </view>
+    </view>
+  </view>
 </view>

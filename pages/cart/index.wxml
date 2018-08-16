@@ -30,7 +30,7 @@
     <image src="/images/gouwuche2.png"  />
   </view>
   <view>空空如也</view>
-  <view class="tiaoxuan">
+  <view class="tiaoxuan" bindtap="toPage" data-url="/pages/index/index">
     挑奢物
   </view>
 </view>

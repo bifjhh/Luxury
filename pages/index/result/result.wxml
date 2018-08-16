@@ -11,19 +11,25 @@
 
 <view class="filtrate">
   <view class="fil_title">
-    <view class="fil_info {{sortId==0?'opt':''}}" data-sort="0" bindtap="sort">
+    <view class="fil_info {{form_obj.sort==0?'opt':''}}" data-sort="0" bindtap="sort">
       综合
     </view>
-    <view class="fil_info {{sortId==1?'opt':''}}" wx:if="{{sortId!=2}}" data-sort="1" bindtap="sort">
+    <view class="fil_info {{form_obj.sort==1?'opt':''}}" wx:if="{{form_obj.sort==2}}" data-sort="1" bindtap="sort">
       价格
+      <view>
+        <image src="/images/btn_huaxuanxian@2x.png" />
+      </view>
     </view>
-    <view class="fil_info {{sortId==2?'opt':''}}" wx:else data-sort="2" bindtap="sort">
+    <view class="fil_info {{form_obj.sort==2?'opt':''}}" wx:if="{{form_obj.sort==1||form_obj.sort!=2}}" data-sort="2" bindtap="sort">
       价格
+      <view>
+        <image src="/images/btn_huaxuanshang@2x.png" />
+      </view>
     </view>
-    <view class="fil_info {{sortId==10?'opt':''}}" wx:if="{{sortId!=11}}" data-sort="10" bindtap="sort">
+    <view class="fil_info {{form_obj.sort==10?'opt':''}}" wx:if="{{form_obj.sort!=11}}" data-sort="10" bindtap="sort">
       上新
     </view>
-    <view class="fil_info {{sortId==11?'opt':''}}" wx:else data-sort="11" bindtap="sort">
+    <view class="fil_info {{form_obj.sort==11?'opt':''}}" wx:else data-sort="11" bindtap="sort">
       上新
     </view>
     <view class="fil_info" bindtap="filtrate">
@@ -31,10 +37,10 @@
     </view>
   </view>
   <template is="goodsList" data="{{...objs}}"></template>
-    
 </view>
 
 <view class="filtrate_list" animation="{{animation}}">
+  <view class="filtrateEnd" catchtouchstart="filtrateEnd"></view>
   <view class="options">
     <view class="opt_info">
       <view class="h1">
