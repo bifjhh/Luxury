@@ -13,7 +13,7 @@
         </view>
         <swiper class="swiper_box" autoplay interval="{{2000}}" duration="{{1000}}" bindchange="current">
             <block wx:for="{{homeInfo.banner}}" wx:key="item.ad_id">
-                <swiper-item bindtap="toActivity1" data-jid="{{item.jump_type}}" data-tid="{{item.to_id}}">
+                <swiper-item bindtap="toActivity1" data-jid="{{item.jump_type}}" data-src="{{item.ad_link}}" data-tid="{{item.to_id}}">
                     <image src="{{item.ad_img}}" class="slide-image" />
                 </swiper-item>
             </block>

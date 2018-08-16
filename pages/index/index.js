@@ -95,6 +95,7 @@ Page({
   toActivity1(e) {
     let jump_type = e.currentTarget.dataset.jid;
     let tid = e.currentTarget.dataset.tid;
+    let src = e.currentTarget.dataset.src;
     console.log(jump_type);
 
     if (jump_type == 1) {
@@ -104,6 +105,10 @@ Page({
     } else if (jump_type == 2) {
       wx.navigateTo({
         url: '/pages/index/activity/activity?tid=' + tid
+      })
+    } else if (jump_type == 3) {
+      wx.navigateTo({
+        url: '/pages/web/index?src='+ src
       })
     }
   },

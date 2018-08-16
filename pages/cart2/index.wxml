@@ -34,7 +34,7 @@
     挑奢物
   </view>
 </view>
-<view class="btn">
+<view class="btn"  wx:if="{{list.length>0}}">
   <view class="btn_l">
     <view class="icon" bindtap="all">
       <icon wx:if="{{statuAll}}" type="success" size="20" color="RGBA(194, 179, 135, 1)" />
@@ -53,7 +53,7 @@
   <view class="jinse" wx:if="{{status==0}}" bindtap="end">
     结算
   </view>
-  <view class="jinse {{status==1?'hui':''}}" wx:if="{{status==1}}" bindtap="delGoods">
+  <view class="jinse {{status==1?'hui':''}}" wx:else bindtap="delGoods">
     删除
   </view>
 </view>
