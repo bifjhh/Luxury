@@ -1,6 +1,7 @@
 <template name="cart">
   <view class="cart">
   <view class="service">
+    <button open-type="contact" />
     <view class="service_logo">
       <image src="/images/kefu.png" />
     </view>

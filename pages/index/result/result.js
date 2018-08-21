@@ -69,9 +69,8 @@ Page({
   },
   bindinput(e) {
     let that = this;
-    // console.log(e.detail.value)
     let form_obj = that.data.form_obj;
-    form_obj.keywords = e.dataset.value;
+    form_obj.keywords = e.detail.value;
     that.setData({
       form_obj
     })
