@@ -55,12 +55,15 @@ Page({
 
   },
   current(e) {
-    console.log(e.detail.current)
     this.setData({
       swpPage: e.detail.current
     })
   },
-
+  goTop(){
+     wx.pageScrollTo({
+       scrollTop: 0
+     })
+  },
   /**
    * 生命周期函数--监听页面显示
    */

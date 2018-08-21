@@ -317,3 +317,18 @@ swiper-item image {
     color: rgba(51, 51, 51, 1);
     border-top: 1px solid #eee;
 }
+.go_top text{
+    width: 50rpx;
+    height: 50rpx;
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    right: 40rpx;
+    bottom: 55rpx;
+}
+.go_top text{
+    color: #fff;
+}

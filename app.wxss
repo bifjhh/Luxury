@@ -51,12 +51,10 @@ image {
 
 /* 字体图标 */
 @font-face {
-  font-family: 'iconfont';  /* project id 775625 */
-  src: url('//at.alicdn.com/t/font_775625_xlzerhdmds.eot');
-  src: url('//at.alicdn.com/t/font_775625_xlzerhdmds.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_775625_xlzerhdmds.woff') format('woff'),
-  url('//at.alicdn.com/t/font_775625_xlzerhdmds.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_775625_xlzerhdmds.svg#iconfont') format('svg');
+    font-family: 'iconfont';
+    /* project id 775625 */
+    src: url('//at.alicdn.com/t/font_775625_suq044t0fkn.eot');
+    src: url('//at.alicdn.com/t/font_775625_suq044t0fkn.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_775625_suq044t0fkn.woff') format('woff'), url('//at.alicdn.com/t/font_775625_suq044t0fkn.ttf') format('truetype'), url('//at.alicdn.com/t/font_775625_suq044t0fkn.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -68,5 +66,7 @@ image {
 }
 
 .icon-bianji:before { content: "\e640"; }
+
+.icon-iconfonticonfonti2copy:before { content: "\e62d"; }
 
 .icon-shanchu:before { content: "\e62a"; }

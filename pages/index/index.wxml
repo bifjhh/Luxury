@@ -171,5 +171,7 @@
             <view class="sbtn" bindtap="isShade" data-is='0'>我知道了</view>
         </view>
     </view>
-
+    <view class="go_top" bindtap="goTop">
+        <text class="iconfont icon-iconfonticonfonti2copy"></text>
+    </view>
 </view>
