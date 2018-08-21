@@ -5,7 +5,7 @@
   <view class="search_box">
     <view class="searchTab"></view>
     <image class="search" style="width:18rpx;height:20rpx" src="/images/home/search2.png" />
-    <input type="text" style="height:100%;" confirm-type="search" placeholder="请输入商品名称" value="{{options.keywords}}" bindinput="bindinput" />
+    <input type="text" style="height:100%;" confirm-type="search" placeholder="请输入商品名称" value="{{options.keywords||form_obj.keywords}}" bindinput="bindinput" />
   </view>
 </view>
 

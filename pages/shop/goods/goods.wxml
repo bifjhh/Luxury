@@ -67,9 +67,6 @@
   <view wx:if="{{is_show==1}}" class="rich_cnt">
     富文本编辑2
   </view>
-  <view class="rich_btn">
-    <button class="r_btn jinse">去养护</button>
-  </view>
 </view>
 
 <view class="page_h1" style="margin-top:20rpx ">
