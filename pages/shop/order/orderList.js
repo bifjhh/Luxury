@@ -30,7 +30,7 @@ Page({
     let cart_id = [];
     if (datas.length < 1) return;
     if (options.id) {
-      console.log('不是购物车');
+      console.log('不是购物车', options);
       let sum = datas[datas.length - 2].data.objs.price;
       list = [datas[datas.length - 2].data.objs];
       that.setData({
@@ -39,8 +39,8 @@ Page({
         sum,
         cart_id: options.id
       })
-      that.getHb(that);
-      that.getCart(that);
+      that.getHb(that,options.id);
+      that.getCart(that,options.id);
       return false;
     }
     console.log('购物车')
@@ -57,14 +57,14 @@ Page({
       sum,
       cart_id: cart_id.toString()
     })
-    that.getHb(that);
-    that.getCart(that);
+    that.getHb(that,cart_id.toString());
+    that.getCart(that,cart_id.toString());
 
 
   },
-  getHb(that) {
+  getHb(that,id) {
     wx.$http('User/getRedpackList', {
-      goods_ids: that.cart_id
+      goods_ids: id
     }).then(res => {
       if (res.data.code != 1) return;
       that.setData({
@@ -73,9 +73,9 @@ Page({
       console.log(res.data)
     })
   },
-  getCart(that) {
+  getCart(that,id) {
     wx.$http('User/getCouponList', {
-      goods_ids: that.cart_id
+      goods_ids: id
     }).then(res => {
       if (res.data.code != 1) return;
       that.setData({
