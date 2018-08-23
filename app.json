@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index/wxParse/index",
     "pages/index/nav",
     "pages/web/index",
     "pages/index/search/search",

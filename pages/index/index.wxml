@@ -26,7 +26,7 @@
     <!-- 功能选择  -->
     <!-- <view class="xuanze" bindtap="isShade" data-is='1'> -->
     <view class="xuanze">
-        <view>
+        <view bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/jmhs'>
             <view class="xuanze_img">
                 <image src="/images/home/shouye_hongbao@3x.png" />
             </view>
@@ -34,7 +34,7 @@
                 寄卖回收
             </view>
         </view>
-        <view>
+        <view bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/jd'>
             <view class="xuanze_img">
                 <image src="/images/home/jiand.png" />
             </view>
@@ -50,7 +50,7 @@
                 上新
             </view>
         </view>
-        <view>
+        <view bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/yh'>
             <view class="xuanze_img">
                 <image src="/images/home/shouye_yanghu@3x.png" />
             </view>
@@ -58,7 +58,7 @@
                 养护
             </view>
         </view>
-        <view>
+        <view bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/fq'>
             <view class="xuanze_img">
                 <image src="/images/home/shouye_fenqi@3x.png" />
             </view>
@@ -166,12 +166,7 @@
             </view>
         </block>
     </view>
-    <view class="shade" wx:if="{{shade}}">
-        <view class="sbox">
-            <view class="sinfo">领红包,鉴定/养护,寄售/回收,分期等功能,小程序暂不支持,请下载奢物App使用.</view>
-            <view class="sbtn" bindtap="isShade" data-is='0'>我知道了</view>
-        </view>
-    </view>
+  
     <view class="go_top" bindtap="goTop">
         <text class="iconfont icon-iconfonticonfonti2copy"></text>
     </view>

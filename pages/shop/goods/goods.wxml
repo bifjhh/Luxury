@@ -1,5 +1,7 @@
 <import src="/components/goodsList/list.wxml" />
 <import src="/components/cart/cart.wxml" />
+<import src="/wxParse/wxParse.wxml" /> 
+
 <view class="body {{isIphoneX?'b20':''}}">
   <view class="swp">
     <swiper class="swiper_box" duration="{{1000}}" bindchange="current">
@@ -63,10 +65,10 @@
       </view>
     </view>
     <view wx:if="{{is_show==0}}" class="rich_cnt">
-      {{objs.goods_desc}}
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
     </view>
     <view wx:if="{{is_show==1}}" class="rich_cnt">
-      富文本编辑2
+      <template is="wxParse" data="{{wxParseData:getGmlc.nodes}}"/>
     </view>
   </view>
 

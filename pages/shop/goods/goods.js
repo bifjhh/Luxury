@@ -1,3 +1,4 @@
+const WxParse = require('../../../wxParse/wxParse.js');
 const app = getApp();
 Page({
 
@@ -21,6 +22,9 @@ Page({
     console.log(options)
     that.getObjs(that, options.id)
     that.getList(that, options.id)
+    wx.$http('Goods/getGmlc').then(res => {
+      WxParse.wxParse('getGmlc', 'html', res.data.data.info, that, 5);
+    })
   },
   getList(that,id) {
     wx.$http('Goods/getList', {
@@ -36,11 +40,13 @@ Page({
     wx.$http('Goods/detail', {
       id: id,
     }).then(res => {
+      WxParse.wxParse('article', 'html', res.data.data.goods_desc, that, 5);
       that.setData({
         objs: res.data.data
       })
       // console.log(res.data.data)
     })
+    
   },
   toGoods(e) {
     console.log(e.currentTarget.dataset.id)
