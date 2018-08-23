@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 29,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -47,13 +47,13 @@
 					"id": 2,
 					"name": "搜索结果页",
 					"pathName": "pages/index/result/result",
-					"query": ""
+					"query": "keywords=测试"
 				},
 				{
-					"id": -1,
+					"id": 3,
 					"name": "活动页",
 					"pathName": "pages/index/activity/activity",
-					"query": ""
+					"query": "tid=1"
 				},
 				{
 					"id": 4,

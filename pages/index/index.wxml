@@ -159,6 +159,7 @@
                 <view class="banner_img">
                     <image src="{{item.activity_img}}" />
                 </view>
+                <view class="banner_shade"></view>
                 <view class="banner_h1">
                     {{item.activity_name}}
                 </view>

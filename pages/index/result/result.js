@@ -43,8 +43,23 @@ Page({
     that.setData({
       options
     })
-    let form_obj = that.data.form_obj;
-    form_obj.sort = 0;
+    let form_obj = that.getFormData(that)
+    
+    that.setData({
+      form_obj
+    })
+    that.getObjs(that, form_obj)
+    wx.$http('Index/searchInfo').then(res => {
+      that.setData({
+        seekObj: res.data.data
+      })
+      console.log(res.data.data)
+    })
+  },
+  getFormData(that){
+    let form_obj = {};
+    let options = that.options;
+
     if (options.keywords) {
       form_obj.keywords = options.keywords;
     } else if (options.brand_id) {
@@ -53,19 +68,9 @@ Page({
       form_obj.cate_id = options.cate_id;
     } else if (options.activity_id) {
       form_obj.activity_id = options.activity_id;
-    } else if (options.sort) {
-      form_obj.sort = options.sort;
     }
-    that.getObjs(that, form_obj)
-    that.setData({
-      form_obj
-    })
-    wx.$http('Index/searchInfo').then(res => {
-      that.setData({
-        seekObj: res.data.data
-      })
-      console.log(res.data.data)
-    })
+    form_obj.sort = options.sort || 0;
+    return form_obj
   },
   bindinput(e) {
     let that = this;
@@ -277,8 +282,9 @@ Page({
         is: false
       },
     ];
+    let form_obj = that.getFormData(that)
     that.setData({
-      form_obj: {},
+      form_obj,
       pinpaiOff: '-1',
       pinleiOff: '-1',
       qualityOff: '-1',
