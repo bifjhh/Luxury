@@ -49,14 +49,14 @@
 </view>
 
 <view class="goods_list t20">
-  <view class="goods" wx:for="{{1}}" wx:key="i">
+  <view class="goods" wx:for="{{info.goods_item}}" wx:key="{{index}}">
     <view class="goods_logo">
-      <image src="{{info.goods_item[0].goods_img}}" />
+      <image src="{{item.goods_img}}" />
     </view>
     <view class="goods_info">
-      <text class="info_txt">{{info.goods_item[0].goods_title}}</text>
-      <text class="money">￥ {{info.goods_item[0].unit_price}}</text>
-      <text class="curt">X{{info.goods_item[0].buy_num}}</text>
+      <text class="info_txt">{{item.goods_title}}</text>
+      <text class="money">￥ {{item.unit_price}}</text>
+      <text class="curt">X{{item.buy_num}}</text>
     </view>
   </view>
 </view>

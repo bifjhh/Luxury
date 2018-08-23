@@ -8,6 +8,12 @@
   display: flex;
   align-items: center;
   background: #fff;
+  z-index: 9;
+}
+
+.iphonex {
+  bottom: 40rpx;
+  left: 0;
 }
 
 .service,
@@ -19,7 +25,8 @@
   padding: 0 43rpx;
   position: relative;
 }
-.service button{
+
+.service button {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -27,6 +34,7 @@
   margin: 0;
   padding: 0;
 }
+
 .service_logo,
 .car_logo {
   width: 40rpx;

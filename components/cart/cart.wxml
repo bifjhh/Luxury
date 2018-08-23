@@ -1,32 +1,32 @@
 <template name="cart">
-  <view class="cart">
-  <view class="service">
-    <button open-type="contact" />
-    <view class="service_logo">
-      <image src="/images/kefu.png" />
+  <view class="cart {{isIphoneX?'iphonex':''}}">
+    <view class="service">
+      <button open-type="contact" />
+      <view class="service_logo">
+        <image src="/images/kefu.png" />
+      </view>
+      <view class="service_txt">
+        客服
+      </view>
     </view>
-    <view class="service_txt">
-      客服
+    <view class="car" data-url="/pages/cart2/index" bindtap="toPage">
+      <view class="car_logo">
+        <image src="/images/gouwuche.png" />
+      </view>
+      <view class="car_txt">
+        购物车
+      </view>
     </view>
-  </view>
-  <view class="car" data-url="/pages/cart2/index" bindtap="toPage">
-    <view class="car_logo">
-      <image src="/images/gouwuche.png" />
-    </view>
-    <view class="car_txt">
-      购物车
-    </view>
-  </view>
-  <view class="affair">
-    <view class="add_cart" bindtap="addGwc" data-goodsid="{{goods_id}}">
-      加入购物车
-    </view>
-    <view class="jiange">
+    <view class="affair">
+      <view class="add_cart" bindtap="addGwc" data-goodsid="{{goods_id}}">
+        加入购物车
+      </view>
+      <view class="jiange">
 
-    </view>
-    <view class="buy" bindtap="pay" data-url="/pages/shop/order/orderList?id={{goods_id}}">
-      立即购买
+      </view>
+      <view class="buy" bindtap="pay" data-url="/pages/shop/order/orderList?id={{goods_id}}">
+        立即购买
+      </view>
     </view>
   </view>
-</view>
 </template>

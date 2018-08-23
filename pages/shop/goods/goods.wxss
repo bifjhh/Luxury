@@ -263,3 +263,6 @@ swiper-item image {
   color: rgba(255, 255, 255, 1);
   background: rgba(244, 214, 154, 1);
 }
+.b20{
+  padding-bottom: 40rpx;
+}

@@ -9,7 +9,8 @@ Page({
     isImg: 1,
     is_show: 0,
     list:[],
-    objs: {}
+    objs: {},
+    isIphoneX:app.globalData.isIphoneX
   },
 
   /**

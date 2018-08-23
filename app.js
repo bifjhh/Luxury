@@ -26,6 +26,15 @@ App({
         }
       }
     })
+    wx.getSystemInfo({
+      success: res => {
+        // console.log('手机信息res'+res.model)
+        let modelmes = res.model;
+        if (modelmes.search('iPhone X') != -1) {
+          that.globalData.isIphoneX = true
+        }
+      }
+    })
 
   },
   getUserInfo: function (cb) {
@@ -83,6 +92,7 @@ App({
   },
   globalData: {
     userInfo: null,
+    isIphoneX: false,
     uri: 'https://api.shewuwang.com/api/',
   }
 })

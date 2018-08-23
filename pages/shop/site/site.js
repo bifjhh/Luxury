@@ -38,6 +38,19 @@ Page({
     })
   },
   setAddress(e) {
+    let pages = getCurrentPages();
+    if (pages.length < 3) return;
+    let prevPage = pages[pages.length - 2];
+    let index = e.currentTarget.dataset.index;
+    prevPage.setData({
+      address: this.data.addList[index]
+    })
+    wx.navigateBack({
+      delta: 1
+    })
+
+  },
+  moren(e) {
     let that = this;
     let addList = that.data.addList;
     let id = e.currentTarget.dataset.id;
@@ -55,7 +68,6 @@ Page({
       is_default: addList[index].is_default
     }).then(res => {
       if (res.data.code != 1) return;
-      console.log('设置成功')
       that.setData({
         addList
       })
