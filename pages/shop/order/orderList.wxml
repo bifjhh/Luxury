@@ -1,5 +1,5 @@
 <view class="address_box">
-  <view class="xuanze isadd" wx:if="{{address}}" bindtap="toPage" data-url="/pages/shop/site/site">
+  <view class="xuanze isadd" wx:if="{{address.consignee}}" bindtap="toPage" data-url="/pages/shop/site/site">
     <view class="name_tel">
       <text class="name">{{address.consignee}}</text>
       <text class="tel">{{address.phone}}</text>
