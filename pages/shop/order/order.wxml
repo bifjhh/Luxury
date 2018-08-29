@@ -78,8 +78,9 @@
     <text>应付</text>
     <text class="mn_num">￥{{info.pay_price}}</text>
   </view>
-  <view class="kefu_box" bindtap="tokefu">
+  <view class="kefu_box">
     <view class="lxkf">
+      <button open-type="contact" />
       <view class="kf_img">
         <image src="/images/kefu.png" />
       </view>
@@ -100,10 +101,14 @@
     <view>
       <text>订单状态：</text>
       <text style="color:red" wx:if="{{info.status==0}}">待付款</text>
+      <text style="color:red" wx:if="{{info.status==10}}">待发货</text>
       <text style="color:red" wx:if="{{info.status==20}}">待收货</text>
       <text style="color:red" wx:if="{{info.status==30}}">待评价</text>
       <text style="color:red" wx:if="{{info.status==40}}">已完成</text>
       <text style="color:red" wx:if="{{info.status==50}}">退款审核中</text>
+      <text style="color:red" wx:if="{{info.status==51}}">退款被拒绝</text>
+      <text style="color:red" wx:if="{{info.status==60}}">退款成功 </text>
+      <text style="color:red" wx:if="{{info.status==90}}">已取消</text>
     </view>
     <view bindtap="qux" wx:if="{{info.status==0}}" data-id="{{info.order_id}}}">取消订单</view>
     <view bindtap="qux" wx:if="{{info.status==50}}">取消退款</view>
