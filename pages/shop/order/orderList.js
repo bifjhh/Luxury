@@ -43,7 +43,7 @@ Page({
       })
       that.getHb(that, options.id);
       that.getCart(that, options.id);
-      that.getAddressList(that)
+      // that.getAddressList(that)
       return false;
     }
     console.log('购物车')
@@ -121,6 +121,7 @@ Page({
     that.setData({
       endSum
     })
+    that.getAddressList(that)
   },
   submit() {
     let that = this;
