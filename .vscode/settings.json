@@ -3,6 +3,11 @@
     "*.wxml": "wxml",
     "*.wxss": "css",
     "*.styl": "postcss",
-    "*.wpy": "vue"
+    "*.wpy": "vue",
+    "*.html": "html",
+    "*.cjson": "jsonc",
+    "*.wxs": "javascript",
+    "*.vue": "vue",
+    "*.php": "php"
   }
 }
