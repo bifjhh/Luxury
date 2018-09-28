@@ -185,3 +185,64 @@ page{
   font-family:PingFang-SC-Bold;
   color:rgba(255, 255, 255, 1);
 }
+
+.pswbox{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:rgba(0, 0, 0, .5)
+}
+.pswbox view {
+  box-sizing: border-box;
+}
+.section{
+  padding: 0 30rpx;
+  overflow: hidden;
+  width: 600rpx;
+  height: 400rpx;
+  background-color: #fff;
+  position: absolute;
+  top: 133rpx;
+  left: 75rpx;
+  border-radius:15rpx;
+}
+.section .title{
+  text-align: center;
+  margin-top: 72rpx;
+  font-size:36rpx;
+  color: #333;
+}
+.section input{
+  width: 100%;
+  height: 80rpx;
+  border-bottom: dashed 1px #eee;
+  margin-top: 50rpx;
+  /* padding: 20rpx 0; */
+  font-size: 72rpx;
+  color: #333;
+  /* background-color: #eee; */
+}
+.no_psw{
+  margin-top: 45rpx;
+  text-align: right;
+  padding-right: 26px;
+  font-size: 28rpx;
+  color: #999;
+}
+.end_psw{
+  position: absolute;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30rpx;
+  height: 30rpx;
+  color: #999;
+  right: 30rpx;
+  top: 30rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  border: solid 1px #eee;
+}

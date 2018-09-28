@@ -76,9 +76,39 @@
   </view>
 </view>
 
+<view class="money t20">
+  <view>
+    <text>微信支付</text>
+    <view  class="icon {{status==2?'none':''}}" bindtap="countIcon" data-status="{{2}}">
+        <icon wx:if="{{status==2}}" type="success" size="20" color="RGBA(194, 179, 135, 1)" />
+    </view>
+  </view>
+  <view>
+    <text>余额支付</text>
+    <view  class="icon {{status==3?'none':''}}" bindtap="countIcon" data-status="{{3}}">
+        <icon wx:if="{{status==3}}" type="success" size="20" color="RGBA(194, 179, 135, 1)" />
+    </view>
+  </view>
+  
+</view>
+
 <view class="submit">
   <text>￥{{endSum}}</text>
-  <view class="submit_btn jinse" bindtap="submit">
+  <view class="submit_btn jinse" bindtap="ask">
     提交订单
+  </view>
+</view>
+<view class="pswbox" wx:if="{{showPsw}}" bindtap="endPsw">
+  <view class="section">
+    <view class="end_psw" bindtap="endPsw">
+      x
+    </view>
+    <view class="title">
+      请输入支付密码
+    </view>
+    <input password="{{true}}" type="text" confirm-type="done" />
+    <view class="no_psw">
+      忘记密码?
+    </view>
   </view>
 </view>

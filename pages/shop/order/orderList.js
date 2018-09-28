@@ -18,6 +18,9 @@ Page({
     hbNum: 0,
     hbSum: 0,
     isCart: true,
+    status:2,
+    password:null,
+    showPsw:false
   },
 
   /**
@@ -108,6 +111,13 @@ Page({
       }
     })
   },
+  countIcon(e) {
+    console.log(e.currentTarget.dataset.status)
+    const that = this;
+    that.setData({
+      status:e.currentTarget.dataset.status
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -123,6 +133,22 @@ Page({
     })
     that.getAddressList(that)
   },
+  ask(){
+    const that = this;
+    if(that.data.status==3){
+      that.setData({
+        showPsw:true
+      })
+    }else{
+      that.submit()
+    }
+  },
+  endPsw(){
+    const that = this;
+    that.setData({
+      showPsw:false
+    })
+  },
   submit() {
     let that = this;
     let data;
@@ -131,7 +157,7 @@ Page({
         address_id: that.data.address.address_id,
         is_cart: 1,
         cart_ids: that.data.cart_id,
-        pay_type: 2,
+        pay_type: that.data.status,
         user_coupon_id: that.data.yhqId,
         user_redpack_id: that.data.hbId,
         platform: 1,
@@ -141,7 +167,7 @@ Page({
       data = {
         address_id: that.data.address.address_id,
         goods_id: that.data.cart_id,
-        pay_type: 2,
+        pay_type: that.data.status,
         buy_num: 1,
         user_coupon_id: that.data.yhqId,
         user_redpack_id: that.data.hbId,
