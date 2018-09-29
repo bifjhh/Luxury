@@ -111,6 +111,7 @@
       <text style="color:red" wx:if="{{info.status==90}}">已取消</text>
     </view>
     <view bindtap="qux" wx:if="{{info.status==0}}" data-id="{{info.order_id}}">取消订单</view>
+    <view bindtap="tk" wx:if="{{info.status==10}}">申请退款</view>
     <view bindtap="qux" wx:if="{{info.status==50}}">取消退款</view>
   </view>
   <view class="submit_btn jinse" wx:if="{{info.status==0}}" bindtap="pay" >

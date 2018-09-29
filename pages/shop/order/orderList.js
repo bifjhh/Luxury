@@ -199,10 +199,30 @@ Page({
       data.pay_pwd = e.detail.value
     }
     wx.$http('Order/add', data).then(res => {
-      console.log(res)
+      if(that.data.status==3){
+        if(res.data.code == 1){
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'success',
+            duration: 1000
+          })
+          setTimeout(() => {
+            wx.navigateTo({
+              // url: '/pages/shop/order/order?id=' + res.data.data.order_id
+              url: '/pages/shop/pay/index?order_id=' + res.data.data.order_id
+            })
+          }, 900);
+        }else{
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 1000
+          })
+        }
+        return false
+      }
       if (!res.data.data.wx_pay_info) return;
       let wx_pay_info = res.data.data.wx_pay_info;
-
       wx.requestPayment({
         'timeStamp': wx_pay_info.timestamp,
         'nonceStr': wx_pay_info.nonce_str,

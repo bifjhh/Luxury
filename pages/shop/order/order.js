@@ -84,6 +84,11 @@ Page({
       }
     })
   },
+  tk(){
+    wx.navigateTo({
+      url: '/pages/shop/order/refund'
+    })
+  },
   clone(e) {
     wx.setClipboardData({
       data: e.currentTarget.dataset.clone,
