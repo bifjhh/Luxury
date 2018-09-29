@@ -8,6 +8,7 @@ Page({
   data: {
     text: "Page animation",
     objs: {},
+    btn:false,
     animation: '',
     pinpaiOff: -1,
     pinleiOff: -1,
@@ -149,6 +150,7 @@ Page({
   },
 
   filtrate(e) {
+    this.setData({btn:true})
     this.animation.translateX(-100 + '%').step()
     // this.animation.rotate(150).step()
     this.setData({
@@ -158,6 +160,7 @@ Page({
   },
   filtrateEnd() {
     let that = this;
+    this.setData({btn:false})
 
     that.getObjs(that, that.data.form_obj)
     this.animation.translateX(0).step()
@@ -208,14 +211,14 @@ Page({
     // leixing.forEach(e => {
     //   e.is = false /* 排他 */
     // });
-    if (cls == "hot_keywords") {
+    if (cls == "brand_list") {
       // form_obj[cls] = leixing[cls][id].keywords;
       // form_obj.keywords = leixing[cls][id].keywords;
-      if (form_obj.keywords == leixing[cls][id].keywords) {
-        form_obj.keywords = '';
+      if (form_obj.brand_id == leixing[cls][id].brand_id) {
+        form_obj.brand_id = '';
         id = '-1';
       } else {
-        form_obj.keywords = leixing[cls][id].keywords;
+        form_obj.brand_id = leixing[cls][id].brand_id;
       }
       that.setData({
         pinpaiOff: id,

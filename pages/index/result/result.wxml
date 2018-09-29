@@ -47,8 +47,8 @@
         品牌
       </view>
       <view class="opt_list">
-        <view  wx:for="{{seekObj.hot_keywords}}" wx:if="{{item.keywords!=' '}}" wx:key="index" class="opt_goods {{pinpaiOff==index?'active':''}}" data-cls="hot_keywords"  data-id="{{index}}" bindtap="ispl">
-          {{item.keywords}}
+        <view  wx:for="{{seekObj.brand_list}}" wx:if="{{item.brand_name!=' '}}" wx:key="index" class="opt_goods {{pinpaiOff==index?'active':''}}" data-cls="brand_list"  data-id="{{index}}" bindtap="ispl">
+          {{item.brand_name}}
         </view>
       </view>
     </view>
@@ -96,7 +96,7 @@
         </view>
       </view>
     </view>
-    <view class="btn">
+    <view class="btn" wx:if="{{btn}}">
       <view class="btn_l" bindtap="reset">
         重置
       </view>
