@@ -69,6 +69,7 @@
 .apply_bac{
   width: 40rpx;
   height: 40rpx;
+  position: relative;
 }
 .apply_box,.set_box{
   width: 25%;
@@ -92,4 +93,18 @@
 .set_bac{
   width: 45rpx;
   height: 45rpx;
+}
+.hint{
+  position:absolute;
+  width: 30rpx;
+  height: 30rpx;
+  background-color: #D80000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  top: 0;
+  right: 0;
+  transform:translate(50%,-50%) scale(.8);
 }

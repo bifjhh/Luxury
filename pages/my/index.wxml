@@ -23,6 +23,7 @@
   <view class="apply" bindtap="todind">
     <view class="apply_box" data-url='/pages/my/indent/indent?status=0' bindtap="toPage">
       <view class="apply_bac">
+        <view class="hint">{{orderInfo.wait_paid}}</view>
         <image src="/images/my/geren_daifukuan@3x.png" />
       </view>
       <view class="apply_text">
@@ -31,6 +32,7 @@
     </view>
     <view class="apply_box" data-url='/pages/my/indent/indent?status=10' bindtap="toPage">
       <view class="apply_bac">
+        <view class="hint">{{orderInfo.wait_send}}</view>
         <image src="/images/my/geren_daifahuo@3x.png" />
       </view>
       <view class="apply_text">
@@ -39,6 +41,7 @@
     </view>
     <view class="apply_box" data-url='/pages/my/indent/indent?status=20' bindtap="toPage">
       <view class="apply_bac">
+        <view class="hint">{{orderInfo.wait_received}}</view>
         <image src="/images/my/geren_daishouhuo@3x.png" />
       </view>
       <view class="apply_text">

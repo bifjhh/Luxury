@@ -3,6 +3,7 @@ const uri = app.globalData.uri;
 Page({
   data: {
     userInfo: {},
+    orderInfo:{}
   },
 
   onLoad() {
@@ -17,7 +18,8 @@ Page({
     wx.$http('User/getUserinfo').then(res => {
       if (res.data.code != 1) return;
       that.setData({
-        userInfo: res.data.data.userinfo
+        userInfo: res.data.data.userinfo,
+        orderInfo: res.data.data.order
       })
     })
   },
