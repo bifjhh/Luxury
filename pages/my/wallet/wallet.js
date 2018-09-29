@@ -16,12 +16,7 @@ Page({
   onLoad: function (options) {
     let that = this;
     that.getList(that, 0);
-    wx.$http('User/getUserinfo').then(res => {
-      if (res.data.code != 1) return;
-      that.setData({
-        wallet_balance: res.data.data.userinfo.wallet_balance
-      })
-    })
+    
   },
   getList(that, type) {
     wx.$http('Wallet/getUseLog', {
@@ -65,7 +60,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    const that = this
+    wx.$http('User/getUserinfo').then(res => {
+      if (res.data.code != 1) return;
+      that.setData({
+        wallet_balance: res.data.data.userinfo.wallet_balance
+      })
+    })
   },
 
   /**
