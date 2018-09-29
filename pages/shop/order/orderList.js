@@ -145,10 +145,18 @@ Page({
           showPsw:true
         })
       }else{
-        wx.showToast({
-          title: '请设置支付密码',
-          icon: 'none',
-          duration: 1000
+        wx.showModal({
+          // title: '暂未设置支付密码',
+          content: '暂未设置支付密码,请先设置支付密码',
+          success: function (res) {
+            if (res.confirm) {
+              wx.navigateTo({
+                url: '/pages/my/set/password',
+              })
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
         })
       }
     }else{

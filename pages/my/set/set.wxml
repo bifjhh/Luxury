@@ -1,0 +1,24 @@
+<view class="list" bindtap="setPassword"> 
+    <view class="text">
+        支付密码设置
+    </view>
+    <view class="jt">
+        <image src="/images/dingdan_jt.png" />
+    </view>
+</view>
+<view class="list"> 
+    <view class="text">
+        用户协议
+    </view>
+    <view class="jt">
+        <image src="/images/dingdan_jt.png" />
+    </view>
+</view>
+<view class="list"> 
+    <view class="text">
+        清除缓存
+    </view>
+    <view class="jt">
+        <image src="/images/dingdan_jt.png" />
+    </view>
+</view>

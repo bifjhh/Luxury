@@ -108,7 +108,7 @@
     <view class="title">
       请输入支付密码
     </view>
-    <input password="{{true}}" type="text" confirm-type="done" bindconfirm="submit" />
+    <input password type="number" confirm-type="done" maxlength="{{6}}" bindconfirm="submit" />
     <view class="no_psw">
       忘记密码?
     </view>

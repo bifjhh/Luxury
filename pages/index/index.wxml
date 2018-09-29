@@ -155,7 +155,7 @@
     <!-- 活动 广告 -->
     <view class="banner">
         <block wx:for="{{homeInfo.activity}}" wx:key="item.activity_id">
-            <view class="banner_info" bindtap="toActivity"  data-tid="{{item.activity_id}}">
+            <view class="banner_info" bindtap="toActivity" data-jid="1" data-tid="{{item.activity_id}}" >
                 <view class="banner_img">
                     <image src="{{item.activity_img}}" />
                 </view>

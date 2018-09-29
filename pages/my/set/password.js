@@ -1,51 +1,49 @@
-// pages/my/wallet/take/take.js
+// pages/my/set/password.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    info: {},
-    cash_price: 0,
+    mobile:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const that = this;
+    that.getUserInfo(that)
   },
-  addcard() {
-    wx.navigateTo({
-      url: '/pages/my/wallet/take/addCard'
+  getUserInfo(that) {
+    wx.$http('User/getUserinfo').then(res => {
+      if (res.data.code != 1) return;
+      that.setData({
+        mobile: res.data.data.userinfo.mobile,
+      })
     })
   },
-  input(e) {
-    let that = this;
-    that.setData({
-      cash_price: e.detail.value
-    })
-  },
-  took(e) {
-    let that = this;
-    let user_bank_id = e.currentTarget.dataset.id;
-    wx.$http("Wallet/addCash", {
-      user_bank_id: user_bank_id,
-      cash_price: that.data.cash_price
-    }).then(res => {
-      if (res.data.code != 1) {
+  getCode(){
+    const that = this;
+    wx.$http("Sms/send", {
+      mobile:that.data.mobile
+    }).then((res) => {
+      if(res.data.code == 1){
         wx.showToast({
           title: res.data.msg,
           icon: 'none',
-          duration: 1000
+          duration: 1300
         })
-        return false;
-      };
-      wx.navigateTo({
-        url: '/pages/my/wallet/take/takeOk'
-      })
-    })
-
+      }else{
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: 1300
+        })
+      }
+    }).catch((err) => {
+      
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -58,13 +56,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let that = this;
-    wx.$http('Wallet/getBankInfo').then(res => {
-      if (res.data.code != 1) return;
-      that.setData({
-        info: res.data.data
-      })
-    })
+
   },
 
   /**

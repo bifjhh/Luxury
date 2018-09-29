@@ -18,7 +18,7 @@
   <view class="keyong">
     可提现金额{{info.cash_price}}
   </view>
-  <view class="take_btn jinse" bindtap="took" data-id="{{info.bank.bank_id}}">
+  <view class="take_btn jinse" bindtap="took" data-id="{{info.bank.user_bank_id}}">
     申请提现
   </view>
   <view class="ts">
