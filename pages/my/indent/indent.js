@@ -22,9 +22,11 @@ Page({
     that.getList(that)
   },
   getList(that) {
-    wx.$http('Order/getList', {
-      status: that.data.status == '-1' ? '' : that.data.status
-    }).then(res => {
+    let data = {};
+    if(that.data.status != '-1'){
+      data.status = that.data.status
+    }
+    wx.$http('Order/getList', data).then(res => {
       if (res.data.code != 1) return;
       that.setData({
         list: res.data.data

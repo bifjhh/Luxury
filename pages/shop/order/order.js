@@ -73,6 +73,9 @@ Page({
               icon: 'success',
               duration: 1000
             })
+            wx.navigateTo({
+              url: '/pages/my/indent/indent',
+            })
           })
         } else if (res.cancel) {
           console.log('用户点击取消')

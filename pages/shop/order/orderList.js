@@ -85,7 +85,6 @@ Page({
       that.setData({
         hbNum: res.data.data.length
       })
-      console.log(res.data)
     })
   },
   getCart(that, id) {
@@ -96,7 +95,6 @@ Page({
       that.setData({
         cardNum: res.data.data.length
       })
-      console.log(res.data)
     })
   },
   getAddressList(that) {
@@ -119,7 +117,6 @@ Page({
     })
   },
   countIcon(e) {
-    console.log(e.currentTarget.dataset.status)
     const that = this;
     that.setData({
       status:e.currentTarget.dataset.status
@@ -190,7 +187,7 @@ Page({
         platform: 1
       }
     }
-    if(e.detail.value){
+    if(e&&e.detail.value){
       data.pay_pwd = e.detail.value
     }
     wx.$http('Order/add', data).then(res => {
@@ -218,7 +215,16 @@ Page({
           }, 500);
         },
         fail: function (error) {
-          console.log('error', error)
+          wx.showToast({
+            title: '支付失败',
+            icon: 'none',
+            duration: 600
+          })
+          setTimeout(() => {
+            wx.navigateTo({
+              url: '/pages/my/indent/indent?status=-1'
+            })
+          }, 500);
         }
       })
     })
