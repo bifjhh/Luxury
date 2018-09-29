@@ -23,7 +23,7 @@
       <view>物流公司：
         <text>{{info.express_name}}</text>
       </view>
-      <view bindtap="toExpress">查看物流 ></view>
+      <view bindtap="toExpress" data-order="{{info.order_id}}">查看物流 ></view>
     </view>
     <view>
       物流单号：

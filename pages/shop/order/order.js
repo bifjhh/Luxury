@@ -122,9 +122,10 @@ Page({
     })
   },
 
-  toExpress() {
+  toExpress(e) {
+
     wx.navigateTo({
-      url: '/pages/shop/order/express/express',
+      url: '/pages/shop/order/express/express?order_id='+e.currentTarget.dataset.order,
     })
   },
   tokefu() {

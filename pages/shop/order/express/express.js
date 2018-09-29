@@ -1,18 +1,25 @@
-// pages/shop/order/express/express.js
+import {getExpressInfo} from '../../../../utils/api.js'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    info:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    const that = this;
+    if(options.order_id){
+      getExpressInfo({order_id:options.order_id}).then(res=>{
+        console.log(res)
+        that.setData({info:res.data.data})
+      })
+    }
   },
 
   /**
