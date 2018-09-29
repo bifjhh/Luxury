@@ -1,3 +1,4 @@
+import {confirmOrCancel} from '../../../utils/api.js'
 // pages/shop/order/order.js
 Page({
 
@@ -23,7 +24,7 @@ Page({
       })
     })
   },
- pay(e) {
+  pay(e) {
     let id = e.currentTarget.dataset.id;
     wx.$http('Order/pay', {
       order_id: id,
@@ -83,10 +84,10 @@ Page({
       }
     })
   },
-  clone(e){
+  clone(e) {
     wx.setClipboardData({
       data: e.currentTarget.dataset.clone,
-      success: function(res) {
+      success: function (res) {
         wx.showToast({
           title: '复制成功',
           icon: 'success',
@@ -95,13 +96,31 @@ Page({
       }
     })
   },
-  confirm() {
+  confirm(e) {
+    const that = this;
+    const data = {
+      order_id: e.currentTarget.dataset.order,
+      status: 40
+    }
     wx.showModal({
       title: '  确定已经收到货了吗  ',
       content: '请在收到货后，进行确认收货操作',
       success: function (res) {
         if (res.confirm) {
-          console.log('用户点击确定')
+          confirmOrCancel(data).then(res => {
+            if (res.data.code == 1) {
+              wx.showToast({
+                title: '收货成功',
+                icon: 'success',
+                duration: 600
+              })
+              setTimeout(() => {
+                wx.navigateTo({
+                  url: '/pages/my/indent/indent'
+                })
+              }, 500);
+            }
+          })
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
@@ -125,7 +144,7 @@ Page({
   toExpress(e) {
 
     wx.navigateTo({
-      url: '/pages/shop/order/express/express?order_id='+e.currentTarget.dataset.order,
+      url: '/pages/shop/order/express/express?order_id=' + e.currentTarget.dataset.order,
     })
   },
   tokefu() {

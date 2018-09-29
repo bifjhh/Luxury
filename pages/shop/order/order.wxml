@@ -113,10 +113,10 @@
     <view bindtap="qux" wx:if="{{info.status==0}}" data-id="{{info.order_id}}">取消订单</view>
     <view bindtap="qux" wx:if="{{info.status==50}}">取消退款</view>
   </view>
-  <view class="submit_btn jinse" wx:if="{{info.status==0}}" bindtap="pay" data-id="{{info.order_id}}">
+  <view class="submit_btn jinse" wx:if="{{info.status==0}}" bindtap="pay" >
     立即支付
   </view>
-  <view class="submit_btn jinse" wx:if="{{info.status==20}}" bindtap="confirm">
+  <view class="submit_btn jinse" wx:if="{{info.status==20}}" bindtap="confirm" data-order="{{info.order_id}}">
     确认收货
   </view>
   <view class="submit_btn jinse" wx:if="{{info.status==30}}" bindtap="discuss">

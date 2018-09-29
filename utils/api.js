@@ -18,7 +18,18 @@ function getExpressInfo(params) {
   })
   return promise;
 }
+function confirmOrCancel(params) {
+  let promise = new Promise(function (resolve, reject) {
+    wx.$http('Order/confirmOrCancel', params).then(res => {
+      resolve(res);
+    }).catch(error => {
+      reject(error);
+    })
+  })
+  return promise;
+}
 module.exports = {
   isSetPayPwd,
-  getExpressInfo
+  getExpressInfo,
+  confirmOrCancel
 }

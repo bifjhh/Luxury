@@ -1,4 +1,5 @@
-// pages/my/indent/indent.js
+import {confirmOrCancel} from '../../../utils/api.js'
+
 Page({
 
   /**
@@ -64,6 +65,35 @@ Page({
           console.log('error', error)
         }
       })
+    })
+  },
+  affirm(e){
+    const that = this;
+    const data = {
+      order_id: e.currentTarget.dataset.order,
+      status: 40
+    }
+    wx.showModal({
+      title: '  确定已经收到货了吗  ',
+      content: '请在收到货后，进行确认收货操作',
+      success: function (res) {
+        if (res.confirm) {
+          confirmOrCancel(data).then(res => {
+            if (res.data.code == 1) {
+              wx.showToast({
+                title: '收货成功',
+                icon: 'success',
+                duration: 600
+              })
+              setTimeout(() => {
+                that.getList(that)
+              }, 500);
+            }
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
     })
   },
   iscard(e) {
