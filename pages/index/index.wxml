@@ -103,7 +103,7 @@
                     </view>
                 </view>
                 <view class="max_r">
-                    <view class='venues_content' bindtap="toActivity" data-tid="{{item.item[0].to_id}}" data-jid="{{item.item[0].jump_type}}">
+                    <view class='venues_content' bindtap="toActivity" data-tid="{{item.item[1].to_id}}" data-jid="{{item.item[1].jump_type}}">
                         <view class='v_img'>
                             <image src="{{item.item[1].item_img}}" />
                         </view>
@@ -116,7 +116,7 @@
                             </view>
                         </view>
                     </view>
-                    <view class='venues_content' bindtap="toActivity" data-tid="{{item.item[0].to_id}}" data-jid="{{item.item[0].jump_type}}">
+                    <view class='venues_content' bindtap="toActivity" data-tid="{{item.item[2].to_id}}" data-jid="{{item.item[2].jump_type}}">
                         <view class='v_img'>
                             <image src="{{item.item[2].item_img}}" />
                         </view>

@@ -81,11 +81,7 @@ Page({
     let tid = e.currentTarget.dataset.tid;
     console.log(jump_type);
 
-    if (!jump_type && jump_type != 0) {
-      wx.navigateTo({
-        url: '/pages/index/result/result?activity_id=' + tid
-      })
-    } else if (jump_type == 0) {
+    if (jump_type == 0) {
       wx.navigateTo({
         url: '/pages/shop/goods/goods?id=' + tid
       })
