@@ -15,6 +15,7 @@
     "pages/shop/order/info/info",
     "pages/shop/order/express/express",
     "pages/shop/pay/pay",
+    "pages/shop/pay/index",
     "pages/shop/site/site",
     "pages/shop/site/add",
     "pages/classify/index",

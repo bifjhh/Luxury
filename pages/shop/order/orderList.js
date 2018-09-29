@@ -210,7 +210,8 @@ Page({
           })
           setTimeout(() => {
             wx.navigateTo({
-              url: '/pages/shop/order/order?id=' + res.data.data.order_id
+              // url: '/pages/shop/order/order?id=' + res.data.data.order_id
+              url: '/pages/shop/pay/index?order_id=' + res.data.data.order_id
             })
           }, 500);
         },
