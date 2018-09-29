@@ -1,4 +1,5 @@
 // pages/shop/order/order.js
+import {isSetPayPwd} from '../../../utils/api.js'
 Page({
 
   /**
@@ -20,7 +21,8 @@ Page({
     isCart: true,
     status:2,
     password:null,
-    showPsw:false
+    showPsw:false,
+    isSetPsw:0
   },
 
   /**
@@ -33,6 +35,11 @@ Page({
     let sum = 0;
     let cart_id = [];
     let buy_num = [];
+    isSetPayPwd().then(res => {
+      console.log('res',res.data.code)
+      let isSetPsw = res.data.code
+      that.setData({isSetPsw})
+    })
     if (datas.length < 1) return;
     if (options.id) {
       console.log('不是购物车', options);
@@ -136,21 +143,30 @@ Page({
   ask(){
     const that = this;
     if(that.data.status==3){
-      that.setData({
-        showPsw:true
-      })
+      if(that.data.isSetPsw!=0){
+        that.setData({
+          showPsw:true
+        })
+      }else{
+        wx.showToast({
+          title: '请设置支付密码',
+          icon: 'none',
+          duration: 1000
+        })
+      }
     }else{
       that.submit()
     }
   },
-  endPsw(){
+  endPsw(e){
     const that = this;
     that.setData({
       showPsw:false
     })
   },
-  submit() {
+  submit(e) {
     let that = this;
+    that.endPsw()
     let data;
     if (that.data.isCart) {
       data = {
@@ -174,6 +190,9 @@ Page({
         platform: 1
       }
     }
+    if(e.detail.value){
+      data.pay_pwd = e.detail.value
+    }
     wx.$http('Order/add', data).then(res => {
       console.log(res)
       if (!res.data.data.wx_pay_info) return;
@@ -186,7 +205,7 @@ Page({
         'signType': 'MD5',
         'paySign': wx_pay_info.sign,
         success: function (data) {
-          console.log('data', data)
+          console.log('成功', data)
           wx.showToast({
             title: '支付成功',
             icon: 'success',

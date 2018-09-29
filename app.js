@@ -67,7 +67,7 @@ App({
           'content-type': 'application/x-www-form-urlencoded'
         },
         success: function (res) {
-          if (res.data.code == 500 || res.data.code == 0) {
+          if (res.data.code == 500 || res.data.code == 0 && res.statusCode !== 200) {
             wx.showToast({
               title: res.data.msg,
               icon: 'none',

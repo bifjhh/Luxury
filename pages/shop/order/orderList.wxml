@@ -98,17 +98,18 @@
     提交订单
   </view>
 </view>
-<view class="pswbox" wx:if="{{showPsw}}" bindtap="endPsw">
-  <view class="section">
+<view class="pswbox" wx:if="{{showPsw}}" catchtap="endPsw">
+</view>
+
+  <view class="section" wx:if="{{showPsw}}">
     <view class="end_psw" bindtap="endPsw">
       x
     </view>
     <view class="title">
       请输入支付密码
     </view>
-    <input password="{{true}}" type="text" confirm-type="done" />
+    <input password="{{true}}" type="text" confirm-type="done" bindconfirm="submit" />
     <view class="no_psw">
       忘记密码?
     </view>
   </view>
-</view>
