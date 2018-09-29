@@ -92,7 +92,7 @@
 <view class="order_info">
   <view>
     <view>订单编号：{{info.order_no}}</view>
-    <view class="copy">复制</view>
+    <view class="copy" bindtap="clone" data-clone="{{info.order_no}}">复制</view>
   </view>
   <view>
     <view>下单时间：{{info.createtime}}</view>

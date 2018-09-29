@@ -83,6 +83,18 @@ Page({
       }
     })
   },
+  clone(e){
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.clone,
+      success: function(res) {
+        wx.showToast({
+          title: '复制成功',
+          icon: 'success',
+          duration: 1000
+        })
+      }
+    })
+  },
   confirm() {
     wx.showModal({
       title: '  确定已经收到货了吗  ',
