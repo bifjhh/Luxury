@@ -46,12 +46,12 @@ view {
 }
 
 .indent {
-  height: 336rpx;
+  /* height: 336rpx; */
   display: flex;
   align-content: center;
   justify-content: center;
   flex-direction: column;
-  padding: 0 30rpx;
+  padding: 12rpx 30rpx;
   margin-bottom: 20rpx;
   background-color: #fff;
 }
@@ -67,9 +67,11 @@ view {
 }
 
 .logo {
-  margin-top: 40rpx;
+  margin-top: 30rpx;
   height: 150rpx;
   display: flex;
+  /* border-bottom: 1px dashed #999; */
+  overflow: hidden;
   /* justify-content: center; */
 }
 

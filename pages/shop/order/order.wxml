@@ -119,7 +119,7 @@
   <view class="submit_btn jinse" wx:if="{{info.status==20}}" bindtap="confirm" data-order="{{info.order_id}}">
     确认收货
   </view>
-  <view class="submit_btn jinse" wx:if="{{info.status==30}}" bindtap="discuss">
+  <view class="submit_btn jinse" wx:if="{{info.status==30}}" data-order="{{info.order_id}}" bindtap="discuss">
     立即评价
   </view>
 </view>

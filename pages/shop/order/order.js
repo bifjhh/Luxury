@@ -127,18 +127,21 @@ Page({
       }
     })
   },
-  discuss() {
-    wx.showModal({
-      title: '  评价  ',
-      content: '请在收到货后，进行商品评价',
-      success: function (res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
+  discuss(e) {
+    wx.navigateTo({
+      url: '/pages/pinglun/pinglun?type=1&order_id='+e.currentTarget.dataset.order
     })
+    // wx.showModal({
+    //   title: '  评价  ',
+    //   content: '请在收到货后，进行商品评价',
+    //   success: function (res) {
+    //     if (res.confirm) {
+    //       console.log('用户点击确定')
+    //     } else if (res.cancel) {
+    //       console.log('用户点击取消')
+    //     }
+    //   }
+    // })
   },
 
   toExpress(e) {

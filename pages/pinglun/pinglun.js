@@ -1,4 +1,4 @@
-// pages/pinglun/pinglun.js
+import {addEval} from '../../utils/api.js'
 Page({
 
   /**
@@ -7,7 +7,8 @@ Page({
   data: {
     info: '',
     infoNum: 0,
-    type: '0'
+    type: '0',
+    order_id:''
   },
 
   /**
@@ -16,13 +17,41 @@ Page({
   onLoad: function (options) {
     let that = this;
     that.setData({
-      type:options.type
+      type:options.type,
+      order_id:options.order_id
     })
+    if (options.order_id) {
+      that.setData({
+        order_id:options.order_id
+      })
+    }
   },
 
   submit(e) {
-    console.log(e.detail.value);
-    wx.$http('User/addOpinion', e.detail.value).then(res => {
+    let data = e.detail.value;
+    if (this.data.order_id) {
+      let obj = {
+        order_id : this.data.order_id,
+        eval_cont: data.content
+        
+      }
+      addEval(obj).then(res=>{
+        if(res.data.code == 0){
+          wx.showToast({
+            title: '评价成功',
+            icon: 'success',
+            duration: 600
+          })
+          setTimeout(() => {
+            wx.navigateBack({
+              delta: 1, 
+            })
+          }, 500);
+        }
+      })
+      return false;
+    }
+    wx.$http('User/addOpinion', data).then(res => {
       if (res.data.code != 1) return;
       wx.showToast({
         title: '反馈成功',

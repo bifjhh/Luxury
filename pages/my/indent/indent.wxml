@@ -28,14 +28,22 @@
   <view class="indent" bindtap="toPage" wx:for="{{list}}" wx:key="{{index}}"  data-id="{{item.order_id}}">
     <view class="haoma">
       <view>订单编号：{{item.order_no}}</view>
-      <view wx:if="{{item.status==0}}">待付款</view>
+    <view wx:if="{{item.status==0}}">待付款</view>
+    <view wx:if="{{item.status==10}}">待发货</view>
+    <view wx:if="{{item.status==20}}">待收货</view>
+    <view wx:if="{{item.status==30}}">待评价</view>
+    <view wx:if="{{item.status==40}}">已完成</view>
+    <view wx:if="{{item.status==90}}">已取消</view>
+    <view wx:if="{{item.status==50}}">退款审核中</view>
+    <view wx:if="{{item.status==51}}">退款被拒绝</view>
+    <view wx:if="{{item.status==60}}">退款成功</view>
     </view>
-    <view class="logo">
+    <view class="logo" wx:for="{{item.goods_item}}" wx:for-item="oneItem" wx:key="{{index}}">
       <view class="logo_img">
-        <image src="{{item.goods_item[0].goods_img}}" />
+        <image src="{{oneItem.goods_img}}" />
       </view>
       <view class="logo_info">
-        {{item.goods_item[0].goods_title}}
+        {{oneItem.goods_title}}
       </view>
     </view>
     <view class="num">
