@@ -43,9 +43,15 @@ Page({
             duration: 600
           })
           setTimeout(() => {
-            wx.navigateBack({
-              delta: 1, 
+            // wx.navigateBack({
+            //   delta: 1, 
+            // })
+            wx.navigateTo({
+              url: '/pages/shop/pay/index?type=1&order_id='+obj.order_id
             })
+            // wx.switchTab({
+            //   url: '/pages/index/index'
+            // })
           }, 500);
         }
       })

@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    order_id:''
+    order_id:'',
+    type:0
   },
 
   /**
@@ -13,7 +14,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      order_id:options.order_id
+      order_id:options.order_id,
+      type:options.type
     })
   },
 

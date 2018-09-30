@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 34,
+			"current": 31,
 			"list": [
 				{
 					"id": -1,
@@ -218,10 +218,10 @@
 					"query": "api=Common/jmhs"
 				},
 				{
-					"id": -1,
+					"id": 31,
 					"name": "支付完成",
 					"pathName": "pages/shop/pay/index",
-					"query": ""
+					"query": "type=1"
 				},
 				{
 					"id": -1,
