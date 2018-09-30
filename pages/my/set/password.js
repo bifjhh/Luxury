@@ -23,6 +23,22 @@ Page({
       })
     })
   },
+  toGo(e){
+    const formData = e.detail.value
+    wx.$http("Sms/check", formData).then(res=>{
+      if(res.data.code == 1){
+        wx.navigateTo({
+          url: '/pages/my/set/setPsw'
+        })
+      }else{
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: 1300
+        })
+      }
+    })
+  },
   getCode(){
     const that = this;
     wx.$http("Sms/send", {
