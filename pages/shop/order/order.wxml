@@ -40,7 +40,7 @@
     <view class="kd_tel">
       <view>退款审核中
       </view>
-      <view bindtap="toExpress">退款详情 ></view>
+      <view bindtap="totk" data-id="{{info.order_id}}">退款详情 ></view>
     </view>
     <view>
       商家将会及时和您联系退款事宜
@@ -112,7 +112,7 @@
     </view>
     <view bindtap="qux" wx:if="{{info.status==0}}" data-id="{{info.order_id}}">取消订单</view>
     <view bindtap="tk" wx:if="{{info.status==10}}">申请退款</view>
-    <view bindtap="qux" wx:if="{{info.status==50}}">取消退款</view>
+    <view bindtap="quxtk" wx:if="{{info.status==50}}" data-id="{{info.refund_id}}">取消退款</view>
   </view>
   <view class="submit_btn jinse" wx:if="{{info.status==0}}" bindtap="pay" >
     立即支付

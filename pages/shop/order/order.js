@@ -57,6 +57,12 @@ Page({
       })
     })
   },
+  totk(e){
+    let id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/shop/order/info/info?id='+id
+    })
+  },
   qux(e) {
     let id = e.currentTarget.dataset.id;
     wx.showModal({
@@ -81,6 +87,32 @@ Page({
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
+      }
+    })
+  },
+  quxtk(e){
+    const that = this
+    let id = e.currentTarget.dataset.id;
+    wx.$http('Order/cancelRefund', {
+      refund_id: id,
+    }).then(res => {
+      if (res.data.code == 1) {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'success',
+          duration: 1000
+        })
+        setTimeout(() => {
+          wx.navigateTo({
+            url: '/pages/my/indent/indent?id=' + that.data.info.order_id
+          })
+        }, 900);
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: 1000
+        })
       }
     })
   },

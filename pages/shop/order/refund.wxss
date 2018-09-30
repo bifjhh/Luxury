@@ -53,14 +53,17 @@ view{
   font-family: Helvetica;
   color: rgba(51, 51, 51, 1);
 }
-.tk_box{
-}
-.tk_box .kefu_box {
-  padding-top: 60rpx;
-  padding-bottom: 173rpx;
+.kefu_box {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50rpx;
+  padding-top: 44rpx;
+  height: auto;
+  border: none!important;
+  margin-top: 40rpx;
 }
 
- .lxkf {
+.lxkf {
   width: 240rpx;
   height: 60rpx;
   border-radius: 10px;
@@ -68,10 +71,17 @@ view{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  position: relative;
 }
-
- .lxkf .kf_img {
+.lxkf button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.lxkf .kf_img {
   width: 26rpx;
   height: 25rpx;
 }
@@ -83,8 +93,8 @@ view{
   color: rgba(102, 102, 102, 1);
   line-height: 40rpx;
 }
-
 .submit_btn {
+  margin: 0 60rpx;
   margin-top: 55rpx;
   height: 70rpx;
   border-radius: 35px;
@@ -96,6 +106,7 @@ view{
   color: rgba(255, 255, 255, 1);
   border: none;
 }
+
 
 .submit_btn:hover {
   color: rgba(255, 255, 255, 1);

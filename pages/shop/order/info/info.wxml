@@ -1,17 +1,17 @@
 
-<form bindsubmit="submit">
+<form bindsubmit="submit" data-id="{{info.refund_id}}">
 <view class="tk_box">
   <view class="cause">
     <view class="">
       退款原因
     </view>
     <view class="picker">
-      {{'行行行嘻嘻嘻嘻星星线休息休息'}}
+      {{info.refund_desc}}
     </view>
   </view>
   <view class="num">
     <view class="">
-      退款金额：¥4100.00
+      退款金额：¥{{info.refund_price}}
     </view>
     <view class="">
       商家有权根据货物使用情况，调整退款金额
@@ -19,28 +19,31 @@
   </view>
   <view class="info">
     <view>
-      退款说明：
+      退款说明：{{info.refund_explain||''}}
     </view>
-    <input name="shuoming" type="text" placeholder="选填" />
   </view>
   <view class="img_list">
     <view class="pz">
-      凭证
+      凭证:
     </view>
     <view class="img">
-      <view class="is_img" wx:for="{{2}}" wx:key="i" >
-        <image src="/images/goods.png"  />
+      <view class="is_img" wx:for="{{info.refund_img}}" wx:key="index" >
+        <image src="{{item}}" />
+      </view>
+      <view class="is_img" wx:if="{{info.refund_img.length==0}}">
+        未上传
       </view>
     </view>
   </view>
-  <view class="kefu_box">
+   <view class="kefu_box">
     <view class="lxkf">
+      <button open-type="contact" />
       <view class="kf_img">
         <image src="/images/kefu.png" />
       </view>
       <text>联系客服</text>
     </view>
-    <button wx:if="{{1}}" class="submit_btn jinse" form-type="submit" >取消退款</button>
   </view>
+    <button class="submit_btn jinse" form-type="submit">取消退款</button>
 </view>
 </form>

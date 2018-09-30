@@ -1,12 +1,12 @@
 <view class="goods_list t20">
-  <view class="goods" wx:for="{{1}}" wx:key="i">
+  <view class="goods" wx:for="{{goodsData.goods_item}}" wx:key="index">
     <view class="goods_logo">
-      <image src="/images/goods_logo.png" />
+      <image src="{{item.goods_img}}" />
     </view>
     <view class="goods_info">
-      <text class="info_txt">澳洲Restoria discreet丽丝丽丝丽雅黑发还原乳250ml</text>
+      <text class="info_txt">{{item.goods_title}}</text>
     </view>
-    <text class="curt">X{{1}}</text>
+    <text class="curt">X{{item.buy_num}}</text>
   </view>
 </view>
 <form bindsubmit="submit">
@@ -28,7 +28,7 @@
   </view>
   <view class="num">
     <view class="">
-      退款金额：¥4100.00
+      退款金额：¥{{goodsData.pay_price}}
     </view>
     <view class="">
       商家有权根据货物使用情况，调整退款金额
@@ -38,7 +38,7 @@
     <view>
       退款说明：
     </view>
-    <input name="shuoming" type="text" placeholder="选填" />
+    <input name="shuoming" type="text" bindinput="explain" placeholder="选填" />
   </view>
   <view class="img_list">
     <view class="pz">
@@ -56,12 +56,13 @@
   </view>
   <view class="kefu_box">
     <view class="lxkf">
+      <button open-type="contact" />
       <view class="kf_img">
         <image src="/images/kefu.png" />
       </view>
       <text>联系客服</text>
     </view>
-    <button wx:if="{{1}}" class="submit_btn jinse" form-type="submit"  hover-class="defaultTap">提交</button>
   </view>
+    <button class="submit_btn jinse" form-type="submit"  hover-class="defaultTap">提交</button>
 </view>
 </form>
