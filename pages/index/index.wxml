@@ -34,7 +34,7 @@
                 寄卖回收
             </view>
         </view>
-        <view bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/jd'>
+        <view bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/xcxjd'>
             <view class="xuanze_img">
                 <image src="/images/home/jiand.png" />
             </view>
@@ -50,7 +50,7 @@
                 上新
             </view>
         </view>
-        <view bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/yh'>
+        <view bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/xcxyh'>
             <view class="xuanze_img">
                 <image src="/images/home/shouye_yanghu@3x.png" />
             </view>
@@ -58,7 +58,7 @@
                 养护
             </view>
         </view>
-        <view bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/fq'>
+        <view bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/xcxfq'>
             <view class="xuanze_img">
                 <image src="/images/home/shouye_fenqi@3x.png" />
             </view>
