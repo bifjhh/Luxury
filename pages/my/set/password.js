@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    mobile:''
+    mobile:'',
+    isCode:false
   },
 
   /**
@@ -41,11 +42,27 @@ Page({
   },
   getCode(){
     const that = this;
+    if (that.data.isCode) {
+      wx.showToast({
+        title: '已发送,请稍后再试',
+        icon: 'none',
+        duration: 1300
+      })
+      return false;
+    }
     wx.$http("Sms/send", {
       mobile:that.data.mobile,
       event:'paypwd'
     }).then((res) => {
       if(res.data.code == 1){
+        that.setData({
+          isCode:true
+        })
+        setTimeout(() => {
+          that.setData({
+            isCode:false
+          })
+        }, 60000);
         wx.showToast({
           title: res.data.msg,
           icon: 'none',

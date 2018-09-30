@@ -22,7 +22,6 @@ Page({
 
   },
   submit(e) {
-    console.log(e.detail.value)
     const data = e.detail.value
     if (data.psw1.length !== 6) {
       wx.showToast({
@@ -49,8 +48,11 @@ Page({
           duration: 1500
         })
         setTimeout(() => {
-          wx.switchTab({
-            url: '/pages/my/index'
+          // wx.switchTab({
+          //   url: '/pages/my/index'
+          // })
+          wx.navigateBack({
+            delta: 2
           })
         }, 1400);
       };
