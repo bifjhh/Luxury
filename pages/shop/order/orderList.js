@@ -169,6 +169,11 @@ Page({
       showPsw:false
     })
   },
+  wjmm(){
+    wx.navigateTo({
+      url: '/pages/my/set/password',
+    })
+  },
   submit(e) {
     let that = this;
     that.endPsw()

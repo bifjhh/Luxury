@@ -42,7 +42,8 @@ Page({
   getCode(){
     const that = this;
     wx.$http("Sms/send", {
-      mobile:that.data.mobile
+      mobile:that.data.mobile,
+      event:'paypwd'
     }).then((res) => {
       if(res.data.code == 1){
         wx.showToast({
