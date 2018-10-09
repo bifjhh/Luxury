@@ -7,7 +7,7 @@ Page({
    */
   data: {
     text: "Page animation",
-    objs: {},
+    goodsList: [],
     btn:false,
     animation: '',
     pinpaiOff: -1,
@@ -84,7 +84,7 @@ Page({
       keywords: e.detail.value,
     }).then(res => {
       that.setData({
-        objs: res.data.data
+        goodsList: res.data.data.goods_list
       })
       console.log(res.data.data)
     })
@@ -92,7 +92,7 @@ Page({
   getObjs(that) {
     wx.$http('Goods/getList', that.data.form_obj).then(res => {
       that.setData({
-        objs: res.data.data
+        goodsList: res.data.data.goods_list
       })
       console.log(res.data.data)
     })

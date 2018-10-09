@@ -9,7 +9,7 @@ Page({
     imgs: [1, 2, 3, 4, 5],
     isImg: 1,
     is_show: 0,
-    list:[],
+    goodsList:[],
     objs: {},
     isIphoneX:app.globalData.isIphoneX
   },
@@ -31,7 +31,7 @@ Page({
       is_recom: 'n-'+id,
     }).then(res => {
       that.setData({
-        list: res.data.data
+        goodsList: res.data.data.goods_list
       })
       // console.log(res.data.data)
     })

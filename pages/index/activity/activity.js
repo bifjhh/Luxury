@@ -8,6 +8,7 @@ Page({
   data: {
     text: "Page animation",
     objs:{},
+    goodsList:[],
     animation: '',
     pinpaiOff: -1,
     pinleiOff: -1,
@@ -74,7 +75,6 @@ Page({
       that.setData({
         seekObj: res.data.data
       })
-      console.log(res.data.data)
     })
   },
   bindinput(e) {
@@ -89,22 +89,21 @@ Page({
       keywords: e.detail.value,
     }).then(res => {
       that.setData({
-        objs: res.data.data
+        objs: res.data.data,
+        goodsList:res.data.data.goods_list
       })
-      console.log(res.data.data)
     })
   },
   getObjs(that) {
     wx.$http('Goods/getList', that.data.form_obj).then(res => {
       that.setData({
-        objs: res.data.data
+        objs: res.data.data,
+        goodsList:res.data.data.goods_list
       })
-      console.log(res.data.data)
     })
   },
   sort(e) {
     let that = this;
-    console.log(e.currentTarget.dataset.sort);
     // let sortId = e.currentTarget.dataset.sort;
     let form_obj = that.data.form_obj;
     form_obj.sort = e.currentTarget.dataset.sort;

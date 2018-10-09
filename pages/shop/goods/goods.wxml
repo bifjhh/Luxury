@@ -75,7 +75,7 @@
   <view class="page_h1" style="margin-top:20rpx ">
     — 猜你喜欢 —
   </view>
-  <template is="goodsList" data="{{...list}}" />
+  <template is="goodsList" data="{{goodsList}}" />
   <template is="cart" data="{{...objs,isIphoneX}}"></template>
 </view>
 

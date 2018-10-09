@@ -31,7 +31,7 @@
       筛选
     </view>
   </view>
-  <template is="goodsList" data="{{...objs}}"></template>
+  <template is="goodsList" data="{{goodsList}}"></template>
 </view>
 
 

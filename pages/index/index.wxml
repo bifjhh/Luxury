@@ -1,3 +1,4 @@
+<import src="/components/goodsList/list.wxml" />
 <!--index.wxml-->
 <view class="container">
     <!-- 顶部轮播图 -->
@@ -166,7 +167,9 @@
             </view>
         </block>
     </view>
-  
+    <view class="goodsList">猜你喜欢</view>
+    <template is="goodsList" data="{{goodsList}}"></template>
+    
     <view class="go_top" bindtap="goTop">
         <text class="iconfont icon-iconfonticonfonti2copy"></text>
     </view>

@@ -1,3 +1,5 @@
+@import '/components/goodsList/list.wxss';
+
 view {
     box-sizing: border-box;
 }
@@ -355,4 +357,11 @@ swiper-item image {
 
 .go_top text {
     color: #fff;
+}
+.goodsList{
+    margin-top: 20rpx;
+    text-align: center;
+    font-size: 30rpx;
+    background-color: #fff;
+    padding: 20rpx 0;
 }

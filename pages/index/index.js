@@ -13,6 +13,7 @@ Page({
     loadingHidden: true, // loading
     swpPage: 0,
     token: '',
+    goodsList:[],
     homeInfo: {},
     shade: false,
   },
@@ -30,6 +31,18 @@ Page({
       that.setData({
         homeInfo: res.data.data
       })
+    })
+    that.getList(that)
+  },
+
+  getList(that) {
+    wx.$http('Goods/getList', {
+      is_recom: '0',
+    }).then(res => {
+      that.setData({
+        goodsList: res.data.data.goods_list
+      })
+      // console.log(res.data.data)
     })
   },
   isShade(e) {
