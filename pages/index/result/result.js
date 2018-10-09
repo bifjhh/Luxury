@@ -1,5 +1,5 @@
 const app = getApp()
-
+var page = 0;
 Page({
 
   /**
@@ -74,6 +74,7 @@ Page({
     return form_obj
   },
   bindinput(e) {
+    page = 0;
     let that = this;
     let form_obj = that.data.form_obj;
     form_obj.keywords = e.detail.value;
@@ -90,11 +91,18 @@ Page({
     })
   },
   getObjs(that) {
+    const list = that.data.goodsList || [];
+    const data = that.data.form_obj;
+    data.p = page;
     wx.$http('Goods/getList', that.data.form_obj).then(res => {
+      let goodsList = list.concat(res.data.data.goods_list)
       that.setData({
-        goodsList: res.data.data.goods_list
+        goodsList
       })
-      console.log(res.data.data)
+      page++
+      setTimeout(()=>{
+        wx.hideLoading()
+      },2000)
     })
   },
   sort(e) {
@@ -321,7 +329,12 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    wx.showLoading({
+      title: '加载中',
+    })
 
+    const that = this;
+    that.getObjs(that)
   },
 
   /**
