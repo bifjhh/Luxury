@@ -8,6 +8,7 @@ Page({
   data: {
     imgs: [1, 2, 3, 4, 5],
     isImg: 1,
+    serverList:[],
     is_show: 0,
     goodsList:[],
     objs: {},
@@ -21,6 +22,7 @@ Page({
     let that = this;
     console.log(options)
     that.getObjs(that, options.id)
+    that.getServerList(that)
     that.getList(that, options.id)
     wx.$http('Goods/getGmlc').then(res => {
       WxParse.wxParse('getGmlc', 'html', res.data.data.info, that, 5);
@@ -45,6 +47,13 @@ Page({
         objs: res.data.data
       })
       // console.log(res.data.data)
+    })
+    
+  },
+  getServerList(that) {
+    wx.$http('Goods/getServerList', {}).then(res => {
+      let serverList = res.data.data;
+      that.setData({serverList})
     })
     
   },

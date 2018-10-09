@@ -44,12 +44,12 @@
       — 服务保障 —
     </view>
     <view class="serve_info">
-      <view class="serve_cnt" wx:for="{{4}}" wx:key="i">
+      <view class="serve_cnt" wx:for="{{serverList}}" wx:key="index">
         <view class="serve_img">
-          <image src="/images/server.png" />
+          <image src="{{item.img}}" />
         </view>
         <view class="serve_txt">
-          权威鉴定
+          {{item.title}}
         </view>
       </view>
     </view>
