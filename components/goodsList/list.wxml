@@ -6,7 +6,7 @@
       </view>
       <view class="goods_h1">
         <text class="money"><text>￥</text>{{item.price}}</text>
-        <text class="zk">¥{{item.original_cost}}</text>
+        <text class="zk" wx:if="{{item.original_cost!=0}}">¥{{item.original_cost}}</text>
         <text class="jj" wx:if="{{item.is_sales==1}}">降</text>
         <text class="fq" wx:if="{{item.is_credit==1}}">分期</text>
 

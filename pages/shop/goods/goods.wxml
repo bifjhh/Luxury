@@ -19,7 +19,7 @@
   <view class="title">
     <view class="title_h1">
       <text class="money"><text>￥</text>{{objs.price}}</text>
-      <text class="zk">¥{{objs.original_cost}}</text>
+      <text class="zk" wx:if="{{objs.original_cost!=0}}">¥{{objs.original_cost}}</text>
       <text class="jj">{{objs.quality_name}}</text>
       <text class="fq" wx:if="{{objs.is_credit==1}}">分期</text>
 

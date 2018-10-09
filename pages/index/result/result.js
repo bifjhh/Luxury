@@ -45,7 +45,7 @@ Page({
       options
     })
     let form_obj = that.getFormData(that)
-    
+    console.log(form_obj)
     that.setData({
       form_obj
     })
@@ -92,9 +92,9 @@ Page({
   },
   getObjs(that) {
     const list = that.data.goodsList || [];
-    const data = that.data.form_obj;
+    const data = that.getFormData(that);
     data.p = page;
-    wx.$http('Goods/getList', that.data.form_obj).then(res => {
+    wx.$http('Goods/getList', data).then(res => {
       let goodsList = list.concat(res.data.data.goods_list)
       that.setData({
         goodsList
