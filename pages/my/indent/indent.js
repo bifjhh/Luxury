@@ -110,6 +110,12 @@ Page({
       url: '/pages/shop/order/order?id=' + id
     })
   },
+  discuss(e) {
+    wx.navigateTo({
+      url: '/pages/pinglun/pinglun?type=1&order_id='+e.currentTarget.dataset.order
+    })
+    
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
