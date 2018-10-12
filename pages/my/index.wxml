@@ -91,7 +91,7 @@
         邀请好友
       </view>
     </view>
-    <view class="set_box" bindtap="toPage" data-url="/pages/my/info/info">
+    <view class="set_box" bindtap="toPage" data-url="/pages/my/set/set">
       <view class="set_bac">
         <image src="/images/my/geren_shezhi@3x.png" />
       </view>
