@@ -10,6 +10,7 @@ Page({
     isImg: 1,
     serverList:[],
     is_show: 0,
+    cs_show:false,
     goodsList:[],
     objs: {},
     isIphoneX:app.globalData.isIphoneX
@@ -27,6 +28,16 @@ Page({
     wx.$http('Goods/getGmlc').then(res => {
       WxParse.wxParse('getGmlc', 'html', res.data.data.info, that, 5);
     })
+  },
+  csjs(){
+    const that = this;
+    wx.$http('Common/chengseshuoming').then(res => {
+      this.setData({cs_show:true})
+      WxParse.wxParse('cs_data', 'html', res.data.data.info, that, 5);
+    })
+  },
+  csjsEnd(){
+    this.setData({cs_show:false})
   },
   getList(that,id) {
     wx.$http('Goods/getList', {

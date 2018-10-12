@@ -89,3 +89,11 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
 }
+.none{
+  width: 100%;
+  font-size: 30rpx;
+  color: #666;
+  line-height: 2em;
+  text-align: center;
+  margin-top: 5em;
+}
