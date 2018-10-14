@@ -51,7 +51,7 @@ Page({
     that.setData({
       form_obj
     })
-    that.getObjs(that, form_obj)
+    that.getObjs(that,false, form_obj)
     wx.$http('Index/searchInfo').then(res => {
       that.setData({
         seekObj: res.data.data
@@ -92,16 +92,21 @@ Page({
       console.log(res.data.data)
     })
   },
-  getObjs(that) {
+  getObjs(that,p,data) {
     const list = that.data.goodsList || [];
-    const data = that.getFormData(that);
+    data = data? data : that.data.form_obj;
     data.p = page;
     wx.$http('Goods/getList', data).then(res => {
-      let goodsList = list.concat(res.data.data.goods_list)
+      let goodsList;
+      if(p){
+        goodsList = list.concat(res.data.data.goods_list)
+      }else{
+        goodsList = res.data.data.goods_list
+      }
+      
       that.setData({
         goodsList
       })
-      page++
       setTimeout(()=>{
         wx.hideLoading()
       },2000)
@@ -109,10 +114,10 @@ Page({
   },
   sort(e) {
     let that = this;
-    console.log(e.currentTarget.dataset.sort);
+    const sort = e.currentTarget.dataset.sort
     // let sortId = e.currentTarget.dataset.sort;
     let form_obj = that.data.form_obj;
-    form_obj.sort = e.currentTarget.dataset.sort;
+    form_obj.sort = sort;
     that.setData({
       form_obj
     })
@@ -172,7 +177,7 @@ Page({
     let that = this;
     this.setData({btn:false})
 
-    that.getObjs(that, that.data.form_obj)
+    that.getObjs(that,false, that.data.form_obj)
     this.animation.translateX(0).step()
     // this.animation.rotate(150).step()
     this.setData({
@@ -336,7 +341,8 @@ Page({
     })
 
     const that = this;
-    that.getObjs(that)
+    page++
+    that.getObjs(that,true)
   },
 
   /**
