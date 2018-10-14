@@ -71,6 +71,8 @@ Page({
       form_obj.cate_id = options.cate_id;
     } else if (options.activity_id) {
       form_obj.activity_id = options.activity_id;
+    } else if (options.is_credit) {
+      form_obj.is_credit = options.is_credit;
     }
     form_obj.sort = options.sort || 0;
     return form_obj
