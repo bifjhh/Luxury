@@ -69,8 +69,9 @@ Page({
   },
   affirm(e){
     const that = this;
+    const id = e.currentTarget.dataset.order;
     const data = {
-      order_id: e.currentTarget.dataset.order,
+      order_id: id,
       status: 40
     }
     wx.showModal({
@@ -85,7 +86,11 @@ Page({
                 icon: 'success',
                 duration: 600
               })
+              
               setTimeout(() => {
+                // wx.navigateTo({
+                //   url: '/pages/shop/order/order?id=' + id
+                // })
                 that.getList(that)
               }, 500);
             }
