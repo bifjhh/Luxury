@@ -6,7 +6,7 @@
         <image src="/images/dingdan_jt.png" />
     </view>
 </view>
-<view class="list"> 
+<view class="list" bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/getYhxy'> 
     <view class="text">
         用户协议
     </view>
@@ -14,7 +14,7 @@
         <image src="/images/dingdan_jt.png" />
     </view>
 </view>
-<view class="list"> 
+<view class="list" bindtap="clearStorage"> 
     <view class="text">
         清除缓存
     </view>

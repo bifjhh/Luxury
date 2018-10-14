@@ -26,6 +26,33 @@ Page({
       url: '/pages/my/set/password'
     })
   },
+  toPage(e) {
+    let url = e.currentTarget.dataset.url
+    wx.navigateTo({
+      url: url
+    })
+  },
+  clearStorage(){
+    wx.showModal({
+      title: '确认清楚本地缓存吗',
+      success: function (res) {
+        if (res.confirm) {
+          wx.showLoading({
+            title: '清理中...',
+          })
+          wx.clearStorage()
+          setTimeout(() => {
+            wx.hideLoading()
+            wx.switchTab({
+              url: '/pages/index/index'
+            })
+          }, 1500);
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
