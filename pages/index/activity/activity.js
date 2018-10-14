@@ -88,6 +88,7 @@ Page({
     wx.$http('Goods/getList', {
       keywords: e.detail.value,
     }).then(res => {
+      
       that.setData({
         objs: res.data.data,
         goodsList:res.data.data.goods_list
@@ -96,6 +97,9 @@ Page({
   },
   getObjs(that) {
     wx.$http('Goods/getList', that.data.form_obj).then(res => {
+      wx.setNavigationBarTitle({
+        title: res.data.data.activity_info.activity_name
+      })
       that.setData({
         objs: res.data.data,
         goodsList:res.data.data.goods_list
