@@ -54,7 +54,7 @@
       <view class="num_r jinse" wx:if="{{item.status==0||item.status==20||item.status==30}}">
         <view wx:if="{{item.status==0}}" catchtap="pay" data-id="{{item.order_id}}">立即支付</view>
         <view wx:if="{{item.status==20}}" catchtap="affirm" data-order="{{item.order_id}}">确认收货</view>
-        <view wx:if="{{item.status==30}}" data-order="{{info.order_id}}" catchtap="discuss">立即评价</view>
+        <view wx:if="{{item.status==30}}" data-order="{{item.order_id}}" catchtap="discuss">立即评价</view>
       </view>
     </view>
   </view>
