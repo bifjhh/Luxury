@@ -2,7 +2,7 @@
 let gdIndex = 1;
 const app = getApp()
 const uri = app.globalData.uri;
-
+var page = 0
 Page({
 
   /**
@@ -22,6 +22,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    page = 0;
     // Index/index
     let that = this;
 
@@ -32,16 +33,23 @@ Page({
         homeInfo: res.data.data
       })
     })
-    that.getList(that)
+    that.getList(that,page)
   },
 
   getList(that) {
+    const list = that.data.goodsList || [];
+
     wx.$http('Goods/getList', {
-      is_recom: '0',
+      is_recom: '0',p:page
     }).then(res => {
+      const goodsList = list.concat(res.data.data.goods_list)
+
       that.setData({
-        goodsList: res.data.data.goods_list
+        goodsList
       })
+      setTimeout(()=>{
+        wx.hideLoading()
+      },1000)
       // console.log(res.data.data)
     })
   },
@@ -136,12 +144,14 @@ Page({
   onPullDownRefresh: function () {
 
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function () {
+    wx.showLoading({
+      title: '加载中',
+    })
 
+    const that = this;
+    page++
+    that.getList(that)
   },
 
 })
