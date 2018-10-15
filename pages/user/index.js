@@ -125,7 +125,14 @@ Page({
     wx.$http('Sms/send', {
       mobile: that.data.phone
     }).then(res => {
-      if (res.data.code == 0) return;
+      if (res.data.code == 0) {
+        wx.showToast({
+          title: '发送失败',
+          icon: 'none',
+          duration: 1500
+        })
+        return false
+      };
       wx.showToast({
         title: '发送成功',
         icon: 'success',
