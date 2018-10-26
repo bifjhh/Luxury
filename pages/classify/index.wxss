@@ -37,14 +37,17 @@ image {
 .brand {
   box-sizing: border-box;
   text-align: center;
-  padding: 0 30rpx;
+  /* padding: 0 30rpx; */
+  padding-left: 30rpx;
   display: flex;
   flex-wrap: wrap;
   /* justify-content: center; */
 }
 
 .brand_info {
-  width: 25%;
+  /* width: 25%; */
+  width: 150rpx;
+  margin-right: 30rpx;
   display: flex;
   align-items: center;
   justify-content: center;
