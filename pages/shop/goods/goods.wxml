@@ -29,7 +29,7 @@
       <text class='b_name'>{{objs.brand_name}}</text>{{objs.goods_title}}
     </view>
   </view>
-
+  <view class='mt20'></view>
   <view class="set_page">
     <view class="page_h1">
       — 商品参数 —
@@ -40,6 +40,7 @@
     </view>
   </view>
 
+  <view class='mt20'></view>
   <view class="serve_box">
     <view class="serve page_h1">
       — 服务保障 —
@@ -55,14 +56,14 @@
       </view>
     </view>
   </view>
-
+  <view class='mt20'></view>
   <view class="rich_text">
     <view class="rich_tit">
       <view class="rich_info {{is_show==0?'rich_br':''}}" style="text-align:right;margin-right:50rpx" data-show='0' bindtap="show">
         商品详情
       </view>
       <view class="rich_info {{is_show==1?'rich_br':''}}" style="margin-left:50rpx" data-show='1' bindtap="show">
-        购买流程
+        购买须知
       </view>
     </view>
     <view wx:if="{{is_show==0}}" class="rich_cnt">
@@ -78,6 +79,7 @@
   </view>
   <template is="goodsList" data="{{goodsList}}" />
   <template is="cart" data="{{...objs,isIphoneX}}"></template>
+  <view class='mt20'></view>
 </view>
 
 

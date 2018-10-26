@@ -2,6 +2,7 @@
 @import '/components/cart/cart.wxss';
 page {
   padding-bottom: 120rpx;
+  background:#fff;
 }
 
 .swiper_box {
@@ -131,7 +132,7 @@ swiper-item image {
 }
 
 .set_page {
-  margin-top: 20rpx;
+  /* margin-top: 20rpx; */
   display: flex;
   /* align-items: center; */
   flex-direction: column;
@@ -172,7 +173,7 @@ swiper-item image {
 }
 
 .serve_box {
-  margin-top: 20rpx;
+  /* margin-top: 20rpx; */
   background: #fff;
   padding-bottom: 27rpx;
 }
@@ -202,7 +203,7 @@ swiper-item image {
 }
 
 .rich_text {
-  margin-top: 20rpx;
+  /* margin-top: 20rpx; */
   background: #fff;
   padding-bottom: 30rpx;
 }
@@ -289,4 +290,8 @@ swiper-item image {
   color: #666;
   font-size: 26rpx;
   line-height: 1.5em;
+}
+.mt20{
+  height: 20rpx;
+  background:#EFF1F1;
 }
