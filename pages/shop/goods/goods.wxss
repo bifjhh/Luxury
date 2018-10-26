@@ -84,7 +84,7 @@ swiper-item image {
 }
 
 .title_h1>.jj {
-  background: rgba(236, 182, 88, 1);
+  background: #F2A86F;
   border-radius: 5px;
   padding: 4rpx 12rpx;
   font-size: 20rpx;
@@ -93,6 +93,16 @@ swiper-item image {
   line-height: 30rpx;
   height: 30rpx;
   margin-left: 27rpx;
+  position: relative;
+  padding-right: 42rpx;
+}
+.title_h1>.jj>image{
+  width: 22rpx;
+  height: 20rpx;
+  position: absolute;
+  top: 50%;
+  right: 10rpx;
+  transform: translateY(-50%);
 }
 
 .title_h1>.fq {

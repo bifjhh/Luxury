@@ -18,12 +18,12 @@
 
   <view class="title">
     <view class="title_h1">
-      <text class="money"><text>￥</text>{{objs.price}}</text>
+      <view class="money"><text>￥</text>{{objs.price}}</view>
     </view>
     <view class="title_h1">
-      <text class="zk" wx:if="{{objs.original_cost!=0}}">¥{{objs.original_cost}}</text>
-      <text class="jj" bindtap="csjs">{{objs.quality_name}}</text>
-      <text class="fq" wx:if="{{objs.is_credit==1}}">分期</text>
+      <view class="zk" wx:if="{{objs.original_cost!=0}}">¥{{objs.original_cost}}</view>
+      <view class="jj" bindtap="csjs">{{objs.quality_name}}<image src="/images/jjcc.png" /></view>
+      <view class="fq" wx:if="{{objs.is_credit==1}}">分期</view>
     </view>   
     <view class="title_info">
       <text class='b_name'>{{objs.brand_name}}</text>{{objs.goods_title}}
