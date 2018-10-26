@@ -83,12 +83,13 @@
         意见反馈
       </view>
     </view>
-    <view class="set_box" style="display:none">
+    <view class="set_box" >
+      <button open-type="contact"/>
       <view class="set_bac">
         <image src="/images/my/geren_yaoqing@3x.png" />
       </view>
       <view class="set_text">
-        邀请好友
+        联系客服
       </view>
     </view>
     <view class="set_box" bindtap="toPage" data-url="/pages/my/set/set">
