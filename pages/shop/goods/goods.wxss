@@ -121,12 +121,13 @@ swiper-item image {
   -webkit-line-clamp: 2;
 }
 
-.title_info>text {
+.title_info>.b_name {
   font-weight: 600;
   font-size: 34rpx;
   font-family: PingFangSC-Semibold;
   color: rgba(153, 112, 72, 1);
   line-height: 50rpx;
+  padding-right: 1em;
 }
 
 .set_page {
