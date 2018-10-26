@@ -43,7 +43,7 @@
                 鉴定
             </view>
         </view>
-        <view bindtap="toPage" data-url="/pages/index/result/result?is_credit=10">
+        <view bindtap="toPage" data-url="/pages/index/result/result?sort=10">
             <view class="xuanze_img">
                 <image src="/images/home/shouye_shangxin@3x.png" />
             </view>
