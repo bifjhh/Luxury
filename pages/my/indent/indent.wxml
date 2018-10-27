@@ -24,7 +24,7 @@
   </scroll-view>
 </view>
 
-<view class="indent_box">
+<view class="indent_box" wx:if="{{list.length>0}}">
   <view class="indent" catchtap ="toPage" wx:for="{{list}}" wx:key="{{index}}"  data-id="{{item.order_id}}">
     <view class="haoma">
       <view>订单编号：{{item.order_no}}</view>
@@ -58,4 +58,10 @@
       </view>
     </view>
   </view>
+</view>
+<view class="null_box" wx:else>
+  <view class="null_img">
+    <image src="/images/kongbai.png" />
+  </view>
+  <view class="null_text">您还没有相关的订单</view>
 </view>

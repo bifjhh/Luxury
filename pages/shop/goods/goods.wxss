@@ -97,9 +97,11 @@ swiper-item image {
   padding-right: 42rpx;
 }
 .title_h1>.jj>image{
-  width: 22rpx;
+  width: 20rpx;
   height: 20rpx;
   position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
   top: 50%;
   right: 10rpx;
   transform: translateY(-50%);

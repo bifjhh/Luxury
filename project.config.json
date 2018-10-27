@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 27,
 			"list": [
 				{
 					"id": -1,
@@ -197,7 +197,7 @@
 					"id": 27,
 					"name": "订单列表",
 					"pathName": "pages/my/indent/indent",
-					"query": "status=10"
+					"query": "status=20"
 				},
 				{
 					"id": -1,
