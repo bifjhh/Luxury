@@ -83,8 +83,9 @@
 </view>
 
 
-  <view wx:if="{{cs_show}}" class="tccs" bindtap="csjsEnd">
+  <view wx:if="{{cs_show}}" class="tccs"> 
     <view class="csjs">
       <template is="wxParse"  data="{{wxParseData:cs_data.nodes}}"/>
+      <view class="jinse" catchtap="csjsEnd" >我知道了</view>
     </view>
   </view>

@@ -1,8 +1,9 @@
 @import '/components/goodsList/list.wxss';
 @import '/components/cart/cart.wxss';
+
 page {
   padding-bottom: 120rpx;
-  background:#fff;
+  background: #fff;
 }
 
 .swiper_box {
@@ -96,7 +97,8 @@ swiper-item image {
   position: relative;
   padding-right: 42rpx;
 }
-.title_h1>.jj>image{
+
+.title_h1>.jj>image {
   width: 20rpx;
   height: 20rpx;
   position: absolute;
@@ -277,33 +279,55 @@ swiper-item image {
   color: rgba(255, 255, 255, 1);
   background: rgba(244, 214, 154, 1);
 }
-.b20{
+
+.b20 {
   padding-bottom: 40rpx;
 }
-.tccs{
+
+.tccs {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color:rgba(0, 0, 0, .4);
-  top:0;
+  background-color: rgba(0, 0, 0, .4);
+  top: 0;
   left: 0;
-  z-index:99999;
+  z-index: 99999;
+  padding: 0 56rpx;
+  box-sizing: border-box;
 }
-.csjs{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform:translate(-50%,-50%);
+
+.csjs {
+  /* position: absolute; */
+  /* top: 50%; */
+  /* left: 50%; */
+  /* margin: 0 50rpx; */
+  margin-top: 80rpx;
+  /* transform:translate(-50%,-50%); */
   background-color: #fff;
-  padding:20rpx;
-  border-radius:20rpx;
+  padding: 20rpx;
+  border-radius: 20rpx;
+  box-sizing: border-box;
 }
-.csjs view{
+
+.csjs view {
   color: #666;
   font-size: 26rpx;
   line-height: 1.5em;
 }
-.mt20{
+
+.mt20 {
   height: 20rpx;
-  background:#EFF1F1;
+  background: #EFF1F1;
+}
+
+.jinse {
+  width: 584rpx;
+  height: 70rpx;
+  border-radius: 38rpx;
+  font-size: 30rpx;
+  line-height: 70rpx !important;
+  text-align: center;
+  color: rgba(255, 255, 255, 1)!important;
+  overflow: hidden;
+  margin-top: 60rpx;
 }
