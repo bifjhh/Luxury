@@ -60,15 +60,15 @@ Page({
     wx.$http('User/addOpinion', data).then(res => {
       if (res.data.code != 1) return;
       wx.showToast({
-        title: '反馈成功',
+        title: '提交成功，谢谢',
         icon: 'success',
-        duration: 600
+        duration: 1000
       })
       setTimeout(() => {
         wx.navigateBack({
           delta: 1
         })
-      }, 1000);
+      }, 1500);
     })
   },
   setInput(e) {
