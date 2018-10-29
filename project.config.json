@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 27,
+			"current": 36,
 			"list": [
 				{
 					"id": -1,
@@ -246,6 +246,12 @@
 					"name": "退款申请",
 					"pathName": "pages/shop/order/refund",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商品详情",
+					"pathName": "pages/shop/goods/goods",
+					"query": "id=22"
 				}
 			]
 		}

@@ -1,5 +1,7 @@
 // pages/shop/order/order.js
-import {isSetPayPwd} from '../../../utils/api.js'
+import {
+  isSetPayPwd
+} from '../../../utils/api.js'
 Page({
 
   /**
@@ -19,10 +21,10 @@ Page({
     hbNum: 0,
     hbSum: 0,
     isCart: true,
-    status:2,
-    password:null,
-    showPsw:false,
-    isSetPsw:0
+    status: 2,
+    password: null,
+    showPsw: false,
+    isSetPsw: 0
   },
 
   /**
@@ -36,9 +38,11 @@ Page({
     let cart_id = [];
     let buy_num = [];
     isSetPayPwd().then(res => {
-      console.log('res',res.data.code)
+      console.log('res', res.data.code)
       let isSetPsw = res.data.code
-      that.setData({isSetPsw})
+      that.setData({
+        isSetPsw
+      })
     })
     if (datas.length < 1) return;
     if (options.id) {
@@ -48,7 +52,7 @@ Page({
       that.setData({
         isCart: false,
         list,
-        sum:parseInt(sum*100)/100,
+        sum: parseInt(sum * 100) / 100,
         cart_id: options.id
       })
       that.getHb(that, options.id);
@@ -68,7 +72,7 @@ Page({
     })
     that.setData({
       list,
-      sum:parseInt(sum*100)/100,
+      sum: parseInt(sum * 100) / 100,
       cart_id: cart_id.toString(),
       buy_num: buy_num.toString()
     })
@@ -119,7 +123,7 @@ Page({
   countIcon(e) {
     const that = this;
     that.setData({
-      status:e.currentTarget.dataset.status
+      status: e.currentTarget.dataset.status
     })
   },
   /**
@@ -137,14 +141,14 @@ Page({
     })
     that.getAddressList(that)
   },
-  ask(){
+  ask() {
     const that = this;
-    if(that.data.status==3){
-      if(that.data.isSetPsw!=0){
+    if (that.data.status == 3) {
+      if (that.data.isSetPsw != 0) {
         that.setData({
-          showPsw:true
+          showPsw: true
         })
-      }else{
+      } else {
         wx.showModal({
           // title: '暂未设置支付密码',
           content: '暂未设置支付密码,请先设置支付密码',
@@ -159,17 +163,17 @@ Page({
           }
         })
       }
-    }else{
+    } else {
       that.submit()
     }
   },
-  endPsw(e){
+  endPsw(e) {
     const that = this;
     that.setData({
-      showPsw:false
+      showPsw: false
     })
   },
-  wjmm(){
+  wjmm() {
     wx.navigateTo({
       url: '/pages/my/set/password',
     })
@@ -187,7 +191,7 @@ Page({
         user_coupon_id: that.data.yhqId,
         user_redpack_id: that.data.hbId,
         platform: 1,
-        buy_num:that.data.buy_num
+        buy_num: that.data.buy_num
       }
     } else {
       data = {
@@ -200,67 +204,52 @@ Page({
         platform: 1
       }
     }
-    if(e&&e.detail.value){
+    if (e && e.detail.value) {
       data.pay_pwd = e.detail.value
     }
     wx.$http('Order/add', data).then(res => {
-      if(that.data.status==3){
-        if(res.data.code == 1){
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'success',
-            duration: 1000
-          })
-          setTimeout(() => {
-            wx.navigateTo({
-              // url: '/pages/shop/order/order?id=' + res.data.data.order_id
-              url: '/pages/shop/pay/index?order_id=' + res.data.data.order_id
+      // if(that.data.status==3){
+
+      // }
+
+      if (res.data.code == 1) {
+        // if (!res.data.data.wx_pay_info) return;
+        let wx_pay_info = res.data.data.wx_pay_info;
+        wx.requestPayment({
+          'timeStamp': wx_pay_info.timestamp,
+          'nonceStr': wx_pay_info.nonce_str,
+          'package': 'prepay_id=' + wx_pay_info.prepay_id,
+          'signType': 'MD5',
+          'paySign': wx_pay_info.sign,
+          success: function (data) {
+            setTimeout(() => {
+              wx.navigateTo({
+                // url: '/pages/shop/order/order?id=' + res.data.data.order_id
+                url: '/pages/shop/pay/index?order_id=' + res.data.data.order_id
+              })
+            }, 500);
+          },
+          fail: function (error) {
+            wx.showToast({
+              title: '支付失败',
+              icon: 'none',
+              duration: 600
             })
-          }, 900);
-        }else{
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'none',
-            duration: 1000
-          })
-        }
-        return false
+            setTimeout(() => {
+              wx.navigateTo({
+                url: '/pages/my/indent/indent?status=-1'
+              })
+            }, 500);
+          }
+        })
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: 1000
+        })
       }
-      if (!res.data.data.wx_pay_info) return;
-      let wx_pay_info = res.data.data.wx_pay_info;
-      wx.requestPayment({
-        'timeStamp': wx_pay_info.timestamp,
-        'nonceStr': wx_pay_info.nonce_str,
-        'package': 'prepay_id=' + wx_pay_info.prepay_id,
-        'signType': 'MD5',
-        'paySign': wx_pay_info.sign,
-        success: function (data) {
-          console.log('成功', data)
-          wx.showToast({
-            title: '支付成功',
-            icon: 'success',
-            duration: 600
-          })
-          setTimeout(() => {
-            wx.navigateTo({
-              // url: '/pages/shop/order/order?id=' + res.data.data.order_id
-              url: '/pages/shop/pay/index?order_id=' + res.data.data.order_id
-            })
-          }, 500);
-        },
-        fail: function (error) {
-          wx.showToast({
-            title: '支付失败',
-            icon: 'none',
-            duration: 600
-          })
-          setTimeout(() => {
-            wx.navigateTo({
-              url: '/pages/my/indent/indent?status=-1'
-            })
-          }, 500);
-        }
-      })
+
     })
 
   },

@@ -63,6 +63,7 @@ Page({
    */
   logn() {
     let that = this;
+    console.log('ididid',that.data.openid)
     wx.$http('User/thirdlogin', {
       platform: 'wx',
       openid: that.data.openid
@@ -72,12 +73,11 @@ Page({
         that.setData({
           mobile: true
         })
+        console.log('需要绑定手机号')
         return false;
       };
       wx.setStorageSync('token', res.data.data.userinfo.token)
-      that.setData({
-        mobile: !res.data.data.userinfo.mobile
-      })
+     
       if (res.data.data.userinfo.mobile) {
         wx.reLaunch({
           url: '/pages/index/index'
