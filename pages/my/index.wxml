@@ -86,7 +86,7 @@
     <view class="set_box" >
       <button open-type="contact"/>
       <view class="set_bac">
-        <image src="/images/my/geren_yaoqing@3x.png" />
+        <image src="/images/setkefu.png" />
       </view>
       <view class="set_text">
         联系客服
