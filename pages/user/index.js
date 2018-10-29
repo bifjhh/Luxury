@@ -65,7 +65,7 @@ Page({
     let that = this;
     console.log('ididid',that.data.openid)
     wx.$http('User/thirdlogin', {
-      platform: 'wx',
+      platform: 'wxxcx',
       openid: that.data.openid
     }).then(res => {
       if (res.data.code == 0) return;
@@ -88,7 +88,7 @@ Page({
   submit(e) {
     let that = this;
     let data = e.detail.value;
-    data.platform = 'wx';
+    data.platform = 'wxxcx';
     data.openid = that.data.openid;
     wx.$http('User/bindmobile', data).then(res => {
       if (res.data.code == 0) return;
