@@ -52,6 +52,13 @@ Page({
       },1000)
       // console.log(res.data.data)
     })
+  }, 
+  toGoods(e) {
+    console.log(e.currentTarget.dataset.id)
+    let id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/shop/goods/goods?id=' + id
+    })
   },
   isShade(e) {
     let that = this;
