@@ -67,8 +67,8 @@
   flex: auto;
 }
 .apply_bac{
-  width: 40rpx;
-  height: 40rpx;
+  /* width: 40rpx; */
+  /* height: 40rpx; */
   position: relative;
 }
 .apply_box,.set_box{

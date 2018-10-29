@@ -22,7 +22,7 @@
 
   <view class="apply" bindtap="todind">
     <view class="apply_box" data-url='/pages/my/indent/indent?status=0' bindtap="toPage">
-      <view class="apply_bac">
+      <view class="apply_bac" style="width: 45rpx;height: 40rpx;">
         <view class="hint" wx:if="{{orderInfo.wait_paid!=0}}">{{orderInfo.wait_paid}}</view>
         <image src="/images/my/geren_daifukuan@3x.png" />
       </view>
@@ -31,7 +31,7 @@
       </view>
     </view>
     <view class="apply_box" data-url='/pages/my/indent/indent?status=10' bindtap="toPage">
-      <view class="apply_bac">
+      <view class="apply_bac" style="width: 45rpx;height: 41rpx;">
         <view class="hint" wx:if="{{orderInfo.wait_send!=0}}">{{orderInfo.wait_send}}</view>
         <image src="/images/my/geren_daifahuo@3x.png" />
       </view>
@@ -40,7 +40,7 @@
       </view>
     </view>
     <view class="apply_box" data-url='/pages/my/indent/indent?status=20' bindtap="toPage">
-      <view class="apply_bac">
+      <view class="apply_bac" style="width: 41rpx;height: 41rpx;">
         <view class="hint" wx:if="{{orderInfo.wait_received!=0}}">{{orderInfo.wait_received}}</view>
         <image src="/images/my/geren_daishouhuo@3x.png" />
       </view>
@@ -49,7 +49,7 @@
       </view>
     </view>
     <view class="apply_box" data-url='/pages/my/indent/indent?status=50' bindtap="toPage">
-      <view class="apply_bac">
+      <view class="apply_bac" style="width: 43rpx;height: 40rpx;">
         <image src="/images/my/geren_tuikuan@3x.png" />
       </view>
       <view class="apply_text">
@@ -57,7 +57,7 @@
       </view>
     </view>
     <view class="apply_box" data-url='/pages/my/indent/indent?status=-1' bindtap="toPage">
-      <view class="apply_bac">
+      <view class="apply_bac" style="width: 40rpx;height: 40rpx;">
         <image src="/images/my/geren_quanbu@3x.png" />
       </view>
       <view class="apply_text">
