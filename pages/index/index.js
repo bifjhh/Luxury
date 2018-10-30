@@ -117,6 +117,10 @@ Page({
       wx.navigateTo({
         url: '/pages/index/activity/activity?tid=' + tid
       })
+    } else if (jump_type == 2) {
+      wx.navigateTo({
+        url: '/pages/index/result/result?cate_id=3'+ tid
+      })
     }
   },
   toActivity1(e) {
