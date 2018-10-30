@@ -24,7 +24,7 @@
     <view class="title_h1 title_2">
       <view class="cs" bindtap="csjs">{{objs.quality_name}}<image src="/images/jjcc.png" /></view>
       <view class="fq" wx:if="{{objs.is_credit==1}}">分期</view>
-      <view class="jj" wx:if="{{objs.last_price>objs.markdown}}">降价{{objs.markdown}}</view>
+      <view class="jj" wx:if="{{objs.last_price>objs.markdown}}">降价￥{{objs.markdown}}</view>
     </view>   
     <view class="title_info">
       <text class='b_name'>{{objs.brand_name}}</text>{{objs.goods_title}}

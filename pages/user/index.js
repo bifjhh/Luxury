@@ -27,8 +27,8 @@ Page({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
           console.log('授权');
-          that.setData({
-            mobile: true
+          wx.reLaunch({
+            url: '/pages/index/index'
           })
         }
       }
@@ -63,7 +63,6 @@ Page({
    */
   logn() {
     let that = this;
-    console.log('ididid',that.data.openid)
     wx.$http('User/thirdlogin', {
       platform: 'wxxcx',
       openid: that.data.openid
@@ -73,9 +72,13 @@ Page({
         that.setData({
           mobile: true
         })
+        console.log(that.data.openid)
+        console.log(res)
         console.log('需要绑定手机号')
         return false;
       };
+      console.log('不用绑定手机号')
+
       wx.setStorageSync('token', res.data.data.userinfo.token)
      
       if (res.data.data.userinfo.mobile) {
