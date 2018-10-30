@@ -75,3 +75,14 @@ image {
 .icon-iconfonticonfonti2copy:before { content: "\e62d"; }
 
 .icon-shanchu:before { content: "\e62a"; }
+.fix-iphonex-button {
+    bottom:68rpx!important;
+}
+.fix-iphonex-button::after {
+    content: ' ';
+    position: fixed;
+    bottom: 0!important;
+    height: 68rpx!important;
+    width: 100%;
+    background: #fff;
+} 

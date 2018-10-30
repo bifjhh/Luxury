@@ -1,5 +1,5 @@
 <template name="cart">
-  <view class="cart {{isIphoneX?'iphonex':''}}">
+  <view class="cart {{isIphoneX?'fix-iphonex-button':''}}">
     <view class="service">
       <button open-type="contact" />
       <view class="service_logo">
