@@ -33,8 +33,31 @@ Page({
     const that = this;
     wx.$http('Common/chengseshuoming').then(res => {
       this.setData({cs_show:true})
-      WxParse.wxParse('cs_data', 'html', res.data.data.info, that, 5);
+      let info = this.setinfo(res.data.data.info)
+      WxParse.wxParse('cs_data', 'html', info, that, 5);
     })
+  },
+  setinfo(info){
+    let str;
+    str = info
+    .replace(/color:#333333;/g,"color:#333333;\"")
+    .replace(/mso-fareast-language:zh-cn;/g,"")
+    .replace(/mso-bidi-language:ar-sa"=""/g,"")
+    .replace(/mso-ansi-language:en-us;/g,"")
+    .replace(/<\/span><\/span>/g,"</span>")
+    .replace(/font-family:" 微软雅黑"/g,"")
+    .replace(/mso-bidi-font-family:/g,"")
+    .replace(/font-size:11.0pt;/g,"")
+    .replace(/"sans-serif";/g,"")
+    .replace(/<o:p><\/o:p>/g,"")
+    .replace(/helvetica;/g,"")
+    .replace(/[\r\n]/g,"")
+    .replace(/",/g,"\"")
+    .replace(/=""/g,"")
+    .replace(/;;;/g,"")
+    .replace(/;,/g,"")
+    ;
+    return str;
   },
   csjsEnd(){
     this.setData({cs_show:false})

@@ -312,7 +312,7 @@ swiper-item image {
   margin-top: 50rpx;
   /* transform:translate(-50%,-50%); */
   background-color: #fff;
-  padding: 20rpx;
+  padding: 20rpx 30rpx;
   border-radius: 20rpx;
   box-sizing: border-box;
   padding-top: 40rpx;
