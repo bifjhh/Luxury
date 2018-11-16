@@ -28,7 +28,7 @@
     <!-- <view class="xuanze" bindtap="isShade" data-is='1'> -->
     <view class="xuanze">
         <view bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/jmhs'>
-            <view class="xuanze_img">
+            <view class="xuanze_img" style="width:38rpx;height:46rpx;">
                 <image src="/images/home/shouye_hongbao@3x.png" />
             </view>
             <view class="xuanze_text">
@@ -36,7 +36,7 @@
             </view>
         </view>
         <view bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/xcxjd'>
-            <view class="xuanze_img">
+            <view class="xuanze_img" style="width:44rpx;height:46rpx;">
                 <image src="/images/home/jiand.png" />
             </view>
             <view class="xuanze_text">
@@ -44,7 +44,7 @@
             </view>
         </view>
         <view bindtap="toPage" data-url="/pages/index/result/result?sort=10">
-            <view class="xuanze_img">
+            <view class="xuanze_img" style="width:44rpx;height:48rpx;">
                 <image src="/images/home/shouye_shangxin@3x.png" />
             </view>
             <view class="xuanze_text">
@@ -52,7 +52,7 @@
             </view>
         </view>
         <view bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/xcxyh'>
-            <view class="xuanze_img">
+            <view class="xuanze_img" style="width:38rpx;height:48rpx;">
                 <image src="/images/home/shouye_yanghu@3x.png" />
             </view>
             <view class="xuanze_text">
@@ -61,7 +61,7 @@
         </view>
         <!-- <view bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/xcxfq'> -->
         <view bindtap="toPage" data-url="/pages/index/result/result?is_credit=1">
-            <view class="xuanze_img">
+            <view class="xuanze_img" style="width:45rpx;height:45rpx;">
                 <image src="/images/home/shouye_fenqi@3x.png" />
             </view>
             <view class="xuanze_text">

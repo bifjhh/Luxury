@@ -92,10 +92,7 @@ swiper-item image {
     flex-direction: column;
 }
 
-.xuanze_img {
-    width: 50rpx;
-    height: 50rpx;
-}
+
 
 .xuanze_text {
     font-size: 24rpx;
