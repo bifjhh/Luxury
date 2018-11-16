@@ -171,7 +171,7 @@
     <view class="goodsList">猜你喜欢</view>
     <template is="goodsList" data="{{goodsList}}"></template>
     
-    <view class="go_top" bindtap="goTop">
+    <view class="go_top" bindtap="goTop" wx:if="{{showTop}}">
         <text class="iconfont icon-iconfonticonfonti2copy"></text>
     </view>
 </view>

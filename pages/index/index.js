@@ -16,6 +16,8 @@ Page({
     goodsList:[],
     homeInfo: {},
     shade: false,
+    showTop:false,
+    windowHeight:''
   },
 
   /**
@@ -25,7 +27,13 @@ Page({
     page = 0;
     // Index/index
     let that = this;
-
+    wx.getSystemInfo({
+      success (res) {
+        that.setData({
+          windowHeight: res.windowHeight
+        })
+      }
+    })
     wx.$http('Index/index').then(res => {
       if (res.data.code != 1) return;
       console.log(res.data)
@@ -154,6 +162,18 @@ Page({
    */
   onPullDownRefresh: function () {
 
+  },
+  onPageScroll(Object){
+    const windowHeight = this.data.windowHeight/2
+    if (Object.scrollTop>=windowHeight) {
+      this.setData({
+        showTop:true
+      })
+    } else {
+      this.setData({
+        showTop:false
+      })
+    }
   },
   onReachBottom: function () {
     wx.showLoading({
