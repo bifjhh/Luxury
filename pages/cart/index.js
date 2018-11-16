@@ -71,13 +71,13 @@ Page({
     if (list[index].status) {
       sum += list[index].price * list[index].buy_num;
       that.setData({
-        sum
+        sum:parseInt(sum*100)/100
       })
     } else {
       sum -= list[index].price * list[index].buy_num;
       if (sum >= 0) {
         that.setData({
-          sum
+          sum:parseInt(sum*100)/100
         })
       } else {
         that.setData({
@@ -149,7 +149,7 @@ Page({
           sum += list[i].price * list[i].buy_num;
         });
         that.setData({
-          sum
+          sum:parseInt(sum*100)/100
         })
       } else {
         statuAll = false;

@@ -158,3 +158,6 @@ view {
 .hui{
   background:rgba(217, 217, 217, 1);
 }
+.no_border{
+  border: none;
+}
