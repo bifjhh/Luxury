@@ -17,7 +17,7 @@
         购物车
       </view>
     </view>
-    <view class="affair">
+    <view class="affair jinse">
       <view class="add_cart" bindtap="addGwc" data-goodsid="{{goods_id}}">
         加入购物车
       </view>
