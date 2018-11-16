@@ -153,6 +153,7 @@ swiper-item image {
 .v_img_max {
     margin-top: 50rpx;
     height: 212rpx;
+    width:295rpx
 }
 
 .venues_4 {
@@ -245,9 +246,10 @@ swiper-item image {
 }
 
 .section_logo {
-    width: 25%;
+    width: 140rpx;
     /* flex: auto; */
     display: flex;
+    margin-right: 24rpx;
     align-items: center;
     flex-direction: column;
     justify-content: center;
