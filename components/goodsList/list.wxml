@@ -12,7 +12,7 @@
 
       </view>
       <view class="goods_zk">
-        [{{item.quality_name}}]{{item.goods_title}}
+        【{{item.quality_name}}】{{item.goods_title}}
       </view>
     </view>
     <view class="none" wx:if="{{goodsList.length==0 || !goodsList}}">

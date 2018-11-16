@@ -2,6 +2,7 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  background: #EFF0F1;
 }
 
 .goods {
