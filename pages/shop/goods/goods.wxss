@@ -83,22 +83,25 @@ swiper-item image {
   margin-left: 14rpx;
   text-decoration: line-through;
 }
+.title_h2 > view{
+  margin-right: 30rpx;
+  font-size:20rpx;
+}
 
-.title_h1>.cs {
+.title_h2 .cs {
   background: #F2A86F;
   border-radius: 5px;
-  padding: 4rpx 12rpx;
+  padding: 0 12rpx;
   font-size: 20rpx;
   font-family: PingFang-SC-Medium;
   color: rgba(255, 255, 255, 1);
   line-height: 30rpx;
   height: 30rpx;
-  margin-left: 27rpx;
   position: relative;
   padding-right: 42rpx;
 }
 
-.title_h1>.cs>image {
+.title_h2 .cs>image {
   width: 20rpx;
   height: 20rpx;
   position: absolute;
@@ -109,16 +112,21 @@ swiper-item image {
   transform: translateY(-50%);
 }
 
-.title_h1>.fq {
-  font-size: 20rpx;
-  font-family: PingFang-SC-Medium;
+.title_h2 .fq {
   color: rgba(224, 105, 43, 1);
   line-height: 30prx;
-  padding: 5rpx 15rpx;
+  padding: 0 15rpx;
   height: 30rpx;
   border: 1px solid rgba(224, 105, 43, 1);
   border-radius: 5px;
-  margin-left: 20rpx;
+}
+.title_h2 .jj{
+  background-color: #595541;
+  color: #C1AA85;
+  padding: 0 14rpx;
+  border-radius: 6rpx;
+  border: 1px solid #595541;
+
 }
 
 .title_info {
@@ -127,7 +135,6 @@ swiper-item image {
   overflow: hidden;
   font-weight: 600;
   font-size: 34rpx;
-  font-family: PingFangSC-Semibold;
   color: rgba(51, 51, 51, 1);
   line-height: 50rpx;
   text-overflow: ellipsis;
@@ -143,15 +150,6 @@ swiper-item image {
   color: rgba(153, 112, 72, 1);
   line-height: 50rpx;
   padding-right: 1em;
-}
-.title_2 > view{
-  margin-right: 30rpx;
-}
-.title_2 > .jj{
-   background-color: #595541;
-   color: #C1AA85;
-   padding: 0 14rpx;
-   border-radius: 6rpx;
 }
 .set_page {
   /* margin-top: 20rpx; */

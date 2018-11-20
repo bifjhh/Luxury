@@ -17,7 +17,9 @@
   background: rgba(238, 238, 238, 1);
   position: relative;
 }
-
+.search_box input {
+  font-size: 26rpx;
+}
 .search {
   position: absolute;
   top: 50%;
