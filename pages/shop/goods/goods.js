@@ -64,7 +64,7 @@ Page({
   },
   getList(that,id) {
     wx.$http('Goods/getList', {
-      is_recom: 'n-'+id,
+      is_recom:id,
     }).then(res => {
       that.setData({
         goodsList: res.data.data.goods_list

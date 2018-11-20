@@ -69,7 +69,7 @@
       {
         "pagePath": "pages/classify/index",
         "iconPath": "images/tab/tab_fenlei_normal@2x.png",
-        "selectedIconPath": "images/tab/tab_fenlei_seletced@2x.png",
+        "selectedIconPath": "images/tab/tab_fenlei_selected@2x.png",
         "text": "分类"
       },
       {
