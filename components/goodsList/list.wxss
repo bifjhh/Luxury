@@ -30,11 +30,12 @@
 .goods_h1 {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 71rpx;
   padding: 0 22rpx;
 }
 
-.goods_h1>.money {
+.goods_h1 .money {
   font-size: 34rpx;
   font-family: PingFangSC-Medium;
   color: rgba(153, 112, 72, 1);
@@ -46,7 +47,7 @@
   font-size: 26rpx;
 }
 
-.goods_h1>.zk {
+.goods_h1 .zk {
   font-size: 20rpx;
   font-family: PingFang-SC-Medium;
   color: rgba(153, 153, 153, 1);
@@ -54,7 +55,7 @@
   line-height: 30rpx;
 }
 
-.goods_h1>.jj {
+.goods_h1 .jj {
   background: rgba(236, 182, 88, 1);
   border-radius: 5px;
   padding: 4rpx 6rpx;
@@ -66,7 +67,7 @@
   margin-left: 27rpx;
 }
 
-.goods_h1>.fq {
+.goods_h1 .fq {
   font-size: 20rpx;
   font-family: PingFang-SC-Medium;
   color: rgba(224, 105, 43, 1);
