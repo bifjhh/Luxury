@@ -28,7 +28,7 @@
     <!-- <view class="xuanze" bindtap="isShade" data-is='1'> -->
     <view class="xuanze">
         <view bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/jmhs'>
-            <view class="xuanze_img" style="width:38rpx;height:46rpx;">
+            <view class="xuanze_img" style="width:51rpx;height:43rpx;">
                 <image src="/images/home/shouye_hongbao@3x.png" />
             </view>
             <view class="xuanze_text">
