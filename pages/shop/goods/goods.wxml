@@ -19,8 +19,7 @@
   <view class="title">
     <view class="title_h1">
       <view class="money"><text>￥</text>{{objs.price}}</view>
-      <!-- <view class="zk" wx:if="{{objs.original_cost!=0}}">¥{{objs.original_cost}}</view> -->
-      <view class="zk">¥{{objs.original_cost}}</view>
+      <view class="zk" wx:if="{{objs.original_cost!=0}}">¥{{objs.original_cost}}</view>
     </view>
     <view class="title_h1 title_h2">
       <view class="cs" bindtap="csjs">{{objs.quality_name}}
