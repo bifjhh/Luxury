@@ -115,7 +115,7 @@ Page({
   toActivity(e) {
     let jump_type = e.currentTarget.dataset.jid;
     let tid = e.currentTarget.dataset.tid;
-    console.log(jump_type);
+    console.log(jump_type, tid);
 
     if (jump_type == 0) {
       wx.navigateTo({
@@ -127,7 +127,7 @@ Page({
       })
     } else if (jump_type == 2) {
       wx.navigateTo({
-        url: '/pages/index/result/result?cate_id=3'+ tid
+        url: '/pages/index/result/result?cate_id='+ tid
       })
     }
   },
