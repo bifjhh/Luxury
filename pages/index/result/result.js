@@ -41,13 +41,14 @@ Page({
    */
   onLoad: function (options) {
     page = 0
-    console.log(page)
+    console.log('page', page)
+    console.log('options', options)
     let that = this;
     that.setData({
       options
     })
     let form_obj = that.getFormData(that)
-    console.log(form_obj)
+    console.log('form_obj', form_obj)
     that.setData({
       form_obj
     })
@@ -72,6 +73,17 @@ Page({
     } else if (options.activity_id) {
       form_obj.activity_id = options.activity_id;
     } else if (options.is_credit) {
+      wx.showModal({
+        title: '提示',
+        showCancel:false,
+        confirmText: '知道了',
+        content: '下载奢物APP才能分期付款哦～',
+        success (res) {
+          if (res.confirm) {
+            console.log('用户点确认')
+          } 
+        }
+      })
       form_obj.is_credit = options.is_credit;
     }
     form_obj.sort = options.sort || 0;

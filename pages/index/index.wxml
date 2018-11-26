@@ -1,178 +1,177 @@
 <import src="/components/goodsList/list.wxml" />
 <!--index.wxml-->
 <view class="container">
-    <!-- 顶部轮播图 -->
-    <view class="swp">
-        <view class="seek">
-            <view class="seek_l fl" bindtap="toPage" data-url="/pages/index/search/search">
-                <image class="search" style="width:18rpx;height:20rpx" src="/images/home/search.png" /> 探索你的奢物
-            </view>
-            <view class="seek_r fl" data-url="/pages/my/lxkf/lxkf">
-            <button open-type="contact" />
-                <image src="/images/home/kefu.png" />
-            </view>
-        </view>
-        <swiper class="swiper_box" autoplay interval="{{2000}}" duration="{{1000}}" bindchange="current">
-            <block wx:for="{{homeInfo.banner}}" wx:key="item.ad_id">
-                <swiper-item bindtap="toActivity1" data-jid="{{item.jump_type}}" data-src="{{item.ad_link}}" data-tid="{{item.to_id}}">
-                    <image src="{{item.ad_img}}" class="slide-image" />
-                </swiper-item>
-            </block>
-        </swiper>
-        <view class="guide">
-            <view class="{{item==swpPage?'action':''}}" wx:for="{{homeInfo.banner}}" wx:key="item.ad_id">
-            </view>
-        </view>
+  <!-- 顶部轮播图 -->
+  <view class="swp">
+    <view class="seek">
+      <view class="seek_l fl" bindtap="toPage" data-url="/pages/index/search/search">
+        <image class="search" style="width:18rpx;height:20rpx" src="/images/home/search.png" /> 探索你的奢物
+      </view>
+      <view class="seek_r fl" data-url="/pages/my/lxkf/lxkf">
+        <button open-type="contact" />
+        <image src="/images/home/kefu.png" />
+      </view>
     </view>
-    <!-- 功能选择  -->
-    <!-- <view class="xuanze" bindtap="isShade" data-is='1'> -->
-    <view class="xuanze">
-        <view bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/jmhs'>
-            <view class="xuanze_img" style="width:51rpx;height:43rpx;">
-                <image src="/images/home/shouye_hongbao@3x.png" />
-            </view>
-            <view class="xuanze_text">
-                寄卖回收
-            </view>
-        </view>
-        <view bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/xcxjd'>
-            <view class="xuanze_img" style="width:44rpx;height:46rpx;">
-                <image src="/images/home/jiand.png" />
-            </view>
-            <view class="xuanze_text">
-                鉴定
-            </view>
-        </view>
-        <view bindtap="toPage" data-url="/pages/index/result/result?sort=10">
-            <view class="xuanze_img" style="width:44rpx;height:48rpx;">
-                <image src="/images/home/shouye_shangxin@3x.png" />
-            </view>
-            <view class="xuanze_text">
-                上新
-            </view>
-        </view>
-        <view bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/xcxyh'>
-            <view class="xuanze_img" style="width:38rpx;height:48rpx;">
-                <image src="/images/home/shouye_yanghu@3x.png" />
-            </view>
-            <view class="xuanze_text">
-                养护
-            </view>
-        </view>
-        <!-- <view bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/xcxfq'> -->
-        <view bindtap="toPage" data-url="/pages/index/result/result?is_credit=1">
-            <view class="xuanze_img" style="width:45rpx;height:45rpx;">
-                <image src="/images/home/shouye_fenqi@3x.png" />
-            </view>
-            <view class="xuanze_text">
-                分期
-            </view>
-        </view>
-
+    <swiper class="swiper_box" autoplay interval="{{2000}}" duration="{{1000}}" bindchange="current">
+      <block wx:for="{{homeInfo.banner}}" wx:key="item.ad_id">
+        <swiper-item bindtap="toActivity1" data-jid="{{item.jump_type}}" data-src="{{item.ad_link}}" data-tid="{{item.to_id}}">
+          <image src="{{item.ad_img}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="guide">
+      <view class="{{item==swpPage?'action':''}}" wx:for="{{homeInfo.banner}}" wx:key="item.ad_id">
+      </view>
+    </view>
+  </view>
+  <!-- 功能选择  -->
+  <!-- <view class="xuanze" bindtap="isShade" data-is='1'> -->
+  <view class="xuanze">
+    <view bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/jmhs'>
+      <view class="xuanze_img" style="width:51rpx;height:43rpx;">
+        <image src="/images/home/shouye_hongbao@3x.png" />
+      </view>
+      <view class="xuanze_text">
+        寄卖回收
+      </view>
+    </view>
+    <view bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/xcxjd'>
+      <view class="xuanze_img" style="width:44rpx;height:46rpx;">
+        <image src="/images/home/jiand.png" />
+      </view>
+      <view class="xuanze_text">
+        鉴定
+      </view>
+    </view>
+    <view bindtap="toPage" data-url="/pages/index/result/result?sort=10">
+      <view class="xuanze_img" style="width:44rpx;height:48rpx;">
+        <image src="/images/home/shouye_shangxin@3x.png" />
+      </view>
+      <view class="xuanze_text">
+        上新
+      </view>
+    </view>
+    <view bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/xcxyh'>
+      <view class="xuanze_img" style="width:38rpx;height:48rpx;">
+        <image src="/images/home/shouye_yanghu@3x.png" />
+      </view>
+      <view class="xuanze_text">
+        养护
+      </view>
+    </view>
+    <!-- <view bindtap="toPage" data-url='/pages/index/wxParse/index?api=Common/xcxfq'> -->
+    <view bindtap="toPage" data-url="/pages/index/result/result?is_credit=1">
+      <view class="xuanze_img" style="width:45rpx;height:45rpx;">
+        <image src="/images/home/shouye_fenqi@3x.png" />
+      </view>
+      <view class="xuanze_text">
+        分期
+      </view>
     </view>
 
-    <!-- 商品分类  -->
-    <view class="venues_box">
-        <block wx:for="{{homeInfo.palace}}" wx:key="{{index}}">
-            <view class="venues_4" wx:if="{{item.palace_type=='1'}}">
-                <view  wx:for="{{item.item}}" wx:key="itemOne.palace_item_id" wx:for-item="itemOne" class='venues_content' bindtap="toActivity" data-jid="{{itemOne.jump_type}}"
-                data-tid="{{itemOne.to_id}}">
-                    <view class='v_img'>
-                        <image src="{{itemOne.item_img}}" />
-                    </view>
-                    <view class='v_info'>
-                        <view class="v_h1">
-                            {{itemOne.title}}
-                        </view>
-                        <view class="v_text">
-                            {{itemOne.subtitle}}
-                        </view>
-                    </view>
-                </view>
+  </view>
+
+  <!-- 商品分类  -->
+  <view class="venues_box">
+    <block wx:for="{{homeInfo.palace}}" wx:key="{{index}}">
+      <view class="venues_4" wx:if="{{item.palace_type=='1'}}">
+        <view wx:for="{{item.item}}" wx:key="itemOne.palace_item_id" wx:for-item="itemOne" class='venues_content' bindtap="toActivity" data-jid="{{itemOne.jump_type}}" data-tid="{{itemOne.to_id}}">
+          <view class='v_img'>
+            <image src="{{itemOne.item_img}}" />
+          </view>
+          <view class='v_info'>
+            <view class="v_h1">
+              {{itemOne.title}}
             </view>
-            <view  wx:if="{{item.palace_type=='0'}}" class="venues_3">
-                <view class='venues_content_max' bindtap="toActivity" data-tid="{{item.item[0].to_id}}" data-jid="{{item.item[0].jump_type}}">
-                    <view class='v_info'>
-                        <view class="v_h1">
-                            {{item.item[0].title}}
-                        </view>
-                        <view class="v_text">
-                             {{item.item[0].subtitle}}
-                        </view>
-                    </view>
-                    <view class='v_img_max'>
-                        <image src="{{item.item[0].item_img}}" />
-                    </view>
-                </view>
-                <view class="max_r">
-                    <view class='venues_content' bindtap="toActivity" data-tid="{{item.item[1].to_id}}" data-jid="{{item.item[1].jump_type}}">
-                        <view class='v_img'>
-                            <image src="{{item.item[1].item_img}}" />
-                        </view>
-                        <view class='v_info'>
-                            <view class="v_h1">
-                                 {{item.item[1].title}}
-                            </view>
-                            <view class="v_text">
-                                 {{item.item[1].subtitle}}
-                            </view>
-                        </view>
-                    </view>
-                    <view class='venues_content' bindtap="toActivity" data-tid="{{item.item[2].to_id}}" data-jid="{{item.item[2].jump_type}}">
-                        <view class='v_img'>
-                            <image src="{{item.item[2].item_img}}" />
-                        </view>
-                        <view class='v_info'>
-                            <view class="v_h1">
-                                 {{item.item[2].title}}
-                            </view>
-                            <view class="v_text">
-                                 {{item.item[2].subtitle}}
-                            </view>
-                        </view>
-                    </view>
-                </view>
+            <view class="v_text">
+              {{itemOne.subtitle}}
             </view>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{item.palace_type=='0'}}" class="venues_3">
+        <view class='venues_content_max' bindtap="toActivity" data-tid="{{item.item[0].to_id}}" data-jid="{{item.item[0].jump_type}}">
+          <view class='v_info'>
+            <view class="v_h1">
+              {{item.item[0].title}}
+            </view>
+            <view class="v_text">
+              {{item.item[0].subtitle}}
+            </view>
+          </view>
+          <view class='v_img_max'>
+            <image src="{{item.item[0].item_img}}" />
+          </view>
+        </view>
+        <view class="max_r">
+          <view class='venues_content' bindtap="toActivity" data-tid="{{item.item[1].to_id}}" data-jid="{{item.item[1].jump_type}}">
+            <view class='v_img'>
+              <image src="{{item.item[1].item_img}}" />
+            </view>
+            <view class='v_info'>
+              <view class="v_h1">
+                {{item.item[1].title}}
+              </view>
+              <view class="v_text">
+                {{item.item[1].subtitle}}
+              </view>
+            </view>
+          </view>
+          <view class='venues_content' bindtap="toActivity" data-tid="{{item.item[2].to_id}}" data-jid="{{item.item[2].jump_type}}">
+            <view class='v_img'>
+              <image src="{{item.item[2].item_img}}" />
+            </view>
+            <view class='v_info'>
+              <view class="v_h1">
+                {{item.item[2].title}}
+              </view>
+              <view class="v_text">
+                {{item.item[2].subtitle}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 品牌选择 scroll-x 广告 -->
+  <view class="section_box">
+    <scroll-view class="scroll_view" scroll-x style="width: 100%">
+      <view class="section_content">
+        <block wx:for="{{homeInfo.brand}}" wx:key="item.brand_id">
+          <view class="section_logo" bindtap="toPage" data-url="{{'/pages/index/result/result?brand_id='+item.brand_id}}">
+            <view class="section_img">
+              <image src="{{item.brand_img}}" />
+            </view>
+            <view class="section_h1">
+              {{item.brand_name}}
+            </view>
+          </view>
         </block>
-    </view>
+      </view>
+    </scroll-view>
+  </view>
 
-    <!-- 品牌选择 scroll-x 广告 -->
-    <view class="section_box">
-        <scroll-view class="scroll_view" scroll-x style="width: 100%">
-            <view class="section_content">
-                <block wx:for="{{homeInfo.brand}}" wx:key="item.brand_id" >
-                    <view class="section_logo" bindtap="toPage"  data-url="{{'/pages/index/result/result?brand_id='+item.brand_id}}">
-                        <view class="section_img">
-                            <image src="{{item.brand_img}}" />
-                        </view>
-                        <view class="section_h1">
-                           {{item.brand_name}}
-                        </view>
-                    </view>
-                </block>
-            </view>
-        </scroll-view>
-    </view>
+  <!-- 活动 广告 -->
+  <view class="banner">
+    <block wx:for="{{homeInfo.activity}}" wx:key="item.activity_id">
+      <view class="banner_info" bindtap="toActivity" data-jid="1" data-tid="{{item.activity_id}}">
+        <view class="banner_img">
+          <image src="{{item.activity_img}}" />
+        </view>
+        <view class="banner_shade"></view>
+        <view class="banner_h1">
+          {{item.activity_name}}
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="goodsList">猜你喜欢</view>
+  <template is="goodsList" data="{{goodsList}}"></template>
 
-    <!-- 活动 广告 -->
-    <view class="banner">
-        <block wx:for="{{homeInfo.activity}}" wx:key="item.activity_id">
-            <view class="banner_info" bindtap="toActivity" data-jid="1" data-tid="{{item.activity_id}}" >
-                <view class="banner_img">
-                    <image src="{{item.activity_img}}" />
-                </view>
-                <view class="banner_shade"></view>
-                <view class="banner_h1">
-                    {{item.activity_name}}
-                </view>
-            </view>
-        </block>
-    </view>
-    <view class="goodsList">猜你喜欢</view>
-    <template is="goodsList" data="{{goodsList}}"></template>
-    
-    <view class="go_top" bindtap="goTop" wx:if="{{showTop}}">
-        <text class="iconfont icon-iconfonticonfonti2copy"></text>
-    </view>
+  <view class="go_top" bindtap="goTop" wx:if="{{showTop}}">
+    <text class="iconfont icon-iconfonticonfonti2copy"></text>
+  </view>
 </view>
 <view class='bottom_shadow'></view>
