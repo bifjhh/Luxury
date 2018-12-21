@@ -239,7 +239,7 @@ page {
 .no_psw {
   margin-top: 45rpx;
   text-align: right;
-  padding-right: 26px;
+  /* padding-right: 26px; */
   font-size: 28rpx;
   color: #999;
 }
