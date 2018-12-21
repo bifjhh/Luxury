@@ -178,6 +178,11 @@ Page({
       url: '/pages/my/set/password',
     })
   },
+  bindinput(e) {
+    if(e.detail.value.length == 6) {
+      this.submit(e)
+    }
+  },
   submit(e) {
     let that = this;
     const status = that.data.status;
