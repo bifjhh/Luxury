@@ -37,13 +37,6 @@ Page({
     let sum = 0;
     let cart_id = [];
     let buy_num = [];
-    isSetPayPwd().then(res => {
-      console.log('res', res.data.code)
-      let isSetPsw = res.data.code
-      that.setData({
-        isSetPsw
-      })
-    })
     if (datas.length < 1) return;
     if (options.id) {
       console.log('不是购物车', options);
@@ -132,6 +125,13 @@ Page({
   onShow: function () {
     let that = this;
 
+    isSetPayPwd().then(res => {
+      console.log('res', res.data.code)
+      let isSetPsw = res.data.code
+      that.setData({
+        isSetPsw
+      })
+    })
     let endSum = that.data.sum - that.data.hbSum - that.data.cardSum;
     if (endSum <= 0) {
       endSum = 0
@@ -180,6 +180,7 @@ Page({
   },
   submit(e) {
     let that = this;
+    const status = that.data.status;
     that.endPsw()
     let data;
     if (that.data.isCart) {
@@ -207,12 +208,23 @@ Page({
     if (e && e.detail.value) {
       data.pay_pwd = e.detail.value
     }
+
     wx.$http('Order/add', data).then(res => {
-      // if(that.data.status==3){
-
-      // }
-
       if (res.data.code == 1) {
+        if(status==3){
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'success',
+            duration: 600
+          })
+          setTimeout(() => {
+            wx.navigateTo({
+              // url: '/pages/shop/order/order?id=' + res.data.data.order_id
+              url: '/pages/shop/pay/index?order_id=' + res.data.data.order_id
+            })
+          }, 500);
+          return false;
+        }
         // if (!res.data.data.wx_pay_info) return;
         let wx_pay_info = res.data.data.wx_pay_info;
         wx.requestPayment({

@@ -36,9 +36,9 @@ Page({
         
       }
       addEval(obj).then(res=>{
-        if(res.data.code == 0){
+        if(res.data.code == 1){
           wx.showToast({
-            title: '评价成功',
+            title: res.data.msg,
             icon: 'success',
             duration: 600
           })
