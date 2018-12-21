@@ -180,6 +180,9 @@ Page({
   },
   bindinput(e) {
     if(e.detail.value.length == 6) {
+      wx.showLoading({
+        title: '支付中...',
+      })
       this.submit(e)
     }
   },
@@ -216,6 +219,7 @@ Page({
 
     wx.$http('Order/add', data).then(res => {
       if (res.data.code == 1) {
+        wx.hideLoading()
         if(status==3){
           wx.showToast({
             title: res.data.msg,
