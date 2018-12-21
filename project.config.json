@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 37,
 			"list": [
 				{
 					"id": -1,
@@ -252,6 +252,11 @@
 					"name": "商品详情",
 					"pathName": "pages/shop/goods/goods",
 					"query": "id=22"
+				},
+				{
+					"id": -1,
+					"name": "ssss",
+					"pathName": "pages/shop/order/orderList"
 				}
 			]
 		}

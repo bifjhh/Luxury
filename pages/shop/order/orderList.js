@@ -20,10 +20,13 @@ Page({
     cardSum: 0,
     hbNum: 0,
     hbSum: 0,
+    Length: 6,
     isCart: true,
     status: 2,
     password: null,
     showPsw: false,
+    isFocus:true,
+    Value: "",
     isSetPsw: 0
   },
 
@@ -146,6 +149,7 @@ Page({
     if (that.data.status == 3) {
       if (that.data.isSetPsw != 0) {
         that.setData({
+          Value: '',
           showPsw: true
         })
       } else {
@@ -178,8 +182,18 @@ Page({
       url: '/pages/my/set/password',
     })
   },
-  bindinput(e) {
+  Tap() {
+    var that = this;
+    that.setData({
+      isFocus: true,
+    })
+  },
+  Focus(e) {
+    const that = this;
+    var Value = e.detail.value;
+    that.setData({ Value })
     if(e.detail.value.length == 6) {
+      that.setData({showPsw:false})
       wx.showLoading({
         title: '支付中...',
       })

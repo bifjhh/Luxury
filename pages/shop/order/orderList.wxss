@@ -1,6 +1,7 @@
-page{
+page {
   padding-bottom: 120rpx;
 }
+
 .address_box {
   width: 100%;
   height: 160rpx;
@@ -144,18 +145,20 @@ page{
   color: rgba(153, 153, 153, 1);
 }
 
-.zheke .jt{
+.zheke .jt {
   width: 15rpx;
   height: 26rpx;
 }
+
 .money>view {
-    padding: 0 30rpx;
-}
-.isnum{
-  color:rgba(133, 84, 36, 1);
+  padding: 0 30rpx;
 }
 
-.submit{
+.isnum {
+  color: rgba(133, 84, 36, 1);
+}
+
+.submit {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -169,36 +172,41 @@ page{
   justify-content: space-between;
 
 }
-.submit>text{
-  font-size:48rpx;
-  font-family:PingFang-SC-Medium;
-  color:rgba(255, 114, 114, 1);
+
+.submit>text {
+  font-size: 48rpx;
+  font-family: PingFang-SC-Medium;
+  color: rgba(255, 114, 114, 1);
 }
-.submit_btn{
+
+.submit_btn {
   width: 300rpx;
   height: 70rpx;
-  border-radius:35px;
+  border-radius: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size:32rpx;
-  font-family:PingFang-SC-Bold;
-  color:rgba(255, 255, 255, 1);
+  font-size: 32rpx;
+  font-family: PingFang-SC-Bold;
+  color: rgba(255, 255, 255, 1);
 }
 
-.pswbox{
+.pswbox {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background:rgba(0, 0, 0, .5)
+  background: rgba(0, 0, 0, .5)
 }
-.section, .section view {
+
+.section,
+.section view {
   box-sizing: border-box;
 }
-.section{
-  padding: 0 30rpx;
+
+.section {
+  padding: 0 54rpx;
   overflow: hidden;
   width: 600rpx;
   height: 400rpx;
@@ -206,16 +214,18 @@ page{
   position: fixed;
   top: 133rpx;
   left: 75rpx;
-  border-radius:15rpx;
+  border-radius: 15rpx;
   z-index: 999;
 }
-.section .title{
+
+.section .title {
   text-align: center;
   margin-top: 72rpx;
-  font-size:36rpx;
+  font-size: 36rpx;
   color: #333;
 }
-.section input{
+
+.section input {
   width: 100%;
   height: 80rpx;
   border-bottom: dashed 1px #eee;
@@ -225,14 +235,16 @@ page{
   color: #333;
   /* background-color: #eee; */
 }
-.no_psw{
+
+.no_psw {
   margin-top: 45rpx;
   text-align: right;
   padding-right: 26px;
   font-size: 28rpx;
   color: #999;
 }
-.end_psw{
+
+.end_psw {
   position: absolute;
   font-size: 30rpx;
   display: flex;
@@ -246,4 +258,28 @@ page{
   border-radius: 50%;
   overflow: hidden;
   border: solid 1px #eee;
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.iptbox {
+  flex: 1;
+  border-bottom: 1rpx solid #CBCCD0!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-right: 26rpx;
+}
+.content .iptbox:nth-last-of-type(1){
+  margin-right: 0;
+}
+
+.ipt {
+  width: 0 !important;
+  height: 0 !important;
 }

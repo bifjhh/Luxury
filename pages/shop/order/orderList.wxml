@@ -108,8 +108,14 @@
     <view class="title">
       请输入支付密码
     </view>
-    <input password type="number" confirm-type="done" maxlength="{{6}}" bindinput="bindinput"/>
+    <!-- <input password type="number" confirm-type="done" maxlength="{{6}}" focus="{{true}}" bindinput="bindinput"/> -->
+    <view class='content'>
+      <block wx:for="{{Length}}" wx:key="item">
+        <input class='iptbox' password value="{{Value.length>=index+1?Value[index]:''}}" disabled catchtap='Tap'></input>
+      </block>
+    </view>
     <view class="no_psw" bindtap="wjmm">
       忘记密码?
     </view>
+    <input name="password" type="number" password class='ipt' maxlength="6" focus="{{isFocus}}" bindinput="Focus"></input>
   </view>
